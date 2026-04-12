@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,9 +18,33 @@ namespace ActiveSpaceSystem.Forms
             InitializeComponent();
         }
 
-        private void cyberButton1_Click(object sender, EventArgs e)
+        private void LoginForm_Load(object sender, EventArgs e)
         {
-            this.Close();
+
+
+        }
+
+
+
+        private void materialTextBoxEdit1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+            using (LinearGradientBrush brush = new LinearGradientBrush(this.panel1.ClientRectangle,
+                                       Color.FromArgb(29, 53, 87),
+                                       Color.FromArgb(26, 188, 156),
+                                       45F)) // زاوية الميل 45 درجة
+            {
+                e.Graphics.FillRectangle(brush, this.panel1.ClientRectangle);
+            }
+        }
+
+        private void abdulTextBox1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

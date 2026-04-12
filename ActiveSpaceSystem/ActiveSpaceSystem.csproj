@@ -9,13 +9,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+<<<<<<< HEAD
     
    
     
+=======
+  
+>>>>>>> 8ee2ea11384bafe1025b36a9ebb3cf1302058790
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Forms\MainForms\" />
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>

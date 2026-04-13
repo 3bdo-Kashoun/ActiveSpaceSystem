@@ -9,7 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    </ItemGroup>
+    <Folder Include="Forms\SideForms\" />
+  </ItemGroup>
 
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">

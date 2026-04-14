@@ -50,13 +50,15 @@
             statusCard3 = new ActiveSpaceSystem.CustomItems.StatusCard();
             statusCard2 = new ActiveSpaceSystem.CustomItems.StatusCard();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            panel2 = new Panel();
             bookingDataGridView1 = new SportsApp.Controls.BookingDataGridView();
-            stadium = new DataGridViewTextBoxColumn();
+            staduim = new DataGridViewTextBoxColumn();
             h17 = new DataGridViewTextBoxColumn();
             h18 = new DataGridViewTextBoxColumn();
             h19 = new DataGridViewTextBoxColumn();
             h20 = new DataGridViewTextBoxColumn();
             h21 = new DataGridViewTextBoxColumn();
+            h22 = new DataGridViewTextBoxColumn();
             h23 = new DataGridViewTextBoxColumn();
             h24 = new DataGridViewTextBoxColumn();
             h1 = new DataGridViewTextBoxColumn();
@@ -64,6 +66,7 @@
             panel1.SuspendLayout();
             statusCard4.SuspendLayout();
             statusCard1.SuspendLayout();
+            panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)bookingDataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -290,13 +293,13 @@
             statusCard1.Controls.Add(statusCard5);
             statusCard1.Controls.Add(statusCard3);
             statusCard1.Controls.Add(statusCard2);
-            statusCard1.Location = new Point(21, 647);
+            statusCard1.Location = new Point(29, 647);
             statusCard1.Name = "statusCard1";
             statusCard1.Padding = new Padding(5);
             statusCard1.ShadowBlur = 5;
             statusCard1.ShadowColor = Color.FromArgb(100, 0, 0, 0);
             statusCard1.ShowShadow = true;
-            statusCard1.Size = new Size(1229, 113);
+            statusCard1.Size = new Size(1212, 113);
             statusCard1.TabIndex = 6;
             statusCard1.TitleColor = Color.Gray;
             statusCard1.TitleFont = new Font("Microsoft Sans Serif", 10F);
@@ -414,12 +417,21 @@
             statusCard2.ValueText = "";
             statusCard2.Paint += statusCard2_Paint;
             // 
+            // panel2
+            // 
+            panel2.Controls.Add(bookingDataGridView1);
+            panel2.Location = new Point(29, 317);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1212, 311);
+            panel2.TabIndex = 7;
+            // 
             // bookingDataGridView1
             // 
             bookingDataGridView1.AllowUserToAddRows = false;
             bookingDataGridView1.BackgroundColor = Color.White;
+            bookingDataGridView1.BorderRadius = 20;
             bookingDataGridView1.BorderStyle = BorderStyle.None;
-            bookingDataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            bookingDataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(245, 247, 249);
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
@@ -429,25 +441,26 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             bookingDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             bookingDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            bookingDataGridView1.Columns.AddRange(new DataGridViewColumn[] { stadium, h17, h18, h19, h20, h21, h23, h24, h1, h2 });
+            bookingDataGridView1.Columns.AddRange(new DataGridViewColumn[] { staduim, h17, h18, h19, h20, h21, h22, h23, h24, h1, h2 });
+            bookingDataGridView1.Dock = DockStyle.Fill;
             bookingDataGridView1.EnableHeadersVisualStyles = false;
             bookingDataGridView1.GridColor = Color.FromArgb(230, 230, 230);
-            bookingDataGridView1.Location = new Point(29, 312);
+            bookingDataGridView1.Location = new Point(0, 0);
             bookingDataGridView1.Name = "bookingDataGridView1";
             bookingDataGridView1.RightToLeft = RightToLeft.Yes;
             bookingDataGridView1.RowHeadersVisible = false;
             bookingDataGridView1.RowHeadersWidth = 62;
             bookingDataGridView1.RowTemplate.Height = 70;
             bookingDataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            bookingDataGridView1.Size = new Size(1212, 308);
-            bookingDataGridView1.TabIndex = 7;
+            bookingDataGridView1.Size = new Size(1212, 311);
+            bookingDataGridView1.TabIndex = 0;
             // 
-            // stadium
+            // staduim
             // 
-            stadium.HeaderText = "الملعب";
-            stadium.MinimumWidth = 8;
-            stadium.Name = "stadium";
-            stadium.Width = 150;
+            staduim.HeaderText = "الملعب";
+            staduim.MinimumWidth = 8;
+            staduim.Name = "staduim";
+            staduim.Width = 150;
             // 
             // h17
             // 
@@ -483,6 +496,13 @@
             h21.MinimumWidth = 8;
             h21.Name = "h21";
             h21.Width = 150;
+            // 
+            // h22
+            // 
+            h22.HeaderText = "22";
+            h22.MinimumWidth = 8;
+            h22.Name = "h22";
+            h22.Width = 150;
             // 
             // h23
             // 
@@ -520,7 +540,7 @@
             BackColor = Color.White;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1256, 797);
-            Controls.Add(bookingDataGridView1);
+            Controls.Add(panel2);
             Controls.Add(statusCard1);
             Controls.Add(statusCard4);
             Controls.Add(panel1);
@@ -535,6 +555,7 @@
             statusCard4.ResumeLayout(false);
             statusCard1.ResumeLayout(false);
             statusCard1.PerformLayout();
+            panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)bookingDataGridView1).EndInit();
             ResumeLayout(false);
         }
@@ -562,13 +583,15 @@
         private CustomItems.PillButton pillButton4;
         private CustomItems.PillButton pillButton3;
         private CustomItems.PillButton pillButton2;
+        private Panel panel2;
         private SportsApp.Controls.BookingDataGridView bookingDataGridView1;
-        private DataGridViewTextBoxColumn stadium;
+        private DataGridViewTextBoxColumn staduim;
         private DataGridViewTextBoxColumn h17;
         private DataGridViewTextBoxColumn h18;
         private DataGridViewTextBoxColumn h19;
         private DataGridViewTextBoxColumn h20;
         private DataGridViewTextBoxColumn h21;
+        private DataGridViewTextBoxColumn h22;
         private DataGridViewTextBoxColumn h23;
         private DataGridViewTextBoxColumn h24;
         private DataGridViewTextBoxColumn h1;

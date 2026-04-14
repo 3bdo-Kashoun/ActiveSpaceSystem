@@ -72,6 +72,7 @@
             // 
             // panel1
             // 
+            panel1.BackColor = Color.FromArgb(248, 249, 250);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
@@ -537,7 +538,7 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
-            BackColor = Color.White;
+            BackColor = Color.FromArgb(248, 249, 250);
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1256, 797);
             Controls.Add(panel2);

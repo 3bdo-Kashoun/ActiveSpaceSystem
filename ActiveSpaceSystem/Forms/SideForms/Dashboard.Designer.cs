@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             label3 = new Label();
@@ -49,6 +52,28 @@
             label10 = new Label();
             label11 = new Label();
             label12 = new Label();
+            panel5 = new Panel();
+            label13 = new Label();
+            chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            panel7 = new Panel();
+            panel9 = new Panel();
+            label25 = new Label();
+            label27 = new Label();
+            label28 = new Label();
+            label29 = new Label();
+            panel8 = new Panel();
+            label20 = new Label();
+            label22 = new Label();
+            label23 = new Label();
+            label24 = new Label();
+            label19 = new Label();
+            panel6 = new Panel();
+            label18 = new Label();
+            label17 = new Label();
+            label14 = new Label();
+            label15 = new Label();
+            label16 = new Label();
+            panel10 = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -57,6 +82,12 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)chart1).BeginInit();
+            panel7.SuspendLayout();
+            panel9.SuspendLayout();
+            panel8.SuspendLayout();
+            panel6.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -166,6 +197,7 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(369, 150);
             panel2.TabIndex = 4;
+            panel2.Paint += panel2_Paint;
             // 
             // panel3
             // 
@@ -178,6 +210,7 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(369, 150);
             panel3.TabIndex = 4;
+            panel3.Paint += panel3_Paint;
             // 
             // pictureBox3
             // 
@@ -231,6 +264,7 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(369, 150);
             panel4.TabIndex = 4;
+            panel4.Paint += panel4_Paint;
             // 
             // pictureBox4
             // 
@@ -273,6 +307,276 @@
             label12.TabIndex = 0;
             label12.Text = "معدل الاشغال";
             // 
+            // panel5
+            // 
+            panel5.BackColor = Color.White;
+            panel5.Controls.Add(label13);
+            panel5.Controls.Add(chart1);
+            panel5.Location = new Point(95, 480);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(833, 452);
+            panel5.TabIndex = 5;
+            panel5.Paint += panel5_Paint_1;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Tajawal", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label13.ForeColor = Color.Black;
+            label13.Location = new Point(578, 14);
+            label13.Name = "label13";
+            label13.Size = new Size(241, 33);
+            label13.TabIndex = 4;
+            label13.Text = "الإيرادات خلال الأسبوع";
+            // 
+            // chart1
+            // 
+            chartArea1.AxisX.MajorGrid.Enabled = false;
+            chartArea1.AxisY.MajorGrid.Enabled = false;
+            chartArea1.Name = "ChartArea1";
+            chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            chart1.Legends.Add(legend1);
+            chart1.Location = new Point(22, 61);
+            chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Color = Color.FromArgb(16, 185, 129);
+            series1.CustomProperties = "PointWidth=0.6";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            chart1.Series.Add(series1);
+            chart1.Size = new Size(805, 375);
+            chart1.TabIndex = 0;
+            chart1.Text = "chart1";
+            // 
+            // panel7
+            // 
+            panel7.BackColor = Color.White;
+            panel7.Controls.Add(panel9);
+            panel7.Controls.Add(panel8);
+            panel7.Controls.Add(label19);
+            panel7.Controls.Add(panel6);
+            panel7.Location = new Point(92, 959);
+            panel7.Margin = new Padding(1);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(833, 426);
+            panel7.TabIndex = 6;
+            // 
+            // panel9
+            // 
+            panel9.BackColor = Color.FromArgb(248, 250, 252);
+            panel9.Controls.Add(label25);
+            panel9.Controls.Add(label27);
+            panel9.Controls.Add(label28);
+            panel9.Controls.Add(label29);
+            panel9.Location = new Point(13, 318);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(810, 82);
+            panel9.TabIndex = 5;
+            panel9.Paint += panel9_Paint;
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.BackColor = Color.Transparent;
+            label25.Font = new Font("Segoe UI Black", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label25.ForeColor = Color.LightGreen;
+            label25.Location = new Point(746, -37);
+            label25.Name = "label25";
+            label25.Size = new Size(71, 106);
+            label25.TabIndex = 4;
+            label25.Text = ".";
+            // 
+            // label27
+            // 
+            label27.BackColor = Color.FromArgb(220, 252, 231);
+            label27.Font = new Font("Tajawal Medium", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label27.ForeColor = Color.FromArgb(21, 128, 61);
+            label27.Location = new Point(23, 14);
+            label27.Name = "label27";
+            label27.Size = new Size(80, 30);
+            label27.TabIndex = 2;
+            label27.Text = "متاح";
+            label27.TextAlign = ContentAlignment.MiddleCenter;
+            label27.Click += label27_Click;
+            // 
+            // label28
+            // 
+            label28.AutoSize = true;
+            label28.BackColor = Color.Transparent;
+            label28.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label28.ForeColor = Color.Gray;
+            label28.Location = new Point(695, 44);
+            label28.Name = "label28";
+            label28.Size = new Size(48, 25);
+            label28.TabIndex = 1;
+            label28.Text = "سلة";
+            // 
+            // label29
+            // 
+            label29.AutoSize = true;
+            label29.Font = new Font("Tajawal", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label29.ForeColor = Color.Black;
+            label29.Location = new Point(626, 11);
+            label29.Name = "label29";
+            label29.Size = new Size(131, 33);
+            label29.TabIndex = 0;
+            label29.Text = "ملعب رقم 1";
+            // 
+            // panel8
+            // 
+            panel8.BackColor = Color.FromArgb(248, 250, 252);
+            panel8.Controls.Add(label20);
+            panel8.Controls.Add(label22);
+            panel8.Controls.Add(label23);
+            panel8.Controls.Add(label24);
+            panel8.Location = new Point(13, 200);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(810, 82);
+            panel8.TabIndex = 5;
+            panel8.Paint += panel8_Paint;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.BackColor = Color.Transparent;
+            label20.Font = new Font("Segoe UI Black", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label20.ForeColor = Color.LightGreen;
+            label20.Location = new Point(746, -37);
+            label20.Name = "label20";
+            label20.Size = new Size(71, 106);
+            label20.TabIndex = 4;
+            label20.Text = ".";
+            // 
+            // label22
+            // 
+            label22.BackColor = Color.FromArgb(220, 252, 231);
+            label22.Font = new Font("Tajawal Medium", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label22.ForeColor = Color.FromArgb(21, 128, 61);
+            label22.Location = new Point(23, 14);
+            label22.Name = "label22";
+            label22.Size = new Size(80, 30);
+            label22.TabIndex = 2;
+            label22.Text = "متاح";
+            label22.TextAlign = ContentAlignment.MiddleCenter;
+            label22.Paint += label22_Paint;
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.BackColor = Color.Transparent;
+            label23.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label23.ForeColor = Color.Gray;
+            label23.Location = new Point(691, 44);
+            label23.Name = "label23";
+            label23.Size = new Size(52, 25);
+            label23.TabIndex = 1;
+            label23.Text = "تنس";
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.Font = new Font("Tajawal", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label24.ForeColor = Color.Black;
+            label24.Location = new Point(626, 11);
+            label24.Name = "label24";
+            label24.Size = new Size(131, 33);
+            label24.TabIndex = 0;
+            label24.Text = "ملعب رقم 1";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Tajawal", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label19.ForeColor = Color.Black;
+            label19.Location = new Point(639, 24);
+            label19.Name = "label19";
+            label19.Size = new Size(143, 33);
+            label19.TabIndex = 5;
+            label19.Text = "حالة الملاعب";
+            // 
+            // panel6
+            // 
+            panel6.BackColor = Color.FromArgb(248, 250, 252);
+            panel6.Controls.Add(label18);
+            panel6.Controls.Add(label17);
+            panel6.Controls.Add(label14);
+            panel6.Controls.Add(label15);
+            panel6.Controls.Add(label16);
+            panel6.Location = new Point(13, 76);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(810, 82);
+            panel6.TabIndex = 4;
+            panel6.Paint += panel6_Paint;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.BackColor = Color.Transparent;
+            label18.Font = new Font("Segoe UI Black", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label18.ForeColor = Color.Red;
+            label18.Location = new Point(746, -37);
+            label18.Name = "label18";
+            label18.Size = new Size(71, 106);
+            label18.TabIndex = 4;
+            label18.Text = ".";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.BackColor = Color.Transparent;
+            label17.Font = new Font("Tajawal", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label17.ForeColor = Color.Gray;
+            label17.Location = new Point(12, 52);
+            label17.Name = "label17";
+            label17.Size = new Size(122, 21);
+            label17.TabIndex = 3;
+            label17.Text = "ينتهي الساعة 8:00";
+            // 
+            // label14
+            // 
+            label14.BackColor = Color.FromArgb(254, 226, 226);
+            label14.Font = new Font("Tajawal Medium", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label14.ForeColor = Color.FromArgb(185, 28, 28);
+            label14.Location = new Point(23, 14);
+            label14.Name = "label14";
+            label14.Size = new Size(80, 30);
+            label14.TabIndex = 2;
+            label14.Text = "محجوز";
+            label14.TextAlign = ContentAlignment.MiddleCenter;
+            label14.Paint += label14_Paint;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.BackColor = Color.Transparent;
+            label15.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label15.ForeColor = Color.Gray;
+            label15.Location = new Point(653, 44);
+            label15.Name = "label15";
+            label15.Size = new Size(90, 25);
+            label15.TabIndex = 1;
+            label15.Text = "كرة القدم";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Tajawal", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label16.ForeColor = Color.Black;
+            label16.Location = new Point(626, 11);
+            label16.Name = "label16";
+            label16.Size = new Size(131, 33);
+            label16.TabIndex = 0;
+            label16.Text = "ملعب رقم 1";
+            // 
+            // panel10
+            // 
+            panel10.BackColor = Color.Transparent;
+            panel10.Location = new Point(63, 1389);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(891, 80);
+            panel10.TabIndex = 7;
+            // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -280,6 +584,9 @@
             AutoScroll = true;
             BackColor = Color.FromArgb(248, 250, 252);
             ClientSize = new Size(1004, 636);
+            Controls.Add(panel10);
+            Controls.Add(panel7);
+            Controls.Add(panel5);
             Controls.Add(panel4);
             Controls.Add(panel3);
             Controls.Add(panel2);
@@ -299,6 +606,17 @@
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)chart1).EndInit();
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
+            panel9.ResumeLayout(false);
+            panel9.PerformLayout();
+            panel8.ResumeLayout(false);
+            panel8.PerformLayout();
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -324,5 +642,27 @@
         private Label label10;
         private Label label11;
         private Label label12;
+        private Panel panel5;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private Label label13;
+        private Panel panel6;
+        private Label label15;
+        private Label label16;
+        private Panel panel7;
+        private Label label14;
+        private Label label18;
+        private Label label17;
+        private Panel panel9;
+        private Label label25;
+        private Label label27;
+        private Label label28;
+        private Label label29;
+        private Panel panel8;
+        private Label label20;
+        private Label label22;
+        private Label label23;
+        private Label label24;
+        private Label label19;
+        private Panel panel10;
     }
 }

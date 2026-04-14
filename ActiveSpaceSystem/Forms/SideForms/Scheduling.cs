@@ -10,6 +10,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
         public Scheduling()
         {
             InitializeComponent();
+            
            
         }
 

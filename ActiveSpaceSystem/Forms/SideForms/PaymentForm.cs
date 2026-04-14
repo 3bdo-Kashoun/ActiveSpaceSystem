@@ -10,15 +10,15 @@ using System.Windows.Forms;
 
 namespace ActiveSpaceSystem.Forms.SideForms
 {
-    public partial class MonthlyContractForm : Form
+    public partial class PaymentForm : Form
     {
-        public MonthlyContractForm()
+        public PaymentForm()
         {
             InitializeComponent();
             this.TopLevel = false;
         }
 
-        private void MonthlyContractForm_Load(object sender, EventArgs e)
+        private void bookingDetailsCard1_Paint(object sender, PaintEventArgs e)
         {
 
         }

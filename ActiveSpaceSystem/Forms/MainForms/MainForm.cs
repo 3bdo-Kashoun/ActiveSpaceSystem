@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ActiveSpaceSystem.Forms.SideForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,6 +26,13 @@ namespace ActiveSpaceSystem.Forms.MainForms
 
             // سطر العرض الفوري
             lblDate.Text = DateTime.Now.ToString("dddd، dd MMMM yyyy", new System.Globalization.CultureInfo("ar-EG"));
+            
+            Form form=new PaymentForm();
+            panel3.Controls.Clear();
+            panel3.Controls.Add(form);
+            form.Show();
+
+
         }
 
         private void cyberButton1_Click(object sender, EventArgs e)

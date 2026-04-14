@@ -49,8 +49,10 @@
             EndDateColumn = new DataGridViewTextBoxColumn();
             BalanceColumn = new DataGridViewTextBoxColumn();
             StateColumn = new DataGridViewTextBoxColumn();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)customDataGridView1).BeginInit();
+            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -129,7 +131,7 @@
             statusCard1.BorderColor = Color.FromArgb(240, 240, 240);
             statusCard1.BorderRadius = 15;
             statusCard1.CardBackColor = Color.White;
-            statusCard1.Location = new Point(670, 258);
+            statusCard1.Location = new Point(10, 3);
             statusCard1.Name = "statusCard1";
             statusCard1.Padding = new Padding(5);
             statusCard1.ShadowBlur = 5;
@@ -150,7 +152,7 @@
             statusCard2.BorderColor = Color.FromArgb(240, 240, 240);
             statusCard2.BorderRadius = 15;
             statusCard2.CardBackColor = Color.White;
-            statusCard2.Location = new Point(358, 258);
+            statusCard2.Location = new Point(322, 3);
             statusCard2.Name = "statusCard2";
             statusCard2.Padding = new Padding(5);
             statusCard2.ShadowBlur = 5;
@@ -171,7 +173,7 @@
             statusCard3.BorderColor = Color.FromArgb(240, 240, 240);
             statusCard3.BorderRadius = 15;
             statusCard3.CardBackColor = Color.White;
-            statusCard3.Location = new Point(46, 258);
+            statusCard3.Location = new Point(634, 3);
             statusCard3.Name = "statusCard3";
             statusCard3.Padding = new Padding(5);
             statusCard3.ShadowBlur = 5;
@@ -290,6 +292,17 @@
             StateColumn.MinimumWidth = 6;
             StateColumn.Name = "StateColumn";
             // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Controls.Add(statusCard3);
+            flowLayoutPanel1.Controls.Add(statusCard2);
+            flowLayoutPanel1.Controls.Add(statusCard1);
+            flowLayoutPanel1.Location = new Point(31, 239);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.RightToLeft = RightToLeft.Yes;
+            flowLayoutPanel1.Size = new Size(943, 173);
+            flowLayoutPanel1.TabIndex = 6;
+            // 
             // MonthlyContractForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -297,9 +310,7 @@
             BackColor = Color.FromArgb(248, 249, 250);
             ClientSize = new Size(1022, 683);
             Controls.Add(customDataGridView1);
-            Controls.Add(statusCard3);
-            Controls.Add(statusCard2);
-            Controls.Add(statusCard1);
+            Controls.Add(flowLayoutPanel1);
             Controls.Add(infoBox1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
@@ -308,6 +319,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)customDataGridView1).EndInit();
+            flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -332,5 +344,6 @@
         private DataGridViewTextBoxColumn EndDateColumn;
         private DataGridViewTextBoxColumn BalanceColumn;
         private DataGridViewTextBoxColumn StateColumn;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }

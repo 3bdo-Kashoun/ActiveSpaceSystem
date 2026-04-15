@@ -35,7 +35,7 @@
             advancedStatusCard1 = new ActiveSpaceSystem.CustomItems.AdvancedStatusCard();
             advancedStatusCard2 = new ActiveSpaceSystem.CustomItems.AdvancedStatusCard();
             advancedStatusCard3 = new ActiveSpaceSystem.CustomItems.AdvancedStatusCard();
-            customDataGridView1 = new ActiveSpaceSystem.CustomItems.CustomDataGridView();
+            dgvReservation = new ActiveSpaceSystem.CustomItems.CustomDataGridView();
             NameColumn = new DataGridViewTextBoxColumn();
             PhoneNumberColumn = new DataGridViewTextBoxColumn();
             StadiumTypeColumn = new DataGridViewTextBoxColumn();
@@ -45,7 +45,7 @@
             StartDateColumn = new DataGridViewTextBoxColumn();
             EndDateColumn = new DataGridViewTextBoxColumn();
             bookingDetailsCard1 = new ActiveSpaceSystem.CustomItems.BookingDetailsCard();
-            ((System.ComponentModel.ISupportInitialize)customDataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvReservation).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -137,49 +137,49 @@
             advancedStatusCard3.ValueFont = new Font("Tajawal", 16F, FontStyle.Bold);
             advancedStatusCard3.ValueText = "12,450 ر.س";
             // 
-            // customDataGridView1
+            // dgvReservation
             // 
-            customDataGridView1.AllowUserToAddRows = false;
-            customDataGridView1.AllowUserToResizeRows = false;
-            customDataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            customDataGridView1.BackgroundColor = Color.White;
-            customDataGridView1.BorderRadius = 15;
-            customDataGridView1.BorderStyle = BorderStyle.None;
-            customDataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            customDataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvReservation.AllowUserToAddRows = false;
+            dgvReservation.AllowUserToResizeRows = false;
+            dgvReservation.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvReservation.BackgroundColor = Color.White;
+            dgvReservation.BorderRadius = 15;
+            dgvReservation.BorderStyle = BorderStyle.None;
+            dgvReservation.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvReservation.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(243, 244, 246);
             dataGridViewCellStyle1.Font = new Font("Tajawal", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = Color.FromArgb(33, 37, 41);
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(243, 244, 246);
+            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(33, 37, 41);
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            customDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            customDataGridView1.ColumnHeadersHeight = 50;
-            customDataGridView1.Columns.AddRange(new DataGridViewColumn[] { NameColumn, PhoneNumberColumn, StadiumTypeColumn, StadiumColumn, DayColumn, TimeColumn, StartDateColumn, EndDateColumn });
+            dgvReservation.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvReservation.ColumnHeadersHeight = 50;
+            dgvReservation.Columns.AddRange(new DataGridViewColumn[] { NameColumn, PhoneNumberColumn, StadiumTypeColumn, StadiumColumn, DayColumn, TimeColumn, StartDateColumn, EndDateColumn });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.Font = new Font("Tajawal", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(240, 245, 255);
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            customDataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            customDataGridView1.EnableHeadersVisualStyles = false;
-            customDataGridView1.GridColor = Color.FromArgb(230, 230, 230);
-            customDataGridView1.HeaderBackColor = Color.FromArgb(243, 244, 246);
-            customDataGridView1.HeaderForeColor = Color.FromArgb(33, 37, 41);
-            customDataGridView1.Location = new Point(341, 345);
-            customDataGridView1.MultiSelect = false;
-            customDataGridView1.Name = "customDataGridView1";
-            customDataGridView1.RightToLeft = RightToLeft.Yes;
-            customDataGridView1.RowHeadersVisible = false;
-            customDataGridView1.RowHeadersWidth = 51;
-            customDataGridView1.RowHeight = 50;
-            customDataGridView1.RowTemplate.Height = 50;
-            customDataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            customDataGridView1.Size = new Size(653, 583);
-            customDataGridView1.TabIndex = 11;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvReservation.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvReservation.EnableHeadersVisualStyles = false;
+            dgvReservation.GridColor = Color.FromArgb(230, 230, 230);
+            dgvReservation.HeaderBackColor = Color.FromArgb(243, 244, 246);
+            dgvReservation.HeaderForeColor = Color.FromArgb(33, 37, 41);
+            dgvReservation.Location = new Point(341, 345);
+            dgvReservation.MultiSelect = false;
+            dgvReservation.Name = "dgvReservation";
+            dgvReservation.RightToLeft = RightToLeft.Yes;
+            dgvReservation.RowHeadersVisible = false;
+            dgvReservation.RowHeadersWidth = 51;
+            dgvReservation.RowHeight = 50;
+            dgvReservation.RowTemplate.Height = 50;
+            dgvReservation.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvReservation.Size = new Size(653, 583);
+            dgvReservation.TabIndex = 11;
             // 
             // NameColumn
             // 
@@ -189,6 +189,7 @@
             // 
             // PhoneNumberColumn
             // 
+            PhoneNumberColumn.FillWeight = 150F;
             PhoneNumberColumn.HeaderText = "العميل";
             PhoneNumberColumn.MinimumWidth = 6;
             PhoneNumberColumn.Name = "PhoneNumberColumn";
@@ -260,7 +261,7 @@
             BackColor = Color.FromArgb(248, 249, 250);
             ClientSize = new Size(1022, 683);
             Controls.Add(bookingDetailsCard1);
-            Controls.Add(customDataGridView1);
+            Controls.Add(dgvReservation);
             Controls.Add(advancedStatusCard3);
             Controls.Add(advancedStatusCard2);
             Controls.Add(advancedStatusCard1);
@@ -269,7 +270,8 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "PaymentForm";
             Text = "PaymentForm";
-            ((System.ComponentModel.ISupportInitialize)customDataGridView1).EndInit();
+            Load += PaymentForm_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvReservation).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -281,7 +283,7 @@
         private CustomItems.AdvancedStatusCard advancedStatusCard1;
         private CustomItems.AdvancedStatusCard advancedStatusCard2;
         private CustomItems.AdvancedStatusCard advancedStatusCard3;
-        private CustomItems.CustomDataGridView customDataGridView1;
+        private CustomItems.CustomDataGridView dgvReservation;
         private CustomItems.BookingDetailsCard bookingDetailsCard1;
         private DataGridViewTextBoxColumn NameColumn;
         private DataGridViewTextBoxColumn PhoneNumberColumn;

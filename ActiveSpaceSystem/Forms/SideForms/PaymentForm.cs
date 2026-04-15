@@ -22,5 +22,41 @@ namespace ActiveSpaceSystem.Forms.SideForms
         {
 
         }
+
+        private void PaymentForm_Load(object sender, EventArgs e)
+        {
+            dgvReservation.Rows.Add(
+     "B-2026-001",
+     "محمد عبد الرحمن",
+     "2026-04-15",
+     "1500",
+     "1000",
+     "500",
+     "نشط",
+     "عرض التفاصيل"
+ );
+
+            dgvReservation.Rows.Add(
+                "B-2026-002",
+                "سارة محمود علي",
+                "2026-04-16",
+                "2400",
+                "2400",
+                "0",
+                "مكتمل",
+                "عرض التفاصيل"
+            );
+
+            dgvReservation.Rows.Add(
+                "B-2026-003",
+                "أحمد صالح الورفلي",
+                "2026-04-17",
+                "850",
+                "300",
+                "550",
+                "قيد الانتظار",
+                "عرض التفاصيل"
+            );
+        }
     }
 }

@@ -16,6 +16,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
         public Dashboard()
         {
             InitializeComponent();
+            this.TopLevel = false;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

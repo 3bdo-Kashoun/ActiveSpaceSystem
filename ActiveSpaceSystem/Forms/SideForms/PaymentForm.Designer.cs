@@ -36,15 +36,7 @@
             advancedStatusCard2 = new ActiveSpaceSystem.CustomItems.AdvancedStatusCard();
             advancedStatusCard3 = new ActiveSpaceSystem.CustomItems.AdvancedStatusCard();
             dgvReservation = new ActiveSpaceSystem.CustomItems.CustomDataGridView();
-            NameColumn = new DataGridViewTextBoxColumn();
-            PhoneNumberColumn = new DataGridViewTextBoxColumn();
-            StadiumTypeColumn = new DataGridViewTextBoxColumn();
-            StadiumColumn = new DataGridViewTextBoxColumn();
-            DayColumn = new DataGridViewTextBoxColumn();
-            TimeColumn = new DataGridViewTextBoxColumn();
-            StartDateColumn = new DataGridViewTextBoxColumn();
-            EndDateColumn = new DataGridViewTextBoxColumn();
-            bookingDetailsCard1 = new ActiveSpaceSystem.CustomItems.BookingDetailsCard();
+            bookingDetailsCard = new ActiveSpaceSystem.CustomItems.BookingDetailsCard();
             ((System.ComponentModel.ISupportInitialize)dgvReservation).BeginInit();
             SuspendLayout();
             // 
@@ -156,7 +148,6 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvReservation.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvReservation.ColumnHeadersHeight = 50;
-            dgvReservation.Columns.AddRange(new DataGridViewColumn[] { NameColumn, PhoneNumberColumn, StadiumTypeColumn, StadiumColumn, DayColumn, TimeColumn, StartDateColumn, EndDateColumn });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Tajawal", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -180,78 +171,31 @@
             dgvReservation.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvReservation.Size = new Size(653, 583);
             dgvReservation.TabIndex = 11;
+            dgvReservation.CellContentClick += dgvReservation_CellContentClick;
+            
+            dgvReservation.CellPainting += dgvReservation_CellPainting;
             // 
-            // NameColumn
+            // bookingDetailsCard
             // 
-            NameColumn.HeaderText = "رقم الحجز";
-            NameColumn.MinimumWidth = 6;
-            NameColumn.Name = "NameColumn";
-            // 
-            // PhoneNumberColumn
-            // 
-            PhoneNumberColumn.FillWeight = 150F;
-            PhoneNumberColumn.HeaderText = "العميل";
-            PhoneNumberColumn.MinimumWidth = 6;
-            PhoneNumberColumn.Name = "PhoneNumberColumn";
-            // 
-            // StadiumTypeColumn
-            // 
-            StadiumTypeColumn.HeaderText = "التاريخ";
-            StadiumTypeColumn.MinimumWidth = 6;
-            StadiumTypeColumn.Name = "StadiumTypeColumn";
-            // 
-            // StadiumColumn
-            // 
-            StadiumColumn.HeaderText = "المبلغ الكلي";
-            StadiumColumn.MinimumWidth = 6;
-            StadiumColumn.Name = "StadiumColumn";
-            // 
-            // DayColumn
-            // 
-            DayColumn.HeaderText = "المدفوع";
-            DayColumn.MinimumWidth = 6;
-            DayColumn.Name = "DayColumn";
-            // 
-            // TimeColumn
-            // 
-            TimeColumn.HeaderText = "المتبقي";
-            TimeColumn.MinimumWidth = 6;
-            TimeColumn.Name = "TimeColumn";
-            // 
-            // StartDateColumn
-            // 
-            StartDateColumn.HeaderText = "الحالة";
-            StartDateColumn.MinimumWidth = 6;
-            StartDateColumn.Name = "StartDateColumn";
-            // 
-            // EndDateColumn
-            // 
-            EndDateColumn.HeaderText = "الإجراء";
-            EndDateColumn.MinimumWidth = 6;
-            EndDateColumn.Name = "EndDateColumn";
-            // 
-            // bookingDetailsCard1
-            // 
-            bookingDetailsCard1.BackColor = Color.White;
-            bookingDetailsCard1.BookingID = "B-2026-001";
-            bookingDetailsCard1.ButtonBorderRadius = 12;
-            bookingDetailsCard1.CardBorderRadius = 20;
-            bookingDetailsCard1.CustomerName = "أحمد محمد علي";
-            bookingDetailsCard1.DataFont = new Font("Tajawal", 12F, FontStyle.Bold);
-            bookingDetailsCard1.DepositAmount = "100 ر.س";
-            bookingDetailsCard1.IsItemSelected = true;
-            bookingDetailsCard1.LabelsFont = new Font("Tajawal", 10F);
-            bookingDetailsCard1.Location = new Point(12, 345);
-            bookingDetailsCard1.Name = "bookingDetailsCard1";
-            bookingDetailsCard1.PaidAmount = "100 ر.س";
-            bookingDetailsCard1.PhoneNumber = "0501234567";
-            bookingDetailsCard1.PrimaryColor = Color.FromArgb(46, 204, 113);
-            bookingDetailsCard1.RemainingAmount = "200 ر.س";
-            bookingDetailsCard1.RemainingColor = Color.Red;
-            bookingDetailsCard1.Size = new Size(298, 583);
-            bookingDetailsCard1.TabIndex = 12;
-            bookingDetailsCard1.TotalAmount = "300 ر.س";
-            bookingDetailsCard1.Paint += bookingDetailsCard1_Paint;
+            bookingDetailsCard.BackColor = Color.White;
+            bookingDetailsCard.BookingID = "B-2026-001";
+            bookingDetailsCard.ButtonBorderRadius = 12;
+            bookingDetailsCard.CardBorderRadius = 20;
+            bookingDetailsCard.CustomerName = "أحمد محمد علي";
+            bookingDetailsCard.DataFont = new Font("Tajawal", 12F, FontStyle.Bold);
+            bookingDetailsCard.DepositAmount = "100 ر.س";
+            bookingDetailsCard.IsItemSelected = false;
+            bookingDetailsCard.LabelsFont = new Font("Tajawal", 10F);
+            bookingDetailsCard.Location = new Point(12, 345);
+            bookingDetailsCard.Name = "bookingDetailsCard";
+            bookingDetailsCard.PaidAmount = "100 ر.س";
+            bookingDetailsCard.PhoneNumber = "0501234567";
+            bookingDetailsCard.PrimaryColor = Color.FromArgb(46, 204, 113);
+            bookingDetailsCard.RemainingAmount = "200 ر.س";
+            bookingDetailsCard.RemainingColor = Color.Red;
+            bookingDetailsCard.Size = new Size(298, 583);
+            bookingDetailsCard.TabIndex = 12;
+            bookingDetailsCard.TotalAmount = "300 ر.س";
             // 
             // PaymentForm
             // 
@@ -260,7 +204,7 @@
             AutoScroll = true;
             BackColor = Color.FromArgb(248, 249, 250);
             ClientSize = new Size(1022, 683);
-            Controls.Add(bookingDetailsCard1);
+            Controls.Add(bookingDetailsCard);
             Controls.Add(dgvReservation);
             Controls.Add(advancedStatusCard3);
             Controls.Add(advancedStatusCard2);
@@ -284,14 +228,6 @@
         private CustomItems.AdvancedStatusCard advancedStatusCard2;
         private CustomItems.AdvancedStatusCard advancedStatusCard3;
         private CustomItems.CustomDataGridView dgvReservation;
-        private CustomItems.BookingDetailsCard bookingDetailsCard1;
-        private DataGridViewTextBoxColumn NameColumn;
-        private DataGridViewTextBoxColumn PhoneNumberColumn;
-        private DataGridViewTextBoxColumn StadiumTypeColumn;
-        private DataGridViewTextBoxColumn StadiumColumn;
-        private DataGridViewTextBoxColumn DayColumn;
-        private DataGridViewTextBoxColumn TimeColumn;
-        private DataGridViewTextBoxColumn StartDateColumn;
-        private DataGridViewTextBoxColumn EndDateColumn;
+        private CustomItems.BookingDetailsCard bookingDetailsCard;
     }
 }

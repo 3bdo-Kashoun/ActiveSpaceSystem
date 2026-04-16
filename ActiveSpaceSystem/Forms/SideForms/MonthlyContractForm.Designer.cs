@@ -38,20 +38,10 @@
             statusCard1 = new ActiveSpaceSystem.CustomItems.StatusCard();
             statusCard2 = new ActiveSpaceSystem.CustomItems.StatusCard();
             statusCard3 = new ActiveSpaceSystem.CustomItems.StatusCard();
-            customDataGridView1 = new ActiveSpaceSystem.CustomItems.CustomDataGridView();
-            NameColumn = new DataGridViewTextBoxColumn();
-            PhoneNumberColumn = new DataGridViewTextBoxColumn();
-            StadiumTypeColumn = new DataGridViewTextBoxColumn();
-            StadiumColumn = new DataGridViewTextBoxColumn();
-            DayColumn = new DataGridViewTextBoxColumn();
-            TimeColumn = new DataGridViewTextBoxColumn();
-            StartDateColumn = new DataGridViewTextBoxColumn();
-            EndDateColumn = new DataGridViewTextBoxColumn();
-            BalanceColumn = new DataGridViewTextBoxColumn();
-            StateColumn = new DataGridViewTextBoxColumn();
+            dgvMonthlyContract = new ActiveSpaceSystem.CustomItems.CustomDataGridView();
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)customDataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvMonthlyContract).BeginInit();
             flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -188,109 +178,48 @@
             statusCard3.ValueFont = new Font("Tajawal", 18F, FontStyle.Bold);
             statusCard3.ValueText = "3";
             // 
-            // customDataGridView1
+            // dgvMonthlyContract
             // 
-            customDataGridView1.AllowUserToAddRows = false;
-            customDataGridView1.AllowUserToResizeRows = false;
-            customDataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            customDataGridView1.BackgroundColor = Color.White;
-            customDataGridView1.BorderRadius = 15;
-            customDataGridView1.BorderStyle = BorderStyle.None;
-            customDataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            customDataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvMonthlyContract.AllowUserToAddRows = false;
+            dgvMonthlyContract.AllowUserToResizeRows = false;
+            dgvMonthlyContract.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvMonthlyContract.BackgroundColor = Color.White;
+            dgvMonthlyContract.BorderRadius = 15;
+            dgvMonthlyContract.BorderStyle = BorderStyle.None;
+            dgvMonthlyContract.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvMonthlyContract.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(243, 244, 246);
             dataGridViewCellStyle1.Font = new Font("Tajawal", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = Color.FromArgb(33, 37, 41);
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(243, 244, 246);
+            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(33, 37, 41);
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            customDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            customDataGridView1.ColumnHeadersHeight = 50;
-            customDataGridView1.Columns.AddRange(new DataGridViewColumn[] { NameColumn, PhoneNumberColumn, StadiumTypeColumn, StadiumColumn, DayColumn, TimeColumn, StartDateColumn, EndDateColumn, BalanceColumn, StateColumn });
+            dgvMonthlyContract.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvMonthlyContract.ColumnHeadersHeight = 50;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.Font = new Font("Tajawal", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(240, 245, 255);
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            customDataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            customDataGridView1.EnableHeadersVisualStyles = false;
-            customDataGridView1.GridColor = Color.FromArgb(230, 230, 230);
-            customDataGridView1.HeaderBackColor = Color.FromArgb(243, 244, 246);
-            customDataGridView1.HeaderForeColor = Color.FromArgb(33, 37, 41);
-            customDataGridView1.Location = new Point(50, 394);
-            customDataGridView1.MultiSelect = false;
-            customDataGridView1.Name = "customDataGridView1";
-            customDataGridView1.RightToLeft = RightToLeft.Yes;
-            customDataGridView1.RowHeadersVisible = false;
-            customDataGridView1.RowHeadersWidth = 51;
-            customDataGridView1.RowHeight = 50;
-            customDataGridView1.RowTemplate.Height = 50;
-            customDataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            customDataGridView1.Size = new Size(924, 277);
-            customDataGridView1.TabIndex = 5;
-            // 
-            // NameColumn
-            // 
-            NameColumn.HeaderText = "اسم العميل";
-            NameColumn.MinimumWidth = 6;
-            NameColumn.Name = "NameColumn";
-            // 
-            // PhoneNumberColumn
-            // 
-            PhoneNumberColumn.HeaderText = " رقم الهاتف";
-            PhoneNumberColumn.MinimumWidth = 6;
-            PhoneNumberColumn.Name = "PhoneNumberColumn";
-            // 
-            // StadiumTypeColumn
-            // 
-            StadiumTypeColumn.HeaderText = "نوع الملعب";
-            StadiumTypeColumn.MinimumWidth = 6;
-            StadiumTypeColumn.Name = "StadiumTypeColumn";
-            // 
-            // StadiumColumn
-            // 
-            StadiumColumn.HeaderText = "الملعب";
-            StadiumColumn.MinimumWidth = 6;
-            StadiumColumn.Name = "StadiumColumn";
-            // 
-            // DayColumn
-            // 
-            DayColumn.HeaderText = "اليوم";
-            DayColumn.MinimumWidth = 6;
-            DayColumn.Name = "DayColumn";
-            // 
-            // TimeColumn
-            // 
-            TimeColumn.HeaderText = "الوقت";
-            TimeColumn.MinimumWidth = 6;
-            TimeColumn.Name = "TimeColumn";
-            // 
-            // StartDateColumn
-            // 
-            StartDateColumn.HeaderText = "تاريخ البداية";
-            StartDateColumn.MinimumWidth = 6;
-            StartDateColumn.Name = "StartDateColumn";
-            // 
-            // EndDateColumn
-            // 
-            EndDateColumn.HeaderText = "تاريخ النهاية";
-            EndDateColumn.MinimumWidth = 6;
-            EndDateColumn.Name = "EndDateColumn";
-            // 
-            // BalanceColumn
-            // 
-            BalanceColumn.HeaderText = "المبلغ";
-            BalanceColumn.MinimumWidth = 6;
-            BalanceColumn.Name = "BalanceColumn";
-            // 
-            // StateColumn
-            // 
-            StateColumn.HeaderText = "الحالة";
-            StateColumn.MinimumWidth = 6;
-            StateColumn.Name = "StateColumn";
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvMonthlyContract.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvMonthlyContract.EnableHeadersVisualStyles = false;
+            dgvMonthlyContract.GridColor = Color.FromArgb(230, 230, 230);
+            dgvMonthlyContract.HeaderBackColor = Color.FromArgb(243, 244, 246);
+            dgvMonthlyContract.HeaderForeColor = Color.FromArgb(33, 37, 41);
+            dgvMonthlyContract.Location = new Point(50, 394);
+            dgvMonthlyContract.MultiSelect = false;
+            dgvMonthlyContract.Name = "dgvMonthlyContract";
+            dgvMonthlyContract.RightToLeft = RightToLeft.Yes;
+            dgvMonthlyContract.RowHeadersVisible = false;
+            dgvMonthlyContract.RowHeadersWidth = 51;
+            dgvMonthlyContract.RowHeight = 50;
+            dgvMonthlyContract.RowTemplate.Height = 50;
+            dgvMonthlyContract.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvMonthlyContract.Size = new Size(924, 277);
+            dgvMonthlyContract.TabIndex = 5;
             // 
             // flowLayoutPanel1
             // 
@@ -309,16 +238,17 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(248, 249, 250);
             ClientSize = new Size(1022, 683);
-            Controls.Add(customDataGridView1);
+            Controls.Add(dgvMonthlyContract);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(infoBox1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "MonthlyContractForm";
             Text = "MonthlyContractForm";
+            Load += MonthlyContractForm_Load_1;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)customDataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvMonthlyContract).EndInit();
             flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -333,17 +263,7 @@
         private CustomItems.StatusCard statusCard1;
         private CustomItems.StatusCard statusCard2;
         private CustomItems.StatusCard statusCard3;
-        private CustomItems.CustomDataGridView customDataGridView1;
-        private DataGridViewTextBoxColumn NameColumn;
-        private DataGridViewTextBoxColumn PhoneNumberColumn;
-        private DataGridViewTextBoxColumn StadiumTypeColumn;
-        private DataGridViewTextBoxColumn StadiumColumn;
-        private DataGridViewTextBoxColumn DayColumn;
-        private DataGridViewTextBoxColumn TimeColumn;
-        private DataGridViewTextBoxColumn StartDateColumn;
-        private DataGridViewTextBoxColumn EndDateColumn;
-        private DataGridViewTextBoxColumn BalanceColumn;
-        private DataGridViewTextBoxColumn StateColumn;
+        private CustomItems.CustomDataGridView dgvMonthlyContract;
         private FlowLayoutPanel flowLayoutPanel1;
     }
 }

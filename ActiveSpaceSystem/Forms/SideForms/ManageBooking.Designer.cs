@@ -63,9 +63,8 @@
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1256, 156);
+            panel1.Size = new Size(1005, 125);
             panel1.TabIndex = 1;
             // 
             // myGunaButton1
@@ -77,11 +76,10 @@
             myGunaButton1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             myGunaButton1.ForeColor = Color.White;
             myGunaButton1.HoverBackColor = Color.FromArgb(29, 53, 87);
-            myGunaButton1.Location = new Point(62, 62);
-            myGunaButton1.Margin = new Padding(4);
+            myGunaButton1.Location = new Point(50, 50);
             myGunaButton1.Name = "myGunaButton1";
             myGunaButton1.NormalBackColor = Color.FromArgb(39, 191, 141);
-            myGunaButton1.Size = new Size(235, 59);
+            myGunaButton1.Size = new Size(188, 47);
             myGunaButton1.TabIndex = 7;
             myGunaButton1.Text = "إضافة حجز جديد";
             myGunaButton1.UseVisualStyleBackColor = false;
@@ -89,25 +87,24 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Tajawal", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.DimGray;
-            label3.Location = new Point(930, 108);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(737, 76);
             label3.Name = "label3";
             label3.RightToLeft = RightToLeft.Yes;
-            label3.Size = new Size(217, 25);
+            label3.Size = new Size(208, 23);
             label3.TabIndex = 6;
             label3.Text = "إدارة ومتابعة جميع الحجوزات";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Tajawal Medium", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.MidnightBlue;
-            label1.Location = new Point(930, 33);
+            label1.Location = new Point(723, 28);
             label1.Margin = new Padding(0);
             label1.Name = "label1";
-            label1.Size = new Size(244, 46);
+            label1.Size = new Size(237, 48);
             label1.TabIndex = 0;
             label1.Text = "إدارة الحجوزات";
             label1.Click += label1_Click;
@@ -118,9 +115,10 @@
             panel2.Controls.Add(customDataGridView1);
             panel2.Controls.Add(statusCard4);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 156);
+            panel2.Location = new Point(0, 125);
+            panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1256, 642);
+            panel2.Size = new Size(1005, 513);
             panel2.TabIndex = 2;
             panel2.Paint += panel2_Paint;
             // 
@@ -156,8 +154,7 @@
             customDataGridView1.GridColor = Color.FromArgb(230, 230, 230);
             customDataGridView1.HeaderBackColor = Color.FromArgb(243, 244, 246);
             customDataGridView1.HeaderForeColor = Color.FromArgb(33, 37, 41);
-            customDataGridView1.Location = new Point(12, 191);
-            customDataGridView1.Margin = new Padding(4);
+            customDataGridView1.Location = new Point(12, 153);
             customDataGridView1.MultiSelect = false;
             customDataGridView1.Name = "customDataGridView1";
             customDataGridView1.RightToLeft = RightToLeft.Yes;
@@ -166,7 +163,7 @@
             customDataGridView1.RowHeight = 50;
             customDataGridView1.RowTemplate.Height = 50;
             customDataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            customDataGridView1.Size = new Size(1212, 346);
+            customDataGridView1.Size = new Size(970, 277);
             customDataGridView1.TabIndex = 7;
             // 
             // NameColumn
@@ -237,13 +234,14 @@
             statusCard4.CardBackColor = Color.White;
             statusCard4.Controls.Add(roundedButton1);
             statusCard4.Controls.Add(abdulTextBox1);
-            statusCard4.Location = new Point(12, 44);
+            statusCard4.Location = new Point(10, 35);
+            statusCard4.Margin = new Padding(2);
             statusCard4.Name = "statusCard4";
-            statusCard4.Padding = new Padding(5);
+            statusCard4.Padding = new Padding(4);
             statusCard4.ShadowBlur = 5;
             statusCard4.ShadowColor = Color.FromArgb(0, 0, 192);
             statusCard4.ShowShadow = true;
-            statusCard4.Size = new Size(1212, 113);
+            statusCard4.Size = new Size(970, 90);
             statusCard4.TabIndex = 6;
             statusCard4.TitleColor = Color.Gray;
             statusCard4.TitleFont = new Font("Microsoft Sans Serif", 10F);
@@ -260,12 +258,13 @@
             roundedButton1.BorderSize = 2;
             roundedButton1.FlatAppearance.BorderSize = 0;
             roundedButton1.FlatStyle = FlatStyle.Flat;
-            roundedButton1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            roundedButton1.Font = new Font("Tajawal", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             roundedButton1.ForeColor = Color.Black;
             roundedButton1.Image = Properties.Resources.filter;
-            roundedButton1.Location = new Point(93, 29);
+            roundedButton1.Location = new Point(74, 23);
+            roundedButton1.Margin = new Padding(2);
             roundedButton1.Name = "roundedButton1";
-            roundedButton1.Size = new Size(163, 58);
+            roundedButton1.Size = new Size(130, 46);
             roundedButton1.TabIndex = 3;
             roundedButton1.Text = "تصفية";
             roundedButton1.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -276,26 +275,27 @@
             abdulTextBox1.BackColor = Color.White;
             abdulTextBox1.BorderColor = Color.FromArgb(29, 53, 87);
             abdulTextBox1.BorderRadius = 15;
-            abdulTextBox1.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            abdulTextBox1.Font = new Font("Tajawal", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             abdulTextBox1.Icon = Properties.Resources.magnifying_glass;
             abdulTextBox1.IconLocation = HorizontalAlignment.Right;
             abdulTextBox1.IconSize = 30;
-            abdulTextBox1.Location = new Point(581, 36);
-            abdulTextBox1.Margin = new Padding(4);
+            abdulTextBox1.Location = new Point(256, 23);
+            abdulTextBox1.Margin = new Padding(2);
             abdulTextBox1.Name = "abdulTextBox1";
-            abdulTextBox1.PlaceholderText = "بحث عن عميل أو رقم هاتف";
+            abdulTextBox1.PlaceholderText = "بحث عن رقم هاتف";
             abdulTextBox1.RightToLeft = RightToLeft.Yes;
-            abdulTextBox1.Size = new Size(554, 51);
+            abdulTextBox1.Size = new Size(642, 46);
             abdulTextBox1.TabIndex = 2;
             // 
             // ManageBooking
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1256, 798);
+            ClientSize = new Size(1005, 638);
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(2);
             Name = "ManageBooking";
             Text = "ManageBooking";
             panel1.ResumeLayout(false);

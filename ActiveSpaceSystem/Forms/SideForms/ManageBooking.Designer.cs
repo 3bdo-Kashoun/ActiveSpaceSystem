@@ -35,23 +35,13 @@
             label3 = new Label();
             label1 = new Label();
             panel2 = new Panel();
-            customDataGridView1 = new ActiveSpaceSystem.CustomItems.CustomDataGridView();
-            NameColumn = new DataGridViewTextBoxColumn();
-            PhoneNumberColumn = new DataGridViewTextBoxColumn();
-            StadiumTypeColumn = new DataGridViewTextBoxColumn();
-            StadiumColumn = new DataGridViewTextBoxColumn();
-            DayColumn = new DataGridViewTextBoxColumn();
-            TimeColumn = new DataGridViewTextBoxColumn();
-            StartDateColumn = new DataGridViewTextBoxColumn();
-            EndDateColumn = new DataGridViewTextBoxColumn();
-            BalanceColumn = new DataGridViewTextBoxColumn();
-            StateColumn = new DataGridViewTextBoxColumn();
+            dgvBookings = new ActiveSpaceSystem.CustomItems.CustomDataGridView();
             statusCard4 = new ActiveSpaceSystem.CustomItems.StatusCard();
             roundedButton1 = new ActiveSpaceSystem.CustomItems.RoundedButton();
             abdulTextBox1 = new ActiveSpaceSystem.CustomItems.AbdulTextBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)customDataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvBookings).BeginInit();
             statusCard4.SuspendLayout();
             SuspendLayout();
             // 
@@ -64,7 +54,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1005, 125);
+            panel1.Size = new Size(1022, 125);
             panel1.TabIndex = 1;
             // 
             // myGunaButton1
@@ -76,7 +66,7 @@
             myGunaButton1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             myGunaButton1.ForeColor = Color.White;
             myGunaButton1.HoverBackColor = Color.FromArgb(29, 53, 87);
-            myGunaButton1.Location = new Point(50, 50);
+            myGunaButton1.Location = new Point(24, 52);
             myGunaButton1.Name = "myGunaButton1";
             myGunaButton1.NormalBackColor = Color.FromArgb(39, 191, 141);
             myGunaButton1.Size = new Size(188, 47);
@@ -107,124 +97,63 @@
             label1.Size = new Size(237, 48);
             label1.TabIndex = 0;
             label1.Text = "إدارة الحجوزات";
-            label1.Click += label1_Click;
             // 
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(248, 249, 250);
-            panel2.Controls.Add(customDataGridView1);
+            panel2.Controls.Add(dgvBookings);
             panel2.Controls.Add(statusCard4);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(0, 125);
             panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1005, 513);
+            panel2.Size = new Size(1022, 558);
             panel2.TabIndex = 2;
-            panel2.Paint += panel2_Paint;
             // 
-            // customDataGridView1
+            // dgvBookings
             // 
-            customDataGridView1.AllowUserToAddRows = false;
-            customDataGridView1.AllowUserToResizeRows = false;
-            customDataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            customDataGridView1.BackgroundColor = Color.White;
-            customDataGridView1.BorderRadius = 15;
-            customDataGridView1.BorderStyle = BorderStyle.None;
-            customDataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            customDataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvBookings.AllowUserToAddRows = false;
+            dgvBookings.AllowUserToResizeRows = false;
+            dgvBookings.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvBookings.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvBookings.BackgroundColor = Color.White;
+            dgvBookings.BorderRadius = 15;
+            dgvBookings.BorderStyle = BorderStyle.None;
+            dgvBookings.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dgvBookings.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(243, 244, 246);
-            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.Font = new Font("Tajawal", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = Color.FromArgb(33, 37, 41);
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(243, 244, 246);
+            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(33, 37, 41);
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            customDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            customDataGridView1.ColumnHeadersHeight = 50;
-            customDataGridView1.Columns.AddRange(new DataGridViewColumn[] { NameColumn, PhoneNumberColumn, StadiumTypeColumn, StadiumColumn, DayColumn, TimeColumn, StartDateColumn, EndDateColumn, BalanceColumn, StateColumn });
+            dgvBookings.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvBookings.ColumnHeadersHeight = 50;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.Font = new Font("Tajawal", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(240, 245, 255);
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            customDataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            customDataGridView1.EnableHeadersVisualStyles = false;
-            customDataGridView1.GridColor = Color.FromArgb(230, 230, 230);
-            customDataGridView1.HeaderBackColor = Color.FromArgb(243, 244, 246);
-            customDataGridView1.HeaderForeColor = Color.FromArgb(33, 37, 41);
-            customDataGridView1.Location = new Point(12, 153);
-            customDataGridView1.MultiSelect = false;
-            customDataGridView1.Name = "customDataGridView1";
-            customDataGridView1.RightToLeft = RightToLeft.Yes;
-            customDataGridView1.RowHeadersVisible = false;
-            customDataGridView1.RowHeadersWidth = 51;
-            customDataGridView1.RowHeight = 50;
-            customDataGridView1.RowTemplate.Height = 50;
-            customDataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            customDataGridView1.Size = new Size(970, 277);
-            customDataGridView1.TabIndex = 7;
-            // 
-            // NameColumn
-            // 
-            NameColumn.HeaderText = "اسم العميل";
-            NameColumn.MinimumWidth = 6;
-            NameColumn.Name = "NameColumn";
-            // 
-            // PhoneNumberColumn
-            // 
-            PhoneNumberColumn.HeaderText = " رقم الهاتف";
-            PhoneNumberColumn.MinimumWidth = 6;
-            PhoneNumberColumn.Name = "PhoneNumberColumn";
-            // 
-            // StadiumTypeColumn
-            // 
-            StadiumTypeColumn.HeaderText = "نوع الملعب";
-            StadiumTypeColumn.MinimumWidth = 6;
-            StadiumTypeColumn.Name = "StadiumTypeColumn";
-            // 
-            // StadiumColumn
-            // 
-            StadiumColumn.HeaderText = "الملعب";
-            StadiumColumn.MinimumWidth = 6;
-            StadiumColumn.Name = "StadiumColumn";
-            // 
-            // DayColumn
-            // 
-            DayColumn.HeaderText = "اليوم";
-            DayColumn.MinimumWidth = 6;
-            DayColumn.Name = "DayColumn";
-            // 
-            // TimeColumn
-            // 
-            TimeColumn.HeaderText = "الوقت";
-            TimeColumn.MinimumWidth = 6;
-            TimeColumn.Name = "TimeColumn";
-            // 
-            // StartDateColumn
-            // 
-            StartDateColumn.HeaderText = "تاريخ البداية";
-            StartDateColumn.MinimumWidth = 6;
-            StartDateColumn.Name = "StartDateColumn";
-            // 
-            // EndDateColumn
-            // 
-            EndDateColumn.HeaderText = "تاريخ النهاية";
-            EndDateColumn.MinimumWidth = 6;
-            EndDateColumn.Name = "EndDateColumn";
-            // 
-            // BalanceColumn
-            // 
-            BalanceColumn.HeaderText = "المبلغ";
-            BalanceColumn.MinimumWidth = 6;
-            BalanceColumn.Name = "BalanceColumn";
-            // 
-            // StateColumn
-            // 
-            StateColumn.HeaderText = "الحالة";
-            StateColumn.MinimumWidth = 6;
-            StateColumn.Name = "StateColumn";
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvBookings.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvBookings.EnableHeadersVisualStyles = false;
+            dgvBookings.GridColor = Color.White;
+            dgvBookings.HeaderBackColor = Color.FromArgb(243, 244, 246);
+            dgvBookings.HeaderForeColor = Color.FromArgb(33, 37, 41);
+            dgvBookings.Location = new Point(24, 158);
+            dgvBookings.MultiSelect = false;
+            dgvBookings.Name = "dgvBookings";
+            dgvBookings.ReadOnly = true;
+            dgvBookings.RightToLeft = RightToLeft.Yes;
+            dgvBookings.RowHeadersVisible = false;
+            dgvBookings.RowHeadersWidth = 51;
+            dgvBookings.RowHeight = 50;
+            dgvBookings.RowTemplate.Height = 50;
+            dgvBookings.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvBookings.Size = new Size(968, 374);
+            dgvBookings.TabIndex = 7;
             // 
             // statusCard4
             // 
@@ -234,14 +163,14 @@
             statusCard4.CardBackColor = Color.White;
             statusCard4.Controls.Add(roundedButton1);
             statusCard4.Controls.Add(abdulTextBox1);
-            statusCard4.Location = new Point(10, 35);
+            statusCard4.Location = new Point(24, 33);
             statusCard4.Margin = new Padding(2);
             statusCard4.Name = "statusCard4";
             statusCard4.Padding = new Padding(4);
             statusCard4.ShadowBlur = 5;
             statusCard4.ShadowColor = Color.FromArgb(0, 0, 192);
             statusCard4.ShowShadow = true;
-            statusCard4.Size = new Size(970, 90);
+            statusCard4.Size = new Size(968, 90);
             statusCard4.TabIndex = 6;
             statusCard4.TitleColor = Color.Gray;
             statusCard4.TitleFont = new Font("Microsoft Sans Serif", 10F);
@@ -291,7 +220,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1005, 638);
+            ClientSize = new Size(1022, 683);
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
@@ -301,7 +230,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)customDataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvBookings).EndInit();
             statusCard4.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -316,16 +245,6 @@
         private CustomItems.StatusCard statusCard4;
         private CustomItems.AbdulTextBox abdulTextBox1;
         private CustomItems.RoundedButton roundedButton1;
-        private CustomItems.CustomDataGridView customDataGridView1;
-        private DataGridViewTextBoxColumn NameColumn;
-        private DataGridViewTextBoxColumn PhoneNumberColumn;
-        private DataGridViewTextBoxColumn StadiumTypeColumn;
-        private DataGridViewTextBoxColumn StadiumColumn;
-        private DataGridViewTextBoxColumn DayColumn;
-        private DataGridViewTextBoxColumn TimeColumn;
-        private DataGridViewTextBoxColumn StartDateColumn;
-        private DataGridViewTextBoxColumn EndDateColumn;
-        private DataGridViewTextBoxColumn BalanceColumn;
-        private DataGridViewTextBoxColumn StateColumn;
+        private CustomItems.CustomDataGridView dgvBookings;
     }
 }

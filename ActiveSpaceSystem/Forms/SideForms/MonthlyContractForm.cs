@@ -5,7 +5,6 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Windows.Forms;
-
 namespace ActiveSpaceSystem.Forms.SideForms
 {
     public partial class MonthlyContractForm : Form
@@ -37,6 +36,8 @@ namespace ActiveSpaceSystem.Forms.SideForms
             dgvMonthlyContract.RowTemplate.Height = 55;
             dgvMonthlyContract.DefaultCellStyle.SelectionBackColor = Color.FromArgb(248, 249, 250);
             dgvMonthlyContract.DefaultCellStyle.SelectionForeColor = Color.Black;
+            dgvMonthlyContract.DefaultCellStyle.Font = new Font("Tajawal", 9);
+            dgvMonthlyContract.ColumnHeadersDefaultCellStyle.Font = new Font("Tajawal", 10, FontStyle.Bold);
 
             var data = MonthlyContract.GetFakeData().Select(mc =>
             {
@@ -68,6 +69,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
             dgvMonthlyContract.Columns["EndDate"].HeaderText = "تاريخ النهاية";
             dgvMonthlyContract.Columns["Amount"].HeaderText = "المبلغ الإجمالي";
             dgvMonthlyContract.Columns["Status"].HeaderText = "الحالة";
+            
         }
 
         // حدث الرسم المخصص للحالات

@@ -1,4 +1,5 @@
 ﻿
+using ActiveSpaceSystem.CustomItems;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -32,36 +33,47 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
         private void Scheduling_Load(object sender, EventArgs e)
         {        
-
-            //// Configure date picker initial format
-            //dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            //dateTimePicker1.CustomFormat = "yyyy / MM / dd";
-
-            //// Set human friendly column headers (hours)
-            //string[] hours = { "23:00", "22:00", "21:00", "20:00", "19:00", "18:00", "17:00", "16:00", "15:00", "14:00" };
-            //for (int i = 0; i < hours.Length && i + 1 < customDataGridView1.Columns.Count; i++)
-            //{
-            //    customDataGridView1.Columns[i + 1].HeaderText = hours[i];
-            //}
-
-            //// Header visual polish
-            //customDataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(247, 249, 250);
-            //customDataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(33, 37, 41);
-            //customDataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 12F, FontStyle.Regular);
-            //customDataGridView1.EnableHeadersVisualStyles = false;
-            //customDataGridView1.RowTemplate.Height = 70;
-
-            //// Example rows to visually match the design (you will replace with real data)
-            //customDataGridView1.Rows.Clear();
-            //customDataGridView1.Rows.Add(new object[] { "ملعب كرة القدم 1", "متاح", "متاح", "متاح", "محجوز\nخالد علي", "متاح", "متاح", "متاح", "متاح", "متاح", "متاح" });
-            //customDataGridView1.Rows.Add(new object[] { "ملعب كرة القدم 2", "متاح", "متاح", "متاح", "متاح", "متاح", "متاح", "متاح", "متاح", "متاح", "متاح" });
-            //customDataGridView1.Rows.Add(new object[] { "ملعب التنس 1", "متاح", "متاح", "متاح", "متاح", "محجوز\nسعيد أحمد", "متاح", "متاح", "متاح", "متاح", "متاح" });
-            //customDataGridView1.Rows.Add(new object[] { "ملعب التنس 2", "متاح", "متاح", "محجوز\nعلي محمد", "متاح", "متاح", "متاح", "متاح", "متاح", "متاح", "متاح" });
-
-            //// Style each cell according to its status
-            //ApplyCellStatusStyles();
+            SetupGrid();
+           
         }
+        private void SetupGrid()
+        {
+            
+            
+            // إضافة الأعمدة (ساعات)
+            stadiumGrid1.Columns.Add("Stadium", "الملعب");
+            for (int i = 8; i <= 23; i++)
+            {
+                stadiumGrid1.Columns.Add($"h{i}", $"{i}:00");
+            }
 
+            // إضافة بيانات تجريبية
+            stadiumGrid1.Rows.Clear();
+
+            // ملعب كرة القدم 1
+            stadiumGrid1.Rows.Add("ملعب كرة القدم 1",
+                "متاح", "متاح", "محجوز|أحمد محمد", "متاح", "متاح", "متاح",
+                "متاح", "محجوز|يحيى حسن", "متاح", "متاح", "متاح", "متاح",
+                "خارج وقت العمل", "خارج وقت العمل", "خارج وقت العمل", "خارج وقت العمل");
+
+            // ملعب كرة القدم 2
+            stadiumGrid1.Rows.Add("ملعب كرة القدم 2",
+                "متاح", "متاح", "متاح", "محجوز|يوسف أحمد", "متاح", "متاح",
+                "متاح", "متاح", "متاح", "محجوز|سالم علي", "متاح", "متاح",
+                "متاح", "متاح", "خارج وقت العمل", "خارج وقت العمل");
+
+            // ملعب التنس 1
+            stadiumGrid1.Rows.Add("ملعب التنس 1",
+                "محجوز|سعيد أحمد", "متاح", "متاح", "متاح", "متاح", "متاح",
+                "متاح", "متاح", "محجوز|وائل جمعة", "متاح", "متاح", "متاح",
+                "متاح", "متاح", "متاح", "متاح");
+
+            // ملعب السلة
+            stadiumGrid1.Rows.Add("ملعب السلة",
+                "خارج وقت العمل", "خارج وقت العمل", "متاح", "متاح", "متاح", "محجوز|عمر خالد",
+                "متاح", "متاح", "متاح", "متاح", "متاح", "محجوز|إيهاب وجدي",
+                "متاح", "متاح", "متاح", "متاح");
+        }
         private void ApplyCellStatusStyles()
         {
             //// Cells in column 0 are stadium names; start at column 1

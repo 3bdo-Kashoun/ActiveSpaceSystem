@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel1 = new Panel();
             label3 = new Label();
             label1 = new Label();
@@ -50,24 +51,11 @@
             statusCard3 = new ActiveSpaceSystem.CustomItems.StatusCard();
             statusCard2 = new ActiveSpaceSystem.CustomItems.StatusCard();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            panel2 = new Panel();
-            bookingDataGridView1 = new SportsApp.Controls.BookingDataGridView();
-            staduim = new DataGridViewTextBoxColumn();
-            h17 = new DataGridViewTextBoxColumn();
-            h18 = new DataGridViewTextBoxColumn();
-            h19 = new DataGridViewTextBoxColumn();
-            h20 = new DataGridViewTextBoxColumn();
-            h21 = new DataGridViewTextBoxColumn();
-            h22 = new DataGridViewTextBoxColumn();
-            h23 = new DataGridViewTextBoxColumn();
-            h24 = new DataGridViewTextBoxColumn();
-            h1 = new DataGridViewTextBoxColumn();
-            h2 = new DataGridViewTextBoxColumn();
+            stadiumGrid1 = new ActiveSpaceSystem.CustomItems.StadiumGrid();
             panel1.SuspendLayout();
             statusCard4.SuspendLayout();
             statusCard1.SuspendLayout();
-            panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)bookingDataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)stadiumGrid1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -78,7 +66,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1005, 110);
+            panel1.Size = new Size(1022, 110);
             panel1.TabIndex = 1;
             // 
             // label3
@@ -155,14 +143,14 @@
             statusCard4.Controls.Add(nextDateButton);
             statusCard4.Controls.Add(dateTimePicker1);
             statusCard4.Controls.Add(prevDateButton);
-            statusCard4.Location = new Point(23, 128);
+            statusCard4.Location = new Point(25, 138);
             statusCard4.Margin = new Padding(2);
             statusCard4.Name = "statusCard4";
             statusCard4.Padding = new Padding(4);
             statusCard4.ShadowBlur = 5;
             statusCard4.ShadowColor = Color.FromArgb(0, 0, 192);
             statusCard4.ShowShadow = true;
-            statusCard4.Size = new Size(970, 90);
+            statusCard4.Size = new Size(985, 90);
             statusCard4.TabIndex = 5;
             statusCard4.TitleColor = Color.Gray;
             statusCard4.TitleFont = new Font("Microsoft Sans Serif", 10F);
@@ -300,14 +288,14 @@
             statusCard1.Controls.Add(statusCard5);
             statusCard1.Controls.Add(statusCard3);
             statusCard1.Controls.Add(statusCard2);
-            statusCard1.Location = new Point(23, 518);
+            statusCard1.Location = new Point(25, 703);
             statusCard1.Margin = new Padding(2);
             statusCard1.Name = "statusCard1";
             statusCard1.Padding = new Padding(4);
             statusCard1.ShadowBlur = 5;
             statusCard1.ShadowColor = Color.FromArgb(100, 0, 0, 0);
             statusCard1.ShowShadow = true;
-            statusCard1.Size = new Size(970, 90);
+            statusCard1.Size = new Size(985, 90);
             statusCard1.TabIndex = 6;
             statusCard1.TitleColor = Color.Gray;
             statusCard1.TitleFont = new Font("Microsoft Sans Serif", 10F);
@@ -432,122 +420,42 @@
             statusCard2.ValueText = "";
             statusCard2.Paint += statusCard2_Paint;
             // 
-            // panel2
+            // stadiumGrid1
             // 
-            panel2.Controls.Add(bookingDataGridView1);
-            panel2.Location = new Point(23, 254);
-            panel2.Margin = new Padding(2);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(970, 249);
-            panel2.TabIndex = 7;
-            // 
-            // bookingDataGridView1
-            // 
-            bookingDataGridView1.AllowUserToAddRows = false;
-            bookingDataGridView1.BackgroundColor = Color.White;
-            bookingDataGridView1.BorderRadius = 20;
-            bookingDataGridView1.BorderStyle = BorderStyle.None;
-            bookingDataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(245, 247, 249);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = Color.DimGray;
+            stadiumGrid1.AllowUserToAddRows = false;
+            stadiumGrid1.BackgroundColor = Color.White;
+            stadiumGrid1.BorderRadius = 25;
+            stadiumGrid1.BorderStyle = BorderStyle.None;
+            stadiumGrid1.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            stadiumGrid1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(243, 244, 246);
+            dataGridViewCellStyle1.Font = new Font("Tajawal", 10F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(52, 58, 64);
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            bookingDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            bookingDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            bookingDataGridView1.Columns.AddRange(new DataGridViewColumn[] { staduim, h17, h18, h19, h20, h21, h22, h23, h24, h1, h2 });
-            bookingDataGridView1.Dock = DockStyle.Fill;
-            bookingDataGridView1.EnableHeadersVisualStyles = false;
-            bookingDataGridView1.GridColor = Color.FromArgb(230, 230, 230);
-            bookingDataGridView1.Location = new Point(0, 0);
-            bookingDataGridView1.Margin = new Padding(2);
-            bookingDataGridView1.Name = "bookingDataGridView1";
-            bookingDataGridView1.RightToLeft = RightToLeft.Yes;
-            bookingDataGridView1.RowHeadersVisible = false;
-            bookingDataGridView1.RowHeadersWidth = 62;
-            bookingDataGridView1.RowTemplate.Height = 70;
-            bookingDataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            bookingDataGridView1.Size = new Size(970, 249);
-            bookingDataGridView1.TabIndex = 0;
-            // 
-            // staduim
-            // 
-            staduim.HeaderText = "الملعب";
-            staduim.MinimumWidth = 8;
-            staduim.Name = "staduim";
-            staduim.Width = 150;
-            // 
-            // h17
-            // 
-            h17.HeaderText = "17";
-            h17.MinimumWidth = 8;
-            h17.Name = "h17";
-            h17.Width = 150;
-            // 
-            // h18
-            // 
-            h18.HeaderText = "18";
-            h18.MinimumWidth = 8;
-            h18.Name = "h18";
-            h18.Width = 150;
-            // 
-            // h19
-            // 
-            h19.HeaderText = "19";
-            h19.MinimumWidth = 8;
-            h19.Name = "h19";
-            h19.Width = 150;
-            // 
-            // h20
-            // 
-            h20.HeaderText = "20";
-            h20.MinimumWidth = 8;
-            h20.Name = "h20";
-            h20.Width = 150;
-            // 
-            // h21
-            // 
-            h21.HeaderText = "21";
-            h21.MinimumWidth = 8;
-            h21.Name = "h21";
-            h21.Width = 150;
-            // 
-            // h22
-            // 
-            h22.HeaderText = "22";
-            h22.MinimumWidth = 8;
-            h22.Name = "h22";
-            h22.Width = 150;
-            // 
-            // h23
-            // 
-            h23.HeaderText = "23";
-            h23.MinimumWidth = 8;
-            h23.Name = "h23";
-            h23.Width = 150;
-            // 
-            // h24
-            // 
-            h24.HeaderText = "24";
-            h24.MinimumWidth = 8;
-            h24.Name = "h24";
-            h24.Width = 150;
-            // 
-            // h1
-            // 
-            h1.HeaderText = "1";
-            h1.MinimumWidth = 8;
-            h1.Name = "h1";
-            h1.Width = 150;
-            // 
-            // h2
-            // 
-            h2.HeaderText = "2";
-            h2.MinimumWidth = 8;
-            h2.Name = "h2";
-            h2.Width = 150;
+            stadiumGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            stadiumGrid1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Tajawal", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            stadiumGrid1.DefaultCellStyle = dataGridViewCellStyle2;
+            stadiumGrid1.EnableHeadersVisualStyles = false;
+            stadiumGrid1.GridColor = Color.White;
+            stadiumGrid1.Location = new Point(25, 272);
+            stadiumGrid1.Name = "stadiumGrid1";
+            stadiumGrid1.RightToLeft = RightToLeft.Yes;
+            stadiumGrid1.RowHeadersVisible = false;
+            stadiumGrid1.RowHeadersWidth = 51;
+            stadiumGrid1.RowTemplate.Height = 70;
+            stadiumGrid1.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            stadiumGrid1.Size = new Size(985, 406);
+            stadiumGrid1.TabIndex = 7;
             // 
             // Scheduling
             // 
@@ -556,15 +464,15 @@
             AutoScroll = true;
             BackColor = Color.FromArgb(248, 249, 250);
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1005, 638);
-            Controls.Add(panel2);
+            ClientSize = new Size(1043, 683);
+            Controls.Add(stadiumGrid1);
             Controls.Add(statusCard1);
             Controls.Add(statusCard4);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(2);
             Name = "Scheduling";
-            RightToLeft = RightToLeft.Yes;
+            RightToLeft = RightToLeft.No;
             RightToLeftLayout = true;
             Text = "Scheduling";
             Load += Scheduling_Load;
@@ -573,8 +481,7 @@
             statusCard4.ResumeLayout(false);
             statusCard1.ResumeLayout(false);
             statusCard1.PerformLayout();
-            panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)bookingDataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)stadiumGrid1).EndInit();
             ResumeLayout(false);
         }
 
@@ -601,18 +508,6 @@
         private CustomItems.PillButton pillButton4;
         private CustomItems.PillButton pillButton3;
         private CustomItems.PillButton pillButton2;
-        private Panel panel2;
-        private SportsApp.Controls.BookingDataGridView bookingDataGridView1;
-        private DataGridViewTextBoxColumn staduim;
-        private DataGridViewTextBoxColumn h17;
-        private DataGridViewTextBoxColumn h18;
-        private DataGridViewTextBoxColumn h19;
-        private DataGridViewTextBoxColumn h20;
-        private DataGridViewTextBoxColumn h21;
-        private DataGridViewTextBoxColumn h22;
-        private DataGridViewTextBoxColumn h23;
-        private DataGridViewTextBoxColumn h24;
-        private DataGridViewTextBoxColumn h1;
-        private DataGridViewTextBoxColumn h2;
+        private CustomItems.StadiumGrid stadiumGrid1;
     }
 }

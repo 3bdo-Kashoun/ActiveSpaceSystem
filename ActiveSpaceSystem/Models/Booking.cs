@@ -33,7 +33,7 @@
         EndTime = new TimeSpan(19, 0, 0),
         TotalAmount = 50,
         Status = BookingStatus.Confirmed,
-        Customer = new Customer { FullName = "أحمد محمد" },
+        Customer = new Customer { FullName = "أحمد محمد", Phone = "09125415236" },
         Court = new Court { CourtName = "ملعب المدينة 1" }
     },
     new Booking {
@@ -46,7 +46,7 @@
         EndTime = new TimeSpan(22, 30, 0), // حجز لمدة ساعة ونصف
         TotalAmount = 120,
         Status = BookingStatus.Completed,
-        Customer = new Customer { FullName = "سالم الفيتوري" },
+        Customer = new Customer { FullName = "سالم الفيتوري", Phone = "09123456789" },
         Court = new Court { CourtName = "ملعب البادل الرئيسي" }
     },
     new Booking {
@@ -59,7 +59,7 @@
         EndTime = new TimeSpan(22, 30, 0), // حجز لمدة ساعة ونصف
         TotalAmount = 50,
         Status = BookingStatus.Confirmed,
-        Customer = new Customer { FullName = "أحمد محمد" },
+        Customer = new Customer { FullName = "أحمد محمد", Phone = "09125415236" },
         Court = new Court { CourtName = "ملعب البادل الرئيسي" }
     }
 };

@@ -2,7 +2,6 @@ using ActiveSpace.Models;
 using System;
 using System.ComponentModel;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -10,28 +9,9 @@ namespace ActiveSpaceSystem.Forms.SideForms
 {
     public partial class ManageBooking : Form
     {
-        private string TextConfirmed = "مؤكد";
-        private string TextCompleted = "مكتمل الدفع";
-        private string TextCanceled = "ملغي";
-        private string TextPending = "قيد الانتظار";
-
-        private Color ColorConfirmedBack = Color.FromArgb(232, 244, 255);
-        private Color ColorConfirmedText = Color.FromArgb(0, 120, 215);
-        private Color ColorCompletedBack = Color.FromArgb(232, 245, 233);
-        private Color ColorCompletedText = Color.FromArgb(46, 125, 50);
-        private Color ColorCanceledBack = Color.FromArgb(255, 235, 238);
-        private Color ColorCanceledText = Color.FromArgb(198, 40, 40);
-        private Color ColorPendingBack = Color.FromArgb(255, 248, 225);
-        private Color ColorPendingText = Color.FromArgb(255, 143, 0);
-
-        // ألوان الأيقونات
-        private Color EditButtonBack = Color.FromArgb(200, 230, 255); // أزرق شفاف
-        private Color DeleteButtonBack = Color.FromArgb(255, 200, 200); // أحمر شفاف
-        private Color EditButtonColor = Color.FromArgb(13, 110, 253); // أزرق
-        private Color DeleteButtonColor = Color.FromArgb(220, 53, 69); // أحمر
-
         private BindingList<BookingViewModel> bookingsList;
         private ImageList actionImageList;
+        private BookingGridRenderer gridRenderer;
 
         public ManageBooking()
         {
@@ -47,61 +27,39 @@ namespace ActiveSpaceSystem.Forms.SideForms
             actionImageList = new ImageList();
             actionImageList.ImageSize = new Size(32, 32);
             actionImageList.ColorDepth = ColorDepth.Depth32Bit;
+            gridRenderer = new BookingGridRenderer(actionImageList);
 
-            // إنشاء أيقونة التعديل (قلم)
-            actionImageList.Images.Add("edit", CreateButtonIcon(EditButtonColor, isEdit: true));
-
-            // إنشاء أيقونة الحذف (سلة)
-            actionImageList.Images.Add("delete", CreateButtonIcon(DeleteButtonColor, isEdit: false));
-        }
-
-        private Image CreateButtonIcon(Color color, bool isEdit)
-        {
-            var bmp = new Bitmap(32, 32);
-            using (var g = Graphics.FromImage(bmp))
+            try
             {
-                g.Clear(Color.Transparent);
-                g.SmoothingMode = SmoothingMode.AntiAlias;
+                // تحميل صور الأيقونات من الموارد المدمجة
+                var assembly = typeof(ManageBooking).Assembly;
 
-                using (var pen = new Pen(color, 2.5f))
+                using (var editStream = assembly.GetManifestResourceStream("ActiveSpaceSystem.Resources.icons8-edit-48.png"))
                 {
-                    if (isEdit)
+                    if (editStream != null)
                     {
-                        // رسم قلم (Edit)
-                        g.DrawLine(pen, 6, 24, 22, 8);
-                        g.DrawLine(pen, 20, 6, 26, 12);
-                        g.DrawRectangle(pen, 16, 18, 12, 10);
+                        var editImage = Image.FromStream(editStream);
+                        actionImageList.Images.Add("edit", editImage);
                     }
-                    else
+                }
+
+                using (var deleteStream = assembly.GetManifestResourceStream("ActiveSpaceSystem.Resources.icons8-delete-48.png"))
+                {
+                    if (deleteStream != null)
                     {
-                        // رسم سلة (Delete)
-                        g.DrawLine(pen, 8, 10, 24, 10);
-                        g.DrawLine(pen, 10, 10, 10, 26);
-                        g.DrawLine(pen, 22, 10, 22, 26);
-                        g.DrawRectangle(pen, 9, 6, 14, 4);
+                        var deleteImage = Image.FromStream(deleteStream);
+                        actionImageList.Images.Add("delete", deleteImage);
                     }
                 }
             }
-            return bmp;
-        }
-
-        private GraphicsPath CreateRoundedRectangle(Rectangle rect, int radius)
-        {
-            var path = new GraphicsPath();
-            int d = radius * 2;
-
-            path.AddArc(rect.X, rect.Y, d, d, 180, 90);
-            path.AddArc(rect.Right - d, rect.Y, d, d, 270, 90);
-            path.AddArc(rect.Right - d, rect.Bottom - d, d, d, 0, 90);
-            path.AddArc(rect.X, rect.Bottom - d, d, d, 90, 90);
-            path.CloseFigure();
-
-            return path;
+            catch
+            {
+                // إذا فشل تحميل الصور، يتم ترك ImageList فارغاً
+            }
         }
 
         private void SetupGrid()
         {
-
             dgvBookings.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             dgvBookings.EditMode = DataGridViewEditMode.EditProgrammatically;
 
@@ -194,98 +152,12 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
             if (dgvBookings.Columns[e.ColumnIndex].Name == "Status")
             {
-                e.Paint(e.CellBounds, DataGridViewPaintParts.All & ~DataGridViewPaintParts.ContentForeground);
-
                 BookingStatus status = (BookingStatus)e.Value;
-                string displayStatus = "";
-                Color backColor = Color.White;
-                Color textColor = Color.Black;
-
-                switch (status)
-                {
-                    case BookingStatus.Confirmed:
-                        displayStatus = TextConfirmed;
-                        backColor = ColorConfirmedBack;
-                        textColor = ColorConfirmedText;
-                        break;
-                    case BookingStatus.Completed:
-                        displayStatus = TextCompleted;
-                        backColor = ColorCompletedBack;
-                        textColor = ColorCompletedText;
-                        break;
-                    case BookingStatus.Canceled:
-                        displayStatus = TextCanceled;
-                        backColor = ColorCanceledBack;
-                        textColor = ColorCanceledText;
-                        break;
-                    default:
-                        displayStatus = TextPending;
-                        backColor = ColorPendingBack;
-                        textColor = ColorPendingText;
-                        break;
-                }
-
-                // رسم الشكل البيضاوي (Capsule)
-                Rectangle rect = new Rectangle(e.CellBounds.X + 10, e.CellBounds.Y + 15, 
-                                               Math.Max(0, e.CellBounds.Width - 20), 
-                                               Math.Max(0, e.CellBounds.Height - 30));
-
-                e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-
-                if (rect.Width > 0 && rect.Height > 0)
-                {
-                    using (GraphicsPath path = new GraphicsPath())
-                    {
-                        int d = rect.Height;
-                        if (d > 0)
-                        {
-                            path.AddArc(rect.X, rect.Y, d, d, 90, 180);
-                            path.AddArc(rect.Right - d, rect.Y, d, d, 270, 180);
-                            path.CloseFigure();
-
-                            using (SolidBrush sb = new SolidBrush(backColor))
-                                e.Graphics.FillPath(sb, path);
-                        }
-                    }
-                }
-
-                TextRenderer.DrawText(e.Graphics, displayStatus, e.CellStyle.Font, e.CellBounds, 
-                                      textColor, TextFormatFlags.VerticalCenter | TextFormatFlags.HorizontalCenter);
-                e.Handled = true;
+                gridRenderer.RenderStatusCell(e, status);
             }
             else if (dgvBookings.Columns[e.ColumnIndex].Name == "Actions")
             {
-                e.Paint(e.CellBounds, DataGridViewPaintParts.All & ~DataGridViewPaintParts.ContentForeground);
-
-                if (actionImageList?.Images.Count >= 2)
-                {
-                    int iconSize = 32;
-                    int spacing = 15;
-                    int totalWidth = (iconSize * 2) + spacing;
-                    int centerX = e.CellBounds.X + (e.CellBounds.Width - totalWidth) / 2;
-                    int centerY = e.CellBounds.Y + (e.CellBounds.Height - iconSize) / 2;
-                    int cornerRadius = 8;
-
-                    e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-
-                    // رسم خلفية التعديل (أزرق شفاف) برواديوس
-                    var editBackRect = new Rectangle(centerX, centerY, iconSize, iconSize);
-                    using (var path = CreateRoundedRectangle(editBackRect, cornerRadius))
-                    using (var brush = new SolidBrush(EditButtonBack))
-                        e.Graphics.FillPath(brush, path);
-
-                    // رسم خلفية الحذف (أحمر شفاف) برواديوس
-                    var deleteBackRect = new Rectangle(centerX + iconSize + spacing, centerY, iconSize, iconSize);
-                    using (var path = CreateRoundedRectangle(deleteBackRect, cornerRadius))
-                    using (var brush = new SolidBrush(DeleteButtonBack))
-                        e.Graphics.FillPath(brush, path);
-
-                    // رسم الأيقونات
-                    e.Graphics.DrawImage(actionImageList.Images["edit"], editBackRect);
-                    e.Graphics.DrawImage(actionImageList.Images["delete"], deleteBackRect);
-                }
-
-                e.Handled = true;
+                gridRenderer.RenderActionsCell(e);
             }
         }
 
@@ -304,21 +176,12 @@ namespace ActiveSpaceSystem.Forms.SideForms
                 var mousePos = dgvBookings.PointToClient(Cursor.Position);
                 int relativeX = mousePos.X - cellRect.X;
 
-                int iconSize = 32;
-                int spacing = 15;
-                int totalWidth = (iconSize * 2) + spacing;
-                int centerX = (cellRect.Width - totalWidth) / 2;
+                var (isEdit, isDelete) = gridRenderer.GetClickedButton(cellRect, relativeX);
 
-                // منطقة التعديل
-                if (relativeX >= centerX && relativeX < centerX + iconSize)
-                {
+                if (isEdit)
                     HandleEditClick(e.RowIndex);
-                }
-                // منطقة الحذف
-                else if (relativeX >= centerX + iconSize + spacing && relativeX < centerX + totalWidth)
-                {
+                else if (isDelete)
                     HandleDeleteClick(e.RowIndex);
-                }
             }
         }
 

@@ -27,4 +27,9 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\icons8-edit-48.png" />
+    <EmbeddedResource Include="Resources\icons8-delete-48.png" />
+  </ItemGroup>
+
 </Project>

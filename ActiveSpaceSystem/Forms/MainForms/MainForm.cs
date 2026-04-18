@@ -102,7 +102,7 @@ namespace ActiveSpaceSystem.Forms.MainForms
         {
             ActivateButton(button6);
             // لو لم يوجد نموذج للعملاء يمكن عمل رسالة أو إنشاء نموذج مؤقت
-            MessageBox.Show("شاشة العملاء قيد التطوير");
+            ShowFormInPanel(new MangeCustomers());
         }
 
         private void button8_Click(object sender, EventArgs e)   // الإعدادات

@@ -44,6 +44,7 @@
             button1 = new Button();
             button3 = new Button();
             panel4 = new Panel();
+            pictureBox3 = new PictureBox();
             panel2 = new Panel();
             lblDate = new Label();
             button9 = new Button();
@@ -54,6 +55,8 @@
             panel1.SuspendLayout();
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -265,11 +268,22 @@
             // 
             // panel4
             // 
+            panel4.Controls.Add(pictureBox3);
             panel4.Dock = DockStyle.Top;
             panel4.Location = new Point(0, 0);
             panel4.Name = "panel4";
             panel4.Size = new Size(240, 117);
             panel4.TabIndex = 4;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Dock = DockStyle.Right;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(44, 0);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(196, 117);
+            pictureBox3.TabIndex = 0;
+            pictureBox3.TabStop = false;
             // 
             // panel2
             // 
@@ -335,7 +349,7 @@
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(0, 70);
             panel3.Name = "panel3";
-            panel3.Padding = new Padding(20, 20, 20, 20);
+            panel3.Padding = new Padding(20);
             panel3.Size = new Size(1022, 683);
             panel3.TabIndex = 2;
             // 
@@ -362,6 +376,8 @@
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -391,5 +407,6 @@
         private Button button9;
         private System.Windows.Forms.Timer timer1;
         private Label lblDate;
+        private PictureBox pictureBox3;
     }
 }

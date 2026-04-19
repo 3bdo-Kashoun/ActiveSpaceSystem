@@ -178,6 +178,7 @@
             statusCard4.ValueColor = Color.FromArgb(46, 204, 113);
             statusCard4.ValueFont = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             statusCard4.ValueText = "";
+            statusCard4.Paint += statusCard4_Paint;
             // 
             // roundedButton1
             // 

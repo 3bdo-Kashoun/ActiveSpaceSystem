@@ -45,22 +45,20 @@
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1108, 88);
+            panel1.Size = new Size(886, 70);
             panel1.TabIndex = 4;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Tajawal Medium", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(835, 21);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(698, 9);
             label1.Name = "label1";
-            label1.Size = new Size(245, 46);
+            label1.Size = new Size(175, 41);
             label1.TabIndex = 0;
-            label1.Text = "إدارة المستخدمين";
+            label1.Text = "إدارة النظام";
             // 
             // abdulTextBox2
             // 
@@ -72,12 +70,12 @@
             abdulTextBox2.Icon = null;
             abdulTextBox2.IconLocation = HorizontalAlignment.Right;
             abdulTextBox2.IconSize = 30;
-            abdulTextBox2.Location = new Point(278, 257);
+            abdulTextBox2.Location = new Point(222, 206);
             abdulTextBox2.Margin = new Padding(2);
             abdulTextBox2.Name = "abdulTextBox2";
             abdulTextBox2.PlaceholderText = "";
             abdulTextBox2.RightToLeft = RightToLeft.Yes;
-            abdulTextBox2.Size = new Size(793, 58);
+            abdulTextBox2.Size = new Size(634, 46);
             abdulTextBox2.TabIndex = 6;
             abdulTextBox2.Texts = "1.0.0";
             // 
@@ -92,42 +90,45 @@
             abdulTextBox3.Icon = null;
             abdulTextBox3.IconLocation = HorizontalAlignment.Right;
             abdulTextBox3.IconSize = 30;
-            abdulTextBox3.Location = new Point(278, 374);
+            abdulTextBox3.Location = new Point(222, 299);
             abdulTextBox3.Margin = new Padding(2);
             abdulTextBox3.Name = "abdulTextBox3";
             abdulTextBox3.PlaceholderText = "";
             abdulTextBox3.RightToLeft = RightToLeft.Yes;
-            abdulTextBox3.Size = new Size(793, 58);
+            abdulTextBox3.Size = new Size(634, 46);
             abdulTextBox3.TabIndex = 7;
             abdulTextBox3.Texts = "Active Space Team";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Tahoma", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(949, 92);
+            label2.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold);
+            label2.Location = new Point(759, 74);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(131, 27);
+            label2.Size = new Size(110, 25);
             label2.TabIndex = 8;
             label2.Text = "اسم النظام";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Tahoma", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(937, 215);
+            label3.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold);
+            label3.Location = new Point(750, 172);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(141, 27);
+            label3.Size = new Size(119, 25);
             label3.TabIndex = 9;
             label3.Text = "اصدار النظام";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Tahoma", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(988, 336);
+            label4.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold);
+            label4.Location = new Point(790, 269);
+            label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(83, 27);
+            label4.Size = new Size(71, 25);
             label4.TabIndex = 10;
             label4.Text = "المطور";
             // 
@@ -140,9 +141,10 @@
             roundedButton1.FlatAppearance.BorderSize = 0;
             roundedButton1.FlatStyle = FlatStyle.Flat;
             roundedButton1.ForeColor = Color.White;
-            roundedButton1.Location = new Point(101, 134);
+            roundedButton1.Location = new Point(81, 107);
+            roundedButton1.Margin = new Padding(2);
             roundedButton1.Name = "roundedButton1";
-            roundedButton1.Size = new Size(113, 57);
+            roundedButton1.Size = new Size(90, 46);
             roundedButton1.TabIndex = 5;
             roundedButton1.Text = "حفظ";
             roundedButton1.UseVisualStyleBackColor = false;
@@ -156,22 +158,22 @@
             abdulTextBox1.Icon = null;
             abdulTextBox1.IconLocation = HorizontalAlignment.Right;
             abdulTextBox1.IconSize = 30;
-            abdulTextBox1.Location = new Point(278, 133);
+            abdulTextBox1.Location = new Point(222, 106);
             abdulTextBox1.Margin = new Padding(2);
             abdulTextBox1.Name = "abdulTextBox1";
             abdulTextBox1.PlaceholderText = "";
             abdulTextBox1.RightToLeft = RightToLeft.Yes;
-            abdulTextBox1.Size = new Size(793, 58);
+            abdulTextBox1.Size = new Size(634, 46);
             abdulTextBox1.TabIndex = 3;
             abdulTextBox1.Texts = "Active Space";
             // 
             // AboutSettings
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.FromArgb(248, 250, 252);
-            ClientSize = new Size(1108, 465);
+            ClientSize = new Size(886, 372);
             Controls.Add(label4);
             Controls.Add(abdulTextBox3);
             Controls.Add(label3);
@@ -181,6 +183,7 @@
             Controls.Add(panel1);
             Controls.Add(abdulTextBox1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(2);
             Name = "AboutSettings";
             Text = "AboutSettings";
             panel1.ResumeLayout(false);

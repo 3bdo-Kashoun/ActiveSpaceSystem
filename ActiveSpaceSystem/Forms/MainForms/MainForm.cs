@@ -108,7 +108,7 @@ namespace ActiveSpaceSystem.Forms.MainForms
         private void button8_Click(object sender, EventArgs e)   // الإعدادات
         {
             ActivateButton(button8);
-            MessageBox.Show("شاشة الإعدادات قيد التطوير");
+            ShowFormInPanel(new Settings());
         }
 
         private void button3_Click_1(object sender, EventArgs e)

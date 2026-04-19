@@ -65,7 +65,7 @@
             roundedButton1.FlatStyle = FlatStyle.Flat;
             roundedButton1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             roundedButton1.ForeColor = Color.White;
-            roundedButton1.Image = Properties.Resources.icons8_plus_24;
+            roundedButton1.Image = Properties.Resources.icons8_edit_48;
             roundedButton1.Location = new Point(91, 32);
             roundedButton1.Name = "roundedButton1";
             roundedButton1.Size = new Size(225, 75);

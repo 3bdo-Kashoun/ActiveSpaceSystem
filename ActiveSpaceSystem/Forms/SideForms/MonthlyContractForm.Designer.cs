@@ -52,8 +52,9 @@
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(4, 4, 4, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1022, 125);
+            panel1.Size = new Size(1278, 156);
             panel1.TabIndex = 0;
             // 
             // myGunaButton1
@@ -62,13 +63,14 @@
             myGunaButton1.BorderRadius = 20;
             myGunaButton1.FlatAppearance.BorderSize = 0;
             myGunaButton1.FlatStyle = FlatStyle.Flat;
-            myGunaButton1.Font = new Font("Tajawal", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            myGunaButton1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             myGunaButton1.ForeColor = Color.White;
             myGunaButton1.HoverBackColor = Color.FromArgb(29, 53, 87);
-            myGunaButton1.Location = new Point(50, 50);
+            myGunaButton1.Location = new Point(62, 62);
+            myGunaButton1.Margin = new Padding(4, 4, 4, 4);
             myGunaButton1.Name = "myGunaButton1";
             myGunaButton1.NormalBackColor = Color.FromArgb(39, 191, 141);
-            myGunaButton1.Size = new Size(188, 47);
+            myGunaButton1.Size = new Size(235, 59);
             myGunaButton1.TabIndex = 7;
             myGunaButton1.Text = "إضافة عقد جديد";
             myGunaButton1.UseVisualStyleBackColor = false;
@@ -76,23 +78,25 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Tajawal", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.DimGray;
-            label3.Location = new Point(699, 84);
+            label3.Location = new Point(874, 105);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.RightToLeft = RightToLeft.Yes;
-            label3.Size = new Size(275, 23);
+            label3.Size = new Size(297, 25);
             label3.TabIndex = 6;
             label3.Text = "إدارة الحجوزات المتكررة والعقود الدورية";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Tajawal Medium", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.MidnightBlue;
-            label1.Location = new Point(714, 26);
+            label1.Location = new Point(892, 32);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(260, 48);
+            label1.Size = new Size(224, 46);
             label1.TabIndex = 0;
             label1.Text = "العقود الشهرية";
             // 
@@ -103,17 +107,18 @@
             infoBox1.BorderRadius = 15;
             infoBox1.Description = "العقود الشهرية تتيح حجز موعد ثابت أسبوعياً لفترة محددة. مثلاً: حجز ملعب كرة القدم كل يوم سبت الساعة 6 مساءً لمدة 3 أشهر";
             infoBox1.DescriptionColor = Color.FromArgb(69, 123, 157);
-            infoBox1.DescriptionFont = new Font("Tajawal", 9F);
+            infoBox1.DescriptionFont = new Font("Microsoft Sans Serif", 9F);
             infoBox1.FillColor = Color.FromArgb(240, 248, 255);
             infoBox1.Icon = null;
             infoBox1.IconSize = 25;
-            infoBox1.Location = new Point(50, 140);
+            infoBox1.Location = new Point(62, 175);
+            infoBox1.Margin = new Padding(4, 4, 4, 4);
             infoBox1.Name = "infoBox1";
-            infoBox1.Size = new Size(924, 97);
+            infoBox1.Size = new Size(1155, 121);
             infoBox1.TabIndex = 1;
             infoBox1.Title = "ما هي العقود الشهرية؟";
             infoBox1.TitleColor = Color.FromArgb(29, 53, 87);
-            infoBox1.TitleFont = new Font("Tajawal", 14F, FontStyle.Bold);
+            infoBox1.TitleFont = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold);
             // 
             // statusCard1
             // 
@@ -121,19 +126,20 @@
             statusCard1.BorderColor = Color.FromArgb(240, 240, 240);
             statusCard1.BorderRadius = 15;
             statusCard1.CardBackColor = Color.White;
-            statusCard1.Location = new Point(10, 3);
+            statusCard1.Location = new Point(13, 4);
+            statusCard1.Margin = new Padding(4, 4, 4, 4);
             statusCard1.Name = "statusCard1";
-            statusCard1.Padding = new Padding(5);
+            statusCard1.Padding = new Padding(6, 6, 6, 6);
             statusCard1.ShadowBlur = 5;
             statusCard1.ShadowColor = Color.FromArgb(100, 0, 0, 0);
             statusCard1.ShowShadow = true;
-            statusCard1.Size = new Size(306, 106);
+            statusCard1.Size = new Size(382, 132);
             statusCard1.TabIndex = 2;
             statusCard1.TitleColor = Color.Gray;
-            statusCard1.TitleFont = new Font("Tajawal", 10F);
+            statusCard1.TitleFont = new Font("Microsoft Sans Serif", 10F);
             statusCard1.TitleText = "العقود النشطة";
             statusCard1.ValueColor = Color.FromArgb(46, 204, 113);
-            statusCard1.ValueFont = new Font("Tajawal", 18F, FontStyle.Bold);
+            statusCard1.ValueFont = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             statusCard1.ValueText = "18";
             // 
             // statusCard2
@@ -142,19 +148,20 @@
             statusCard2.BorderColor = Color.FromArgb(240, 240, 240);
             statusCard2.BorderRadius = 15;
             statusCard2.CardBackColor = Color.White;
-            statusCard2.Location = new Point(322, 3);
+            statusCard2.Location = new Point(403, 4);
+            statusCard2.Margin = new Padding(4, 4, 4, 4);
             statusCard2.Name = "statusCard2";
-            statusCard2.Padding = new Padding(5);
+            statusCard2.Padding = new Padding(6, 6, 6, 6);
             statusCard2.ShadowBlur = 5;
             statusCard2.ShadowColor = Color.FromArgb(100, 0, 0, 0);
             statusCard2.ShowShadow = true;
-            statusCard2.Size = new Size(306, 106);
+            statusCard2.Size = new Size(382, 132);
             statusCard2.TabIndex = 3;
             statusCard2.TitleColor = Color.Gray;
-            statusCard2.TitleFont = new Font("Tajawal", 10F);
+            statusCard2.TitleFont = new Font("Microsoft Sans Serif", 10F);
             statusCard2.TitleText = "الإيرادات الشهرية المتوقعة";
             statusCard2.ValueColor = Color.FromArgb(30, 58, 138);
-            statusCard2.ValueFont = new Font("Tajawal", 18F, FontStyle.Bold);
+            statusCard2.ValueFont = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             statusCard2.ValueText = "15,200 د.ل";
             // 
             // statusCard3
@@ -163,19 +170,20 @@
             statusCard3.BorderColor = Color.FromArgb(240, 240, 240);
             statusCard3.BorderRadius = 15;
             statusCard3.CardBackColor = Color.White;
-            statusCard3.Location = new Point(634, 3);
+            statusCard3.Location = new Point(793, 4);
+            statusCard3.Margin = new Padding(4, 4, 4, 4);
             statusCard3.Name = "statusCard3";
-            statusCard3.Padding = new Padding(5);
+            statusCard3.Padding = new Padding(6, 6, 6, 6);
             statusCard3.ShadowBlur = 5;
             statusCard3.ShadowColor = Color.FromArgb(100, 0, 0, 0);
             statusCard3.ShowShadow = true;
-            statusCard3.Size = new Size(306, 106);
+            statusCard3.Size = new Size(382, 132);
             statusCard3.TabIndex = 4;
             statusCard3.TitleColor = Color.Gray;
-            statusCard3.TitleFont = new Font("Tajawal", 10F);
+            statusCard3.TitleFont = new Font("Microsoft Sans Serif", 10F);
             statusCard3.TitleText = "عقود تنتهي هذا الشهر";
             statusCard3.ValueColor = Color.FromArgb(245, 158, 11);
-            statusCard3.ValueFont = new Font("Tajawal", 18F, FontStyle.Bold);
+            statusCard3.ValueFont = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             statusCard3.ValueText = "3";
             // 
             // dgvMonthlyContract
@@ -190,7 +198,7 @@
             dgvMonthlyContract.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(243, 244, 246);
-            dataGridViewCellStyle1.Font = new Font("Tajawal", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = Color.FromArgb(33, 37, 41);
             dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(243, 244, 246);
             dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(33, 37, 41);
@@ -199,7 +207,7 @@
             dgvMonthlyContract.ColumnHeadersHeight = 50;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Tajawal", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(240, 245, 255);
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
@@ -209,7 +217,8 @@
             dgvMonthlyContract.GridColor = Color.FromArgb(230, 230, 230);
             dgvMonthlyContract.HeaderBackColor = Color.FromArgb(243, 244, 246);
             dgvMonthlyContract.HeaderForeColor = Color.FromArgb(33, 37, 41);
-            dgvMonthlyContract.Location = new Point(50, 394);
+            dgvMonthlyContract.Location = new Point(62, 492);
+            dgvMonthlyContract.Margin = new Padding(4, 4, 4, 4);
             dgvMonthlyContract.MultiSelect = false;
             dgvMonthlyContract.Name = "dgvMonthlyContract";
             dgvMonthlyContract.RightToLeft = RightToLeft.Yes;
@@ -218,31 +227,34 @@
             dgvMonthlyContract.RowHeight = 50;
             dgvMonthlyContract.RowTemplate.Height = 50;
             dgvMonthlyContract.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvMonthlyContract.Size = new Size(924, 277);
+            dgvMonthlyContract.Size = new Size(1155, 346);
             dgvMonthlyContract.TabIndex = 5;
+            dgvMonthlyContract.CellContentClick += dgvMonthlyContract_CellContentClick;
             // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Controls.Add(statusCard3);
             flowLayoutPanel1.Controls.Add(statusCard2);
             flowLayoutPanel1.Controls.Add(statusCard1);
-            flowLayoutPanel1.Location = new Point(31, 239);
+            flowLayoutPanel1.Location = new Point(39, 299);
+            flowLayoutPanel1.Margin = new Padding(4, 4, 4, 4);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.RightToLeft = RightToLeft.Yes;
-            flowLayoutPanel1.Size = new Size(943, 173);
+            flowLayoutPanel1.Size = new Size(1179, 216);
             flowLayoutPanel1.TabIndex = 6;
             // 
             // MonthlyContractForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(248, 249, 250);
-            ClientSize = new Size(1022, 683);
+            ClientSize = new Size(1278, 854);
             Controls.Add(dgvMonthlyContract);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(infoBox1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 4, 4, 4);
             Name = "MonthlyContractForm";
             Text = "MonthlyContractForm";
             Load += MonthlyContractForm_Load_1;

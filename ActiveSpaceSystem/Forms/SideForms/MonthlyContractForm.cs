@@ -69,7 +69,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
             dgvMonthlyContract.Columns["EndDate"].HeaderText = "تاريخ النهاية";
             dgvMonthlyContract.Columns["Amount"].HeaderText = "المبلغ الإجمالي";
             dgvMonthlyContract.Columns["Status"].HeaderText = "الحالة";
-            
+
         }
 
         // حدث الرسم المخصص للحالات
@@ -135,6 +135,11 @@ namespace ActiveSpaceSystem.Forms.SideForms
                 {"Tuesday", "الثلاثاء"}, {"Wednesday", "الأربعاء"}, {"Thursday", "الخميس"}, {"Friday", "الجمعة"}
             };
             return days.ContainsKey(englishDay) ? days[englishDay] : englishDay;
+        }
+
+        private void dgvMonthlyContract_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

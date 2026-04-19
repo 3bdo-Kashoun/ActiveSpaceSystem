@@ -60,7 +60,6 @@
             roundedButton1.FlatStyle = FlatStyle.Flat;
             roundedButton1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             roundedButton1.ForeColor = Color.White;
-            roundedButton1.Image = Properties.Resources.icons8_plus_24;
             roundedButton1.Location = new Point(88, 57);
             roundedButton1.Name = "roundedButton1";
             roundedButton1.Size = new Size(225, 67);
@@ -112,26 +111,28 @@
             // 
             // userListItem2
             // 
-            userListItem2.BackColor = Color.White;
-            userListItem2.Location = new Point(3, 99);
+            userListItem2.BackColor = Color.FromArgb(243, 244, 246);
+            userListItem2.EditIcon = Properties.Resources.icons8_edit_48;
+            userListItem2.Location = new Point(0, 103);
             userListItem2.Name = "userListItem2";
             userListItem2.Padding = new Padding(10);
             userListItem2.RoleColor = Color.Silver;
             userListItem2.RoleText = "محاسب";
-            userListItem2.Size = new Size(1031, 94);
+            userListItem2.Size = new Size(1031, 90);
             userListItem2.TabIndex = 1;
             userListItem2.UserEmail = "abdo@gmail.com";
             userListItem2.UserName = "عبد المهيمن كشون";
             // 
             // userListItem1
             // 
-            userListItem1.BackColor = Color.White;
+            userListItem1.BackColor = Color.FromArgb(243, 244, 246);
+            userListItem1.EditIcon = Properties.Resources.icons8_edit_48;
             userListItem1.Location = new Point(0, 3);
             userListItem1.Name = "userListItem1";
             userListItem1.Padding = new Padding(10);
             userListItem1.RoleColor = Color.FromArgb(46, 204, 113);
             userListItem1.RoleText = "مدير النظام";
-            userListItem1.Size = new Size(1031, 94);
+            userListItem1.Size = new Size(1028, 94);
             userListItem1.TabIndex = 0;
             userListItem1.UserEmail = "moha@gmail.com";
             userListItem1.UserName = "محمد يوسف";

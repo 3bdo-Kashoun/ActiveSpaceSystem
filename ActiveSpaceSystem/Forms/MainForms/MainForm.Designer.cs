@@ -393,6 +393,7 @@
             Margin = new Padding(4, 4, 4, 4);
             Name = "MainForm";
             RightToLeft = RightToLeft.No;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             Load += MainForm_Load;
             panel1.ResumeLayout(false);

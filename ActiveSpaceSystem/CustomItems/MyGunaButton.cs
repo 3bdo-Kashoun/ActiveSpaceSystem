@@ -1,82 +1,109 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-using System.ComponentModel;
 
 namespace ActiveSpaceSystem.CustomItems
 {
+    [ToolboxItem(true)]
     public class MyGunaButton : Button
     {
         [Category("Guna Style")]
-        public int BorderRadius { get; set; } = 20;
+        public int BorderRadius { get; set; } = 15;
 
         [Category("Guna Style")]
-        public Color HoverBackColor { get; set; } = Color.FromArgb(29, 53, 87);
+        public Color HoverBackColor { get; set; } = Color.FromArgb(28, 50, 85);
 
         [Category("Guna Style")]
-        public Color NormalBackColor { get; set; } = Color.FromArgb(26, 188, 156);
+        public Color NormalBackColor { get; set; } = Color.SteelBlue;
 
+        private Font _defaultFont = new Font("Segoe UI Variable Display", 12, FontStyle.Bold);
         private bool isHovering = false;
 
         public MyGunaButton()
         {
             this.FlatStyle = FlatStyle.Flat;
             this.FlatAppearance.BorderSize = 0;
+            // السطرين القادمين لمنع الويندوز من رسم أي إطار عند الضغط أو التركيز
+            this.FlatAppearance.MouseDownBackColor = HoverBackColor;
+            this.FlatAppearance.MouseOverBackColor = HoverBackColor;
+
             this.BackColor = NormalBackColor;
             this.ForeColor = Color.White;
             this.Size = new Size(150, 45);
             this.Cursor = Cursors.Hand;
-            this.UseVisualStyleBackColor = false; // مهم جداً في .NET 8
+            this.Font = _defaultFont;
+            this.UseVisualStyleBackColor = false;
         }
+
+        // إلغاء مستطيل التركيز نهائياً
+        protected override bool ShowFocusCues => false;
 
         protected override void OnMouseEnter(EventArgs e)
         {
-            base.OnMouseEnter(e);
             isHovering = true;
-            this.BackColor = HoverBackColor;
+            this.Invalidate();
+            base.OnMouseEnter(e);
         }
 
         protected override void OnMouseLeave(EventArgs e)
         {
-            base.OnMouseLeave(e);
             isHovering = false;
-            this.BackColor = NormalBackColor;
+            this.Invalidate();
+            base.OnMouseLeave(e);
         }
 
         protected override void OnPaint(PaintEventArgs pevent)
         {
-            base.OnPaint(pevent);
-            pevent.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+            // لا تستخدم base.OnPaint
+            Graphics g = pevent.Graphics;
+            g.SmoothingMode = SmoothingMode.AntiAlias;
+            g.PixelOffsetMode = PixelOffsetMode.HighQuality;
 
-            Rectangle rect = new Rectangle(0, 0, this.Width, this.Height);
+            Color currentBgColor = isHovering ? HoverBackColor : NormalBackColor;
 
-            // تصحيح رسم المسار للحواف الدائرية
+            // تحديد المستطيل مع تصغيره قليلاً جداً لتفادي حواف الويندوز المزعجة
+            RectangleF rect = new RectangleF(0.5f, 0.5f, this.Width - 1, this.Height - 1);
+            float r = BorderRadius;
+
             using (GraphicsPath path = new GraphicsPath())
             {
-                int d = BorderRadius;
-                if (d > 1)
+                path.AddArc(rect.X, rect.Y, r * 2, r * 2, 180, 90);
+                path.AddArc(rect.Width - (r * 2), rect.Y, r * 2, r * 2, 270, 90);
+                path.AddArc(rect.Width - (r * 2), rect.Height - (r * 2), r * 2, r * 2, 0, 90);
+                path.AddArc(rect.X, rect.Height - (r * 2), r * 2, r * 2, 90, 90);
+                path.CloseFigure();
+
+                this.Region = new Region(path); // قص الحواف الفيزيائية للزر
+
+                using (SolidBrush brush = new SolidBrush(currentBgColor))
                 {
-                    path.AddArc(0, 0, d, d, 180, 90);
-                    path.AddArc(this.Width - d, 0, d, d, 270, 90);
-                    path.AddArc(this.Width - d, this.Height - d, d, d, 0, 90);
-                    path.AddArc(0, this.Height - d, d, d, 90, 90);
-                    path.CloseFigure();
-                    this.Region = new Region(path);
+                    g.FillPath(brush, path);
+                }
+
+                // إضافة قلم (Pen) بنفس لون الخلفية لرسم إطار ناعم يخفي عيوب القص
+                using (Pen pen = new Pen(currentBgColor, 1.5f))
+                {
+                    g.DrawPath(pen, path);
                 }
             }
 
-            // رسم النص في المنتصف
-            TextRenderer.DrawText(pevent.Graphics, this.Text, this.Font, rect, this.ForeColor,
-                TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);
+            // رسم الأيقونة والنص
+            int iconSize = 24;
+            int padding = 20;
+            int textX = padding;
 
-            // رسم الأيقونة لو موجودة
             if (this.Image != null)
             {
-                int iconSize = 20;
                 int yPos = (this.Height - iconSize) / 2;
-                pevent.Graphics.DrawImage(this.Image, new Rectangle(10, yPos, iconSize, iconSize));
+                g.DrawImage(this.Image, new Rectangle(padding, yPos, iconSize, iconSize));
+                textX = padding + iconSize + 12;
             }
+
+            Rectangle textRect = new Rectangle(textX, 0, this.Width - textX, this.Height);
+            TextRenderer.DrawText(g, this.Text, this.Font, textRect, this.ForeColor,
+                TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
         }
     }
 }

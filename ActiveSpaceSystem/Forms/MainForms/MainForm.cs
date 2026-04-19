@@ -56,7 +56,7 @@ namespace ActiveSpaceSystem.Forms.MainForms
             panel3.Controls.Clear();
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.None;
-            
+
             panel3.Controls.Add(form);
             form.Show();
         }
@@ -109,6 +109,11 @@ namespace ActiveSpaceSystem.Forms.MainForms
         {
             ActivateButton(button8);
             MessageBox.Show("شاشة الإعدادات قيد التطوير");
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

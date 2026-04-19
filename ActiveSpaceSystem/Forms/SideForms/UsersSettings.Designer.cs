@@ -47,7 +47,7 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1130, 149);
+            panel1.Size = new Size(1130, 86);
             panel1.TabIndex = 2;
             // 
             // roundedButton1
@@ -60,9 +60,9 @@
             roundedButton1.FlatStyle = FlatStyle.Flat;
             roundedButton1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             roundedButton1.ForeColor = Color.White;
-            roundedButton1.Location = new Point(88, 57);
+            roundedButton1.Location = new Point(34, 12);
             roundedButton1.Name = "roundedButton1";
-            roundedButton1.Size = new Size(225, 67);
+            roundedButton1.Size = new Size(225, 70);
             roundedButton1.TabIndex = 7;
             roundedButton1.Text = "إضافة مستخدم ";
             roundedButton1.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -73,7 +73,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(834, 61);
+            label1.Location = new Point(852, 17);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(245, 46);
@@ -91,10 +91,10 @@
             infoBox1.FillColor = Color.FromArgb(240, 248, 255);
             infoBox1.Icon = null;
             infoBox1.IconSize = 25;
-            infoBox1.Location = new Point(48, 166);
+            infoBox1.Location = new Point(34, 94);
             infoBox1.Margin = new Padding(4);
             infoBox1.Name = "infoBox1";
-            infoBox1.Size = new Size(1031, 121);
+            infoBox1.Size = new Size(1042, 121);
             infoBox1.TabIndex = 3;
             infoBox1.Title = "إدارة صلاحيات المستخدمين";
             infoBox1.TitleColor = Color.FromArgb(29, 53, 87);
@@ -104,9 +104,9 @@
             // 
             panel2.Controls.Add(userListItem2);
             panel2.Controls.Add(userListItem1);
-            panel2.Location = new Point(48, 312);
+            panel2.Location = new Point(34, 240);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1031, 193);
+            panel2.Size = new Size(1052, 193);
             panel2.TabIndex = 4;
             // 
             // userListItem2
@@ -118,7 +118,7 @@
             userListItem2.Padding = new Padding(10);
             userListItem2.RoleColor = Color.Silver;
             userListItem2.RoleText = "محاسب";
-            userListItem2.Size = new Size(1031, 90);
+            userListItem2.Size = new Size(1049, 90);
             userListItem2.TabIndex = 1;
             userListItem2.UserEmail = "abdo@gmail.com";
             userListItem2.UserName = "عبد المهيمن كشون";
@@ -132,15 +132,15 @@
             userListItem1.Padding = new Padding(10);
             userListItem1.RoleColor = Color.FromArgb(46, 204, 113);
             userListItem1.RoleText = "مدير النظام";
-            userListItem1.Size = new Size(1028, 94);
+            userListItem1.Size = new Size(1049, 94);
             userListItem1.TabIndex = 0;
             userListItem1.UserEmail = "moha@gmail.com";
             userListItem1.UserName = "محمد يوسف";
             // 
             // UsersSettings
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleDimensions = new SizeF(144F, 144F);
+            AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(248, 249, 250);
             ClientSize = new Size(1130, 521);
             Controls.Add(panel2);

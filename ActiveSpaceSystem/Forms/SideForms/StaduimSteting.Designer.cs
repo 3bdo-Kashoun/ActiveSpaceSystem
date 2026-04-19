@@ -52,7 +52,7 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1130, 156);
+            panel1.Size = new Size(1130, 101);
             panel1.TabIndex = 1;
             // 
             // roundedButton1
@@ -65,10 +65,9 @@
             roundedButton1.FlatStyle = FlatStyle.Flat;
             roundedButton1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             roundedButton1.ForeColor = Color.White;
-            roundedButton1.Image = Properties.Resources.icons8_edit_48;
-            roundedButton1.Location = new Point(91, 32);
+            roundedButton1.Location = new Point(12, 3);
             roundedButton1.Name = "roundedButton1";
-            roundedButton1.Size = new Size(225, 75);
+            roundedButton1.Size = new Size(225, 66);
             roundedButton1.TabIndex = 7;
             roundedButton1.Text = "إضافة ملعب جديد";
             roundedButton1.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -79,7 +78,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(749, 61);
+            label1.Location = new Point(755, 11);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(330, 46);
@@ -118,7 +117,7 @@
             dgvMonthlyContract.GridColor = Color.FromArgb(230, 230, 230);
             dgvMonthlyContract.HeaderBackColor = Color.FromArgb(243, 244, 246);
             dgvMonthlyContract.HeaderForeColor = Color.FromArgb(33, 37, 41);
-            dgvMonthlyContract.Location = new Point(0, 164);
+            dgvMonthlyContract.Location = new Point(0, 96);
             dgvMonthlyContract.Margin = new Padding(4);
             dgvMonthlyContract.MultiSelect = false;
             dgvMonthlyContract.Name = "dgvMonthlyContract";
@@ -128,7 +127,7 @@
             dgvMonthlyContract.RowHeight = 50;
             dgvMonthlyContract.RowTemplate.Height = 50;
             dgvMonthlyContract.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvMonthlyContract.Size = new Size(1130, 297);
+            dgvMonthlyContract.Size = new Size(1130, 392);
             dgvMonthlyContract.TabIndex = 6;
             // 
             // StdName
@@ -175,6 +174,7 @@
             ClientSize = new Size(1130, 489);
             Controls.Add(dgvMonthlyContract);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "StaduimSteting";
             Text = "StaduimSteting";
             panel1.ResumeLayout(false);

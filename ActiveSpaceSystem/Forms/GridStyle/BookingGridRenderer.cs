@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace ActiveSpaceSystem.Forms.SideForms
+namespace ActiveSpaceSystem.Forms.GridStyle
 {
     /// <summary>
     /// يتحمل كل عمليات رسم وتصميم شبكة الحجوزات

@@ -1,6 +1,6 @@
 using System.Drawing;
 
-namespace ActiveSpaceSystem.Forms.SideForms
+namespace ActiveSpaceSystem.Forms.GridStyle
 {
     /// <summary>
     /// يحتوي على كل أنماط التصميم والألوان للشبكة

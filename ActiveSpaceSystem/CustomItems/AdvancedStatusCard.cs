@@ -115,7 +115,7 @@ namespace ActiveSpaceSystem.CustomItems
 
                 if (cardIcon != null)
                 {
-                    int imgSize = 28;
+                    int imgSize = 36;
                     g.DrawImage(cardIcon, iconRect.X + (iconBoxSize - imgSize) / 2, iconRect.Y + (iconBoxSize - imgSize) / 2, imgSize, imgSize);
                 }
             }

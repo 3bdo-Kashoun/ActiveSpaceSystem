@@ -67,7 +67,7 @@
             // 
             advancedStatusCard1.BackColor = Color.White;
             advancedStatusCard1.BorderRadius = 20;
-            advancedStatusCard1.CardIcon = null;
+            advancedStatusCard1.CardIcon = Properties.Resources.icons8_money_50__1___2_;
             advancedStatusCard1.IconBackColor = Color.FromArgb(46, 204, 113);
             advancedStatusCard1.Location = new Point(672, 133);
             advancedStatusCard1.Name = "advancedStatusCard1";
@@ -83,13 +83,13 @@
             advancedStatusCard1.TitleText = "إجمالي الإيرادات اليوم";
             advancedStatusCard1.ValueColor = Color.FromArgb(46, 204, 113);
             advancedStatusCard1.ValueFont = new Font("Tajawal", 16F, FontStyle.Bold);
-            advancedStatusCard1.ValueText = "12,450 ر.س";
+            advancedStatusCard1.ValueText = "12,450 د.ل";
             // 
             // advancedStatusCard2
             // 
             advancedStatusCard2.BackColor = Color.White;
             advancedStatusCard2.BorderRadius = 20;
-            advancedStatusCard2.CardIcon = null;
+            advancedStatusCard2.CardIcon = Properties.Resources.icons8_alert_50__1_;
             advancedStatusCard2.IconBackColor = Color.FromArgb(220, 38, 38);
             advancedStatusCard2.Location = new Point(342, 133);
             advancedStatusCard2.Name = "advancedStatusCard2";
@@ -105,13 +105,13 @@
             advancedStatusCard2.TitleText = "إجمالي الديون";
             advancedStatusCard2.ValueColor = Color.FromArgb(220, 38, 38);
             advancedStatusCard2.ValueFont = new Font("Tajawal", 16F, FontStyle.Bold);
-            advancedStatusCard2.ValueText = "12,450 ر.س";
+            advancedStatusCard2.ValueText = "3,290 د.ل";
             // 
             // advancedStatusCard3
             // 
             advancedStatusCard3.BackColor = Color.White;
             advancedStatusCard3.BorderRadius = 20;
-            advancedStatusCard3.CardIcon = null;
+            advancedStatusCard3.CardIcon = Properties.Resources.icons8_bank_approved_48;
             advancedStatusCard3.IconBackColor = Color.FromArgb(43, 127, 255);
             advancedStatusCard3.Location = new Point(12, 133);
             advancedStatusCard3.Name = "advancedStatusCard3";
@@ -127,7 +127,7 @@
             advancedStatusCard3.TitleText = "العربون المحصل";
             advancedStatusCard3.ValueColor = Color.FromArgb(43, 127, 255);
             advancedStatusCard3.ValueFont = new Font("Tajawal", 16F, FontStyle.Bold);
-            advancedStatusCard3.ValueText = "12,450 ر.س";
+            advancedStatusCard3.ValueText = "5,650 د.ل";
             // 
             // dgvReservation
             // 
@@ -141,7 +141,7 @@
             dgvReservation.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(243, 244, 246);
-            dataGridViewCellStyle1.Font = new Font("Tajawal", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.Font = new Font("Tajawal Medium", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = Color.FromArgb(33, 37, 41);
             dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(243, 244, 246);
             dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(33, 37, 41);
@@ -172,7 +172,6 @@
             dgvReservation.Size = new Size(653, 583);
             dgvReservation.TabIndex = 11;
             dgvReservation.CellContentClick += dgvReservation_CellContentClick;
-            
             dgvReservation.CellPainting += dgvReservation_CellPainting;
             // 
             // bookingDetailsCard

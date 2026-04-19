@@ -1,6 +1,6 @@
 using ActiveSpace.Models;
 
-namespace ActiveSpaceSystem.Forms.SideForms
+namespace ActiveSpaceSystem.Forms.Views
 {
     public class BookingViewModel
     {

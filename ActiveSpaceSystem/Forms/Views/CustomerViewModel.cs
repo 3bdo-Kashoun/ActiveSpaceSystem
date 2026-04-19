@@ -2,7 +2,7 @@ using ActiveSpace.Models;
 using System;
 using System.Linq;
 
-namespace ActiveSpaceSystem.Forms.SideForms
+namespace ActiveSpaceSystem.Forms.Views
 {
     public class CustomerViewModel
     {

@@ -34,7 +34,7 @@
             customerCard1 = new ActiveSpaceSystem.CustomItems.CustomerCard();
             customerCard3 = new ActiveSpaceSystem.CustomItems.CustomerCard();
             panel1 = new Panel();
-            myGunaButton1 = new ActiveSpaceSystem.CustomItems.MyGunaButton();
+            roundedButton1 = new ActiveSpaceSystem.CustomItems.RoundedButton();
             label3 = new Label();
             label1 = new Label();
             customPanel1 = new ActiveSpaceSystem.CustomItems.CustomPanel();
@@ -103,7 +103,7 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(myGunaButton1);
+            panel1.Controls.Add(roundedButton1);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label1);
             panel1.Location = new Point(1, 5);
@@ -111,41 +111,46 @@
             panel1.Size = new Size(1019, 134);
             panel1.TabIndex = 4;
             // 
-            // myGunaButton1
+            // roundedButton1
             // 
-            myGunaButton1.BackColor = Color.FromArgb(39, 191, 141);
-            myGunaButton1.BorderRadius = 20;
-            myGunaButton1.FlatAppearance.BorderSize = 0;
-            myGunaButton1.FlatStyle = FlatStyle.Flat;
-            myGunaButton1.Font = new Font("Tajawal", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            myGunaButton1.ForeColor = Color.White;
-            myGunaButton1.HoverBackColor = Color.FromArgb(29, 53, 87);
-            myGunaButton1.Location = new Point(47, 51);
-            myGunaButton1.Name = "myGunaButton1";
-            myGunaButton1.NormalBackColor = Color.FromArgb(39, 191, 141);
-            myGunaButton1.Size = new Size(188, 47);
-            myGunaButton1.TabIndex = 10;
-            myGunaButton1.Text = "إضافة عقد جديد";
-            myGunaButton1.UseVisualStyleBackColor = false;
+            roundedButton1.BackColor = Color.FromArgb(38, 191, 141);
+            roundedButton1.BorderColor = Color.PaleVioletRed;
+            roundedButton1.BorderRadius = 15;
+            roundedButton1.BorderSize = 0;
+            roundedButton1.FlatAppearance.BorderSize = 0;
+            roundedButton1.FlatStyle = FlatStyle.Flat;
+            roundedButton1.Font = new Font("Tajawal", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            roundedButton1.ForeColor = Color.White;
+            roundedButton1.Image = Properties.Resources.icons8_add_50__1_;
+            roundedButton1.ImageAlign = ContentAlignment.MiddleRight;
+            roundedButton1.Location = new Point(35, 44);
+            roundedButton1.Name = "roundedButton1";
+            roundedButton1.Padding = new Padding(20, 10, 20, 10);
+            roundedButton1.Size = new Size(228, 64);
+            roundedButton1.TabIndex = 10;
+            roundedButton1.Text = "إضافة عميل جديد";
+            roundedButton1.TextAlign = ContentAlignment.MiddleLeft;
+            roundedButton1.UseVisualStyleBackColor = false;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Tajawal", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.DimGray;
-            label3.Location = new Point(740, 85);
+            label3.Location = new Point(747, 85);
             label3.Name = "label3";
             label3.RightToLeft = RightToLeft.Yes;
             label3.Size = new Size(223, 23);
             label3.TabIndex = 9;
             label3.Text = "متابعة بيانات وحجوزات العملاء";
+            label3.Click += label3_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Tajawal Medium", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.MidnightBlue;
-            label1.Location = new Point(762, 27);
+            label1.Location = new Point(761, 28);
             label1.Name = "label1";
             label1.Size = new Size(209, 48);
             label1.TabIndex = 8;
@@ -172,10 +177,13 @@
             customActionButton2.BorderColor = Color.FromArgb(225, 225, 225);
             customActionButton2.BorderRadius = 10;
             customActionButton2.BorderSize = 1;
+            customActionButton2.ButtonIcon = null;
             customActionButton2.FlatAppearance.BorderSize = 0;
             customActionButton2.FlatStyle = FlatStyle.Flat;
             customActionButton2.Font = new Font("Tajawal", 12F);
             customActionButton2.ForeColor = Color.FromArgb(220, 38, 38);
+            customActionButton2.IconAlignment = ContentAlignment.MiddleLeft;
+            customActionButton2.IconSize = new Size(16, 16);
             customActionButton2.IsToggled = false;
             customActionButton2.Location = new Point(24, 28);
             customActionButton2.Name = "customActionButton2";
@@ -191,9 +199,12 @@
             customActionButton1.BorderColor = Color.FromArgb(225, 225, 225);
             customActionButton1.BorderRadius = 10;
             customActionButton1.BorderSize = 1;
+            customActionButton1.ButtonIcon = null;
             customActionButton1.FlatAppearance.BorderSize = 0;
             customActionButton1.FlatStyle = FlatStyle.Flat;
             customActionButton1.Font = new Font("Tajawal", 12F);
+            customActionButton1.IconAlignment = ContentAlignment.MiddleLeft;
+            customActionButton1.IconSize = new Size(16, 16);
             customActionButton1.IsToggled = false;
             customActionButton1.Location = new Point(173, 28);
             customActionButton1.Name = "customActionButton1";
@@ -233,7 +244,7 @@
             dgvCustomers.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(243, 244, 246);
-            dataGridViewCellStyle1.Font = new Font("Tajawal", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.Font = new Font("Tajawal Medium", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = Color.FromArgb(33, 37, 41);
             dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(243, 244, 246);
             dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(33, 37, 41);
@@ -295,7 +306,6 @@
         private CustomItems.CustomerCard customerCard1;
         private CustomItems.CustomerCard customerCard3;
         private Panel panel1;
-        private CustomItems.MyGunaButton myGunaButton1;
         private Label label3;
         private Label label1;
         private CustomItems.CustomPanel customPanel1;
@@ -303,5 +313,6 @@
         private CustomItems.CustomDataGridView dgvCustomers;
         private CustomItems.CustomActionButton customActionButton2;
         private CustomItems.CustomActionButton customActionButton1;
+        private CustomItems.RoundedButton roundedButton1;
     }
 }

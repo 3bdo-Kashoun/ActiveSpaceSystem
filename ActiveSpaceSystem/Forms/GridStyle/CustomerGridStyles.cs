@@ -1,7 +1,7 @@
 using ActiveSpace.Models;
 using System.Drawing;
 
-namespace ActiveSpaceSystem.Forms.SideForms
+namespace ActiveSpaceSystem.Forms.GridStyle
 {
     public static class CustomerGridStyles
     {

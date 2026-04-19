@@ -1,4 +1,6 @@
 ﻿using ActiveSpace.Models;
+using ActiveSpaceSystem.Forms.GridStyle;
+using ActiveSpaceSystem.Forms.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -210,6 +212,11 @@ namespace ActiveSpaceSystem.Forms.SideForms
                     customersList.RemoveAt(rowIndex);
                 }
             }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

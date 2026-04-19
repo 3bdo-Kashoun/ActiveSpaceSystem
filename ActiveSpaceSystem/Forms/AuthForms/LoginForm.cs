@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ActiveSpaceSystem.Forms.MainForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -44,6 +45,14 @@ namespace ActiveSpaceSystem.Forms
 
         private void abdulTextBox1_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void roundedButton1_Click(object sender, EventArgs e)
+        {
+            Form form = new MainForm();
+            form.Show();
+            this.Hide();
 
         }
     }

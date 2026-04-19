@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             panel1 = new Panel();
+            roundedButton1 = new ActiveSpaceSystem.CustomItems.RoundedButton();
             label4 = new Label();
             roundedPictureBox1 = new ActiveSpaceSystem.CustomItems.RoundedPictureBox();
             label3 = new Label();
-            myGunaButton1 = new ActiveSpaceSystem.CustomItems.MyGunaButton();
             abdulTextBox2 = new ActiveSpaceSystem.CustomItems.AbdulTextBox();
             label2 = new Label();
             abdulTextBox1 = new ActiveSpaceSystem.CustomItems.AbdulTextBox();
@@ -48,10 +48,10 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(roundedButton1);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(roundedPictureBox1);
             panel1.Controls.Add(label3);
-            panel1.Controls.Add(myGunaButton1);
             panel1.Controls.Add(abdulTextBox2);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(abdulTextBox1);
@@ -61,6 +61,24 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(424, 453);
             panel1.TabIndex = 1;
+            // 
+            // roundedButton1
+            // 
+            roundedButton1.BackColor = Color.FromArgb(52, 77, 149);
+            roundedButton1.BorderColor = Color.PaleVioletRed;
+            roundedButton1.BorderRadius = 15;
+            roundedButton1.BorderSize = 0;
+            roundedButton1.FlatAppearance.BorderSize = 0;
+            roundedButton1.FlatStyle = FlatStyle.Flat;
+            roundedButton1.Font = new Font("Tajawal", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            roundedButton1.ForeColor = Color.White;
+            roundedButton1.Location = new Point(30, 322);
+            roundedButton1.Name = "roundedButton1";
+            roundedButton1.Size = new Size(371, 52);
+            roundedButton1.TabIndex = 8;
+            roundedButton1.Text = "تسجيل الدخول";
+            roundedButton1.UseVisualStyleBackColor = false;
+            roundedButton1.Click += roundedButton1_Click;
             // 
             // label4
             // 
@@ -97,24 +115,6 @@
             label3.Size = new Size(324, 23);
             label3.TabIndex = 5;
             label3.Text = "النظام مخصص للموظفين المصرح بهم فقط";
-            // 
-            // myGunaButton1
-            // 
-            myGunaButton1.BackColor = Color.FromArgb(52, 77, 149);
-            myGunaButton1.BorderRadius = 15;
-            myGunaButton1.FlatAppearance.BorderSize = 0;
-            myGunaButton1.FlatStyle = FlatStyle.Flat;
-            myGunaButton1.Font = new Font("Tajawal", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            myGunaButton1.ForeColor = Color.White;
-            myGunaButton1.HoverBackColor = Color.FromArgb(26, 188, 156);
-            myGunaButton1.Location = new Point(30, 341);
-            myGunaButton1.Name = "myGunaButton1";
-            myGunaButton1.NormalBackColor = Color.FromArgb(52, 77, 149);
-            myGunaButton1.RightToLeft = RightToLeft.Yes;
-            myGunaButton1.Size = new Size(371, 46);
-            myGunaButton1.TabIndex = 4;
-            myGunaButton1.Text = "تسجيل الدخول";
-            myGunaButton1.UseVisualStyleBackColor = false;
             // 
             // abdulTextBox2
             // 
@@ -226,10 +226,10 @@
         private Label label1;
         private CustomItems.AbdulTextBox abdulTextBox2;
         private Label label2;
-        private CustomItems.MyGunaButton myGunaButton1;
         private Label label3;
         private CustomItems.RoundedPictureBox roundedPictureBox1;
         private Label label4;
         private CustomItems.CustomLabel customLabel1;
+        private CustomItems.RoundedButton roundedButton1;
     }
 }

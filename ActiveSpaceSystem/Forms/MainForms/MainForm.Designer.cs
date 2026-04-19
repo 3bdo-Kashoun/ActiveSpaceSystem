@@ -370,6 +370,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "MainForm";
             RightToLeft = RightToLeft.No;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             Load += MainForm_Load;
             panel1.ResumeLayout(false);

@@ -206,5 +206,25 @@ namespace ActiveSpaceSystem.Forms.SideForms
                     bookingsList.RemoveAt(rowIndex);
             }
         }
+
+        private void statusCard4_Paint(object sender, PaintEventArgs e)
+        {
+            // رسم إطار رمادي فاتح جداً حول الكرت
+            Pen lightPen = new Pen(Color.FromArgb(226, 232, 240), 2);
+            Graphics g = e.Graphics;
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+            // رسم مستطيل بحواف ناعمة
+            int radius = 20;
+            System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
+            path.AddArc(0, 0, radius, radius, 180, 90);
+            path.AddArc(statusCard4.Width - radius - 1, 0, radius, radius, 270, 90);
+            path.AddArc(statusCard4.Width - radius - 1, statusCard4.Height - radius - 1, radius, radius, 0, 90);
+            path.AddArc(0, statusCard4.Height - radius - 1, radius, radius, 90, 90);
+            path.CloseAllFigures();
+
+            statusCard4.Region = new Region(path);
+            g.DrawPath(lightPen, path);
+        }
     }
 }

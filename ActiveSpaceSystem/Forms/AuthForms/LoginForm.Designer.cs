@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             panel1 = new Panel();
             label4 = new Label();
             roundedPictureBox1 = new ActiveSpaceSystem.CustomItems.RoundedPictureBox();
@@ -77,7 +78,7 @@
             // 
             roundedPictureBox1.BackColor = Color.Transparent;
             roundedPictureBox1.BorderRadius = 60;
-            roundedPictureBox1.Image = Properties.Resources.Modern_Soccer_Ball_and_Pin_Logo__1_1;
+            roundedPictureBox1.Image = (Image)resources.GetObject("roundedPictureBox1.Image");
             roundedPictureBox1.Location = new Point(172, 12);
             roundedPictureBox1.Name = "roundedPictureBox1";
             roundedPictureBox1.Size = new Size(104, 78);

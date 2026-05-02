@@ -1,6 +1,6 @@
 ﻿namespace ActiveSpace.Models
 {
-    // 2. أنواع الملاعب
+    
     public class CourtType
     {
         public int TypeID { get; set; }

@@ -62,7 +62,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
         private void SetupGrid()
         {
-            if (dgvCustomers == null) return;
+           
 
             // إعدادات الـ Grid
             dgvCustomers.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;

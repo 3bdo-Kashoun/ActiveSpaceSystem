@@ -131,6 +131,7 @@
             abdulTextBox2.RightToLeft = RightToLeft.Yes;
             abdulTextBox2.Size = new Size(371, 41);
             abdulTextBox2.TabIndex = 3;
+            abdulTextBox2.Texts = "";
             // 
             // label2
             // 
@@ -159,6 +160,7 @@
             abdulTextBox1.RightToLeft = RightToLeft.Yes;
             abdulTextBox1.Size = new Size(371, 41);
             abdulTextBox1.TabIndex = 1;
+            abdulTextBox1.Texts = "";
             // 
             // label1
             // 
@@ -209,6 +211,7 @@
             Controls.Add(gradientPanel1);
             Controls.Add(panel1);
             Name = "LoginForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "LoginForm";
             Load += LoginForm_Load;
             panel1.ResumeLayout(false);

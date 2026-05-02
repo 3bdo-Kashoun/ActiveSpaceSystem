@@ -2,10 +2,11 @@
 {
     public class Booking
     {
+        //3
         public int BookingID { get; set; }
         public int CustomerID { get; set; }
         public int CourtID { get; set; }
-        public int UserID { get; set; } // الربط مع المستخدم الذي قام بالحجز
+        public int UserID { get; set; } 
         public int? ContractID { get; set; }
 
         public DateTime BookingDate { get; set; }
@@ -14,7 +15,7 @@
         public decimal TotalAmount { get; set; }
         public BookingStatus Status { get; set; }
 
-        // Navigation Properties
+       
         public Customer Customer { get; set; }
         public Court Court { get; set; }
         public User User { get; set; }
@@ -63,5 +64,9 @@
         Court = new Court { CourtName = "ملعب البادل الرئيسي" }
     }
 };
+
+        
     }
+
+    
 }

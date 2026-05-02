@@ -1,6 +1,6 @@
 ﻿namespace ActiveSpace.Models
 {
-    // 7. المدفوعات
+    
     public class Payment
     {
         public int PaymentID { get; set; }

@@ -115,5 +115,13 @@ namespace ActiveSpaceSystem.Forms.MainForms
         {
 
         }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Form form = new LoginForm();
+            form.Show();
+            this.Close();
+            
+        }
     }
 }

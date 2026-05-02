@@ -1,6 +1,6 @@
 ﻿namespace ActiveSpace.Models
 {
-    // 6. العقود الشهرية
+    
     public class MonthlyContract
     {
         public int ContractID { get; set; }

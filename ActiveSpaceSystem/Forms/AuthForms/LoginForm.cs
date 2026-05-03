@@ -34,13 +34,6 @@ namespace ActiveSpaceSystem.Forms
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
-            using (LinearGradientBrush brush = new LinearGradientBrush(this.panel1.ClientRectangle,
-                                       Color.FromArgb(29, 53, 87),
-                                       Color.FromArgb(26, 188, 156),
-                                       45F)) // زاوية الميل 45 درجة
-            {
-                e.Graphics.FillRectangle(brush, this.panel1.ClientRectangle);
-            }
         }
 
         private void abdulTextBox1_Load(object sender, EventArgs e)
@@ -48,7 +41,8 @@ namespace ActiveSpaceSystem.Forms
 
         }
 
-        private void roundedButton1_Click(object sender, EventArgs e)
+
+        private void roundedButton1_Click_1(object sender, EventArgs e)
         {
             Form form = new MainForm();
             form.Show();

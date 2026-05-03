@@ -12,32 +12,23 @@ namespace ActiveSpaceSystem.Forms.SideForms
 {
     public partial class Settings : Form
     {
+        Form StadSett = new StaduimSteting();
+        Form UserSett = new UsersSettings();
+
+        Form AbuotSett= new AbuotSettings();
+
         public Settings()
         {
             InitializeComponent();
             tabButton1.IsActive = true;
-            ShowFormInPanel(new StaduimSteting());
+            ShowFormInPanel(StadSett);
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
 
         }
-        private void SwitchPage(UserControl page, object sender)
-        {
-            // 1. تنظيف الحاوية الرئيسية
-            mainContainer.Controls.Clear();
-
-            // 2. ضبط الصفحة الجديدة لتملأ المكان
-            page.Dock = DockStyle.Fill;
-            mainContainer.Controls.Add(page);
-
-            // 3. تحديث شكل الأزرار (جعل الزر الذي ضغطت عليه فقط هو النشط)
-            foreach (Control ctrl in flowLayoutPanel1.Controls)
-            {
-
-            }
-        }
+       
         private void Settings_Load(object sender, EventArgs e)
         {
 
@@ -48,7 +39,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
             tabButton1.IsActive = true;
             tabButton2.IsActive = false;
             tabButton3.IsActive = false;
-            ShowFormInPanel(new StaduimSteting());
+            ShowFormInPanel(StadSett);
         }
 
         private void tabButton3_Click(object sender, EventArgs e)
@@ -56,21 +47,24 @@ namespace ActiveSpaceSystem.Forms.SideForms
             tabButton1.IsActive = false;
             tabButton2.IsActive = false;
             tabButton3.IsActive = true;
-            ShowFormInPanel(new UsersSettings());
+            
+            ShowFormInPanel(UserSett);
         }
         private void tabButton2_Click(object sender, EventArgs e)
         {
             tabButton2.IsActive = true;
             tabButton1.IsActive = false;
             tabButton3.IsActive = false;
-            ShowFormInPanel(new AboutSettings());
+            ShowFormInPanel(AbuotSett);
         }
         private void ShowFormInPanel(Form form)
         {
             mainContainer.Controls.Clear();
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.None;
-
+            form.Dock = DockStyle.Fill;
+            form.RightToLeftLayout = true;
+            form.RightToLeft = RightToLeft.Yes;
             mainContainer.Controls.Add(form);
             form.Show();
         }

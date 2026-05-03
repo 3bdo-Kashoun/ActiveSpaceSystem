@@ -50,8 +50,9 @@
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(904, 81);
+            panel1.Size = new Size(1130, 101);
             panel1.TabIndex = 1;
             // 
             // roundedButton1
@@ -62,14 +63,15 @@
             roundedButton1.BorderSize = 0;
             roundedButton1.FlatAppearance.BorderSize = 0;
             roundedButton1.FlatStyle = FlatStyle.Flat;
-            roundedButton1.Font = new Font("Tajawal", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            roundedButton1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             roundedButton1.ForeColor = Color.White;
             roundedButton1.Image = Properties.Resources.icons8_add_50__1_;
             roundedButton1.ImageAlign = ContentAlignment.MiddleRight;
-            roundedButton1.Location = new Point(12, 12);
+            roundedButton1.Location = new Point(15, 15);
+            roundedButton1.Margin = new Padding(4);
             roundedButton1.Name = "roundedButton1";
-            roundedButton1.Padding = new Padding(20, 10, 20, 10);
-            roundedButton1.Size = new Size(252, 52);
+            roundedButton1.Padding = new Padding(25, 12, 25, 12);
+            roundedButton1.Size = new Size(315, 65);
             roundedButton1.TabIndex = 9;
             roundedButton1.Text = "إضافة ملعب جديد";
             roundedButton1.TextAlign = ContentAlignment.MiddleLeft;
@@ -77,12 +79,14 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Right;
             label1.AutoSize = true;
-            label1.Font = new Font("Tajawal Medium", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(571, 14);
+            label1.Location = new Point(758, 23);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(321, 41);
+            label1.Size = new Size(314, 40);
             label1.TabIndex = 0;
             label1.Text = "إدارة الملاعب والأسعار";
             // 
@@ -98,7 +102,7 @@
             dgvMonthlyContract.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(243, 244, 246);
-            dataGridViewCellStyle1.Font = new Font("Tajawal Medium", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = Color.FromArgb(33, 37, 41);
             dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(243, 244, 246);
             dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(33, 37, 41);
@@ -108,17 +112,19 @@
             dgvMonthlyContract.Columns.AddRange(new DataGridViewColumn[] { StdName, type, price, opentime, closeTime, Procedures });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Tajawal", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(240, 245, 255);
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dgvMonthlyContract.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvMonthlyContract.Dock = DockStyle.Fill;
             dgvMonthlyContract.EnableHeadersVisualStyles = false;
             dgvMonthlyContract.GridColor = Color.FromArgb(230, 230, 230);
             dgvMonthlyContract.HeaderBackColor = Color.FromArgb(243, 244, 246);
             dgvMonthlyContract.HeaderForeColor = Color.FromArgb(33, 37, 41);
-            dgvMonthlyContract.Location = new Point(0, 77);
+            dgvMonthlyContract.Location = new Point(0, 101);
+            dgvMonthlyContract.Margin = new Padding(4);
             dgvMonthlyContract.MultiSelect = false;
             dgvMonthlyContract.Name = "dgvMonthlyContract";
             dgvMonthlyContract.RightToLeft = RightToLeft.Yes;
@@ -127,7 +133,7 @@
             dgvMonthlyContract.RowHeight = 50;
             dgvMonthlyContract.RowTemplate.Height = 50;
             dgvMonthlyContract.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvMonthlyContract.Size = new Size(904, 314);
+            dgvMonthlyContract.Size = new Size(1130, 388);
             dgvMonthlyContract.TabIndex = 6;
             // 
             // StdName
@@ -168,10 +174,10 @@
             // 
             // StaduimSteting
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(248, 249, 250);
-            ClientSize = new Size(904, 391);
+            ClientSize = new Size(1130, 489);
             Controls.Add(dgvMonthlyContract);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;

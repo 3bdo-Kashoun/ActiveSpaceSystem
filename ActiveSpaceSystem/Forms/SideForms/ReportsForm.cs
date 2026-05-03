@@ -135,33 +135,33 @@ namespace ActiveSpaceSystem.Forms.SideForms
             chart2.ChartAreas[0].AxisX.Interval = 1;
             chart2.ChartAreas[0].AxisX.LabelStyle.Enabled = true;
             //#############################################################
-            var series3 = chart3.Series[0];
-            series3.Points.Clear();
+            //var series3 = chart3.Series[0];
+            //series3.Points.Clear();
 
-            // إضافة البيانات (الساعة، عدد الحجوزات)
-            series3.Points.AddXY("4 PM", 12);
-            series3.Points.AddXY("5 PM", 18);
-            series3.Points.AddXY("6 PM", 25);
-            series3.Points.AddXY("7 PM", 40); // وقت الذروة
-            series3.Points.AddXY("8 PM", 38);
-            series3.Points.AddXY("9 PM", 30);
-            series3.Points.AddXY("10 PM", 22);
-            series3.Points.AddXY("11 PM", 15);
+            //// إضافة البيانات (الساعة، عدد الحجوزات)
+            //series3.Points.AddXY("4 PM", 12);
+            //series3.Points.AddXY("5 PM", 18);
+            //series3.Points.AddXY("6 PM", 25);
+            //series3.Points.AddXY("7 PM", 40); // وقت الذروة
+            //series3.Points.AddXY("8 PM", 38);
+            //series3.Points.AddXY("9 PM", 30);
+            //series3.Points.AddXY("10 PM", 22);
+            //series3.Points.AddXY("11 PM", 15);
 
-            // تنسيق الأعمدة
-            series3.ChartType = SeriesChartType.Column;
-            series3.Color = Color.FromArgb(249, 115, 22); // لون برتقالي عصري
-            series3["PointWidth"] = "0.7"; // التحكم في عرض العمود (ليكون أنيقاً وليس ضخماً)
+            //// تنسيق الأعمدة
+            //series3.ChartType = SeriesChartType.Column;
+            //series3.Color = Color.FromArgb(249, 115, 22); // لون برتقالي عصري
+            //series3["PointWidth"] = "0.7"; // التحكم في عرض العمود (ليكون أنيقاً وليس ضخماً)
 
-            // جعل الزوايا العلوية للأعمدة دائرية (تحتاج إصدارات معينة أو رسم يدوي، 
-            // لكن يمكننا تحسين المظهر بتقليل الخطوط)
+            //// جعل الزوايا العلوية للأعمدة دائرية (تحتاج إصدارات معينة أو رسم يدوي، 
+            //// لكن يمكننا تحسين المظهر بتقليل الخطوط)
 
-            var area = chart3.ChartAreas[0];
-            area.AxisX.MajorGrid.Enabled = false; // إخفاء الخطوط الطولية
-            area.AxisY.MajorGrid.LineColor = Color.FromArgb(243, 244, 246); // خطوط عرضية باهتة جداً
+            //var area = chart3.ChartAreas[0];
+            //area.AxisX.MajorGrid.Enabled = false; // إخفاء الخطوط الطولية
+            //area.AxisY.MajorGrid.LineColor = Color.FromArgb(243, 244, 246); // خطوط عرضية باهتة جداً
 
-            // إخفاء الـ Legend لأنه لا داعي له هنا
-            chart3.Legends[0].Enabled = false;
+            ////إخفاء الـ Legend لأنه لا داعي له هنا
+            //chart3.Legends[0].Enabled = false;
             //#############################################################
             // 1. مسح أي بيانات قديمة (لضمان عدم التكرار عند فتح الشاشة)
             customDataGridView1.Rows.Clear();
@@ -391,17 +391,17 @@ namespace ActiveSpaceSystem.Forms.SideForms
             Graphics g = e.Graphics;
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
 
-            // رسم مستطيل بحواف ناعمة
-            int radius = 20;
-            System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
-            path.AddArc(0, 0, radius, radius, 180, 90);
-            path.AddArc(panel11.Width - radius - 1, 0, radius, radius, 270, 90);
-            path.AddArc(panel11.Width - radius - 1, panel11.Height - radius - 1, radius, radius, 0, 90);
-            path.AddArc(0, panel11.Height - radius - 1, radius, radius, 90, 90);
-            path.CloseAllFigures();
+            //// رسم مستطيل بحواف ناعمة
+            //int radius = 20;
+            //System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
+            //path.AddArc(0, 0, radius, radius, 180, 90);
+            //path.AddArc(panel11.Width - radius - 1, 0, radius, radius, 270, 90);
+            //path.AddArc(panel11.Width - radius - 1, panel11.Height - radius - 1, radius, radius, 0, 90);
+            //path.AddArc(0, panel11.Height - radius - 1, radius, radius, 90, 90);
+            //path.CloseAllFigures();
 
-            panel11.Region = new Region(path);
-            g.DrawPath(lightPen, path);
+            //panel11.Region = new Region(path);
+            //g.DrawPath(lightPen, path);
         }
 
         private void panel13_Paint(object sender, PaintEventArgs e)
@@ -535,6 +535,31 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
             panel21.Region = new Region(path);
             g.DrawPath(lightPen, path);
+        }
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel11_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label19_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label24_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

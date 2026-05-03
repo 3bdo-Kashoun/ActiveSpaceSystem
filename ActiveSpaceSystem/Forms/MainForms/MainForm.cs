@@ -7,6 +7,7 @@ namespace ActiveSpaceSystem.Forms.MainForms
 {
     public partial class MainForm : Form
     {
+        Form DashForm = new Dashboard();
         private Button currentActiveButton = null;
 
         public MainForm()
@@ -56,7 +57,9 @@ namespace ActiveSpaceSystem.Forms.MainForms
             panel3.Controls.Clear();
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.None;
-
+            form.Dock = DockStyle.Fill;
+            form.RightToLeft = RightToLeft.Yes;
+            form.RightToLeftLayout = true;
             panel3.Controls.Add(form);
             form.Show();
         }
@@ -65,7 +68,7 @@ namespace ActiveSpaceSystem.Forms.MainForms
         private void button3_Click(object sender, EventArgs e)   // الرئيسية
         {
             ActivateButton(button3);
-            ShowFormInPanel(new Dashboard());
+            ShowFormInPanel(DashForm);
         }
 
         private void button1_Click(object sender, EventArgs e)   // إدارة الحجوزات
@@ -114,6 +117,11 @@ namespace ActiveSpaceSystem.Forms.MainForms
         private void button3_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

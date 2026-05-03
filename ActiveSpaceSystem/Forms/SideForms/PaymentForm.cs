@@ -26,13 +26,13 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
         private void PaymentForm_Load(object sender, EventArgs e)
         {
-            
+
 
             BindGrid();
             dgvReservation.ClearSelection();
         }
 
-        
+
 
         private void BindGrid()
         {
@@ -62,7 +62,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
             dgvReservation.Columns["PaidAmount"].HeaderText = "المدفوع";
             dgvReservation.Columns["Remaining"].HeaderText = "المتبقي";
             dgvReservation.Columns["Status"].HeaderText = "الحالة";
-            
+
 
             if (!dgvReservation.Columns.Contains("ActionBtn"))
             {
@@ -186,6 +186,16 @@ namespace ActiveSpaceSystem.Forms.SideForms
                 bookingDetailsCard.IsItemSelected = true;
                 bookingDetailsCard.RemainingColor = remaining > 0 ? Color.Red : Color.Green;
             }
+        }
+
+        private void dgvReservation_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void advancedStatusCard3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

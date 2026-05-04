@@ -50,8 +50,8 @@
             button2 = new Button();
             button3 = new Button();
             dateTimePicker4 = new DateTimePicker();
-            customPanel1 = new ActiveSpaceSystem.CustomItems.CustomPanel();
             comboBox1 = new ComboBox();
+            customPanel1 = new ActiveSpaceSystem.CustomItems.CustomPanel();
             customPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -307,6 +307,16 @@
             dateTimePicker4.Size = new Size(330, 27);
             dateTimePicker4.TabIndex = 0;
             // 
+            // comboBox1
+            // 
+            comboBox1.FlatStyle = FlatStyle.Flat;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(18, 13);
+            comboBox1.Name = "comboBox1";
+            comboBox1.RightToLeft = RightToLeft.Yes;
+            comboBox1.Size = new Size(295, 28);
+            comboBox1.TabIndex = 6;
+            // 
             // customPanel1
             // 
             customPanel1.BackColor = Color.White;
@@ -319,16 +329,6 @@
             customPanel1.ShowShadow = false;
             customPanel1.Size = new Size(330, 55);
             customPanel1.TabIndex = 49;
-            // 
-            // comboBox1
-            // 
-            comboBox1.FlatStyle = FlatStyle.Flat;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(18, 13);
-            comboBox1.Name = "comboBox1";
-            comboBox1.RightToLeft = RightToLeft.Yes;
-            comboBox1.Size = new Size(295, 28);
-            comboBox1.TabIndex = 6;
             // 
             // AddBookingForm
             // 
@@ -393,7 +393,7 @@
         private Button button2;
         private Button button3;
         private DateTimePicker dateTimePicker4;
-        private CustomItems.CustomPanel customPanel1;
         private ComboBox comboBox1;
+        private CustomItems.CustomPanel customPanel1;
     }
 }

@@ -44,6 +44,7 @@
             roundedButton1 = new ActiveSpaceSystem.CustomItems.RoundedButton();
             customPanel1 = new ActiveSpaceSystem.CustomItems.CustomPanel();
             comboBox1 = new ComboBox();
+            roundedButton3 = new ActiveSpaceSystem.CustomItems.RoundedButton();
             customPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -210,6 +211,7 @@
             customPanel1.BorderColor = Color.Black;
             customPanel1.BorderRadius = 10;
             customPanel1.BorderSize = 1F;
+            customPanel1.Controls.Add(roundedButton3);
             customPanel1.Controls.Add(comboBox1);
             customPanel1.Location = new Point(377, 214);
             customPanel1.Name = "customPanel1";
@@ -221,11 +223,28 @@
             // 
             comboBox1.FlatStyle = FlatStyle.Flat;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(18, 13);
+            comboBox1.Location = new Point(62, 13);
             comboBox1.Name = "comboBox1";
             comboBox1.RightToLeft = RightToLeft.Yes;
-            comboBox1.Size = new Size(295, 28);
+            comboBox1.Size = new Size(251, 28);
             comboBox1.TabIndex = 6;
+            // 
+            // roundedButton3
+            // 
+            roundedButton3.BackColor = Color.WhiteSmoke;
+            roundedButton3.BorderColor = Color.Transparent;
+            roundedButton3.BorderRadius = 10;
+            roundedButton3.BorderSize = 2;
+            roundedButton3.FlatAppearance.BorderSize = 0;
+            roundedButton3.FlatStyle = FlatStyle.Flat;
+            roundedButton3.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            roundedButton3.ForeColor = Color.Gray;
+            roundedButton3.Location = new Point(18, 11);
+            roundedButton3.Name = "roundedButton3";
+            roundedButton3.Size = new Size(38, 31);
+            roundedButton3.TabIndex = 49;
+            roundedButton3.Text = "+";
+            roundedButton3.UseVisualStyleBackColor = false;
             // 
             // AddStadiumForm
             // 
@@ -251,6 +270,7 @@
             Name = "AddStadiumForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AddStadiumForm";
+            Load += AddStadiumForm_Load;
             customPanel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
@@ -273,5 +293,6 @@
         private CustomItems.RoundedButton roundedButton1;
         private CustomItems.CustomPanel customPanel1;
         private ComboBox comboBox1;
+        private CustomItems.RoundedButton roundedButton3;
     }
 }

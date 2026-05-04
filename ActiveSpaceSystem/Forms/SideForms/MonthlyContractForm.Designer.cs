@@ -80,6 +80,7 @@
             roundedButton1.Text = "إضافة عقد جديد";
             roundedButton1.TextAlign = ContentAlignment.MiddleLeft;
             roundedButton1.UseVisualStyleBackColor = false;
+            roundedButton1.Click += roundedButton1_Click;
             // 
             // label3
             // 

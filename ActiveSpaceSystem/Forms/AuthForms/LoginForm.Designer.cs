@@ -33,12 +33,12 @@
             panel1 = new Panel();
             label3 = new Label();
             roundedButton1 = new ActiveSpaceSystem.CustomItems.RoundedButton();
-            abdulTextBox2 = new ActiveSpaceSystem.CustomItems.AbdulTextBox();
+            txtPassword = new ActiveSpaceSystem.CustomItems.AbdulTextBox();
             label2 = new Label();
             label4 = new Label();
             roundedPictureBox1 = new ActiveSpaceSystem.CustomItems.RoundedPictureBox();
             label1 = new Label();
-            abdulTextBox1 = new ActiveSpaceSystem.CustomItems.AbdulTextBox();
+            txtUsername = new ActiveSpaceSystem.CustomItems.AbdulTextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)roundedPictureBox1).BeginInit();
             SuspendLayout();
@@ -63,12 +63,12 @@
             // 
             panel1.Controls.Add(label3);
             panel1.Controls.Add(roundedButton1);
-            panel1.Controls.Add(abdulTextBox2);
+            panel1.Controls.Add(txtPassword);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(roundedPictureBox1);
             panel1.Controls.Add(label1);
-            panel1.Controls.Add(abdulTextBox1);
+            panel1.Controls.Add(txtUsername);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(512, 0);
             panel1.Name = "panel1";
@@ -109,24 +109,25 @@
             roundedButton1.UseVisualStyleBackColor = false;
             roundedButton1.Click += roundedButton1_Click_1;
             // 
-            // abdulTextBox2
+            // txtPassword
             // 
-            abdulTextBox2.Anchor = AnchorStyles.None;
-            abdulTextBox2.BackColor = Color.White;
-            abdulTextBox2.BorderColor = Color.FromArgb(29, 53, 87);
-            abdulTextBox2.BorderRadius = 15;
-            abdulTextBox2.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            abdulTextBox2.Icon = Properties.Resources.icons8_lock_50;
-            abdulTextBox2.IconLocation = HorizontalAlignment.Right;
-            abdulTextBox2.IconSize = 30;
-            abdulTextBox2.Location = new Point(77, 320);
-            abdulTextBox2.Margin = new Padding(4);
-            abdulTextBox2.Name = "abdulTextBox2";
-            abdulTextBox2.PlaceholderText = "أدخل كلمة المرور";
-            abdulTextBox2.RightToLeft = RightToLeft.Yes;
-            abdulTextBox2.Size = new Size(371, 41);
-            abdulTextBox2.TabIndex = 3;
-            abdulTextBox2.Texts = "";
+            txtPassword.Anchor = AnchorStyles.None;
+            txtPassword.BackColor = Color.White;
+            txtPassword.BorderColor = Color.FromArgb(29, 53, 87);
+            txtPassword.BorderRadius = 15;
+            txtPassword.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtPassword.Icon = Properties.Resources.icons8_lock_50;
+            txtPassword.IconLocation = HorizontalAlignment.Right;
+            txtPassword.IconSize = 30;
+            txtPassword.Location = new Point(32, 321);
+            txtPassword.Margin = new Padding(4);
+            txtPassword.Name = "txtPassword";
+            txtPassword.passwordChar = ".";
+            txtPassword.PlaceholderText = "أدخل كلمة المرور";
+            txtPassword.RightToLeft = RightToLeft.Yes;
+            txtPassword.Size = new Size(464, 41);
+            txtPassword.TabIndex = 3;
+            txtPassword.Texts = "";
             // 
             // label2
             // 
@@ -134,7 +135,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(354, 282);
+            label2.Location = new Point(402, 282);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.RightToLeft = RightToLeft.Yes;
@@ -162,10 +163,10 @@
             roundedPictureBox1.BackColor = Color.Transparent;
             roundedPictureBox1.BorderRadius = 60;
             roundedPictureBox1.Image = (Image)resources.GetObject("roundedPictureBox1.Image");
-            roundedPictureBox1.Location = new Point(199, 27);
+            roundedPictureBox1.Location = new Point(182, 27);
             roundedPictureBox1.Margin = new Padding(4);
             roundedPictureBox1.Name = "roundedPictureBox1";
-            roundedPictureBox1.Size = new Size(130, 82);
+            roundedPictureBox1.Size = new Size(147, 85);
             roundedPictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             roundedPictureBox1.TabIndex = 31;
             roundedPictureBox1.TabStop = false;
@@ -176,7 +177,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(344, 187);
+            label1.Location = new Point(392, 178);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.RightToLeft = RightToLeft.Yes;
@@ -184,27 +185,29 @@
             label1.TabIndex = 33;
             label1.Text = "اسم المستخدم";
             // 
-            // abdulTextBox1
+            // txtUsername
             // 
-            abdulTextBox1.Anchor = AnchorStyles.None;
-            abdulTextBox1.BackColor = Color.White;
-            abdulTextBox1.BorderColor = Color.FromArgb(29, 53, 87);
-            abdulTextBox1.BorderRadius = 15;
-            abdulTextBox1.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            abdulTextBox1.Icon = Properties.Resources.icons8_user_50;
-            abdulTextBox1.IconLocation = HorizontalAlignment.Right;
-            abdulTextBox1.IconSize = 30;
-            abdulTextBox1.Location = new Point(77, 226);
-            abdulTextBox1.Margin = new Padding(4);
-            abdulTextBox1.Name = "abdulTextBox1";
-            abdulTextBox1.PlaceholderText = "أدخل اسم المستخدم";
-            abdulTextBox1.RightToLeft = RightToLeft.Yes;
-            abdulTextBox1.Size = new Size(371, 41);
-            abdulTextBox1.TabIndex = 1;
-            abdulTextBox1.Texts = "";
+            txtUsername.Anchor = AnchorStyles.None;
+            txtUsername.BackColor = Color.White;
+            txtUsername.BorderColor = Color.FromArgb(29, 53, 87);
+            txtUsername.BorderRadius = 15;
+            txtUsername.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtUsername.Icon = Properties.Resources.icons8_user_50;
+            txtUsername.IconLocation = HorizontalAlignment.Right;
+            txtUsername.IconSize = 30;
+            txtUsername.Location = new Point(32, 220);
+            txtUsername.Margin = new Padding(4);
+            txtUsername.Name = "txtUsername";
+            txtUsername.passwordChar = "\0";
+            txtUsername.PlaceholderText = "أدخل اسم المستخدم";
+            txtUsername.RightToLeft = RightToLeft.Yes;
+            txtUsername.Size = new Size(464, 46);
+            txtUsername.TabIndex = 1;
+            txtUsername.Texts = "";
             // 
             // LoginForm
             // 
+            AcceptButton = roundedButton1;
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonFace;
@@ -228,11 +231,11 @@
         private Panel panel1;
         private Label label3;
         private CustomItems.RoundedButton roundedButton1;
-        private CustomItems.AbdulTextBox abdulTextBox2;
+        private CustomItems.AbdulTextBox txtPassword;
         private Label label2;
         private Label label4;
         private CustomItems.RoundedPictureBox roundedPictureBox1;
         private Label label1;
-        private CustomItems.AbdulTextBox abdulTextBox1;
+        private CustomItems.AbdulTextBox txtUsername;
     }
 }

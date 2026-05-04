@@ -83,10 +83,11 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.Right;
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.DimGray;
-            label3.Location = new Point(862, 92);
+            label3.Location = new Point(957, 92);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.RightToLeft = RightToLeft.Yes;
@@ -96,10 +97,11 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.MidnightBlue;
-            label1.Location = new Point(892, 32);
+            label1.Location = new Point(987, 32);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(224, 46);

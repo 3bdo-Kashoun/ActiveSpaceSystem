@@ -7,16 +7,16 @@ namespace ActiveSpaceSystem.Forms.MainForms
 {
     public partial class MainForm : Form
     {
-        private Dashboard DashForm;
-        private ManageBooking BookingForm ;
-        private Scheduling ScheduleForm ;
-        private MonthlyContractForm MonthlyContractForm;
-        private MangeCustomers MangeCustomersForm;
-        private PaymentForm PaymentForm;
-        private ReportsForm ReportsForm;
-        private Settings SettingsForm;
+        private Dashboard DashForm = null!;
+        private ManageBooking BookingForm = null!;
+        private Scheduling ScheduleForm = null!;
+        private MonthlyContractForm MonthlyContractForm = null!;
+        private MangeCustomers MangeCustomersForm = null!;
+        private PaymentForm PaymentForm = null!;
+        private ReportsForm ReportsForm = null!;
+        private Settings SettingsForm = null!;
 
-        private Button currentActiveButton = null;
+        private Button? currentActiveButton = null;
 
         public MainForm()
         {

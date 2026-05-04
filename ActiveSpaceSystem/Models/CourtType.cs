@@ -4,7 +4,7 @@
     public class CourtType
     {
         public int TypeID { get; set; }
-        public string TypeName { get; set; }
+        public required string TypeName { get; set; }
         public decimal PricePerHour { get; set; }
 
         public static List<CourtType> GetFakeData() => new List<CourtType>

@@ -39,7 +39,8 @@ namespace ActiveSpaceSystem.CustomItems
 
         [Category("Abdul Style")]
         public string PlaceholderText { get => placeholderText; set { placeholderText = value; if (isPlaceholder) textBox1.Text = value; Invalidate(); } }
-
+        [Category("Abdul Style")]
+         public string passwordChar { get => textBox1.PasswordChar.ToString(); set { textBox1.PasswordChar = string.IsNullOrEmpty(value) ? '\0' : value[0]; } }
         // خاصية النص المعدلة لضمان الظهور في الـ Toolbox والـ Properties
         [Category("Abdul Style")]
         [Browsable(true)] // إجبار الخاصية على الظهور

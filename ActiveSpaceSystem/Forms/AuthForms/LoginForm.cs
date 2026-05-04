@@ -1,5 +1,4 @@
-﻿using ActiveSpaceSystem.Forms.MainForms;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ActiveSpaceSystem.Data;
+using ActiveSpaceSystem.Forms.MainForms;
 
 namespace ActiveSpaceSystem.Forms
 {
@@ -45,9 +46,32 @@ namespace ActiveSpaceSystem.Forms
 
         private void roundedButton1_Click_1(object sender, EventArgs e)
         {
-            Form form = new MainForm();
-            form.Show();
-            this.Hide();
+            string inputUser = txtUsername.Texts.Trim();
+            string inputPass = txtPassword.Texts.Trim();
+
+            // التأكد من أن الحقول ليست فارغة
+            if (string.IsNullOrEmpty(inputUser) || string.IsNullOrEmpty(inputPass))
+            {
+                MessageBox.Show("الرجاء إدخال اسم المستخدم وكلمة المرور", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // البحث في Data Structure باستخدام LINQ
+            var user = DataStorage.UsersList.FirstOrDefault(u => u.Username == inputUser && u.Password == inputPass);
+
+            if (user != null)
+            {
+                //MessageBox.Show($"أهلاً بك يا {user.Username}، تم الدخول بنجاح", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Form form = new MainForm();
+                form.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("اسم المستخدم أو كلمة المرور غير صحيحة", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
 
         }
     }

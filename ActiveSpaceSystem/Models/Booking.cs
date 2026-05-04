@@ -15,10 +15,10 @@
         public decimal TotalAmount { get; set; }
         public BookingStatus Status { get; set; }
 
-       
-        public Customer Customer { get; set; }
-        public Court Court { get; set; }
-        public User User { get; set; }
+
+        public Customer? Customer { get; set; } // Made nullable to match usage in fake data
+        public Court? Court { get; set; }
+        public User? User { get; set; }
 
         public double DurationHours => (EndTime - StartTime).TotalHours;
 

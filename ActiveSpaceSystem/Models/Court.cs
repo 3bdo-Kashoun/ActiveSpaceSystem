@@ -1,17 +1,16 @@
 ﻿namespace ActiveSpace.Models
 {
-    
     public class Court
     {
         public int CourtID { get; set; }
         public int TypeID { get; set; }
-        public string CourtName { get; set; }
+        public string CourtName { get; set; } = string.Empty;
         public TimeSpan OpenTime { get; set; }
         public TimeSpan CloseTime { get; set; }
-        public string Status { get; set; }
+        public string Status { get; set; } = string.Empty;
 
         // Navigation Property
-        public CourtType Type { get; set; }
+        public CourtType? Type { get; set; }
 
         public static List<Court> GetFakeData() => new List<Court>
         {

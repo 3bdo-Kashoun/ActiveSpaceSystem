@@ -166,12 +166,8 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
             string columnName = dgvCustomers.Columns[e.ColumnIndex].Name;
 
-            if (columnName == "ReliabilityFlag" && e.Value != null)
-            {
-                ReliabilityFlag flag = (ReliabilityFlag)e.Value;
-                gridRenderer.RenderReliabilityCell(e, flag);
-            }
-            else if (columnName == "Actions")
+           
+           if (columnName == "Actions")
             {
                 gridRenderer.RenderActionsCell(e);
             }

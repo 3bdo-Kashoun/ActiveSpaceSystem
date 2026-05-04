@@ -11,7 +11,7 @@ namespace ActiveSpaceSystem.Forms.Views
         public decimal TotalDebt { get; set; }
         public int NoShowCount { get; set; }
         public string LastBookingDate { get; set; }
-        public ReliabilityFlag ReliabilityFlag { get; set; }
+      
         
         public static CustomerViewModel FromCustomer(Customer c)
         {
@@ -24,9 +24,9 @@ namespace ActiveSpaceSystem.Forms.Views
                 FullName = c.FullName,
                 Phone = c.Phone,
                 TotalDebt = c.TotalDebt,
-                NoShowCount = c.NoShowCount,
+                
                 LastBookingDate = lastBooking,
-                ReliabilityFlag = c.ReliabilityFlag
+                
             };
         }
     }

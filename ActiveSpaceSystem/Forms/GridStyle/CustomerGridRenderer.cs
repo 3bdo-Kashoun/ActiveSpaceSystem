@@ -15,33 +15,7 @@ namespace ActiveSpaceSystem.Forms.GridStyle
             this.actionImageList = actionImageList ?? throw new ArgumentNullException(nameof(actionImageList));
         }
 
-        public void RenderReliabilityCell(DataGridViewCellPaintingEventArgs e, ReliabilityFlag flag)
-        {
-            e.Paint(e.CellBounds, DataGridViewPaintParts.All & ~DataGridViewPaintParts.ContentForeground);
-
-            var (displayText, backColor, textColor) = GetReliabilityStyle(flag);
-
-            Rectangle rect = new Rectangle(
-                e.CellBounds.X + CustomerGridStyles.StatusPadding,
-                e.CellBounds.Y + CustomerGridStyles.StatusVerticalPadding,
-                Math.Max(0, e.CellBounds.Width - 20),
-                Math.Max(0, e.CellBounds.Height - 30)
-            );
-
-            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-
-            if (rect.Width > 0 && rect.Height > 0)
-            {
-                using (GraphicsPath path = CreateCapsulePath(rect))
-                using (SolidBrush sb = new SolidBrush(backColor))
-                    e.Graphics.FillPath(sb, path);
-            }
-
-            TextRenderer.DrawText(e.Graphics, displayText, e.CellStyle.Font, e.CellBounds,
-                                  textColor, TextFormatFlags.VerticalCenter | TextFormatFlags.HorizontalCenter);
-            e.Handled = true;
-        }
-
+       
         public void RenderActionsCell(DataGridViewCellPaintingEventArgs e)
         {
             e.Paint(e.CellBounds, DataGridViewPaintParts.All & ~DataGridViewPaintParts.ContentForeground);
@@ -69,16 +43,7 @@ namespace ActiveSpaceSystem.Forms.GridStyle
             e.Handled = true;
         }
 
-        private (string DisplayText, Color BackColor, Color TextColor) GetReliabilityStyle(ReliabilityFlag flag)
-        {
-            return flag switch
-            {
-                ReliabilityFlag.Safe => (CustomerGridStyles.TextSafe, CustomerGridStyles.ColorSafeBack, CustomerGridStyles.ColorSafeText),
-                ReliabilityFlag.Risky => (CustomerGridStyles.TextRisky, CustomerGridStyles.ColorRiskyBack, CustomerGridStyles.ColorRiskyText),
-                ReliabilityFlag.Banned => (CustomerGridStyles.TextBanned, CustomerGridStyles.ColorBannedBack, CustomerGridStyles.ColorBannedText),
-                _ => (CustomerGridStyles.TextSafe, CustomerGridStyles.ColorSafeBack, CustomerGridStyles.ColorSafeText)
-            };
-        }
+       
 
         private void DrawActionButton(Graphics graphics, int x, int y, int buttonSize, int iconSize,
                                      int cornerRadius, Color backgroundColor, string iconKey)

@@ -6,19 +6,13 @@
         public string FullName { get; set; } = string.Empty;
         public string Phone { get; set; } = string.Empty;
         public decimal TotalDebt { get; set; }
-        public int NoShowCount { get; set; }
-        public ReliabilityFlag ReliabilityFlag { get; set; } // آمن، خطر، محظور
-
+       
+       
         public static List<Customer> GetFakeData() => new List<Customer>
         {
-            new Customer { CustomerID = 1, FullName = "أحمد محمد", Phone = "0912345678", TotalDebt = 60, ReliabilityFlag = ReliabilityFlag.Safe },
-            new Customer { CustomerID = 2, FullName = "سالم الفيتوري", Phone = "0921112233", TotalDebt = 50, ReliabilityFlag = ReliabilityFlag.Risky,NoShowCount=2 }
+            new Customer { CustomerID = 1, FullName = "أحمد محمد", Phone = "0912345678", TotalDebt = 60, },
+            new Customer { CustomerID = 2, FullName = "سالم الفيتوري", Phone = "0921112233", TotalDebt = 50 }
         };
     }
-    public enum ReliabilityFlag
-    {
-        Safe,
-        Risky,
-        Banned
-    }
+    
 }

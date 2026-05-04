@@ -70,7 +70,6 @@
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(408, 33);
             comboBox1.TabIndex = 6;
-            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // dateTimePicker5
             // 
@@ -203,7 +202,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(420, 59);
             panel1.TabIndex = 31;
-            panel1.Paint += panel1_Paint;
             // 
             // label3
             // 
@@ -293,7 +291,6 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(420, 59);
             panel2.TabIndex = 44;
-            panel2.Paint += panel2_Paint;
             // 
             // comboBox2
             // 
@@ -314,7 +311,6 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(420, 59);
             panel3.TabIndex = 45;
-            panel3.Paint += panel3_Paint;
             // 
             // comboBox3
             // 
@@ -428,8 +424,6 @@
             Name = "AddContract";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AddContract";
-            Load += AddContract_Load;
-            Paint += AddContract_Paint;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel3.ResumeLayout(false);

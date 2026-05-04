@@ -144,20 +144,18 @@
             panel4.Dock = DockStyle.Fill;
             panel4.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             panel4.ForeColor = Color.LimeGreen;
-            panel4.Location = new Point(4, 4);
-            panel4.Margin = new Padding(4);
+            panel4.Location = new Point(3, 3);
             panel4.Name = "panel4";
-            panel4.Size = new Size(313, 142);
+            panel4.Size = new Size(251, 114);
             panel4.TabIndex = 3;
             panel4.Paint += panel4_Paint;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(84, 107);
-            label7.Margin = new Padding(4, 0, 4, 0);
+            label7.Location = new Point(67, 86);
             label7.Name = "label7";
-            label7.Size = new Size(172, 22);
+            label7.Size = new Size(142, 18);
             label7.TabIndex = 2;
             label7.Text = "+12% عن الشهر الماضي";
             // 
@@ -166,11 +164,10 @@
             label6.AutoSize = true;
             label6.Font = new Font("Microsoft Sans Serif", 16.1999989F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.FromArgb(16, 185, 129);
-            label6.Location = new Point(94, 52);
-            label6.Margin = new Padding(4, 0, 4, 0);
+            label6.Location = new Point(75, 42);
             label6.Name = "label6";
             label6.RightToLeft = RightToLeft.Yes;
-            label6.Size = new Size(191, 38);
+            label6.Size = new Size(161, 31);
             label6.TabIndex = 1;
             label6.Text = "245,800 د.ل";
             // 
@@ -180,10 +177,9 @@
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.FromArgb(107, 114, 128);
-            label5.Location = new Point(144, 16);
-            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Location = new Point(115, 13);
             label5.Name = "label5";
-            label5.Size = new Size(127, 25);
+            label5.Size = new Size(103, 20);
             label5.TabIndex = 0;
             label5.Text = "إجمالي الإيرادات";
             // 
@@ -196,10 +192,9 @@
             panel5.Dock = DockStyle.Fill;
             panel5.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             panel5.ForeColor = Color.LimeGreen;
-            panel5.Location = new Point(325, 4);
-            panel5.Margin = new Padding(4);
+            panel5.Location = new Point(260, 3);
             panel5.Name = "panel5";
-            panel5.Size = new Size(311, 142);
+            panel5.Size = new Size(249, 114);
             panel5.TabIndex = 4;
             panel5.Paint += panel5_Paint;
             // 
@@ -207,10 +202,9 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(67, 105);
-            label8.Margin = new Padding(4, 0, 4, 0);
+            label8.Location = new Point(54, 84);
             label8.Name = "label8";
-            label8.Size = new Size(201, 25);
+            label8.Size = new Size(160, 20);
             label8.TabIndex = 2;
             label8.Text = "+18% عن الشهر الماضي";
             // 
@@ -219,11 +213,10 @@
             label9.AutoSize = true;
             label9.Font = new Font("Microsoft Sans Serif", 16.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label9.ForeColor = Color.FromArgb(30, 58, 138);
-            label9.Location = new Point(174, 49);
-            label9.Margin = new Padding(4, 0, 4, 0);
+            label9.Location = new Point(139, 39);
             label9.Name = "label9";
             label9.RightToLeft = RightToLeft.Yes;
-            label9.Size = new Size(74, 39);
+            label9.Size = new Size(66, 33);
             label9.TabIndex = 1;
             label9.Text = "821";
             // 
@@ -233,10 +226,9 @@
             label10.BackColor = Color.Transparent;
             label10.Font = new Font("Microsoft Sans Serif", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label10.ForeColor = Color.FromArgb(107, 114, 128);
-            label10.Location = new Point(122, 14);
-            label10.Margin = new Padding(4, 0, 4, 0);
+            label10.Location = new Point(98, 11);
             label10.Name = "label10";
-            label10.Size = new Size(142, 26);
+            label10.Size = new Size(117, 22);
             label10.TabIndex = 0;
             label10.Text = "إجمالي الحجوزات";
             // 
@@ -249,10 +241,9 @@
             panel6.Dock = DockStyle.Fill;
             panel6.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             panel6.ForeColor = Color.LimeGreen;
-            panel6.Location = new Point(644, 4);
-            panel6.Margin = new Padding(4);
+            panel6.Location = new Point(515, 3);
             panel6.Name = "panel6";
-            panel6.Size = new Size(311, 142);
+            panel6.Size = new Size(249, 114);
             panel6.TabIndex = 4;
             panel6.Paint += panel6_Paint;
             // 
@@ -261,10 +252,9 @@
             label11.AutoSize = true;
             label11.Font = new Font("Microsoft Sans Serif", 10.2F);
             label11.ForeColor = Color.FromArgb(107, 114, 128);
-            label11.Location = new Point(177, 106);
-            label11.Margin = new Padding(4, 0, 4, 0);
+            label11.Location = new Point(142, 85);
             label11.Name = "label11";
-            label11.Size = new Size(80, 25);
+            label11.Size = new Size(64, 20);
             label11.TabIndex = 2;
             label11.Text = "هذا الشهر";
             // 
@@ -273,11 +263,10 @@
             label12.AutoSize = true;
             label12.Font = new Font("Microsoft Sans Serif", 16.1999989F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label12.ForeColor = Color.FromArgb(37, 99, 235);
-            label12.Location = new Point(127, 50);
-            label12.Margin = new Padding(4, 0, 4, 0);
+            label12.Location = new Point(102, 40);
             label12.Name = "label12";
             label12.RightToLeft = RightToLeft.Yes;
-            label12.Size = new Size(153, 38);
+            label12.Size = new Size(129, 31);
             label12.TabIndex = 1;
             label12.Text = "8,193 د.ل";
             // 
@@ -287,10 +276,9 @@
             label13.BackColor = Color.Transparent;
             label13.Font = new Font("Microsoft Sans Serif", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label13.ForeColor = Color.FromArgb(107, 114, 128);
-            label13.Location = new Point(116, 14);
-            label13.Margin = new Padding(4, 0, 4, 0);
+            label13.Location = new Point(93, 11);
             label13.Name = "label13";
-            label13.Size = new Size(164, 26);
+            label13.Size = new Size(135, 22);
             label13.TabIndex = 0;
             label13.Text = "متوسط الإيراد اليومي";
             // 
@@ -303,10 +291,9 @@
             panel7.Dock = DockStyle.Fill;
             panel7.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             panel7.ForeColor = Color.LimeGreen;
-            panel7.Location = new Point(963, 4);
-            panel7.Margin = new Padding(4);
+            panel7.Location = new Point(770, 3);
             panel7.Name = "panel7";
-            panel7.Size = new Size(311, 142);
+            panel7.Size = new Size(249, 114);
             panel7.TabIndex = 4;
             panel7.Paint += panel7_Paint;
             // 
@@ -315,10 +302,9 @@
             label14.AutoSize = true;
             label14.Font = new Font("Microsoft Sans Serif", 10.2F);
             label14.ForeColor = Color.FromArgb(107, 114, 128);
-            label14.Location = new Point(154, 103);
-            label14.Margin = new Padding(4, 0, 4, 0);
+            label14.Location = new Point(123, 82);
             label14.Name = "label14";
-            label14.Size = new Size(106, 25);
+            label14.Size = new Size(83, 20);
             label14.TabIndex = 2;
             label14.Text = "متوسط الشهر";
             // 
@@ -327,11 +313,10 @@
             label15.AutoSize = true;
             label15.Font = new Font("Microsoft Sans Serif", 16.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label15.ForeColor = Color.FromArgb(13, 148, 136);
-            label15.Location = new Point(211, 47);
-            label15.Margin = new Padding(4, 0, 4, 0);
+            label15.Location = new Point(169, 38);
             label15.Name = "label15";
             label15.RightToLeft = RightToLeft.Yes;
-            label15.Size = new Size(75, 39);
+            label15.Size = new Size(76, 33);
             label15.TabIndex = 1;
             label15.Text = "76%";
             // 
@@ -341,10 +326,9 @@
             label16.BackColor = Color.Transparent;
             label16.Font = new Font("Microsoft Sans Serif", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label16.ForeColor = Color.FromArgb(107, 114, 128);
-            label16.Location = new Point(154, 12);
-            label16.Margin = new Padding(4, 0, 4, 0);
+            label16.Location = new Point(123, 10);
             label16.Name = "label16";
-            label16.Size = new Size(109, 26);
+            label16.Size = new Size(89, 22);
             label16.TabIndex = 0;
             label16.Text = "معدل الإشغال";
             // 
@@ -353,10 +337,9 @@
             panel21.BackColor = Color.FromArgb(239, 246, 255);
             panel21.Controls.Add(label34);
             panel21.Dock = DockStyle.Bottom;
-            panel21.Location = new Point(0, 3885);
-            panel21.Margin = new Padding(4);
+            panel21.Location = new Point(0, 3108);
             panel21.Name = "panel21";
-            panel21.Size = new Size(1278, 95);
+            panel21.Size = new Size(1022, 76);
             panel21.TabIndex = 18;
             panel21.Paint += panel21_Paint;
             // 
@@ -365,11 +348,10 @@
             label34.AutoSize = true;
             label34.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label34.ForeColor = Color.FromArgb(59, 130, 246);
-            label34.Location = new Point(60, 39);
-            label34.Margin = new Padding(4, 0, 4, 0);
+            label34.Location = new Point(48, 31);
             label34.Name = "label34";
             label34.RightToLeft = RightToLeft.Yes;
-            label34.Size = new Size(894, 25);
+            label34.Size = new Size(720, 20);
             label34.TabIndex = 18;
             label34.Text = "📊 جميع البيانات المعروضة تم حسابها للفترة من 2026-04-01 إلى 2026-04-30. يمكنك تغيير الفترة الزمنية لتحديث التقارير.";
             // 
@@ -379,8 +361,9 @@
             panel23.Controls.Add(label1);
             panel23.Dock = DockStyle.Top;
             panel23.Location = new Point(0, 0);
+            panel23.Margin = new Padding(2, 2, 2, 2);
             panel23.Name = "panel23";
-            panel23.Size = new Size(1278, 150);
+            panel23.Size = new Size(1022, 120);
             panel23.TabIndex = 20;
             // 
             // label2
@@ -389,10 +372,9 @@
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.FromArgb(107, 114, 128);
-            label2.Location = new Point(975, 82);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(780, 66);
             label2.Name = "label2";
-            label2.Size = new Size(279, 25);
+            label2.Size = new Size(231, 20);
             label2.TabIndex = 3;
             label2.Text = "تحليل شامل لأداء المجمع الرياضي";
             // 
@@ -402,11 +384,10 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(30, 58, 138);
-            label1.Location = new Point(977, 20);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(782, 16);
             label1.Name = "label1";
             label1.RightToLeft = RightToLeft.Yes;
-            label1.Size = new Size(286, 40);
+            label1.Size = new Size(238, 36);
             label1.TabIndex = 2;
             label1.Text = "التقارير والإحصائيات";
             // 
@@ -422,21 +403,20 @@
             customPanel1.Controls.Add(label4);
             customPanel1.Controls.Add(label3);
             customPanel1.Dock = DockStyle.Top;
-            customPanel1.Location = new Point(0, 150);
-            customPanel1.Margin = new Padding(10, 3, 3, 3);
+            customPanel1.Location = new Point(0, 120);
+            customPanel1.Margin = new Padding(8, 2, 2, 2);
             customPanel1.Name = "customPanel1";
             customPanel1.ShowShadow = true;
-            customPanel1.Size = new Size(1278, 150);
+            customPanel1.Size = new Size(1022, 120);
             customPanel1.TabIndex = 21;
             // 
             // panel3
             // 
             panel3.Anchor = AnchorStyles.Right;
             panel3.Controls.Add(dateTimePicker1);
-            panel3.Location = new Point(834, 54);
-            panel3.Margin = new Padding(4);
+            panel3.Location = new Point(667, 43);
             panel3.Name = "panel3";
-            panel3.Size = new Size(418, 65);
+            panel3.Size = new Size(334, 52);
             panel3.TabIndex = 14;
             // 
             // dateTimePicker1
@@ -445,20 +425,18 @@
             dateTimePicker1.CalendarFont = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dateTimePicker1.CustomFormat = "dd/MM/yyyy";
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.Location = new Point(18, 14);
-            dateTimePicker1.Margin = new Padding(4);
+            dateTimePicker1.Location = new Point(14, 11);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(380, 31);
+            dateTimePicker1.Size = new Size(305, 27);
             dateTimePicker1.TabIndex = 1;
             // 
             // panel2
             // 
             panel2.Anchor = AnchorStyles.Right;
             panel2.Controls.Add(dateTimePicker2);
-            panel2.Location = new Point(379, 53);
-            panel2.Margin = new Padding(4);
+            panel2.Location = new Point(303, 42);
             panel2.Name = "panel2";
-            panel2.Size = new Size(418, 65);
+            panel2.Size = new Size(334, 52);
             panel2.TabIndex = 13;
             // 
             // dateTimePicker2
@@ -466,10 +444,9 @@
             dateTimePicker2.CalendarFont = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dateTimePicker2.CustomFormat = "dd/MM/yyyy";
             dateTimePicker2.Format = DateTimePickerFormat.Custom;
-            dateTimePicker2.Location = new Point(18, 14);
-            dateTimePicker2.Margin = new Padding(4);
+            dateTimePicker2.Location = new Point(14, 11);
             dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(380, 31);
+            dateTimePicker2.Size = new Size(305, 27);
             dateTimePicker2.TabIndex = 1;
             // 
             // myGunaButton1
@@ -484,11 +461,10 @@
             myGunaButton1.HoverBackColor = Color.FromArgb(29, 53, 87);
             myGunaButton1.Image = (Image)resources.GetObject("myGunaButton1.Image");
             myGunaButton1.ImageAlign = ContentAlignment.MiddleRight;
-            myGunaButton1.Location = new Point(81, 54);
-            myGunaButton1.Margin = new Padding(4);
+            myGunaButton1.Location = new Point(65, 43);
             myGunaButton1.Name = "myGunaButton1";
             myGunaButton1.NormalBackColor = Color.FromArgb(26, 188, 156);
-            myGunaButton1.Size = new Size(202, 70);
+            myGunaButton1.Size = new Size(162, 56);
             myGunaButton1.TabIndex = 12;
             myGunaButton1.Text = "تطبيق";
             myGunaButton1.UseVisualStyleBackColor = false;
@@ -498,10 +474,9 @@
             label4.Anchor = AnchorStyles.Right;
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(690, 12);
-            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Location = new Point(552, 10);
             label4.Name = "label4";
-            label4.Size = new Size(88, 26);
+            label4.Size = new Size(74, 22);
             label4.TabIndex = 11;
             label4.Text = "إلى تاريخ";
             // 
@@ -510,10 +485,9 @@
             label3.Anchor = AnchorStyles.Right;
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(1153, 13);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(922, 10);
             label3.Name = "label3";
-            label3.Size = new Size(85, 26);
+            label3.Size = new Size(71, 22);
             label3.TabIndex = 10;
             label3.Text = "من تاريخ";
             // 
@@ -529,21 +503,24 @@
             tableLayoutPanel1.Controls.Add(panel7, 0, 0);
             tableLayoutPanel1.Controls.Add(panel6, 1, 0);
             tableLayoutPanel1.Dock = DockStyle.Top;
-            tableLayoutPanel1.Location = new Point(0, 300);
+            tableLayoutPanel1.Location = new Point(0, 240);
+            tableLayoutPanel1.Margin = new Padding(2, 2, 2, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1278, 150);
+            tableLayoutPanel1.Size = new Size(1022, 120);
             tableLayoutPanel1.TabIndex = 22;
             // 
             // panel1
             // 
+            panel1.BackColor = Color.White;
             panel1.Controls.Add(label17);
             panel1.Controls.Add(chart1);
             panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 450);
+            panel1.Location = new Point(0, 360);
+            panel1.Margin = new Padding(2, 2, 2, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1278, 700);
+            panel1.Size = new Size(1022, 560);
             panel1.TabIndex = 23;
             // 
             // label17
@@ -552,11 +529,10 @@
             label17.AutoSize = true;
             label17.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label17.ForeColor = Color.Black;
-            label17.Location = new Point(821, 41);
-            label17.Margin = new Padding(4, 0, 4, 0);
+            label17.Location = new Point(657, 33);
             label17.Name = "label17";
             label17.RightToLeft = RightToLeft.Yes;
-            label17.Size = new Size(342, 38);
+            label17.Size = new Size(292, 32);
             label17.TabIndex = 8;
             label17.Text = "الإيرادات حسب نوع الملعب";
             // 
@@ -568,8 +544,7 @@
             legend1.Enabled = false;
             legend1.Name = "Legend1";
             chart1.Legends.Add(legend1);
-            chart1.Location = new Point(392, 134);
-            chart1.Margin = new Padding(4);
+            chart1.Location = new Point(314, 107);
             chart1.Name = "chart1";
             chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             series1.ChartArea = "ChartArea1";
@@ -578,18 +553,20 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             chart1.Series.Add(series1);
-            chart1.Size = new Size(500, 500);
+            chart1.Size = new Size(400, 400);
             chart1.TabIndex = 7;
             chart1.Text = "chart1";
             // 
             // panel8
             // 
+            panel8.BackColor = Color.White;
             panel8.Controls.Add(chart2);
             panel8.Controls.Add(label18);
             panel8.Dock = DockStyle.Top;
-            panel8.Location = new Point(0, 1150);
+            panel8.Location = new Point(0, 920);
+            panel8.Margin = new Padding(2, 2, 2, 2);
             panel8.Name = "panel8";
-            panel8.Size = new Size(1278, 704);
+            panel8.Size = new Size(1022, 563);
             panel8.TabIndex = 24;
             // 
             // chart2
@@ -608,8 +585,7 @@
             chart2.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             chart2.Legends.Add(legend2);
-            chart2.Location = new Point(147, 179);
-            chart2.Margin = new Padding(4);
+            chart2.Location = new Point(118, 143);
             chart2.Name = "chart2";
             chart2.RightToLeft = RightToLeft.Yes;
             series2.BorderWidth = 4;
@@ -625,7 +601,7 @@
             series2.Name = "Series1";
             series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
             chart2.Series.Add(series2);
-            chart2.Size = new Size(1091, 469);
+            chart2.Size = new Size(873, 375);
             chart2.TabIndex = 3;
             chart2.Text = "chart2";
             // 
@@ -634,10 +610,9 @@
             label18.Anchor = AnchorStyles.Right;
             label18.AutoSize = true;
             label18.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label18.Location = new Point(963, 49);
-            label18.Margin = new Padding(4, 0, 4, 0);
+            label18.Location = new Point(770, 39);
             label18.Name = "label18";
-            label18.Size = new Size(228, 38);
+            label18.Size = new Size(197, 32);
             label18.TabIndex = 2;
             label18.Text = "الإيرادات الشهرية";
             // 
@@ -646,9 +621,10 @@
             panel9.Controls.Add(chart4);
             panel9.Controls.Add(label35);
             panel9.Dock = DockStyle.Top;
-            panel9.Location = new Point(0, 1854);
+            panel9.Location = new Point(0, 1483);
+            panel9.Margin = new Padding(2, 2, 2, 2);
             panel9.Name = "panel9";
-            panel9.Size = new Size(1278, 666);
+            panel9.Size = new Size(1022, 533);
             panel9.TabIndex = 25;
             // 
             // chart4
@@ -665,8 +641,7 @@
             chart4.ChartAreas.Add(chartArea3);
             legend3.Name = "Legend1";
             chart4.Legends.Add(legend3);
-            chart4.Location = new Point(94, 125);
-            chart4.Margin = new Padding(4);
+            chart4.Location = new Point(75, 100);
             chart4.Name = "chart4";
             chart4.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series3.ChartArea = "ChartArea1";
@@ -675,7 +650,7 @@
             series3.Name = "Series1";
             series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
             chart4.Series.Add(series3);
-            chart4.Size = new Size(1091, 528);
+            chart4.Size = new Size(873, 422);
             chart4.TabIndex = 3;
             chart4.Text = "chart4";
             // 
@@ -684,10 +659,9 @@
             label35.Anchor = AnchorStyles.Right;
             label35.AutoSize = true;
             label35.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label35.Location = new Point(693, 39);
-            label35.Margin = new Padding(4, 0, 4, 0);
+            label35.Location = new Point(554, 31);
             label35.Name = "label35";
-            label35.Size = new Size(423, 38);
+            label35.Size = new Size(362, 32);
             label35.TabIndex = 2;
             label35.Text = "أوقات الذروة (أكثر الأوقات حجزاً)";
             // 
@@ -698,13 +672,14 @@
             tableLayoutPanel2.Controls.Add(customDataGridView1, 0, 1);
             tableLayoutPanel2.Controls.Add(label21, 0, 0);
             tableLayoutPanel2.Dock = DockStyle.Top;
-            tableLayoutPanel2.Location = new Point(0, 2520);
+            tableLayoutPanel2.Location = new Point(0, 2016);
+            tableLayoutPanel2.Margin = new Padding(2, 2, 2, 2);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RightToLeft = RightToLeft.No;
             tableLayoutPanel2.RowCount = 2;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 21.7221127F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 78.2778854F));
-            tableLayoutPanel2.Size = new Size(1278, 511);
+            tableLayoutPanel2.Size = new Size(1022, 409);
             tableLayoutPanel2.TabIndex = 26;
             tableLayoutPanel2.Paint += tableLayoutPanel2_Paint;
             // 
@@ -737,7 +712,8 @@
             customDataGridView1.GridColor = Color.FromArgb(230, 230, 230);
             customDataGridView1.HeaderBackColor = Color.FromArgb(248, 249, 250);
             customDataGridView1.HeaderForeColor = Color.FromArgb(33, 37, 41);
-            customDataGridView1.Location = new Point(3, 114);
+            customDataGridView1.Location = new Point(2, 90);
+            customDataGridView1.Margin = new Padding(2, 2, 2, 2);
             customDataGridView1.MultiSelect = false;
             customDataGridView1.Name = "customDataGridView1";
             customDataGridView1.RowHeadersVisible = false;
@@ -745,7 +721,7 @@
             customDataGridView1.RowHeight = 50;
             customDataGridView1.RowTemplate.Height = 50;
             customDataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            customDataGridView1.Size = new Size(1272, 394);
+            customDataGridView1.Size = new Size(1018, 317);
             customDataGridView1.TabIndex = 4;
             // 
             // Column1
@@ -781,10 +757,9 @@
             label21.Anchor = AnchorStyles.Right;
             label21.AutoSize = true;
             label21.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label21.Location = new Point(1024, 36);
-            label21.Margin = new Padding(4, 0, 4, 0);
+            label21.Location = new Point(805, 28);
             label21.Name = "label21";
-            label21.Size = new Size(250, 38);
+            label21.Size = new Size(214, 32);
             label21.TabIndex = 3;
             label21.Text = "العملاء الأكثر حجزاً";
             // 
@@ -793,16 +768,16 @@
             label19.Anchor = AnchorStyles.Right;
             label19.AutoSize = true;
             label19.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label19.Location = new Point(882, 182);
-            label19.Margin = new Padding(4, 0, 4, 0);
+            label19.Location = new Point(706, 146);
             label19.Name = "label19";
-            label19.Size = new Size(265, 38);
+            label19.Size = new Size(226, 32);
             label19.TabIndex = 0;
             label19.Text = "الملاعب الأكثر حجزاً";
             label19.Click += label19_Click;
             // 
             // panel10
             // 
+            panel10.BackColor = Color.White;
             panel10.Controls.Add(panel19);
             panel10.Controls.Add(label31);
             panel10.Controls.Add(label32);
@@ -822,9 +797,10 @@
             panel10.Controls.Add(pictureBox1);
             panel10.Controls.Add(label19);
             panel10.Dock = DockStyle.Top;
-            panel10.Location = new Point(0, 3031);
+            panel10.Location = new Point(0, 2425);
+            panel10.Margin = new Padding(2, 2, 2, 2);
             panel10.Name = "panel10";
-            panel10.Size = new Size(1278, 854);
+            panel10.Size = new Size(1022, 683);
             panel10.TabIndex = 27;
             // 
             // panel19
@@ -832,19 +808,17 @@
             panel19.Anchor = AnchorStyles.Right;
             panel19.BackColor = Color.FromArgb(243, 244, 246);
             panel19.Controls.Add(panel20);
-            panel19.Location = new Point(81, 650);
-            panel19.Margin = new Padding(4);
+            panel19.Location = new Point(69, 520);
             panel19.Name = "panel19";
-            panel19.Size = new Size(1119, 12);
+            panel19.Size = new Size(945, 10);
             panel19.TabIndex = 31;
             // 
             // panel20
             // 
             panel20.BackColor = Color.FromArgb(16, 185, 129);
-            panel20.Location = new Point(798, 0);
-            panel20.Margin = new Padding(4);
+            panel20.Location = new Point(686, 0);
             panel20.Name = "panel20";
-            panel20.Size = new Size(321, 12);
+            panel20.Size = new Size(257, 10);
             panel20.TabIndex = 0;
             // 
             // label31
@@ -853,11 +827,10 @@
             label31.AutoSize = true;
             label31.Font = new Font("Microsoft Sans Serif", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label31.ForeColor = Color.FromArgb(107, 114, 128);
-            label31.Location = new Point(1208, 666);
-            label31.Margin = new Padding(4, 0, 4, 0);
+            label31.Location = new Point(954, 533);
             label31.Name = "label31";
             label31.RightToLeft = RightToLeft.Yes;
-            label31.Size = new Size(67, 26);
+            label31.Size = new Size(61, 22);
             label31.TabIndex = 34;
             label31.Text = "22.5%";
             // 
@@ -867,11 +840,10 @@
             label32.AutoSize = true;
             label32.Font = new Font("Microsoft Sans Serif", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label32.ForeColor = Color.FromArgb(107, 114, 128);
-            label32.Location = new Point(201, 621);
-            label32.Margin = new Padding(4, 0, 4, 0);
+            label32.Location = new Point(161, 497);
             label32.Name = "label32";
             label32.RightToLeft = RightToLeft.Yes;
-            label32.Size = new Size(103, 26);
+            label32.Size = new Size(87, 22);
             label32.TabIndex = 33;
             label32.Text = " 170 حجز";
             // 
@@ -881,10 +853,9 @@
             label33.AutoSize = true;
             label33.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label33.ForeColor = Color.FromArgb(31, 41, 55);
-            label33.Location = new Point(1076, 615);
-            label33.Margin = new Padding(4, 0, 4, 0);
+            label33.Location = new Point(861, 492);
             label33.Name = "label33";
-            label33.Size = new Size(189, 32);
+            label33.Size = new Size(157, 29);
             label33.TabIndex = 32;
             label33.Text = "ملعب كرة القدم 2";
             // 
@@ -893,19 +864,17 @@
             panel17.Anchor = AnchorStyles.Right;
             panel17.BackColor = Color.FromArgb(243, 244, 246);
             panel17.Controls.Add(panel18);
-            panel17.Location = new Point(109, 555);
-            panel17.Margin = new Padding(4);
+            panel17.Location = new Point(69, 444);
             panel17.Name = "panel17";
-            panel17.Size = new Size(1119, 12);
+            panel17.Size = new Size(945, 10);
             panel17.TabIndex = 21;
             // 
             // panel18
             // 
             panel18.BackColor = Color.FromArgb(16, 185, 129);
-            panel18.Location = new Point(854, 0);
-            panel18.Margin = new Padding(4);
+            panel18.Location = new Point(733, 0);
             panel18.Name = "panel18";
-            panel18.Size = new Size(265, 12);
+            panel18.Size = new Size(212, 10);
             panel18.TabIndex = 0;
             // 
             // panel15
@@ -913,19 +882,17 @@
             panel15.Anchor = AnchorStyles.Right;
             panel15.BackColor = Color.FromArgb(243, 244, 246);
             panel15.Controls.Add(panel16);
-            panel15.Location = new Point(109, 454);
-            panel15.Margin = new Padding(4);
+            panel15.Location = new Point(69, 363);
             panel15.Name = "panel15";
-            panel15.Size = new Size(1119, 12);
+            panel15.Size = new Size(945, 10);
             panel15.TabIndex = 22;
             // 
             // panel16
             // 
             panel16.BackColor = Color.FromArgb(16, 185, 129);
-            panel16.Location = new Point(719, 0);
-            panel16.Margin = new Padding(4);
+            panel16.Location = new Point(625, 0);
             panel16.Name = "panel16";
-            panel16.Size = new Size(400, 12);
+            panel16.Size = new Size(320, 10);
             panel16.TabIndex = 0;
             // 
             // label28
@@ -934,11 +901,10 @@
             label28.AutoSize = true;
             label28.Font = new Font("Microsoft Sans Serif", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label28.ForeColor = Color.FromArgb(107, 114, 128);
-            label28.Location = new Point(1170, 571);
-            label28.Margin = new Padding(4, 0, 4, 0);
+            label28.Location = new Point(936, 457);
             label28.Name = "label28";
             label28.RightToLeft = RightToLeft.Yes;
-            label28.Size = new Size(49, 26);
+            label28.Size = new Size(46, 22);
             label28.TabIndex = 30;
             label28.Text = "20%";
             // 
@@ -948,11 +914,10 @@
             label29.AutoSize = true;
             label29.Font = new Font("Microsoft Sans Serif", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label29.ForeColor = Color.FromArgb(107, 114, 128);
-            label29.Location = new Point(206, 510);
-            label29.Margin = new Padding(4, 0, 4, 0);
+            label29.Location = new Point(165, 408);
             label29.Name = "label29";
             label29.RightToLeft = RightToLeft.Yes;
-            label29.Size = new Size(96, 26);
+            label29.Size = new Size(81, 22);
             label29.TabIndex = 29;
             label29.Text = "165 حجز";
             // 
@@ -962,10 +927,9 @@
             label30.AutoSize = true;
             label30.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label30.ForeColor = Color.FromArgb(31, 41, 55);
-            label30.Location = new Point(1114, 510);
-            label30.Margin = new Padding(4, 0, 4, 0);
+            label30.Location = new Point(891, 408);
             label30.Name = "label30";
-            label30.Size = new Size(155, 32);
+            label30.Size = new Size(131, 29);
             label30.TabIndex = 28;
             label30.Text = "ملعب البادل 1";
             // 
@@ -975,11 +939,10 @@
             label25.AutoSize = true;
             label25.Font = new Font("Microsoft Sans Serif", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label25.ForeColor = Color.FromArgb(107, 114, 128);
-            label25.Location = new Point(1170, 470);
-            label25.Margin = new Padding(4, 0, 4, 0);
+            label25.Location = new Point(936, 376);
             label25.Name = "label25";
             label25.RightToLeft = RightToLeft.No;
-            label25.Size = new Size(56, 26);
+            label25.Size = new Size(46, 22);
             label25.TabIndex = 27;
             label25.Text = "24%";
             // 
@@ -989,11 +952,10 @@
             label26.AutoSize = true;
             label26.Font = new Font("Microsoft Sans Serif", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label26.ForeColor = Color.FromArgb(107, 114, 128);
-            label26.Location = new Point(206, 406);
-            label26.Margin = new Padding(4, 0, 4, 0);
+            label26.Location = new Point(165, 325);
             label26.Name = "label26";
             label26.RightToLeft = RightToLeft.Yes;
-            label26.Size = new Size(96, 26);
+            label26.Size = new Size(81, 22);
             label26.TabIndex = 26;
             label26.Text = "198 حجز";
             // 
@@ -1003,10 +965,9 @@
             label27.AutoSize = true;
             label27.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label27.ForeColor = Color.FromArgb(31, 41, 55);
-            label27.Location = new Point(1106, 400);
-            label27.Margin = new Padding(4, 0, 4, 0);
+            label27.Location = new Point(885, 320);
             label27.Name = "label27";
-            label27.Size = new Size(153, 32);
+            label27.Size = new Size(130, 29);
             label27.TabIndex = 25;
             label27.Text = "ملعب التنس 1";
             // 
@@ -1016,11 +977,10 @@
             label24.AutoSize = true;
             label24.Font = new Font("Microsoft Sans Serif", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label24.ForeColor = Color.FromArgb(107, 114, 128);
-            label24.Location = new Point(1170, 360);
-            label24.Margin = new Padding(4, 0, 4, 0);
+            label24.Location = new Point(936, 288);
             label24.Name = "label24";
             label24.RightToLeft = RightToLeft.Yes;
-            label24.Size = new Size(49, 26);
+            label24.Size = new Size(46, 22);
             label24.TabIndex = 24;
             label24.Text = "35%";
             label24.Click += label24_Click;
@@ -1031,11 +991,10 @@
             label23.AutoSize = true;
             label23.Font = new Font("Microsoft Sans Serif", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label23.ForeColor = Color.FromArgb(107, 114, 128);
-            label23.Location = new Point(206, 296);
-            label23.Margin = new Padding(4, 0, 4, 0);
+            label23.Location = new Point(165, 237);
             label23.Name = "label23";
             label23.RightToLeft = RightToLeft.Yes;
-            label23.Size = new Size(96, 26);
+            label23.Size = new Size(81, 22);
             label23.TabIndex = 23;
             label23.Text = "285 حجز";
             // 
@@ -1045,10 +1004,9 @@
             label22.AutoSize = true;
             label22.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label22.ForeColor = Color.FromArgb(31, 41, 55);
-            label22.Location = new Point(1074, 290);
-            label22.Margin = new Padding(4, 0, 4, 0);
+            label22.Location = new Point(859, 232);
             label22.Name = "label22";
-            label22.Size = new Size(189, 32);
+            label22.Size = new Size(157, 29);
             label22.TabIndex = 20;
             label22.Text = "ملعب كرة القدم 1";
             // 
@@ -1057,39 +1015,36 @@
             panel13.Anchor = AnchorStyles.Right;
             panel13.BackColor = Color.FromArgb(243, 244, 246);
             panel13.Controls.Add(panel14);
-            panel13.Location = new Point(106, 344);
-            panel13.Margin = new Padding(4);
+            panel13.Location = new Point(69, 275);
             panel13.Name = "panel13";
-            panel13.Size = new Size(1119, 12);
+            panel13.Size = new Size(945, 10);
             panel13.TabIndex = 19;
             // 
             // panel14
             // 
             panel14.BackColor = Color.FromArgb(16, 185, 129);
-            panel14.Location = new Point(629, 0);
-            panel14.Margin = new Padding(4);
+            panel14.Location = new Point(553, 0);
             panel14.Name = "panel14";
-            panel14.Size = new Size(490, 12);
+            panel14.Size = new Size(392, 10);
             panel14.TabIndex = 0;
             // 
             // pictureBox1
             // 
             pictureBox1.Anchor = AnchorStyles.Right;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(1183, 160);
-            pictureBox1.Margin = new Padding(4);
+            pictureBox1.Location = new Point(946, 128);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(80, 80);
+            pictureBox1.Size = new Size(64, 64);
             pictureBox1.TabIndex = 18;
             pictureBox1.TabStop = false;
             // 
             // ReportsForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.FromArgb(248, 250, 252);
-            ClientSize = new Size(1304, 764);
+            ClientSize = new Size(1043, 611);
             Controls.Add(panel10);
             Controls.Add(tableLayoutPanel2);
             Controls.Add(panel9);
@@ -1100,7 +1055,6 @@
             Controls.Add(panel23);
             Controls.Add(panel21);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4);
             Name = "ReportsForm";
             RightToLeft = RightToLeft.Yes;
             RightToLeftLayout = true;

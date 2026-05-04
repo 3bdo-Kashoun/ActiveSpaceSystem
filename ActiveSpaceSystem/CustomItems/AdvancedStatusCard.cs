@@ -30,11 +30,14 @@ namespace ActiveSpaceSystem.CustomItems
         // --- الخصائص (Properties) لظهورها في الـ Designer ---
 
         [Category("Abdul Style - Content")]
-        public string TitleText { get => titleText; set { titleText = value; Invalidate(); } }
+        private bool _isUpdating = false;
+private bool _needsInvalidate = false;
+
+public string TitleText { get => titleText; set { titleText = value; if(!_isUpdating) Invalidate(); else _needsInvalidate = true; } }
         [Category("Abdul Style - Content")]
-        public string ValueText { get => valueText; set { valueText = value; Invalidate(); } }
+        public string ValueText { get => valueText; set { valueText = value; if(!_isUpdating) Invalidate(); else _needsInvalidate = true; } }
         [Category("Abdul Style - Content")]
-        public string SubValueText { get => subValueText; set { subValueText = value; Invalidate(); } }
+        public string SubValueText { get => subValueText; set { subValueText = value; if(!_isUpdating) Invalidate(); else _needsInvalidate = true; } }
 
         [Category("Abdul Style - Colors")]
         public Color TitleColor { get => titleColor; set { titleColor = value; Invalidate(); } }
@@ -50,7 +53,7 @@ namespace ActiveSpaceSystem.CustomItems
         [Category("Abdul Style - Fonts")]
         public Font ValueFont { get => valueFont; set { valueFont = value; Invalidate(); } }
         [Category("Abdul Style - Fonts")]
-        public Font SubValueFont { get => subValueFont; set { subValueFont = value; Invalidate(); } }
+        public Font SubValueFont { get => subValueFont; set { subValueFont = value; if(!_isUpdating) Invalidate(); else _needsInvalidate = true; } }
 
         [Category("Abdul Style - Appearance")]
         public int BorderRadius { get => borderRadius; set { borderRadius = value; Invalidate(); } }
@@ -66,6 +69,24 @@ namespace ActiveSpaceSystem.CustomItems
             this.BackColor = Color.Transparent; // لضمان عدم وجود خلفية رمادية خلف الظل
         }
 
+        // BeginUpdate/EndUpdate pattern to batch property changes
+        public void BeginUpdate()
+        {
+            _isUpdating = true;
+            _needsInvalidate = false;
+        }
+
+        public void EndUpdate()
+        {
+            _isUpdating = false;
+            if (_needsInvalidate)
+            {
+                _needsInvalidate = false;
+                Invalidate();
+            }
+        }
+
+        
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics g = e.Graphics;

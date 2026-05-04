@@ -176,6 +176,9 @@ namespace ActiveSpaceSystem.Forms.DialogForms
             but.Region = new Region(path);
         }
 
-       
+        private void dtp_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

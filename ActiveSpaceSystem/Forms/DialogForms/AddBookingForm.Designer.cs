@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddBookingForm));
-            nametxt = new ActiveSpaceSystem.CustomItems.AbdulTextBox();
+            txtName = new ActiveSpaceSystem.CustomItems.AbdulTextBox();
             label1 = new Label();
             button1 = new Button();
             label2 = new Label();
             label3 = new Label();
-            phonetxt = new ActiveSpaceSystem.CustomItems.AbdulTextBox();
+            txtPhone = new ActiveSpaceSystem.CustomItems.AbdulTextBox();
             label4 = new Label();
             label5 = new Label();
-            studiomtxt = new ActiveSpaceSystem.CustomItems.AbdulTextBox();
-            dateTimePicker2 = new DateTimePicker();
+            txtCourt = new ActiveSpaceSystem.CustomItems.AbdulTextBox();
+            dtpBookingDate = new DateTimePicker();
             label6 = new Label();
             label7 = new Label();
             label8 = new Label();
@@ -49,28 +49,28 @@
             deposittxt = new ActiveSpaceSystem.CustomItems.AbdulTextBox();
             button2 = new Button();
             button3 = new Button();
-            dateTimePicker4 = new DateTimePicker();
-            comboBox1 = new ComboBox();
+            dtpStartTime = new DateTimePicker();
+            cmbCourtType = new ComboBox();
             customPanel1 = new ActiveSpaceSystem.CustomItems.CustomPanel();
             customPanel1.SuspendLayout();
             SuspendLayout();
             // 
-            // nametxt
+            // txtName
             // 
-            nametxt.BackColor = Color.White;
-            nametxt.BorderColor = Color.FromArgb(29, 53, 87);
-            nametxt.BorderRadius = 15;
-            nametxt.Icon = null;
-            nametxt.IconLocation = HorizontalAlignment.Left;
-            nametxt.IconSize = 20;
-            nametxt.Location = new Point(451, 131);
-            nametxt.Name = "nametxt";
-            nametxt.passwordChar = "\0";
-            nametxt.PlaceholderText = "أدخل النص هنا...";
-            nametxt.RightToLeft = RightToLeft.Yes;
-            nametxt.Size = new Size(330, 50);
-            nametxt.TabIndex = 0;
-            nametxt.Texts = "";
+            txtName.BackColor = Color.White;
+            txtName.BorderColor = Color.FromArgb(29, 53, 87);
+            txtName.BorderRadius = 15;
+            txtName.Icon = null;
+            txtName.IconLocation = HorizontalAlignment.Left;
+            txtName.IconSize = 20;
+            txtName.Location = new Point(451, 131);
+            txtName.Name = "txtName";
+            txtName.passwordChar = "\0";
+            txtName.PlaceholderText = "أدخل النص هنا...";
+            txtName.RightToLeft = RightToLeft.Yes;
+            txtName.Size = new Size(330, 50);
+            txtName.TabIndex = 0;
+            txtName.Texts = "";
             // 
             // label1
             // 
@@ -111,22 +111,22 @@
             label3.TabIndex = 5;
             label3.Text = "رقم الهاتف";
             // 
-            // phonetxt
+            // txtPhone
             // 
-            phonetxt.BackColor = Color.White;
-            phonetxt.BorderColor = Color.FromArgb(29, 53, 87);
-            phonetxt.BorderRadius = 15;
-            phonetxt.Icon = null;
-            phonetxt.IconLocation = HorizontalAlignment.Left;
-            phonetxt.IconSize = 20;
-            phonetxt.Location = new Point(47, 131);
-            phonetxt.Name = "phonetxt";
-            phonetxt.passwordChar = "\0";
-            phonetxt.PlaceholderText = "أدخل النص هنا...";
-            phonetxt.RightToLeft = RightToLeft.Yes;
-            phonetxt.Size = new Size(330, 50);
-            phonetxt.TabIndex = 4;
-            phonetxt.Texts = "";
+            txtPhone.BackColor = Color.White;
+            txtPhone.BorderColor = Color.FromArgb(29, 53, 87);
+            txtPhone.BorderRadius = 15;
+            txtPhone.Icon = null;
+            txtPhone.IconLocation = HorizontalAlignment.Left;
+            txtPhone.IconSize = 20;
+            txtPhone.Location = new Point(47, 131);
+            txtPhone.Name = "txtPhone";
+            txtPhone.passwordChar = "\0";
+            txtPhone.PlaceholderText = "أدخل النص هنا...";
+            txtPhone.RightToLeft = RightToLeft.Yes;
+            txtPhone.Size = new Size(330, 50);
+            txtPhone.TabIndex = 4;
+            txtPhone.Texts = "";
             // 
             // label4
             // 
@@ -148,32 +148,33 @@
             label5.TabIndex = 10;
             label5.Text = "الملعب";
             // 
-            // studiomtxt
+            // txtCourt
             // 
-            studiomtxt.BackColor = Color.White;
-            studiomtxt.BorderColor = Color.FromArgb(29, 53, 87);
-            studiomtxt.BorderRadius = 15;
-            studiomtxt.Icon = null;
-            studiomtxt.IconLocation = HorizontalAlignment.Left;
-            studiomtxt.IconSize = 20;
-            studiomtxt.Location = new Point(47, 233);
-            studiomtxt.Name = "studiomtxt";
-            studiomtxt.passwordChar = "\0";
-            studiomtxt.PlaceholderText = "أدخل النص هنا...";
-            studiomtxt.RightToLeft = RightToLeft.Yes;
-            studiomtxt.Size = new Size(330, 50);
-            studiomtxt.TabIndex = 9;
-            studiomtxt.Texts = "";
+            txtCourt.BackColor = Color.White;
+            txtCourt.BorderColor = Color.FromArgb(29, 53, 87);
+            txtCourt.BorderRadius = 15;
+            txtCourt.Icon = null;
+            txtCourt.IconLocation = HorizontalAlignment.Left;
+            txtCourt.IconSize = 20;
+            txtCourt.Location = new Point(47, 233);
+            txtCourt.Name = "txtCourt";
+            txtCourt.passwordChar = "\0";
+            txtCourt.PlaceholderText = "أدخل النص هنا...";
+            txtCourt.RightToLeft = RightToLeft.Yes;
+            txtCourt.Size = new Size(330, 50);
+            txtCourt.TabIndex = 9;
+            txtCourt.Texts = "";
             // 
-            // dateTimePicker2
+            // dtpBookingDate
             // 
-            dateTimePicker2.CalendarFont = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dateTimePicker2.Format = DateTimePickerFormat.Short;
-            dateTimePicker2.Location = new Point(451, 342);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.RightToLeft = RightToLeft.Yes;
-            dateTimePicker2.Size = new Size(330, 27);
-            dateTimePicker2.TabIndex = 1;
+            dtpBookingDate.CalendarFont = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dtpBookingDate.Format = DateTimePickerFormat.Short;
+            dtpBookingDate.Location = new Point(451, 342);
+            dtpBookingDate.Name = "dtpBookingDate";
+            dtpBookingDate.RightToLeft = RightToLeft.Yes;
+            dtpBookingDate.Size = new Size(330, 27);
+            dtpBookingDate.TabIndex = 1;
+            dtpBookingDate.ValueChanged += dtp_ValueChanged;
             // 
             // label6
             // 
@@ -207,12 +208,16 @@
             // 
             // dateTimePicker5
             // 
-            dateTimePicker5.CalendarFont = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dateTimePicker5.Format = DateTimePickerFormat.Time;
+            dateTimePicker5.CalendarFont = new Font("Tajawal", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dateTimePicker5.CustomFormat = "HH:mm";
+            dateTimePicker5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dateTimePicker5.Format = DateTimePickerFormat.Custom;
             dateTimePicker5.Location = new Point(451, 429);
             dateTimePicker5.Name = "dateTimePicker5";
             dateTimePicker5.RightToLeft = RightToLeft.Yes;
-            dateTimePicker5.Size = new Size(330, 27);
+            dateTimePicker5.RightToLeftLayout = true;
+            dateTimePicker5.ShowUpDown = true;
+            dateTimePicker5.Size = new Size(330, 34);
             dateTimePicker5.TabIndex = 1;
             // 
             // label9
@@ -297,25 +302,26 @@
             button3.UseVisualStyleBackColor = false;
             button3.Paint += button3_Paint;
             // 
-            // dateTimePicker4
+            // dtpStartTime
             // 
-            dateTimePicker4.CalendarFont = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dateTimePicker4.Format = DateTimePickerFormat.Short;
-            dateTimePicker4.Location = new Point(47, 342);
-            dateTimePicker4.Name = "dateTimePicker4";
-            dateTimePicker4.RightToLeft = RightToLeft.Yes;
-            dateTimePicker4.Size = new Size(330, 27);
-            dateTimePicker4.TabIndex = 0;
+            dtpStartTime.CalendarFont = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dtpStartTime.CustomFormat = "hh/mm";
+            dtpStartTime.Format = DateTimePickerFormat.Short;
+            dtpStartTime.Location = new Point(47, 342);
+            dtpStartTime.Name = "dtpStartTime";
+            dtpStartTime.RightToLeft = RightToLeft.Yes;
+            dtpStartTime.Size = new Size(330, 27);
+            dtpStartTime.TabIndex = 0;
             // 
-            // comboBox1
+            // cmbCourtType
             // 
-            comboBox1.FlatStyle = FlatStyle.Flat;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(18, 13);
-            comboBox1.Name = "comboBox1";
-            comboBox1.RightToLeft = RightToLeft.Yes;
-            comboBox1.Size = new Size(295, 28);
-            comboBox1.TabIndex = 6;
+            cmbCourtType.FlatStyle = FlatStyle.Flat;
+            cmbCourtType.FormattingEnabled = true;
+            cmbCourtType.Location = new Point(18, 13);
+            cmbCourtType.Name = "cmbCourtType";
+            cmbCourtType.RightToLeft = RightToLeft.Yes;
+            cmbCourtType.Size = new Size(295, 28);
+            cmbCourtType.TabIndex = 6;
             // 
             // customPanel1
             // 
@@ -323,7 +329,7 @@
             customPanel1.BorderColor = Color.Black;
             customPanel1.BorderRadius = 10;
             customPanel1.BorderSize = 1F;
-            customPanel1.Controls.Add(comboBox1);
+            customPanel1.Controls.Add(cmbCourtType);
             customPanel1.Location = new Point(451, 233);
             customPanel1.Name = "customPanel1";
             customPanel1.ShowShadow = false;
@@ -338,8 +344,8 @@
             ClientSize = new Size(800, 691);
             Controls.Add(customPanel1);
             Controls.Add(dateTimePicker5);
-            Controls.Add(dateTimePicker2);
-            Controls.Add(dateTimePicker4);
+            Controls.Add(dtpBookingDate);
+            Controls.Add(dtpStartTime);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(label10);
@@ -350,14 +356,14 @@
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label5);
-            Controls.Add(studiomtxt);
+            Controls.Add(txtCourt);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(phonetxt);
+            Controls.Add(txtPhone);
             Controls.Add(label2);
             Controls.Add(button1);
             Controls.Add(label1);
-            Controls.Add(nametxt);
+            Controls.Add(txtName);
             FormBorderStyle = FormBorderStyle.None;
             Name = "AddBookingForm";
             RightToLeft = RightToLeft.No;
@@ -372,28 +378,29 @@
 
         #endregion
 
-        private CustomItems.AbdulTextBox nametxt;
+        private CustomItems.AbdulTextBox txtName;
         private Label label1;
         private Button button1;
         private Label label2;
         private Label label3;
-        private CustomItems.AbdulTextBox phonetxt;
+        private CustomItems.AbdulTextBox txtPhone;
         private Label label4;
         private Label label5;
-        private CustomItems.AbdulTextBox studiomtxt;
         private Label label6;
         private DateTimePicker dateTimePicker2;
         private Label label7;
         private Label label8;
-        private DateTimePicker dateTimePicker5;
         private Label label9;
         private CustomItems.AbdulTextBox abdulTextBox1;
         private Label label10;
         private CustomItems.AbdulTextBox deposittxt;
         private Button button2;
         private Button button3;
-        private DateTimePicker dateTimePicker4;
-        private ComboBox comboBox1;
         private CustomItems.CustomPanel customPanel1;
+        public CustomItems.AbdulTextBox txtCourt;
+        public DateTimePicker dtpBookingDate;
+        public DateTimePicker dateTimePicker5;
+        public DateTimePicker dtpStartTime;
+        public ComboBox cmbCourtType;
     }
 }

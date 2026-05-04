@@ -22,7 +22,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
             txtCourt.Text = model.Court;
             txtDate.Text = model.Date;
             txtTime.Text = model.Time;
-            numAmount.Value = model.Amount;
+            numAmount.Value = (decimal)model.Amount;
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -32,7 +32,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
             model.Court = txtCourt.Text;
             model.Date = txtDate.Text;
             model.Time = txtTime.Text;
-            model.Amount = numAmount.Value;
+            numAmount.Value = (decimal)model.Amount;
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

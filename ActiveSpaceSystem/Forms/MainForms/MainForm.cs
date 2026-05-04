@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using ActiveSpaceSystem.Forms.SideForms;
 using ActiveSpace.Models;
+using ActiveSpaceSystem.Models.enums;
 
 namespace ActiveSpaceSystem.Forms.MainForms
 {
@@ -10,7 +11,7 @@ namespace ActiveSpaceSystem.Forms.MainForms
     {
         private Dashboard DashForm = null!;
         private ManageBooking BookingForm = null!;
-        private Scheduling ScheduleForm = null!;
+        private SchedulingForm ScheduleForm = null!;
         private MonthlyContractForm MonthlyContractForm = null!;
         private MangeCustomers MangeCustomersForm = null!;
         private PaymentForm PaymentForm = null!;
@@ -101,7 +102,7 @@ namespace ActiveSpaceSystem.Forms.MainForms
             ActivateButton(button2);
             if (ScheduleForm == null || ScheduleForm.IsDisposed)
             {
-                ScheduleForm = new Scheduling();
+                ScheduleForm = new SchedulingForm();
             }
             ShowFormInPanel(ScheduleForm);
         }
@@ -166,7 +167,7 @@ namespace ActiveSpaceSystem.Forms.MainForms
             }
         }
 
-        
+
 
         private void button9_Click_1(object sender, EventArgs e)
         {
@@ -178,6 +179,11 @@ namespace ActiveSpaceSystem.Forms.MainForms
 
             // إغلاق الواجهة الحالية
             this.Close();
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
 
         }
     }

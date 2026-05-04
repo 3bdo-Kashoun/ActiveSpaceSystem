@@ -1,6 +1,7 @@
 using ActiveSpace.Models;
 using ActiveSpaceSystem.Forms.GridStyle;
 using ActiveSpaceSystem.Forms.Views;
+using ActiveSpaceSystem.Models.enums;
 using System;
 using System.ComponentModel;
 using System.Drawing;

@@ -38,7 +38,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
         {
             var data = Booking.GetFakeData().Select(b =>
             {
-                decimal paid = Payment.GetFakeData()
+                double paid = Payment.GetFakeData()
                               .Where(p => p.BookingID == b.BookingID)
                               .Sum(p => p.AmountPaid);
                 return new
@@ -170,10 +170,10 @@ namespace ActiveSpaceSystem.Forms.SideForms
             var booking = Booking.GetFakeData().FirstOrDefault(b => b.BookingID == bookingId);
             if (booking != null)
             {
-                decimal paid = Payment.GetFakeData()
+                double paid = Payment.GetFakeData()
                               .Where(p => p.BookingID == booking.BookingID)
                               .Sum(p => p.AmountPaid);
-                decimal remaining = booking.TotalAmount - paid;
+                double remaining = booking.TotalAmount - paid;
 
                 bookingDetailsCard.BookingID = $"B-{booking.BookingID}";
                 bookingDetailsCard.CustomerName = booking.Customer.FullName;

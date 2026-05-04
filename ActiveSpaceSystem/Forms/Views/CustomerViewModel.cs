@@ -8,7 +8,7 @@ namespace ActiveSpaceSystem.Forms.Views
     {
         public string FullName { get; set; }
         public string Phone { get; set; }
-        public decimal TotalDebt { get; set; }
+        public double TotalDebt { get; set; }
         public int NoShowCount { get; set; }
         public string LastBookingDate { get; set; }
       

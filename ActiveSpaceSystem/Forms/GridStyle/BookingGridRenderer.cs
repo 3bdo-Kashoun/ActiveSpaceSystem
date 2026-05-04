@@ -1,4 +1,4 @@
-using ActiveSpace.Models;
+using ActiveSpaceSystem.Models.enums;
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -90,7 +90,7 @@ namespace ActiveSpaceSystem.Forms.GridStyle
             {
                 BookingStatus.Confirmed => (BookingGridStyles.TextConfirmed, BookingGridStyles.ColorConfirmedBack, BookingGridStyles.ColorConfirmedText),
                 BookingStatus.Completed => (BookingGridStyles.TextCompleted, BookingGridStyles.ColorCompletedBack, BookingGridStyles.ColorCompletedText),
-                BookingStatus.Canceled => (BookingGridStyles.TextCanceled, BookingGridStyles.ColorCanceledBack, BookingGridStyles.ColorCanceledText),
+                
                 _ => (BookingGridStyles.TextPending, BookingGridStyles.ColorPendingBack, BookingGridStyles.ColorPendingText)
             };
         }

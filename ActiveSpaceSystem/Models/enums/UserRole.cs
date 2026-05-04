@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ActiveSpace.Models
+namespace ActiveSpaceSystem.Models.enums
 {
     
     public enum UserRole { Admin, Staff }

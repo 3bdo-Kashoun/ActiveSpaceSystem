@@ -1,4 +1,6 @@
-﻿namespace ActiveSpace.Models
+﻿using ActiveSpaceSystem.Models.enums;
+
+namespace ActiveSpace.Models
 {
     
     public class MonthlyContract
@@ -43,7 +45,7 @@
             return list;
         }
 
-        private decimal CalculateAmount() => 100;
+        private double CalculateAmount() => 100;
 
         public void GenerateBookings()
         {

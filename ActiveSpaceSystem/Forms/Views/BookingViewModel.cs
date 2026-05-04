@@ -1,4 +1,5 @@
 using ActiveSpace.Models;
+using ActiveSpaceSystem.Models.enums;
 
 namespace ActiveSpaceSystem.Forms.Views
 {
@@ -10,7 +11,7 @@ namespace ActiveSpaceSystem.Forms.Views
         public string Court { get; set; }
         public string Date { get; set; }
         public string Time { get; set; }
-        public decimal Amount { get; set; }
+        public double Amount { get; set; }
         public BookingStatus Status { get; set; }
 
         public static BookingViewModel FromBooking(Booking b)

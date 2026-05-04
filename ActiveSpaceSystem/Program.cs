@@ -1,5 +1,6 @@
 using ActiveSpaceSystem.CustomItems;
 using ActiveSpaceSystem.Forms;
+using ActiveSpaceSystem.Forms.DialogForms;
 using ActiveSpaceSystem.Forms.MainForms;
 using ActiveSpaceSystem.Forms.SideForms;
 namespace ActiveSpaceSystem
@@ -15,7 +16,7 @@ namespace ActiveSpaceSystem
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new LoginForm());
+            Application.Run(new AddContract());
             //Application.Run(new Dashboard());
         }
     }

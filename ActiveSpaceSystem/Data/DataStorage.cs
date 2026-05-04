@@ -10,6 +10,13 @@ namespace ActiveSpaceSystem.Data
     internal class DataStorage
     {
         public static List<User> UsersList = new List<User>();
+       public static List<Booking> BookingsList = new List<Booking>();
+        public static List<Court> CourtsLisList = new List<Court>();
+        public static List<CourtType> CourtTypesList = new List<CourtType>();
+        public static List<Customer> CustomersList = new List<Customer>();
+        public static List<MonthlyContract> MonthlyContractsList = new List<MonthlyContract>();
+        public static List<Payment> PaymentsList = new List<Payment>();
+
 
         static DataStorage()
         {

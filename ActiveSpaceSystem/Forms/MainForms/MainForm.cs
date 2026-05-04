@@ -7,7 +7,15 @@ namespace ActiveSpaceSystem.Forms.MainForms
 {
     public partial class MainForm : Form
     {
-        Form DashForm = new Dashboard();
+        private Dashboard DashForm;
+        private ManageBooking BookingForm ;
+        private Scheduling ScheduleForm ;
+        private MonthlyContractForm MonthlyContractForm;
+        private MangeCustomers MangeCustomersForm;
+        private PaymentForm PaymentForm;
+        private ReportsForm ReportsForm;
+        private Settings SettingsForm;
+
         private Button currentActiveButton = null;
 
         public MainForm()
@@ -68,56 +76,83 @@ namespace ActiveSpaceSystem.Forms.MainForms
         private void button3_Click(object sender, EventArgs e)   // الرئيسية
         {
             ActivateButton(button3);
+            if (DashForm == null || DashForm.IsDisposed)
+            {
+                DashForm = new Dashboard();
+            }
             ShowFormInPanel(DashForm);
         }
 
         private void button1_Click(object sender, EventArgs e)   // إدارة الحجوزات
         {
             ActivateButton(button1);
-            ShowFormInPanel(new ManageBooking());
+            if (BookingForm == null || BookingForm.IsDisposed)
+            {
+                BookingForm = new ManageBooking();
+            }
+            ShowFormInPanel(BookingForm);
         }
 
         private void button2_Click(object sender, EventArgs e)   // الجدولة
         {
             ActivateButton(button2);
-            ShowFormInPanel(new Scheduling());
+            if (ScheduleForm == null || ScheduleForm.IsDisposed)
+            {
+                ScheduleForm = new Scheduling();
+            }
+            ShowFormInPanel(ScheduleForm);
         }
 
         private void button5_Click(object sender, EventArgs e)   // العقود الشهرية
         {
             ActivateButton(button5);
-            ShowFormInPanel(new MonthlyContractForm());
+            if (MonthlyContractForm == null || MonthlyContractForm.IsDisposed)
+            {
+                MonthlyContractForm = new MonthlyContractForm();
+            }
+            ShowFormInPanel(MonthlyContractForm);
         }
 
         private void button4_Click(object sender, EventArgs e)   // المدفوعات
         {
             ActivateButton(button4);
-            ShowFormInPanel(new PaymentForm());
+            if (PaymentForm == null || PaymentForm.IsDisposed)
+            {
+                PaymentForm = new PaymentForm();
+            }
+            ShowFormInPanel(PaymentForm);
         }
 
         private void button7_Click(object sender, EventArgs e)   // التقارير
         {
             ActivateButton(button7);
-            ShowFormInPanel(new ReportsForm());
+            if (ReportsForm == null || ReportsForm.IsDisposed)
+            {
+                ReportsForm = new ReportsForm();
+            }
+            ShowFormInPanel(ReportsForm);
         }
 
         private void button6_Click(object sender, EventArgs e)   // العملاء
         {
             ActivateButton(button6);
-            // لو لم يوجد نموذج للعملاء يمكن عمل رسالة أو إنشاء نموذج مؤقت
-            ShowFormInPanel(new MangeCustomers());
+            if (MangeCustomersForm == null || MangeCustomersForm.IsDisposed)
+            {
+                MangeCustomersForm = new MangeCustomers();
+            }
+            ShowFormInPanel(MangeCustomersForm);
         }
 
         private void button8_Click(object sender, EventArgs e)   // الإعدادات
         {
             ActivateButton(button8);
-            ShowFormInPanel(new Settings());
+            if(SettingsForm == null || SettingsForm.IsDisposed)
+            {
+                SettingsForm = new Settings();
+            }
+            ShowFormInPanel(SettingsForm);
         }
 
-        private void button3_Click_1(object sender, EventArgs e)
-        {
-
-        }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {

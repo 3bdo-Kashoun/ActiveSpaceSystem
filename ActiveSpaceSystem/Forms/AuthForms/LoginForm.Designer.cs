@@ -119,13 +119,13 @@
             abdulTextBox2.Icon = Properties.Resources.icons8_lock_50;
             abdulTextBox2.IconLocation = HorizontalAlignment.Right;
             abdulTextBox2.IconSize = 30;
-            abdulTextBox2.Location = new Point(32, 326);
+            abdulTextBox2.Location = new Point(77, 320);
             abdulTextBox2.Margin = new Padding(4);
             abdulTextBox2.Name = "abdulTextBox2";
             abdulTextBox2.PlaceholderText = "أدخل كلمة المرور";
             abdulTextBox2.RightToLeft = RightToLeft.Yes;
-            abdulTextBox2.Size = new Size(464, 51);
-            abdulTextBox2.TabIndex = 36;
+            abdulTextBox2.Size = new Size(371, 41);
+            abdulTextBox2.TabIndex = 3;
             abdulTextBox2.Texts = "";
             // 
             // label2
@@ -134,12 +134,12 @@
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(402, 288);
+            label2.Location = new Point(354, 282);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.RightToLeft = RightToLeft.Yes;
             label2.Size = new Size(94, 25);
-            label2.TabIndex = 35;
+            label2.TabIndex = 2;
             label2.Text = "كلمة المرور";
             // 
             // label4
@@ -176,40 +176,13 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(392, 185);
+            label1.Location = new Point(344, 187);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.RightToLeft = RightToLeft.Yes;
             label1.Size = new Size(104, 25);
             label1.TabIndex = 33;
             label1.Text = "اسم المستخدم";
-            // 
-            abdulTextBox2.BackColor = Color.White;
-            abdulTextBox2.BorderColor = Color.FromArgb(29, 53, 87);
-            abdulTextBox2.BorderRadius = 15;
-            abdulTextBox2.Font = new Font("Tajawal", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            abdulTextBox2.Icon = Properties.Resources.icons8_lock_50;
-            abdulTextBox2.IconLocation = HorizontalAlignment.Right;
-            abdulTextBox2.IconSize = 30;
-            abdulTextBox2.Location = new Point(30, 257);
-            abdulTextBox2.Name = "abdulTextBox2";
-            abdulTextBox2.PlaceholderText = "أدخل كلمة المرور";
-            abdulTextBox2.RightToLeft = RightToLeft.Yes;
-            abdulTextBox2.Size = new Size(371, 41);
-            abdulTextBox2.TabIndex = 3;
-            abdulTextBox2.Texts = "";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Tajawal", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.Black;
-            label2.Location = new Point(288, 231);
-            label2.Name = "label2";
-            label2.RightToLeft = RightToLeft.Yes;
-            label2.Size = new Size(87, 23);
-            label2.TabIndex = 2;
-            label2.Text = "كلمة المرور";
             // 
             // abdulTextBox1
             // 
@@ -221,15 +194,14 @@
             abdulTextBox1.Icon = Properties.Resources.icons8_user_50;
             abdulTextBox1.IconLocation = HorizontalAlignment.Right;
             abdulTextBox1.IconSize = 30;
-            abdulTextBox1.Location = new Point(32, 214);
+            abdulTextBox1.Location = new Point(77, 226);
             abdulTextBox1.Margin = new Padding(4);
             abdulTextBox1.Name = "abdulTextBox1";
             abdulTextBox1.PlaceholderText = "أدخل اسم المستخدم";
             abdulTextBox1.RightToLeft = RightToLeft.Yes;
             abdulTextBox1.Size = new Size(371, 41);
             abdulTextBox1.TabIndex = 1;
-            // 
-            // label1
+            abdulTextBox1.Texts = "";
             // 
             // LoginForm
             // 

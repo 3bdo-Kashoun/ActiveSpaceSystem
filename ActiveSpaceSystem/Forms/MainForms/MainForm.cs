@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using ActiveSpaceSystem.Forms.SideForms;
+using ActiveSpace.Models;
 
 namespace ActiveSpaceSystem.Forms.MainForms
 {
@@ -18,7 +19,7 @@ namespace ActiveSpaceSystem.Forms.MainForms
 
         private Button? currentActiveButton = null;
 
-        public MainForm()
+        public MainForm(User user)
         {
             InitializeComponent();
             button1.Click += button1_Click;
@@ -29,6 +30,8 @@ namespace ActiveSpaceSystem.Forms.MainForms
             button6.Click += button6_Click;
             button7.Click += button7_Click;
             button8.Click += button8_Click;
+            LabelUser.Text = user.FullName;
+            LabelRole.Text = user.Role == UserRole.Admin ? "مدير" : "موظف";
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -146,7 +149,7 @@ namespace ActiveSpaceSystem.Forms.MainForms
         private void button8_Click(object sender, EventArgs e)   // الإعدادات
         {
             ActivateButton(button8);
-            if(SettingsForm == null || SettingsForm.IsDisposed)
+            if (SettingsForm == null || SettingsForm.IsDisposed)
             {
                 SettingsForm = new Settings();
             }
@@ -156,15 +159,26 @@ namespace ActiveSpaceSystem.Forms.MainForms
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+
+            if (this.Tag == null)
+            {
+                Application.Exit();
+            }
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        
+
+        private void button9_Click_1(object sender, EventArgs e)
         {
-            Form form = new LoginForm();
-            form.Show();
+
+            this.Tag = "logout";
+
+            // إظهار واجهة الدخول الموجودة مسبقاً في الذاكرة
+            Application.OpenForms["LoginForm"].Show();
+
+            // إغلاق الواجهة الحالية
             this.Close();
-            
+
         }
     }
 }

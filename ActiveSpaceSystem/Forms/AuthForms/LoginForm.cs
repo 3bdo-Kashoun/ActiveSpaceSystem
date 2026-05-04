@@ -64,8 +64,9 @@ namespace ActiveSpaceSystem.Forms
             if (user != null)
             {
                 //MessageBox.Show($"أهلاً بك يا {user.Username}، تم الدخول بنجاح", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                Form form = new MainForm();
+                txtPassword.Texts = ""; // مسح كلمة المرور بعد تسجيل الدخول
+                txtPassword.Focus(); // إعادة التركيز على حقل كلمة المرور
+                Form form = new MainForm( user);
                 form.Show();
                 this.Hide();
             }

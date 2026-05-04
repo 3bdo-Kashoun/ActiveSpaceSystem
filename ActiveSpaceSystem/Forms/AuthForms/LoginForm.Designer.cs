@@ -169,7 +169,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Tahoma", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.MidnightBlue;
-            label4.Location = new Point(162, 116);
+            label4.Location = new Point(166, 134);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.RightToLeft = RightToLeft.No;
@@ -183,10 +183,10 @@
             roundedPictureBox1.BackColor = Color.Transparent;
             roundedPictureBox1.BorderRadius = 60;
             roundedPictureBox1.Image = (Image)resources.GetObject("roundedPictureBox1.Image");
-            roundedPictureBox1.Location = new Point(180, 27);
+            roundedPictureBox1.Location = new Point(175, 27);
             roundedPictureBox1.Margin = new Padding(4);
             roundedPictureBox1.Name = "roundedPictureBox1";
-            roundedPictureBox1.Size = new Size(147, 85);
+            roundedPictureBox1.Size = new Size(152, 90);
             roundedPictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             roundedPictureBox1.TabIndex = 31;
             roundedPictureBox1.TabStop = false;

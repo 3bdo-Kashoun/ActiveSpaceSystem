@@ -35,8 +35,6 @@
             label2 = new Label();
             label3 = new Label();
             phonetxt = new ActiveSpaceSystem.CustomItems.AbdulTextBox();
-            comboBox1 = new ComboBox();
-            panel1 = new Panel();
             label4 = new Label();
             label5 = new Label();
             studiomtxt = new ActiveSpaceSystem.CustomItems.AbdulTextBox();
@@ -52,7 +50,9 @@
             button2 = new Button();
             button3 = new Button();
             dateTimePicker4 = new DateTimePicker();
-            panel1.SuspendLayout();
+            customPanel1 = new ActiveSpaceSystem.CustomItems.CustomPanel();
+            comboBox1 = new ComboBox();
+            customPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // nametxt
@@ -63,7 +63,7 @@
             nametxt.Icon = null;
             nametxt.IconLocation = HorizontalAlignment.Left;
             nametxt.IconSize = 20;
-            nametxt.Location = new Point(454, 131);
+            nametxt.Location = new Point(451, 131);
             nametxt.Name = "nametxt";
             nametxt.passwordChar = "\0";
             nametxt.PlaceholderText = "أدخل النص هنا...";
@@ -95,7 +95,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(673, 94);
+            label2.Location = new Point(666, 94);
             label2.Name = "label2";
             label2.Size = new Size(115, 25);
             label2.TabIndex = 3;
@@ -127,26 +127,6 @@
             phonetxt.Size = new Size(330, 50);
             phonetxt.TabIndex = 4;
             phonetxt.Texts = "";
-            // 
-            // comboBox1
-            // 
-            comboBox1.FlatStyle = FlatStyle.Flat;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(3, 11);
-            comboBox1.Name = "comboBox1";
-            comboBox1.RightToLeft = RightToLeft.Yes;
-            comboBox1.Size = new Size(327, 28);
-            comboBox1.TabIndex = 6;
-            // 
-            // panel1
-            // 
-            panel1.Controls.Add(comboBox1);
-            panel1.ForeColor = Color.Black;
-            panel1.Location = new Point(454, 233);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(336, 47);
-            panel1.TabIndex = 7;
-            panel1.Paint += panel1_Paint;
             // 
             // label4
             // 
@@ -239,7 +219,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(310, 392);
+            label9.Location = new Point(313, 392);
             label9.Name = "label9";
             label9.Size = new Size(64, 25);
             label9.TabIndex = 17;
@@ -301,7 +281,6 @@
             button2.TabIndex = 20;
             button2.Text = "حفظ الحجز";
             button2.UseVisualStyleBackColor = false;
-           
             button2.Paint += button2_Paint;
             // 
             // button3
@@ -328,12 +307,36 @@
             dateTimePicker4.Size = new Size(330, 27);
             dateTimePicker4.TabIndex = 0;
             // 
+            // customPanel1
+            // 
+            customPanel1.BackColor = Color.White;
+            customPanel1.BorderColor = Color.Black;
+            customPanel1.BorderRadius = 10;
+            customPanel1.BorderSize = 1F;
+            customPanel1.Controls.Add(comboBox1);
+            customPanel1.Location = new Point(451, 233);
+            customPanel1.Name = "customPanel1";
+            customPanel1.ShowShadow = false;
+            customPanel1.Size = new Size(330, 55);
+            customPanel1.TabIndex = 49;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FlatStyle = FlatStyle.Flat;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(18, 13);
+            comboBox1.Name = "comboBox1";
+            comboBox1.RightToLeft = RightToLeft.Yes;
+            comboBox1.Size = new Size(295, 28);
+            comboBox1.TabIndex = 6;
+            // 
             // AddBookingForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(800, 691);
+            Controls.Add(customPanel1);
             Controls.Add(dateTimePicker5);
             Controls.Add(dateTimePicker2);
             Controls.Add(dateTimePicker4);
@@ -349,7 +352,6 @@
             Controls.Add(label5);
             Controls.Add(studiomtxt);
             Controls.Add(label4);
-            Controls.Add(panel1);
             Controls.Add(label3);
             Controls.Add(phonetxt);
             Controls.Add(label2);
@@ -363,7 +365,7 @@
             Text = "AddBookingForm";
             Load += AddBookingForm_Load;
             Paint += AddBookingForm_Paint;
-            panel1.ResumeLayout(false);
+            customPanel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -376,8 +378,6 @@
         private Label label2;
         private Label label3;
         private CustomItems.AbdulTextBox phonetxt;
-        private ComboBox comboBox1;
-        private Panel panel1;
         private Label label4;
         private Label label5;
         private CustomItems.AbdulTextBox studiomtxt;
@@ -393,5 +393,7 @@
         private Button button2;
         private Button button3;
         private DateTimePicker dateTimePicker4;
+        private CustomItems.CustomPanel customPanel1;
+        private ComboBox comboBox1;
     }
 }

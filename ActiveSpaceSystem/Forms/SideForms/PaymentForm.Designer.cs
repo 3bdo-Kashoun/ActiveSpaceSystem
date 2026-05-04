@@ -255,6 +255,8 @@
             dgvReservation.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvReservation.Size = new Size(923, 537);
             dgvReservation.TabIndex = 25;
+            dgvReservation.CellContentClick += dgvReservation_CellContentClick;
+            dgvReservation.CellPainting += dgvReservation_CellPainting;
             // 
             // PaymentForm
             // 

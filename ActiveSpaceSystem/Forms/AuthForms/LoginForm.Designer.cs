@@ -184,6 +184,33 @@
             label1.TabIndex = 33;
             label1.Text = "اسم المستخدم";
             // 
+            abdulTextBox2.BackColor = Color.White;
+            abdulTextBox2.BorderColor = Color.FromArgb(29, 53, 87);
+            abdulTextBox2.BorderRadius = 15;
+            abdulTextBox2.Font = new Font("Tajawal", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            abdulTextBox2.Icon = Properties.Resources.icons8_lock_50;
+            abdulTextBox2.IconLocation = HorizontalAlignment.Right;
+            abdulTextBox2.IconSize = 30;
+            abdulTextBox2.Location = new Point(30, 257);
+            abdulTextBox2.Name = "abdulTextBox2";
+            abdulTextBox2.PlaceholderText = "أدخل كلمة المرور";
+            abdulTextBox2.RightToLeft = RightToLeft.Yes;
+            abdulTextBox2.Size = new Size(371, 41);
+            abdulTextBox2.TabIndex = 3;
+            abdulTextBox2.Texts = "";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Tajawal", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.Black;
+            label2.Location = new Point(288, 231);
+            label2.Name = "label2";
+            label2.RightToLeft = RightToLeft.Yes;
+            label2.Size = new Size(87, 23);
+            label2.TabIndex = 2;
+            label2.Text = "كلمة المرور";
+            // 
             // abdulTextBox1
             // 
             abdulTextBox1.Anchor = AnchorStyles.None;
@@ -199,9 +226,10 @@
             abdulTextBox1.Name = "abdulTextBox1";
             abdulTextBox1.PlaceholderText = "أدخل اسم المستخدم";
             abdulTextBox1.RightToLeft = RightToLeft.Yes;
-            abdulTextBox1.Size = new Size(464, 51);
-            abdulTextBox1.TabIndex = 34;
-            abdulTextBox1.Texts = "";
+            abdulTextBox1.Size = new Size(371, 41);
+            abdulTextBox1.TabIndex = 1;
+            // 
+            // label1
             // 
             // LoginForm
             // 
@@ -213,6 +241,7 @@
             Controls.Add(gradientPanel1);
             Margin = new Padding(4);
             Name = "LoginForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "LoginForm";
             Load += LoginForm_Load;
             panel1.ResumeLayout(false);

@@ -182,7 +182,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
                 bookingDetailsCard.TotalAmount = $"{booking.TotalAmount} د.ل";
                 bookingDetailsCard.PaidAmount = $"{paid} د.ل";
                 bookingDetailsCard.RemainingAmount = $"{remaining} د.ل";
-
+                bookingDetailsCard.DepositAmount = $"{remaining} د.ل";
                 bookingDetailsCard.IsItemSelected = true;
                 bookingDetailsCard.RemainingColor = remaining > 0 ? Color.Red : Color.Green;
             }

@@ -1,6 +1,6 @@
 ﻿namespace ActiveSpace.Models
 {
-    // 3. الملاعب
+    
     public class Court
     {
         public int CourtID { get; set; }

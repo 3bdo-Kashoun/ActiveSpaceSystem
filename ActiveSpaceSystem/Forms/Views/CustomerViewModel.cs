@@ -12,7 +12,7 @@ namespace ActiveSpaceSystem.Forms.Views
         public int NoShowCount { get; set; }
         public string LastBookingDate { get; set; }
         public ReliabilityFlag ReliabilityFlag { get; set; }
-
+        
         public static CustomerViewModel FromCustomer(Customer c)
         {
             // محاكاة لتاريخ آخر حجز بما أن المودل لا يحتوي عليه مباشرة حالياً

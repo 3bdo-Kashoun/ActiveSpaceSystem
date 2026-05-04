@@ -65,7 +65,9 @@
             nametxt.IconSize = 20;
             nametxt.Location = new Point(454, 131);
             nametxt.Name = "nametxt";
+            nametxt.passwordChar = "\0";
             nametxt.PlaceholderText = "أدخل النص هنا...";
+            nametxt.RightToLeft = RightToLeft.Yes;
             nametxt.Size = new Size(330, 50);
             nametxt.TabIndex = 0;
             nametxt.Texts = "";
@@ -119,7 +121,9 @@
             phonetxt.IconSize = 20;
             phonetxt.Location = new Point(47, 131);
             phonetxt.Name = "phonetxt";
+            phonetxt.passwordChar = "\0";
             phonetxt.PlaceholderText = "أدخل النص هنا...";
+            phonetxt.RightToLeft = RightToLeft.Yes;
             phonetxt.Size = new Size(330, 50);
             phonetxt.TabIndex = 4;
             phonetxt.Texts = "";
@@ -130,6 +134,7 @@
             comboBox1.FormattingEnabled = true;
             comboBox1.Location = new Point(3, 11);
             comboBox1.Name = "comboBox1";
+            comboBox1.RightToLeft = RightToLeft.Yes;
             comboBox1.Size = new Size(327, 28);
             comboBox1.TabIndex = 6;
             // 
@@ -173,7 +178,9 @@
             studiomtxt.IconSize = 20;
             studiomtxt.Location = new Point(47, 233);
             studiomtxt.Name = "studiomtxt";
+            studiomtxt.passwordChar = "\0";
             studiomtxt.PlaceholderText = "أدخل النص هنا...";
+            studiomtxt.RightToLeft = RightToLeft.Yes;
             studiomtxt.Size = new Size(330, 50);
             studiomtxt.TabIndex = 9;
             studiomtxt.Texts = "";
@@ -184,6 +191,7 @@
             dateTimePicker2.Format = DateTimePickerFormat.Short;
             dateTimePicker2.Location = new Point(451, 342);
             dateTimePicker2.Name = "dateTimePicker2";
+            dateTimePicker2.RightToLeft = RightToLeft.Yes;
             dateTimePicker2.Size = new Size(330, 27);
             dateTimePicker2.TabIndex = 1;
             // 
@@ -223,6 +231,7 @@
             dateTimePicker5.Format = DateTimePickerFormat.Time;
             dateTimePicker5.Location = new Point(451, 429);
             dateTimePicker5.Name = "dateTimePicker5";
+            dateTimePicker5.RightToLeft = RightToLeft.Yes;
             dateTimePicker5.Size = new Size(330, 27);
             dateTimePicker5.TabIndex = 1;
             // 
@@ -246,7 +255,9 @@
             abdulTextBox1.IconSize = 20;
             abdulTextBox1.Location = new Point(47, 429);
             abdulTextBox1.Name = "abdulTextBox1";
+            abdulTextBox1.passwordChar = "\0";
             abdulTextBox1.PlaceholderText = "أدخل النص هنا...";
+            abdulTextBox1.RightToLeft = RightToLeft.Yes;
             abdulTextBox1.Size = new Size(330, 50);
             abdulTextBox1.TabIndex = 16;
             abdulTextBox1.Texts = "";
@@ -271,7 +282,9 @@
             deposittxt.IconSize = 20;
             deposittxt.Location = new Point(258, 520);
             deposittxt.Name = "deposittxt";
+            deposittxt.passwordChar = "\0";
             deposittxt.PlaceholderText = "أدخل النص هنا...";
+            deposittxt.RightToLeft = RightToLeft.Yes;
             deposittxt.Size = new Size(330, 50);
             deposittxt.TabIndex = 18;
             deposittxt.Texts = "";
@@ -288,6 +301,7 @@
             button2.TabIndex = 20;
             button2.Text = "حفظ الحجز";
             button2.UseVisualStyleBackColor = false;
+           
             button2.Paint += button2_Paint;
             // 
             // button3
@@ -310,6 +324,7 @@
             dateTimePicker4.Format = DateTimePickerFormat.Short;
             dateTimePicker4.Location = new Point(47, 342);
             dateTimePicker4.Name = "dateTimePicker4";
+            dateTimePicker4.RightToLeft = RightToLeft.Yes;
             dateTimePicker4.Size = new Size(330, 27);
             dateTimePicker4.TabIndex = 0;
             // 

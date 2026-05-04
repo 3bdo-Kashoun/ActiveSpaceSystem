@@ -3,6 +3,7 @@ using ActiveSpaceSystem.Forms;
 using ActiveSpaceSystem.Forms.DialogForms;
 using ActiveSpaceSystem.Forms.MainForms;
 using ActiveSpaceSystem.Forms.SideForms;
+using ActiveSpaceSystem.Forms.DialogForms;
 namespace ActiveSpaceSystem
 {
     internal static class Program

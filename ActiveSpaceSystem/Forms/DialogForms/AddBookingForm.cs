@@ -175,5 +175,7 @@ namespace ActiveSpaceSystem.Forms.DialogForms
             // تطبيق القص لجعل الأركان دائرية
             but.Region = new Region(path);
         }
+
+       
     }
 }

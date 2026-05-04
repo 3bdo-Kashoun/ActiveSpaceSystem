@@ -568,7 +568,7 @@
             legend1.Enabled = false;
             legend1.Name = "Legend1";
             chart1.Legends.Add(legend1);
-            chart1.Location = new Point(392, 134);
+            chart1.Location = new Point(296, 120);
             chart1.Margin = new Padding(4);
             chart1.Name = "chart1";
             chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
@@ -578,7 +578,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             chart1.Series.Add(series1);
-            chart1.Size = new Size(500, 500);
+            chart1.Size = new Size(748, 469);
             chart1.TabIndex = 7;
             chart1.Text = "chart1";
             // 

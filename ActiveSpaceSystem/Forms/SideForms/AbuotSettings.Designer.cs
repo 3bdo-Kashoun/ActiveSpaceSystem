@@ -52,6 +52,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
             panel1.Name = "panel1";
             panel1.Size = new Size(1108, 108);
             panel1.TabIndex = 0;
+            panel1.Paint += panel1_Paint;
             // 
             // label1
             // 
@@ -118,7 +119,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
             abdulTextBox3.Margin = new Padding(2);
             abdulTextBox3.Name = "abdulTextBox3";
             abdulTextBox3.passwordChar = "\0";
-            abdulTextBox3.PlaceholderText = "أدخل النص هنا...";
+            abdulTextBox3.PlaceholderText = "";
             abdulTextBox3.Size = new Size(702, 60);
             abdulTextBox3.TabIndex = 5;
             abdulTextBox3.Texts = "Active Team";
@@ -150,7 +151,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
             abdulTextBox2.Margin = new Padding(2);
             abdulTextBox2.Name = "abdulTextBox2";
             abdulTextBox2.passwordChar = "\0";
-            abdulTextBox2.PlaceholderText = "أدخل النص هنا...";
+            abdulTextBox2.PlaceholderText = "";
             abdulTextBox2.Size = new Size(702, 60);
             abdulTextBox2.TabIndex = 3;
             abdulTextBox2.Texts = "1.0.0";

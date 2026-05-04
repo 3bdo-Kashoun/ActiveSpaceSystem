@@ -13,6 +13,7 @@ using ActiveSpaceSystem.Forms.MainForms;
 
 namespace ActiveSpaceSystem.Forms
 {
+
     public partial class LoginForm : Form
     {
 
@@ -46,6 +47,7 @@ namespace ActiveSpaceSystem.Forms
 
         private void roundedButton1_Click_1(object sender, EventArgs e)
         {
+
             string inputUser = txtUsername.Texts.Trim();
             string inputPass = txtPassword.Texts.Trim();
 
@@ -71,8 +73,13 @@ namespace ActiveSpaceSystem.Forms
             {
                 MessageBox.Show("اسم المستخدم أو كلمة المرور غير صحيحة", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
 
+
+        }
+
+        private void roundedButton2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

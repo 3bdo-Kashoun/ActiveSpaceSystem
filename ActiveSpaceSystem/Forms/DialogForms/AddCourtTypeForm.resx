@@ -117,46 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="StdName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="type.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="opentime.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="closeTime.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="EditColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="EditColumn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAEaSURBVDhPY2AYguA/Y3T9LT5c2CP3Fjuy6sSOGzaxHVfk
-        kMXgIL71hnVC2439Ce3XL+LC8e3X18LUJ7bfDExov34+ofWqLapJYPCfMaH9xr7E9huFia1XtHDhtJ4b
-        IiDVMMNANLpJYBDff18A5ILkttsq6HLogKBhIJDZ/lAQZGBc1y1ldDlkEN95IwBsWMeNMHQ5FECMgegu
-        i6y/IZLQdn1d7kTUiAIDQgZicxlILUgPSC+qagIGYjMMBMgyMKnzujquCCDLwMS2m+YgQ5HFYIAsA/EB
-        +hpISsKGAZBakB6QXnQ5eNaLb79ejJ7dcOGEjpsliR3X94L0opsGBgkd161AhoJsJQ7f2AfSg24OBkAv
-        snBhdH1DAwAA88Y9n0V3feAAAAAASUVORK5CYII=
-</value>
-  </data>
-  <metadata name="DeleteColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="DeleteColumn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EQAACxEBf2RfkQAAAW9JREFUOE+9lMEuBEEYhMeZAwkXRw9AcJWQkDhYu13VmRsSjoSrA8FjkBWP4Eh4
-        CC6E5yAb272HkW49m6hGXPiSSiZ/1f/39HR6iuK/6ZHLDiiDwrP63+KNmfPA/ieRbU9WonaWM2ZO5xUO
-        OPmi+VcKvTqv6DSb4568CIEuab0xsz8pZj4GXoRenRfxwE4I9axdVE/pkUtxILCtXp8uuZq2sKme4qzd
-        iosb01CvjwOm0jaO1FM8eRwXt3ZSvT7VyspIGthWT/HAechWrdawep9w5IsDbrSuOPLWAa9az/DAowee
-        tK544NkDD1rPcOS1IztaV0LGkVdaz/DAWfw2jcaoejVVWY7FAyFP1cvw5GE6vWn1ahwwkw7vQL0MB2zE
-        22JMS72aLmnSG66rl9GzdiHdgF31ajywFzPGzKuX8UZOpO1c1r8tVfBCJmS1P6MqigFP3qeh3wu4C1nt
-        /5KqLIe6QFPfrFa489Xa2qD2/Qnv0cVAKRYtAm4AAAAASUVORK5CYII=
-</value>
-  </data>
 </root>

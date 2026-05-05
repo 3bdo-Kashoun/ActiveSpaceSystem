@@ -29,77 +29,48 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddStadiumForm));
-            dateTimePicker5 = new DateTimePicker();
+            dtpOpenTime = new DateTimePicker();
             label8 = new Label();
-            label5 = new Label();
-            studiomtxt = new ActiveSpaceSystem.CustomItems.AbdulTextBox();
             label4 = new Label();
             label2 = new Label();
             button1 = new Button();
             label1 = new Label();
             nametxt = new ActiveSpaceSystem.CustomItems.AbdulTextBox();
-            dateTimePicker1 = new DateTimePicker();
+            dtpCloseTime = new DateTimePicker();
             label3 = new Label();
             roundedButton2 = new ActiveSpaceSystem.CustomItems.RoundedButton();
             roundedButton1 = new ActiveSpaceSystem.CustomItems.RoundedButton();
             customPanel1 = new ActiveSpaceSystem.CustomItems.CustomPanel();
-            comboBox1 = new ComboBox();
             roundedButton3 = new ActiveSpaceSystem.CustomItems.RoundedButton();
+            cmbCourtType = new ComboBox();
             customPanel1.SuspendLayout();
             SuspendLayout();
             // 
-            // dateTimePicker5
+            // dtpOpenTime
             // 
-            dateTimePicker5.CalendarFont = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dateTimePicker5.Format = DateTimePickerFormat.Time;
-            dateTimePicker5.Location = new Point(377, 317);
-            dateTimePicker5.Name = "dateTimePicker5";
-            dateTimePicker5.RightToLeft = RightToLeft.Yes;
-            dateTimePicker5.Size = new Size(330, 27);
-            dateTimePicker5.TabIndex = 25;
+            dtpOpenTime.CalendarFont = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dtpOpenTime.Format = DateTimePickerFormat.Time;
+            dtpOpenTime.Location = new Point(377, 218);
+            dtpOpenTime.Name = "dtpOpenTime";
+            dtpOpenTime.RightToLeft = RightToLeft.Yes;
+            dtpOpenTime.Size = new Size(330, 27);
+            dtpOpenTime.TabIndex = 25;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(608, 279);
+            label8.Location = new Point(608, 180);
             label8.Name = "label8";
             label8.Size = new Size(99, 25);
             label8.TabIndex = 37;
             label8.Text = "وقت الفتح";
             // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(228, 177);
-            label5.Name = "label5";
-            label5.Size = new Size(130, 25);
-            label5.TabIndex = 34;
-            label5.Text = "السعر / ساعة";
-            // 
-            // studiomtxt
-            // 
-            studiomtxt.BackColor = Color.White;
-            studiomtxt.BorderColor = Color.FromArgb(29, 53, 87);
-            studiomtxt.BorderRadius = 15;
-            studiomtxt.Icon = null;
-            studiomtxt.IconLocation = HorizontalAlignment.Left;
-            studiomtxt.IconSize = 20;
-            studiomtxt.Location = new Point(28, 214);
-            studiomtxt.Name = "studiomtxt";
-            studiomtxt.passwordChar = "\0";
-            studiomtxt.PlaceholderText = "أدخل النص هنا...";
-            studiomtxt.RightToLeft = RightToLeft.Yes;
-            studiomtxt.Size = new Size(330, 50);
-            studiomtxt.TabIndex = 33;
-            studiomtxt.Texts = "";
-            // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(599, 177);
+            label4.Location = new Point(263, 75);
             label4.Name = "label4";
             label4.Size = new Size(108, 25);
             label4.TabIndex = 32;
@@ -123,12 +94,13 @@
             button1.Size = new Size(31, 29);
             button1.TabIndex = 27;
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Tajawal", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(522, 20);
+            label1.Location = new Point(277, 20);
             label1.Name = "label1";
             label1.Size = new Size(195, 33);
             label1.TabIndex = 24;
@@ -142,30 +114,30 @@
             nametxt.Icon = null;
             nametxt.IconLocation = HorizontalAlignment.Left;
             nametxt.IconSize = 20;
-            nametxt.Location = new Point(28, 112);
+            nametxt.Location = new Point(377, 112);
             nametxt.Name = "nametxt";
             nametxt.passwordChar = "\0";
             nametxt.PlaceholderText = "مثال : ملعب كرة قدم 1";
             nametxt.RightToLeft = RightToLeft.Yes;
-            nametxt.Size = new Size(679, 50);
+            nametxt.Size = new Size(330, 50);
             nametxt.TabIndex = 22;
             nametxt.Texts = "";
             // 
-            // dateTimePicker1
+            // dtpCloseTime
             // 
-            dateTimePicker1.CalendarFont = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dateTimePicker1.Format = DateTimePickerFormat.Time;
-            dateTimePicker1.Location = new Point(28, 317);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.RightToLeft = RightToLeft.Yes;
-            dateTimePicker1.Size = new Size(330, 27);
-            dateTimePicker1.TabIndex = 44;
+            dtpCloseTime.CalendarFont = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dtpCloseTime.Format = DateTimePickerFormat.Time;
+            dtpCloseTime.Location = new Point(41, 218);
+            dtpCloseTime.Name = "dtpCloseTime";
+            dtpCloseTime.RightToLeft = RightToLeft.Yes;
+            dtpCloseTime.Size = new Size(330, 27);
+            dtpCloseTime.TabIndex = 44;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(247, 279);
+            label3.Location = new Point(260, 180);
             label3.Name = "label3";
             label3.Size = new Size(111, 25);
             label3.TabIndex = 45;
@@ -181,12 +153,13 @@
             roundedButton2.FlatStyle = FlatStyle.Flat;
             roundedButton2.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
             roundedButton2.ForeColor = Color.White;
-            roundedButton2.Location = new Point(377, 371);
+            roundedButton2.Location = new Point(377, 272);
             roundedButton2.Name = "roundedButton2";
             roundedButton2.Size = new Size(188, 43);
             roundedButton2.TabIndex = 47;
             roundedButton2.Text = "إضافة ملعب";
             roundedButton2.UseVisualStyleBackColor = false;
+            roundedButton2.Click += roundedButton2_Click;
             // 
             // roundedButton1
             // 
@@ -198,12 +171,13 @@
             roundedButton1.FlatStyle = FlatStyle.Flat;
             roundedButton1.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
             roundedButton1.ForeColor = Color.Gray;
-            roundedButton1.Location = new Point(183, 371);
+            roundedButton1.Location = new Point(183, 272);
             roundedButton1.Name = "roundedButton1";
             roundedButton1.Size = new Size(188, 43);
             roundedButton1.TabIndex = 46;
             roundedButton1.Text = "إلغاء";
             roundedButton1.UseVisualStyleBackColor = false;
+            roundedButton1.Click += roundedButton1_Click;
             // 
             // customPanel1
             // 
@@ -212,22 +186,12 @@
             customPanel1.BorderRadius = 10;
             customPanel1.BorderSize = 1F;
             customPanel1.Controls.Add(roundedButton3);
-            customPanel1.Controls.Add(comboBox1);
-            customPanel1.Location = new Point(377, 214);
+            customPanel1.Controls.Add(cmbCourtType);
+            customPanel1.Location = new Point(41, 112);
             customPanel1.Name = "customPanel1";
             customPanel1.ShowShadow = false;
             customPanel1.Size = new Size(330, 55);
             customPanel1.TabIndex = 48;
-            // 
-            // comboBox1
-            // 
-            comboBox1.FlatStyle = FlatStyle.Flat;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(62, 13);
-            comboBox1.Name = "comboBox1";
-            comboBox1.RightToLeft = RightToLeft.Yes;
-            comboBox1.Size = new Size(251, 28);
-            comboBox1.TabIndex = 6;
             // 
             // roundedButton3
             // 
@@ -245,22 +209,31 @@
             roundedButton3.TabIndex = 49;
             roundedButton3.Text = "+";
             roundedButton3.UseVisualStyleBackColor = false;
+            roundedButton3.Click += roundedButton3_Click;
+            // 
+            // cmbCourtType
+            // 
+            cmbCourtType.FlatStyle = FlatStyle.Flat;
+            cmbCourtType.FormattingEnabled = true;
+            cmbCourtType.Location = new Point(62, 13);
+            cmbCourtType.Name = "cmbCourtType";
+            cmbCourtType.RightToLeft = RightToLeft.Yes;
+            cmbCourtType.Size = new Size(251, 28);
+            cmbCourtType.TabIndex = 6;
             // 
             // AddStadiumForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(731, 435);
+            ClientSize = new Size(731, 343);
             Controls.Add(customPanel1);
             Controls.Add(roundedButton2);
             Controls.Add(roundedButton1);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(dtpCloseTime);
             Controls.Add(label3);
-            Controls.Add(dateTimePicker5);
+            Controls.Add(dtpOpenTime);
             Controls.Add(label8);
-            Controls.Add(label5);
-            Controls.Add(studiomtxt);
             Controls.Add(label4);
             Controls.Add(label2);
             Controls.Add(button1);
@@ -278,21 +251,19 @@
 
         #endregion
 
-        private DateTimePicker dateTimePicker5;
+        private DateTimePicker dtpOpenTime;
         private Label label8;
-        private Label label5;
-        private CustomItems.AbdulTextBox studiomtxt;
         private Label label4;
         private Label label2;
         private Button button1;
         private Label label1;
         private CustomItems.AbdulTextBox nametxt;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dtpCloseTime;
         private Label label3;
         private CustomItems.RoundedButton roundedButton2;
         private CustomItems.RoundedButton roundedButton1;
         private CustomItems.CustomPanel customPanel1;
-        private ComboBox comboBox1;
+        private ComboBox cmbCourtType;
         private CustomItems.RoundedButton roundedButton3;
     }
 }

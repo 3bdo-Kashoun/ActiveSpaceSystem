@@ -41,11 +41,15 @@
             label6 = new Label();
             label7 = new Label();
             label8 = new Label();
+<<<<<<< HEAD
             dtpEndTime = new DateTimePicker();
+=======
+>>>>>>> 9ffc64248e0786920419996bc6d29e47e093e5a0
             label9 = new Label();
-            abdulTextBox1 = new ActiveSpaceSystem.CustomItems.AbdulTextBox();
+            txtprice = new ActiveSpaceSystem.CustomItems.AbdulTextBox();
             label10 = new Label();
             deposittxt = new ActiveSpaceSystem.CustomItems.AbdulTextBox();
+<<<<<<< HEAD
             cmbCourtType = new ComboBox();
             customPanel1 = new ActiveSpaceSystem.CustomItems.CustomPanel();
             dtpStartTime = new DateTimePicker();
@@ -53,6 +57,14 @@
             cmbCourt = new ComboBox();
             roundedButton1 = new ActiveSpaceSystem.CustomItems.RoundedButton();
             btnCancel = new ActiveSpaceSystem.CustomItems.RoundedButton();
+=======
+            dtpStartTime = new DateTimePicker();
+            cmbCourtType = new ComboBox();
+            customPanel1 = new ActiveSpaceSystem.CustomItems.CustomPanel();
+            roundedButton2 = new ActiveSpaceSystem.CustomItems.RoundedButton();
+            roundedButton1 = new ActiveSpaceSystem.CustomItems.RoundedButton();
+            dtpEndTime = new DateTimePicker();
+>>>>>>> 9ffc64248e0786920419996bc6d29e47e093e5a0
             customPanel1.SuspendLayout();
             customPanel2.SuspendLayout();
             SuspendLayout();
@@ -87,6 +99,7 @@
             // 
             // btnExit
             // 
+<<<<<<< HEAD
             btnExit.Image = (Image)resources.GetObject("btnExit.Image");
             btnExit.Location = new Point(28, 20);
             btnExit.Name = "btnExit";
@@ -94,6 +107,15 @@
             btnExit.TabIndex = 2;
             btnExit.UseVisualStyleBackColor = true;
             btnExit.Click += btnExit_Click;
+=======
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.Location = new Point(28, 20);
+            button1.Name = "button1";
+            button1.Size = new Size(31, 29);
+            button1.TabIndex = 2;
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+>>>>>>> 9ffc64248e0786920419996bc6d29e47e093e5a0
             // 
             // label2
             // 
@@ -109,7 +131,11 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
+<<<<<<< HEAD
             label3.Location = new Point(676, 91);
+=======
+            label3.Location = new Point(274, 94);
+>>>>>>> 9ffc64248e0786920419996bc6d29e47e093e5a0
             label3.Name = "label3";
             label3.Size = new Size(105, 25);
             label3.TabIndex = 5;
@@ -117,6 +143,7 @@
             // 
             // txtName
             // 
+<<<<<<< HEAD
             txtName.BackColor = Color.White;
             txtName.BorderColor = Color.FromArgb(29, 53, 87);
             txtName.BorderRadius = 15;
@@ -131,6 +158,22 @@
             txtName.Size = new Size(330, 50);
             txtName.TabIndex = 4;
             txtName.Texts = "";
+=======
+            txtPhone.BackColor = Color.White;
+            txtPhone.BorderColor = Color.FromArgb(29, 53, 87);
+            txtPhone.BorderRadius = 15;
+            txtPhone.Icon = null;
+            txtPhone.IconLocation = HorizontalAlignment.Left;
+            txtPhone.IconSize = 20;
+            txtPhone.Location = new Point(49, 131);
+            txtPhone.Name = "txtPhone";
+            txtPhone.passwordChar = "\0";
+            txtPhone.PlaceholderText = "أدخل النص هنا...";
+            txtPhone.RightToLeft = RightToLeft.Yes;
+            txtPhone.Size = new Size(330, 50);
+            txtPhone.TabIndex = 4;
+            txtPhone.Texts = "";
+>>>>>>> 9ffc64248e0786920419996bc6d29e47e093e5a0
             // 
             // label4
             // 
@@ -146,12 +189,32 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(302, 196);
+            label5.Location = new Point(304, 196);
             label5.Name = "label5";
             label5.Size = new Size(75, 25);
             label5.TabIndex = 10;
             label5.Text = "الملعب";
             // 
+<<<<<<< HEAD
+=======
+            // txtCourt
+            // 
+            txtCourt.BackColor = Color.White;
+            txtCourt.BorderColor = Color.FromArgb(29, 53, 87);
+            txtCourt.BorderRadius = 15;
+            txtCourt.Icon = null;
+            txtCourt.IconLocation = HorizontalAlignment.Left;
+            txtCourt.IconSize = 20;
+            txtCourt.Location = new Point(49, 233);
+            txtCourt.Name = "txtCourt";
+            txtCourt.passwordChar = "\0";
+            txtCourt.PlaceholderText = "أدخل النص هنا...";
+            txtCourt.RightToLeft = RightToLeft.Yes;
+            txtCourt.Size = new Size(330, 50);
+            txtCourt.TabIndex = 9;
+            txtCourt.Texts = "";
+            // 
+>>>>>>> 9ffc64248e0786920419996bc6d29e47e093e5a0
             // dtpBookingDate
             // 
             dtpBookingDate.CalendarFont = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -177,7 +240,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(270, 300);
+            label7.Location = new Point(272, 300);
             label7.Name = "label7";
             label7.Size = new Size(107, 25);
             label7.TabIndex = 13;
@@ -193,6 +256,7 @@
             label8.TabIndex = 15;
             label8.Text = "وقت النهاية";
             // 
+<<<<<<< HEAD
             // dtpEndTime
             // 
             dtpEndTime.CalendarFont = new Font("Tajawal", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -207,38 +271,40 @@
             dtpEndTime.Size = new Size(330, 34);
             dtpEndTime.TabIndex = 1;
             // 
+=======
+>>>>>>> 9ffc64248e0786920419996bc6d29e47e093e5a0
             // label9
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label9.Location = new Point(313, 392);
             label9.Name = "label9";
-            label9.Size = new Size(64, 25);
+            label9.Size = new Size(66, 25);
             label9.TabIndex = 17;
-            label9.Text = "المبلغ";
+            label9.Text = "السعر";
             // 
-            // abdulTextBox1
+            // txtprice
             // 
-            abdulTextBox1.BackColor = Color.White;
-            abdulTextBox1.BorderColor = Color.FromArgb(29, 53, 87);
-            abdulTextBox1.BorderRadius = 15;
-            abdulTextBox1.Icon = null;
-            abdulTextBox1.IconLocation = HorizontalAlignment.Left;
-            abdulTextBox1.IconSize = 20;
-            abdulTextBox1.Location = new Point(47, 429);
-            abdulTextBox1.Name = "abdulTextBox1";
-            abdulTextBox1.passwordChar = "\0";
-            abdulTextBox1.PlaceholderText = "أدخل النص هنا...";
-            abdulTextBox1.RightToLeft = RightToLeft.Yes;
-            abdulTextBox1.Size = new Size(330, 50);
-            abdulTextBox1.TabIndex = 16;
-            abdulTextBox1.Texts = "";
+            txtprice.BackColor = Color.White;
+            txtprice.BorderColor = Color.FromArgb(29, 53, 87);
+            txtprice.BorderRadius = 15;
+            txtprice.Icon = null;
+            txtprice.IconLocation = HorizontalAlignment.Left;
+            txtprice.IconSize = 20;
+            txtprice.Location = new Point(49, 429);
+            txtprice.Name = "txtprice";
+            txtprice.passwordChar = "\0";
+            txtprice.PlaceholderText = "أدخل السعر هنا...";
+            txtprice.RightToLeft = RightToLeft.Yes;
+            txtprice.Size = new Size(330, 50);
+            txtprice.TabIndex = 16;
+            txtprice.Texts = "";
             // 
             // label10
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(521, 483);
+            label10.Location = new Point(521, 477);
             label10.Name = "label10";
             label10.Size = new Size(62, 25);
             label10.TabIndex = 19;
@@ -252,17 +318,32 @@
             deposittxt.Icon = null;
             deposittxt.IconLocation = HorizontalAlignment.Left;
             deposittxt.IconSize = 20;
-            deposittxt.Location = new Point(258, 520);
+            deposittxt.Location = new Point(258, 511);
             deposittxt.Name = "deposittxt";
             deposittxt.passwordChar = "\0";
-            deposittxt.PlaceholderText = "أدخل النص هنا...";
+            deposittxt.PlaceholderText = "أدخل قيمة العربون هنا...";
             deposittxt.RightToLeft = RightToLeft.Yes;
             deposittxt.Size = new Size(330, 50);
             deposittxt.TabIndex = 18;
             deposittxt.Texts = "";
             // 
+<<<<<<< HEAD
+=======
+            // dtpStartTime
+            // 
+            dtpStartTime.CalendarFont = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dtpStartTime.CustomFormat = "hh/mm";
+            dtpStartTime.Format = DateTimePickerFormat.Time;
+            dtpStartTime.Location = new Point(49, 342);
+            dtpStartTime.Name = "dtpStartTime";
+            dtpStartTime.RightToLeft = RightToLeft.Yes;
+            dtpStartTime.Size = new Size(330, 27);
+            dtpStartTime.TabIndex = 0;
+            // 
+>>>>>>> 9ffc64248e0786920419996bc6d29e47e093e5a0
             // cmbCourtType
             // 
+            cmbCourtType.DisplayMember = "CourtName";
             cmbCourtType.FlatStyle = FlatStyle.Flat;
             cmbCourtType.FormattingEnabled = true;
             cmbCourtType.Location = new Point(18, 13);
@@ -270,7 +351,11 @@
             cmbCourtType.RightToLeft = RightToLeft.Yes;
             cmbCourtType.Size = new Size(295, 28);
             cmbCourtType.TabIndex = 6;
+<<<<<<< HEAD
             cmbCourtType.SelectedIndexChanged += cmbCourtType_SelectedIndexChanged;
+=======
+            cmbCourtType.ValueMember = "CourtID";
+>>>>>>> 9ffc64248e0786920419996bc6d29e47e093e5a0
             // 
             // customPanel1
             // 
@@ -285,6 +370,7 @@
             customPanel1.Size = new Size(330, 55);
             customPanel1.TabIndex = 49;
             // 
+<<<<<<< HEAD
             // dtpStartTime
             // 
             dtpStartTime.CalendarFont = new Font("Tajawal", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -356,12 +442,61 @@
             btnCancel.Text = "إلغاء";
             btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += btnCancel_Click;
+=======
+            // roundedButton2
+            // 
+            roundedButton2.BackColor = Color.FromArgb(16, 185, 129);
+            roundedButton2.BorderColor = Color.Transparent;
+            roundedButton2.BorderRadius = 10;
+            roundedButton2.BorderSize = 2;
+            roundedButton2.FlatAppearance.BorderSize = 0;
+            roundedButton2.FlatStyle = FlatStyle.Flat;
+            roundedButton2.Font = new Font("Tajawal", 13.8F, FontStyle.Bold);
+            roundedButton2.ForeColor = Color.White;
+            roundedButton2.Location = new Point(418, 595);
+            roundedButton2.Name = "roundedButton2";
+            roundedButton2.Size = new Size(317, 60);
+            roundedButton2.TabIndex = 51;
+            roundedButton2.Text = "حفظ الحجز";
+            roundedButton2.UseVisualStyleBackColor = false;
+            roundedButton2.Click += roundedButton2_Click;
+            // 
+            // roundedButton1
+            // 
+            roundedButton1.BackColor = Color.WhiteSmoke;
+            roundedButton1.BorderColor = Color.Transparent;
+            roundedButton1.BorderRadius = 10;
+            roundedButton1.BorderSize = 2;
+            roundedButton1.FlatAppearance.BorderSize = 0;
+            roundedButton1.FlatStyle = FlatStyle.Flat;
+            roundedButton1.Font = new Font("Tajawal", 13.8F, FontStyle.Bold);
+            roundedButton1.ForeColor = Color.Gray;
+            roundedButton1.Location = new Point(95, 595);
+            roundedButton1.Name = "roundedButton1";
+            roundedButton1.Size = new Size(317, 60);
+            roundedButton1.TabIndex = 50;
+            roundedButton1.Text = "إلغاء";
+            roundedButton1.UseVisualStyleBackColor = false;
+            roundedButton1.Click += roundedButton1_Click;
+            // 
+            // dtpEndTime
+            // 
+            dtpEndTime.CalendarFont = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dtpEndTime.CustomFormat = "hh/mm";
+            dtpEndTime.Format = DateTimePickerFormat.Time;
+            dtpEndTime.Location = new Point(451, 429);
+            dtpEndTime.Name = "dtpEndTime";
+            dtpEndTime.RightToLeft = RightToLeft.Yes;
+            dtpEndTime.Size = new Size(330, 27);
+            dtpEndTime.TabIndex = 52;
+>>>>>>> 9ffc64248e0786920419996bc6d29e47e093e5a0
             // 
             // AddBookingForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
+<<<<<<< HEAD
             ClientSize = new Size(800, 691);
             Controls.Add(btnCancel);
             Controls.Add(roundedButton1);
@@ -370,10 +505,19 @@
             Controls.Add(customPanel1);
             Controls.Add(dtpEndTime);
             Controls.Add(dtpBookingDate);
+=======
+            ClientSize = new Size(800, 679);
+            Controls.Add(dtpEndTime);
+            Controls.Add(roundedButton2);
+            Controls.Add(roundedButton1);
+            Controls.Add(customPanel1);
+            Controls.Add(dtpBookingDate);
+            Controls.Add(dtpStartTime);
+>>>>>>> 9ffc64248e0786920419996bc6d29e47e093e5a0
             Controls.Add(label10);
             Controls.Add(deposittxt);
             Controls.Add(label9);
-            Controls.Add(abdulTextBox1);
+            Controls.Add(txtprice);
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(label6);
@@ -413,11 +557,12 @@
         private Label label7;
         private Label label8;
         private Label label9;
-        private CustomItems.AbdulTextBox abdulTextBox1;
+        private CustomItems.AbdulTextBox txtprice;
         private Label label10;
         private CustomItems.AbdulTextBox deposittxt;
         private CustomItems.CustomPanel customPanel1;
         public DateTimePicker dtpBookingDate;
+<<<<<<< HEAD
         public DateTimePicker dtpEndTime;
         public ComboBox cmbCourtType;
         public DateTimePicker dtpStartTime;
@@ -425,5 +570,12 @@
         public ComboBox cmbCourt;
         private CustomItems.RoundedButton roundedButton1;
         private CustomItems.RoundedButton btnCancel;
+=======
+        public DateTimePicker dtpStartTime;
+        public ComboBox cmbCourtType;
+        private CustomItems.RoundedButton roundedButton2;
+        private CustomItems.RoundedButton roundedButton1;
+        public DateTimePicker dtpEndTime;
+>>>>>>> 9ffc64248e0786920419996bc6d29e47e093e5a0
     }
 }

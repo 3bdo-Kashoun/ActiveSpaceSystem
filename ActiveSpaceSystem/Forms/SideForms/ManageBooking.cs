@@ -1,4 +1,6 @@
 using ActiveSpace.Models;
+using ActiveSpaceSystem.Data;
+using ActiveSpaceSystem.Forms.DialogForms;
 using ActiveSpaceSystem.Forms.GridStyle;
 using ActiveSpaceSystem.Forms.Views;
 using ActiveSpaceSystem.Models.enums;
@@ -212,7 +214,36 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
         private void roundedButton1_Click(object sender, EventArgs e)
         {
-
+            AddBookingForm frm = new AddBookingForm();
+           
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                refreshBookingGrid(); 
+            }
         }
+        private void refreshBookingGrid()
+        {
+            // 1. تصفير المصدر الحالي
+            dgvBookings.DataSource = null;
+
+            // 2. تحويل البيانات للعرض (عن طريق الربط بين الليستات)
+            var displayList = DataStorage.BookingsList.Select(b => new
+            {
+                ID = b.BookingID,
+                اسم_العميل = b.Customer?.FullName ?? "غير مسجل",
+                رقم_الهاتف = b.Customer?.Phone ?? "---",
+                // جلب اسم الملعب من قائمة الملاعب
+                الملعب = DataStorage.CourtsList.FirstOrDefault(c => c.CourtID == b.CourtID)?.CourtName ?? "مذكرة",
+                التاريخ = b.BookingDate.ToString("yyyy-MM-dd"),
+                الوقت = $"{b.StartTime:hh\\:mm} - {b.EndTime:hh\\:mm}",
+                المبلغ = b.TotalAmount,
+                الحالة = b.Status.ToString() // سيظهر Confirmed أو Completed
+            }).ToList();
+
+            // 3. ربط القائمة المنسقة بالجدول
+            dgvBookings.DataSource = displayList;
+        }
+
+      
     }
 }

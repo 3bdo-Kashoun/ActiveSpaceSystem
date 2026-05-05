@@ -1,4 +1,5 @@
 ﻿using ActiveSpace.Models;
+using ActiveSpaceSystem.Data;
 using ActiveSpaceSystem.Forms.GridStyle;
 using ActiveSpaceSystem.Forms.Views;
 using System;
@@ -146,11 +147,11 @@ namespace ActiveSpaceSystem.Forms.SideForms
                 dgvCustomers.ClearSelection();
         }
 
-        private void LoadData()
+        public void LoadData()
         {
             try
             {
-                var data = Customer.GetFakeData().Select(CustomerViewModel.FromCustomer).ToList();
+                var data =DataStorage.CustomersList.Select(CustomerViewModel.FromCustomer).ToList();
                 customersList = new BindingList<CustomerViewModel>(data);
                 dgvCustomers.DataSource = customersList;
             }

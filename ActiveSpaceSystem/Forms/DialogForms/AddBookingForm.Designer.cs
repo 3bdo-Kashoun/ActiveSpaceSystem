@@ -62,6 +62,7 @@
             txtPhone.BackColor = Color.White;
             txtPhone.BorderColor = Color.FromArgb(29, 53, 87);
             txtPhone.BorderRadius = 15;
+            txtPhone.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtPhone.Icon = null;
             txtPhone.IconLocation = HorizontalAlignment.Left;
             txtPhone.IconSize = 20;
@@ -120,6 +121,7 @@
             txtName.BackColor = Color.White;
             txtName.BorderColor = Color.FromArgb(29, 53, 87);
             txtName.BorderRadius = 15;
+            txtName.Font = new Font("Tajawal", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtName.Icon = null;
             txtName.IconLocation = HorizontalAlignment.Left;
             txtName.IconSize = 20;
@@ -155,13 +157,14 @@
             // dtpBookingDate
             // 
             dtpBookingDate.CalendarFont = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dtpBookingDate.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dtpBookingDate.Format = DateTimePickerFormat.Short;
             dtpBookingDate.Location = new Point(451, 342);
             dtpBookingDate.Name = "dtpBookingDate";
             dtpBookingDate.RightToLeft = RightToLeft.Yes;
-            dtpBookingDate.Size = new Size(330, 27);
+            dtpBookingDate.RightToLeftLayout = true;
+            dtpBookingDate.Size = new Size(330, 34);
             dtpBookingDate.TabIndex = 1;
-            dtpBookingDate.ValueChanged += dtp_ValueChanged;
             // 
             // label6
             // 
@@ -196,7 +199,7 @@
             // dtpEndTime
             // 
             dtpEndTime.CalendarFont = new Font("Tajawal", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dtpEndTime.CustomFormat = "hh:mm tt";
+            dtpEndTime.CustomFormat = "HH:mm";
             dtpEndTime.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpEndTime.Format = DateTimePickerFormat.Custom;
             dtpEndTime.Location = new Point(451, 429);
@@ -222,6 +225,7 @@
             txtprice.BackColor = Color.White;
             txtprice.BorderColor = Color.FromArgb(29, 53, 87);
             txtprice.BorderRadius = 15;
+            txtprice.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtprice.Icon = null;
             txtprice.IconLocation = HorizontalAlignment.Left;
             txtprice.IconSize = 20;
@@ -249,6 +253,7 @@
             deposittxt.BackColor = Color.White;
             deposittxt.BorderColor = Color.FromArgb(29, 53, 87);
             deposittxt.BorderRadius = 15;
+            deposittxt.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             deposittxt.Icon = null;
             deposittxt.IconLocation = HorizontalAlignment.Left;
             deposittxt.IconSize = 20;
@@ -289,7 +294,7 @@
             // dtpStartTime
             // 
             dtpStartTime.CalendarFont = new Font("Tajawal", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dtpStartTime.CustomFormat = "hh:mm tt";
+            dtpStartTime.CustomFormat = "HH:mm";
             dtpStartTime.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpStartTime.Format = DateTimePickerFormat.Custom;
             dtpStartTime.Location = new Point(47, 342);

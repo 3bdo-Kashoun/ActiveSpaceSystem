@@ -65,12 +65,16 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
         private void SetupGrid()
         {
+            dgvBookings.DataSource = null;
+            dgvBookings.Rows.Clear();
+
             dgvBookings.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             dgvBookings.EditMode = DataGridViewEditMode.EditProgrammatically;
 
             dgvBookings.CellPainting += DgvBookings_CellPainting;
             dgvBookings.CellClick += DgvBookings_CellClick;
             AddColumns();
+            
         }
 
         private void AddColumns()
@@ -142,12 +146,16 @@ namespace ActiveSpaceSystem.Forms.SideForms
             dgvBookings.ClearSelection();
         }
 
-        private void LoadData()
+        public void LoadData()
         {
             bookingsList = new BindingList<BookingViewModel>(
-                Booking.GetFakeData().Select(BookingViewModel.FromBooking).ToList()
+               DataStorage.BookingsList.Select(BookingViewModel.FromBooking).ToList()
             );
             dgvBookings.DataSource = bookingsList;
+            if (dgvBookings.Columns["BookingID"] != null)
+            {
+                dgvBookings.Columns["BookingID"].Visible = false;
+            }
         }
 
         private void DgvBookings_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -208,7 +216,20 @@ namespace ActiveSpaceSystem.Forms.SideForms
             if (MessageBox.Show("هل أنت متأكد من حذف هذا الحجز؟", "تأكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 if (rowIndex >= 0 && rowIndex < bookingsList.Count)
+                {
+                    // الحصول على المعرف من السطر المحدد (أصبح متاحاً الآن)
+                    int bookingId = bookingsList[rowIndex].BookingID;
+
+                    // 1. الحذف من قائمة الذاكرة العامة (DataStorage)
+                    var bookingInStorage = DataStorage.BookingsList.FirstOrDefault(x => x.BookingID == bookingId);
+                    if (bookingInStorage != null)
+                    {
+                        DataStorage.BookingsList.Remove(bookingInStorage);
+                    }
+
+                    // 2. الحذف من القائمة المحلية لتحديث الـ DataGridView تلقائياً
                     bookingsList.RemoveAt(rowIndex);
+                }
             }
         }
 
@@ -218,31 +239,13 @@ namespace ActiveSpaceSystem.Forms.SideForms
            
             if (frm.ShowDialog() == DialogResult.OK)
             {
-                refreshBookingGrid(); 
+                
+                
+                LoadData();
+                dgvBookings.ClearSelection();
             }
         }
-        private void refreshBookingGrid()
-        {
-            // 1. تصفير المصدر الحالي
-            dgvBookings.DataSource = null;
-
-            // 2. تحويل البيانات للعرض (عن طريق الربط بين الليستات)
-            var displayList = DataStorage.BookingsList.Select(b => new
-            {
-                ID = b.BookingID,
-                اسم_العميل = b.Customer?.FullName ?? "غير مسجل",
-                رقم_الهاتف = b.Customer?.Phone ?? "---",
-                // جلب اسم الملعب من قائمة الملاعب
-                الملعب = DataStorage.CourtsList.FirstOrDefault(c => c.CourtID == b.CourtID)?.CourtName ?? "مذكرة",
-                التاريخ = b.BookingDate.ToString("yyyy-MM-dd"),
-                الوقت = $"{b.StartTime:hh\\:mm} - {b.EndTime:hh\\:mm}",
-                المبلغ = b.TotalAmount,
-                الحالة = b.Status.ToString() // سيظهر Confirmed أو Completed
-            }).ToList();
-
-            // 3. ربط القائمة المنسقة بالجدول
-            dgvBookings.DataSource = displayList;
-        }
+       
 
       
     }

@@ -140,11 +140,11 @@
             customLabel4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             customLabel4.AutoSize = true;
             customLabel4.BackColor = Color.Transparent;
-            customLabel4.Font = new Font("Microsoft Sans Serif", 10.2F);
+            customLabel4.Font = new Font("Tajawal", 10.2F);
             customLabel4.Location = new Point(470, 50);
             customLabel4.Margin = new Padding(2, 0, 2, 0);
             customLabel4.Name = "customLabel4";
-            customLabel4.Size = new Size(112, 20);
+            customLabel4.Size = new Size(133, 23);
             customLabel4.TabIndex = 6;
             customLabel4.Text = "خارج أوقات العمل";
             // 
@@ -153,11 +153,11 @@
             customLabel3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             customLabel3.AutoSize = true;
             customLabel3.BackColor = Color.Transparent;
-            customLabel3.Font = new Font("Microsoft Sans Serif", 10.2F);
+            customLabel3.Font = new Font("Tajawal", 10.2F);
             customLabel3.Location = new Point(666, 50);
             customLabel3.Margin = new Padding(2, 0, 2, 0);
             customLabel3.Name = "customLabel3";
-            customLabel3.Size = new Size(49, 20);
+            customLabel3.Size = new Size(56, 23);
             customLabel3.TabIndex = 5;
             customLabel3.Text = "محجوز";
             // 
@@ -166,11 +166,11 @@
             customLabel2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             customLabel2.AutoSize = true;
             customLabel2.BackColor = Color.Transparent;
-            customLabel2.Font = new Font("Microsoft Sans Serif", 10.2F);
+            customLabel2.Font = new Font("Tajawal", 10.2F);
             customLabel2.Location = new Point(795, 50);
             customLabel2.Margin = new Padding(2, 0, 2, 0);
             customLabel2.Name = "customLabel2";
-            customLabel2.Size = new Size(72, 20);
+            customLabel2.Size = new Size(85, 23);
             customLabel2.TabIndex = 4;
             customLabel2.Text = "متاح للحجز";
             // 
@@ -179,11 +179,11 @@
             customLabel1.Anchor = AnchorStyles.Right;
             customLabel1.AutoSize = true;
             customLabel1.BackColor = Color.Transparent;
-            customLabel1.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            customLabel1.Location = new Point(785, 3);
+            customLabel1.Font = new Font("Tajawal", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            customLabel1.Location = new Point(795, 4);
             customLabel1.Margin = new Padding(2, 0, 2, 0);
             customLabel1.Name = "customLabel1";
-            customLabel1.Size = new Size(118, 25);
+            customLabel1.Size = new Size(145, 29);
             customLabel1.TabIndex = 3;
             customLabel1.Text = "مفتاح التوضيح";
             // 
@@ -304,7 +304,6 @@
             stadiumGrid1.SelectionMode = DataGridViewSelectionMode.CellSelect;
             stadiumGrid1.Size = new Size(1043, 407);
             stadiumGrid1.TabIndex = 9;
-            stadiumGrid1.CellDoubleClick += stadiumGrid1_CellDoubleClick;
             // 
             // panel4
             // 
@@ -512,10 +511,6 @@
         private CustomItems.PillButton pillButton3;
         private CustomItems.PillButton pillButton2;
         private CustomItems.PillButton pillButton1;
-        
-        
-       
-        private DateTimePicker dateTimePicker2;
         private Label label3;
         private Label label1;
         private CustomItems.StatusCard statusCard1;
@@ -526,5 +521,6 @@
         private CustomItems.StatusCard statusCard5;
         private CustomItems.StatusCard statusCard3;
         private CustomItems.StatusCard statusCard2;
+        public DateTimePicker dateTimePicker2;
     }
 }

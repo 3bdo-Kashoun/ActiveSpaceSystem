@@ -94,6 +94,11 @@ namespace ActiveSpaceSystem.Forms.MainForms
             {
                 BookingForm = new ManageBooking();
             }
+            if (BookingForm != null) {
+                BookingForm.LoadData();
+            }
+
+           
             ShowFormInPanel(BookingForm);
         }
 
@@ -103,6 +108,9 @@ namespace ActiveSpaceSystem.Forms.MainForms
             if (ScheduleForm == null || ScheduleForm.IsDisposed)
             {
                 ScheduleForm = new SchedulingForm();
+            }
+            if (ScheduleForm != null) {
+                ScheduleForm.LoadDataToGrid(ScheduleForm.dateTimePicker2.Value);
             }
             ShowFormInPanel(ScheduleForm);
         }
@@ -124,6 +132,7 @@ namespace ActiveSpaceSystem.Forms.MainForms
             {
                 PaymentForm = new PaymentForm();
             }
+            PaymentForm.LoadData();
             ShowFormInPanel(PaymentForm);
         }
 
@@ -143,6 +152,9 @@ namespace ActiveSpaceSystem.Forms.MainForms
             if (MangeCustomersForm == null || MangeCustomersForm.IsDisposed)
             {
                 MangeCustomersForm = new MangeCustomers();
+            }
+            if (MangeCustomersForm != null) { 
+                MangeCustomersForm.LoadData();
             }
             ShowFormInPanel(MangeCustomersForm);
         }
@@ -183,6 +195,11 @@ namespace ActiveSpaceSystem.Forms.MainForms
         }
 
         private void button2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
         {
 
         }

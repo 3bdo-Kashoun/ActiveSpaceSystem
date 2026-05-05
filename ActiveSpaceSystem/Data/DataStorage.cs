@@ -16,7 +16,7 @@ namespace ActiveSpaceSystem.Data
         public static List<Customer> CustomersList = new List<Customer>();
         public static List<CourtType> CourtTypesList = new List<CourtType>();
 
-
+        public static List<Payment> PaymentList = new List<Payment>();
         static DataStorage()    
         {
            
@@ -27,6 +27,7 @@ namespace ActiveSpaceSystem.Data
             
          
             BookingsList = Booking.GetFakeData();
+            PaymentList = Payment.GetFakeData();
 
         }
         public static List<TimeSlot> GetCourtAvailability(int courtId, DateTime date)

@@ -5,7 +5,8 @@ namespace ActiveSpaceSystem.Forms.Views
 {
     public class BookingViewModel
     {
-        
+        public int BookingID { get; set; }
+
         public string CustomerName { get; set; }
         public string Phone { get; set; }
         public string Court { get; set; }
@@ -18,7 +19,7 @@ namespace ActiveSpaceSystem.Forms.Views
         {
             return new BookingViewModel
             {
-                
+                BookingID = b.BookingID,
                 CustomerName = b.Customer?.FullName ?? "غير معروف",
                 Phone = b.Customer?.Phone ?? "غير معروف",
                 Court = b.Court?.CourtName ?? "غير معروف",

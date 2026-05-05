@@ -10,7 +10,7 @@ namespace ActiveSpace.Models
         public double AmountPaid { get; set; }
         public double Deposit { get; set; }
         public DateTime PaidAt { get; set; }
-        Booking Booking {  get; set; }
+        public Booking Booking {  get; set; }
         
 
         public static List<Payment> GetFakeData() => new List<Payment>
@@ -22,13 +22,13 @@ namespace ActiveSpace.Models
         public static double CalculateRemaining(int bookingID)
         {
             // جلب كل المدفوعات لهذا الحجز
-            var allPayments = GetFakeData().Where(p => p.BookingID == bookingID).ToList();
+            var allPayments = DataStorage.PaymentList.Where(p => p.BookingID == bookingID).ToList();
 
             // حساب مجموع المبالغ المدفوعة (AmountPaid)
             double totalPaid = allPayments.Sum(p => p.AmountPaid);
 
             // جلب بيانات الحجز لمعرفة المبلغ الكلي
-            var booking = Booking.GetFakeData().FirstOrDefault(b => b.BookingID == bookingID);
+            var booking = DataStorage.BookingsList.FirstOrDefault(b => b.BookingID == bookingID);
 
             if (booking == null) return 0;
 

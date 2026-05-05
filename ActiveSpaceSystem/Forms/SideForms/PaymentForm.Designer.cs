@@ -229,7 +229,7 @@
             dgvReservation.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvReservation.Size = new Size(738, 467);
             dgvReservation.TabIndex = 25;
-            dgvReservation.CellContentClick += dgvReservation_CellContentClick;
+            
             dgvReservation.CellPainting += dgvReservation_CellPainting;
             // 
             // bookingDetailsCard

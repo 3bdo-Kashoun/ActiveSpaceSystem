@@ -46,9 +46,8 @@
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1256, 156);
+            panel1.Size = new Size(1005, 125);
             panel1.TabIndex = 1;
             // 
             // label3
@@ -57,11 +56,10 @@
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.DimGray;
-            label3.Location = new Point(930, 88);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(744, 70);
             label3.Name = "label3";
             label3.RightToLeft = RightToLeft.Yes;
-            label3.Size = new Size(224, 25);
+            label3.Size = new Size(181, 20);
             label3.TabIndex = 6;
             label3.Text = "إدارة إعدادات النظام والملاعب";
             label3.Click += label3_Click;
@@ -72,23 +70,21 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.MidnightBlue;
-            label1.Location = new Point(1008, 24);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(806, 19);
             label1.Name = "label1";
-            label1.Size = new Size(156, 46);
+            label1.Size = new Size(134, 39);
             label1.TabIndex = 0;
             label1.Text = "الإعدادات";
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             flowLayoutPanel1.Controls.Add(tabButton1);
             flowLayoutPanel1.Controls.Add(tabButton3);
             flowLayoutPanel1.Controls.Add(tabButton2);
-            flowLayoutPanel1.Location = new Point(0, 156);
+            flowLayoutPanel1.Location = new Point(0, 125);
             flowLayoutPanel1.Margin = new Padding(2);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1230, 115);
+            flowLayoutPanel1.Size = new Size(1005, 513);
             flowLayoutPanel1.TabIndex = 2;
             // 
             // tabButton1
@@ -102,10 +98,10 @@
             tabButton1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             tabButton1.ForeColor = Color.White;
             tabButton1.IsActive = true;
-            tabButton1.Location = new Point(1003, 2);
+            tabButton1.Location = new Point(823, 2);
             tabButton1.Margin = new Padding(2);
             tabButton1.Name = "tabButton1";
-            tabButton1.Size = new Size(225, 75);
+            tabButton1.Size = new Size(180, 60);
             tabButton1.TabIndex = 7;
             tabButton1.Text = "إعدادات الملاعب";
             tabButton1.UseVisualStyleBackColor = false;
@@ -122,10 +118,10 @@
             tabButton3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             tabButton3.ForeColor = Color.Black;
             tabButton3.IsActive = false;
-            tabButton3.Location = new Point(774, 2);
+            tabButton3.Location = new Point(639, 2);
             tabButton3.Margin = new Padding(2);
             tabButton3.Name = "tabButton3";
-            tabButton3.Size = new Size(225, 75);
+            tabButton3.Size = new Size(180, 60);
             tabButton3.TabIndex = 9;
             tabButton3.Text = "المستخدمين";
             tabButton3.UseVisualStyleBackColor = false;
@@ -142,10 +138,10 @@
             tabButton2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             tabButton2.ForeColor = Color.Black;
             tabButton2.IsActive = false;
-            tabButton2.Location = new Point(545, 2);
+            tabButton2.Location = new Point(455, 2);
             tabButton2.Margin = new Padding(2);
             tabButton2.Name = "tabButton2";
-            tabButton2.Size = new Size(225, 75);
+            tabButton2.Size = new Size(180, 60);
             tabButton2.TabIndex = 8;
             tabButton2.Text = "حول النظام";
             tabButton2.UseVisualStyleBackColor = false;
@@ -153,25 +149,25 @@
             // 
             // mainContainer
             // 
-            mainContainer.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             mainContainer.AutoScroll = true;
             mainContainer.BackColor = Color.White;
             mainContainer.BorderColor = Color.FromArgb(230, 230, 230);
             mainContainer.BorderRadius = 20;
             mainContainer.BorderSize = 1F;
-            mainContainer.Location = new Point(0, 302);
+            mainContainer.Location = new Point(0, 241);
+            mainContainer.Margin = new Padding(2);
             mainContainer.Name = "mainContainer";
             mainContainer.ShowShadow = true;
-            mainContainer.Size = new Size(1256, 496);
+            mainContainer.Size = new Size(1005, 397);
             mainContainer.TabIndex = 3;
             // 
             // Settings
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.FromArgb(248, 249, 250);
-            ClientSize = new Size(1256, 798);
+            ClientSize = new Size(1005, 638);
             Controls.Add(mainContainer);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(panel1);

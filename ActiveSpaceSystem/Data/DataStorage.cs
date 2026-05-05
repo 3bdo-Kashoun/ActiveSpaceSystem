@@ -17,7 +17,7 @@ namespace ActiveSpaceSystem.Data
         public static List<CourtType> CourtTypesList = new List<CourtType>();
 
 
-        static DataStorage()
+        static DataStorage()    
         {
            
             UsersList = User.GetFakeData();

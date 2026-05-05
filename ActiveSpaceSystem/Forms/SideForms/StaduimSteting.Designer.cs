@@ -29,17 +29,20 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StaduimSteting));
             panel1 = new Panel();
             roundedButton1 = new ActiveSpaceSystem.CustomItems.RoundedButton();
             label1 = new Label();
             dgvMonthlyContract = new ActiveSpaceSystem.CustomItems.CustomDataGridView();
             StdName = new DataGridViewTextBoxColumn();
             type = new DataGridViewTextBoxColumn();
-            price = new DataGridViewTextBoxColumn();
             opentime = new DataGridViewTextBoxColumn();
             closeTime = new DataGridViewTextBoxColumn();
-            Procedures = new DataGridViewTextBoxColumn();
+            EditColumn = new DataGridViewImageColumn();
+            DeleteColumn = new DataGridViewImageColumn();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvMonthlyContract).BeginInit();
             SuspendLayout();
@@ -74,6 +77,7 @@
             roundedButton1.Text = "إضافة ملعب جديد";
             roundedButton1.TextAlign = ContentAlignment.MiddleLeft;
             roundedButton1.UseVisualStyleBackColor = false;
+            roundedButton1.Click += roundedButton1_Click;
             // 
             // label1
             // 
@@ -106,15 +110,15 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvMonthlyContract.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvMonthlyContract.ColumnHeadersHeight = 50;
-            dgvMonthlyContract.Columns.AddRange(new DataGridViewColumn[] { StdName, type, price, opentime, closeTime, Procedures });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Tajawal", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(240, 245, 255);
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvMonthlyContract.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvMonthlyContract.Columns.AddRange(new DataGridViewColumn[] { StdName, type, opentime, closeTime, EditColumn, DeleteColumn });
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Tajawal", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(240, 245, 255);
+            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvMonthlyContract.DefaultCellStyle = dataGridViewCellStyle4;
             dgvMonthlyContract.Dock = DockStyle.Fill;
             dgvMonthlyContract.EnableHeadersVisualStyles = false;
             dgvMonthlyContract.GridColor = Color.FromArgb(230, 230, 230);
@@ -131,42 +135,53 @@
             dgvMonthlyContract.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvMonthlyContract.Size = new Size(904, 326);
             dgvMonthlyContract.TabIndex = 6;
+            dgvMonthlyContract.CellContentClick += dgvMonthlyContract_CellContentClick;
             // 
             // StdName
             // 
+            StdName.DataPropertyName = "CourtName";
             StdName.HeaderText = "اسم الملعب";
             StdName.MinimumWidth = 8;
             StdName.Name = "StdName";
             // 
             // type
             // 
+            type.DataPropertyName = "TypeName";
             type.HeaderText = "النوع";
             type.MinimumWidth = 8;
             type.Name = "type";
             // 
-            // price
-            // 
-            price.HeaderText = "السعر/الساعة";
-            price.MinimumWidth = 8;
-            price.Name = "price";
-            // 
             // opentime
             // 
+            opentime.DataPropertyName = "OpenTime";
+            dataGridViewCellStyle2.Format = "hh\\:mm";
+            opentime.DefaultCellStyle = dataGridViewCellStyle2;
             opentime.HeaderText = "وقت الفتح";
             opentime.MinimumWidth = 8;
             opentime.Name = "opentime";
             // 
             // closeTime
             // 
+            closeTime.DataPropertyName = "CloseTime";
+            dataGridViewCellStyle3.Format = "hh\\:mm";
+            closeTime.DefaultCellStyle = dataGridViewCellStyle3;
             closeTime.HeaderText = " وقت الاغلاق";
             closeTime.MinimumWidth = 8;
             closeTime.Name = "closeTime";
             // 
-            // Procedures
+            // EditColumn
             // 
-            Procedures.HeaderText = "االإجرأت";
-            Procedures.MinimumWidth = 8;
-            Procedures.Name = "Procedures";
+            EditColumn.HeaderText = "تعديل";
+            EditColumn.Image = (Image)resources.GetObject("EditColumn.Image");
+            EditColumn.MinimumWidth = 6;
+            EditColumn.Name = "EditColumn";
+            // 
+            // DeleteColumn
+            // 
+            DeleteColumn.HeaderText = "حذف";
+            DeleteColumn.Image = (Image)resources.GetObject("DeleteColumn.Image");
+            DeleteColumn.MinimumWidth = 6;
+            DeleteColumn.Name = "DeleteColumn";
             // 
             // StaduimSteting
             // 
@@ -181,6 +196,7 @@
             Margin = new Padding(2);
             Name = "StaduimSteting";
             Text = "StaduimSteting";
+            Load += StaduimSteting_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvMonthlyContract).EndInit();
@@ -192,12 +208,12 @@
         private Panel panel1;
         private Label label1;
         private CustomItems.CustomDataGridView dgvMonthlyContract;
+        private CustomItems.RoundedButton roundedButton1;
         private DataGridViewTextBoxColumn StdName;
         private DataGridViewTextBoxColumn type;
-        private DataGridViewTextBoxColumn price;
         private DataGridViewTextBoxColumn opentime;
         private DataGridViewTextBoxColumn closeTime;
-        private DataGridViewTextBoxColumn Procedures;
-        private CustomItems.RoundedButton roundedButton1;
+        private DataGridViewImageColumn EditColumn;
+        private DataGridViewImageColumn DeleteColumn;
     }
 }

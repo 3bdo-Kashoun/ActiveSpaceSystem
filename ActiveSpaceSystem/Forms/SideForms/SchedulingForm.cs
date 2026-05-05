@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ActiveSpaceSystem.Forms.DialogForms;
 
 namespace ActiveSpaceSystem.Forms.SideForms
 {
@@ -93,6 +94,28 @@ namespace ActiveSpaceSystem.Forms.SideForms
         {
             SetupGrid();
             LoadDataToGrid(dateTimePicker2.Value);
+        }
+
+        private void stadiumGrid1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
+            if (e.ColumnIndex != stadiumGrid1.Columns["Stadium"].Index)
+            {
+                if (stadiumGrid1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.Equals("متاح"))
+                {
+                    string courtName = stadiumGrid1.Rows[e.RowIndex].Cells["Stadium"].Value.ToString();
+                    string columnName = stadiumGrid1.Columns[e.ColumnIndex].Name;
+                    int selectedHour = int.Parse(columnName.Replace("h", ""));
+                    var court = DataStorage.CourtsList.FirstOrDefault(c => c.CourtName == courtName);
+                    AddBookingForm form = new AddBookingForm();
+                    form.cmbCourtType.SelectedValue = court.Type.TypeName;
+                    form.cmbCourt.SelectedValue = court.CourtName;
+                    form.dtpStartTime.Value = DateTime.Today.AddHours(selectedHour);
+                    form.dtpBookingDate.Value=dateTimePicker2.Value;
+                    form.dtpEndTime.Value=DateTime.Today.AddHours(selectedHour+1);
+                    form.ShowDialog();
+                }
+            }
         }
     }
 }

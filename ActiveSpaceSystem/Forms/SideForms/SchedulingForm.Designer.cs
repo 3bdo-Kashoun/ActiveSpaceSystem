@@ -304,6 +304,7 @@
             stadiumGrid1.SelectionMode = DataGridViewSelectionMode.CellSelect;
             stadiumGrid1.Size = new Size(1043, 407);
             stadiumGrid1.TabIndex = 9;
+            stadiumGrid1.CellDoubleClick += stadiumGrid1_CellDoubleClick;
             // 
             // panel4
             // 

@@ -8,7 +8,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Runtime.InteropServices; // ضروري لاستدعاء مكتبات الويندوز
+using System.Runtime.InteropServices;
+using ActiveSpaceSystem.Data; // ضروري لاستدعاء مكتبات الويندوز
 namespace ActiveSpaceSystem.Forms.DialogForms
 {
     public partial class AddBookingForm : Form
@@ -27,6 +28,8 @@ namespace ActiveSpaceSystem.Forms.DialogForms
         public AddBookingForm()
         {
             InitializeComponent();
+            LoadCourtTypes();
+            LoadCourts();
 
         }
         private void AddBookingForm_Load(object sender, EventArgs e)
@@ -34,6 +37,36 @@ namespace ActiveSpaceSystem.Forms.DialogForms
             // هنا نضع كود الحواف الدائرية الذي كتبناه سابقاً
             this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
 
+
+        }
+
+        private void LoadCourtTypes()
+        {
+            cmbCourtType.Items.Clear();
+            cmbCourtType.ValueMember = "TypeName";
+            cmbCourtType.DataSource = DataStorage.CourtTypesList;
+        }
+        private void LoadCourts()
+        {
+            cmbCourt.DataSource = null;
+            cmbCourt.Items.Clear();
+
+            // السطرين هادم هم المهمين:
+            cmbCourt.DisplayMember = "CourtName"; // النص اللي يشوفه الزبون
+            cmbCourt.ValueMember = "CourtName";   // القيمة البرمجية (أو خليه CourtID لو تفضل)
+
+            if (cmbCourtType.SelectedIndex == -1)
+            {
+                cmbCourt.DataSource = DataStorage.CourtsList;
+            }
+            else
+            {
+                string selectedTypeName = cmbCourtType.SelectedValue?.ToString();
+
+                cmbCourt.DataSource = DataStorage.CourtsList
+                    .Where(c => c.Type != null && c.Type.TypeName == selectedTypeName)
+                    .ToList();
+            }
         }
         private void AddBookingForm_Paint(object sender, PaintEventArgs e)
         {
@@ -179,6 +212,29 @@ namespace ActiveSpaceSystem.Forms.DialogForms
         private void dtp_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmbCourtType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadCourts();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                
+            }
         }
     }
 }

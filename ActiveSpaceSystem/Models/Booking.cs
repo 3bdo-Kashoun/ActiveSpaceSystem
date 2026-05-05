@@ -21,7 +21,7 @@ namespace ActiveSpace.Models
         public Customer Customer { get; set; }
         public Court? Court { get; set; }
         public User? User { get; set; }
-
+        public double Deposit { get; set; }
         public double DurationHours => (EndTime - StartTime).TotalHours;
 
         public static List<Booking> GetFakeData() => new List<Booking>

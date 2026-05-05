@@ -1,14 +1,17 @@
-﻿using System;
+﻿using ActiveSpace.Models;
+using ActiveSpaceSystem.Data; // ضروري لاستدعاء مكتبات الويندوز
+using ActiveSpaceSystem.Models.enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Runtime.InteropServices; // ضروري لاستدعاء مكتبات الويندوز
 namespace ActiveSpaceSystem.Forms.DialogForms
 {
     public partial class AddBookingForm : Form
@@ -33,6 +36,13 @@ namespace ActiveSpaceSystem.Forms.DialogForms
         {
             // هنا نضع كود الحواف الدائرية الذي كتبناه سابقاً
             this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
+            // ربط الكومبو بوكس بقائمة الأنواع (قدم، سلة، بادل)
+            cmbCourtType.DataSource = DataStorage.CourtTypesList.ToList();
+            cmbCourtType.DisplayMember = "TypeName";
+            cmbCourtType.ValueMember = "TypeID";
+
+            // اجعل الكومبو يبدأ فارغاً لكي يجبر المستخدم على الاختيار
+            cmbCourtType.SelectedIndex = -1;
 
         }
         private void AddBookingForm_Paint(object sender, PaintEventArgs e)
@@ -42,143 +52,76 @@ namespace ActiveSpaceSystem.Forms.DialogForms
             ControlPaint.DrawBorder(e.Graphics, this.ClientRectangle, borderColor, ButtonBorderStyle.Solid);
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-            Panel pnl = (Panel)sender;
-            Graphics g = e.Graphics;
-            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+   
+        
 
-            // إعداد لون الإطار (رمادي فاتح مثل الصورة)
-            Pen pen = new Pen(Color.Black, 2);
-
-            // رسم مسار الحواف الدائرية للبانل
-            int radius = 10;
-            System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
-            path.AddArc(0, 0, radius, radius, 180, 90);
-            path.AddArc(pnl.Width - radius, 0, radius, radius, 270, 90);
-            path.AddArc(pnl.Width - radius, pnl.Height - radius, radius, radius, 0, 90);
-            path.AddArc(0, pnl.Height - radius, radius, radius, 90, 90);
-            path.CloseAllFigures();
-
-            pnl.Region = new Region(path); // قص البانل ليكون دائرياً
-            g.DrawPath(pen, path); // رسم الخط الرمادي حوله
-        }
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-            Panel pnl = (Panel)sender;
-            Graphics g = e.Graphics;
-            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-
-            // إعداد لون الإطار الأسود
-            // يمكنك تغيير الرقم 2 للتحكم في غلظ الخط
-            Pen blackPen = new Pen(Color.Black, 2);
-
-            // رسم المسار الدائري (Radius = 15 بكسل)
-            int radius = 15;
-            System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
-            path.AddArc(0, 0, radius, radius, 180, 90);
-            path.AddArc(pnl.Width - radius, 0, radius, radius, 270, 90);
-            path.AddArc(pnl.Width - radius, pnl.Height - radius, radius, radius, 0, 90);
-            path.AddArc(0, pnl.Height - radius, radius, radius, 90, 90);
-            path.CloseAllFigures();
-
-            // تطبيق القص لجعل الأركان دائرية
-            pnl.Region = new Region(path);
-
-            // رسم الخط الأسود حول المسار
-            g.DrawPath(blackPen, path);
-        }
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-            Panel pnl = (Panel)sender;
-            Graphics g = e.Graphics;
-            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-
-            // إعداد لون الإطار الأسود
-            // يمكنك تغيير الرقم 2 للتحكم في غلظ الخط
-            Pen blackPen = new Pen(Color.Black, 2);
-
-            // رسم المسار الدائري (Radius = 15 بكسل)
-            int radius = 15;
-            System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
-            path.AddArc(0, 0, radius, radius, 180, 90);
-            path.AddArc(pnl.Width - radius, 0, radius, radius, 270, 90);
-            path.AddArc(pnl.Width - radius, pnl.Height - radius, radius, radius, 0, 90);
-            path.AddArc(0, pnl.Height - radius, radius, radius, 90, 90);
-            path.CloseAllFigures();
-
-            // تطبيق القص لجعل الأركان دائرية
-            pnl.Region = new Region(path);
-
-            // رسم الخط الأسود حول المسار
-            g.DrawPath(blackPen, path);
-        }
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-            Panel pnl = (Panel)sender;
-            Graphics g = e.Graphics;
-            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-
-            // إعداد لون الإطار الأسود
-            // يمكنك تغيير الرقم 2 للتحكم في غلظ الخط
-            Pen blackPen = new Pen(Color.Black, 2);
-
-            // رسم المسار الدائري (Radius = 15 بكسل)
-            int radius = 15;
-            System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
-            path.AddArc(0, 0, radius, radius, 180, 90);
-            path.AddArc(pnl.Width - radius, 0, radius, radius, 270, 90);
-            path.AddArc(pnl.Width - radius, pnl.Height - radius, radius, radius, 0, 90);
-            path.AddArc(0, pnl.Height - radius, radius, radius, 90, 90);
-            path.CloseAllFigures();
-
-            // تطبيق القص لجعل الأركان دائرية
-            pnl.Region = new Region(path);
-
-            // رسم الخط الأسود حول المسار
-            g.DrawPath(blackPen, path);
-        }
-
-        private void button2_Paint(object sender, PaintEventArgs e)
-        {
-            Button but = (Button)sender;
-            Graphics g = e.Graphics;
-            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            // رسم المسار الدائري (Radius = 15 بكسل)
-            int radius = 45;
-            System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
-            path.AddArc(0, 0, radius, radius, 180, 90);
-            path.AddArc(but.Width - radius, 0, radius, radius, 270, 90);
-            path.AddArc(but.Width - radius, but.Height - radius, radius, radius, 0, 90);
-            path.AddArc(0, but.Height - radius, radius, radius, 90, 90);
-            path.CloseAllFigures();
-
-            // تطبيق القص لجعل الأركان دائرية
-            but.Region = new Region(path);
-
-        }
-
-        private void button3_Paint(object sender, PaintEventArgs e)
-        {
-            Button but = (Button)sender;
-            Graphics g = e.Graphics;
-            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            // رسم المسار الدائري (Radius = 15 بكسل)
-            int radius = 45;
-            System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
-            path.AddArc(0, 0, radius, radius, 180, 90);
-            path.AddArc(but.Width - radius, 0, radius, radius, 270, 90);
-            path.AddArc(but.Width - radius, but.Height - radius, radius, radius, 0, 90);
-            path.AddArc(0, but.Height - radius, radius, radius, 90, 90);
-            path.CloseAllFigures();
-
-            // تطبيق القص لجعل الأركان دائرية
-            but.Region = new Region(path);
-        }
+        
 
         private void dtp_ValueChanged(object sender, EventArgs e)
         {
 
         }
+
+        private void roundedButton1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
+
+        private void roundedButton2_Click(object sender, EventArgs e)
+        {
+            // 1. التحقق من الحقول
+            if (string.IsNullOrEmpty(txtName.Texts) || string.IsNullOrEmpty(txtPhone.Texts) || cmbCourtType.SelectedValue == null)
+            {
+                MessageBox.Show("الرجاء ملء جميع الحقول واختيار الملعب", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                int selectedCourtId = (int)cmbCourtType.SelectedValue;
+
+                // 2. إنشاء كائن الحجز
+                Booking newBooking = new Booking
+                {
+                    BookingID = DataStorage.BookingsList.Count + 1,
+                    CourtID = selectedCourtId,
+                    UserID = 1,
+                    BookingDate = dtpBookingDate.Value.Date,
+                    StartTime = dtpStartTime.Value.TimeOfDay,
+                    EndTime = dtpEndTime.Value.TimeOfDay,
+                    TotalAmount = double.TryParse(txtprice.Texts, out double total) ? total : 0,
+                    Deposit = double.TryParse(deposittxt.Texts, out double dep) ? dep : 0,
+                    Status = BookingStatus.Confirmed, // ضروري جداً للعرض في الجدول
+
+                    // 3. ربط البيانات للعرض
+                    // إنشاء كائن عميل مؤقت لكي يظهر الاسم في الجدول فوراً
+                    Customer = new Customer
+                    {
+                        FullName = txtName.Texts,
+                        Phone = txtPhone.Texts
+                    },
+                    Court = DataStorage.CourtsList.FirstOrDefault(c => c.CourtID == selectedCourtId)
+                };
+
+                // 4. الإضافة للقائمة
+                DataStorage.BookingsList.Add(newBooking);
+
+                MessageBox.Show("تم تسجيل الحجز بنجاح", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("حدث خطأ: " + ex.Message);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        
     }
 }

@@ -70,9 +70,9 @@ namespace ActiveSpaceSystem.Helpers
                 return false;
             }
 
-            if (!double.TryParse(cleanValue, out parsedValue) || parsedValue < 0)
+            if (!double.TryParse(cleanValue, out parsedValue) || parsedValue < 1)
             {
-                errorMessage = $"القيمة المدخلة في حقل ({fieldName}) غير صحيحة! يرجى كتابة قيمة رقمية موجبة.";
+                errorMessage = $"القيمة المدخلة في حقل ({fieldName}) غير صحيحة! يرجى كتابة قيمة رقمية موجبة وتكون أكبر من الصفر.";
                 return false;
             }
 

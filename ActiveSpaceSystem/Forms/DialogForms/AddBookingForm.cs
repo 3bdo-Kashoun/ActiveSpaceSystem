@@ -325,7 +325,7 @@ namespace ActiveSpaceSystem.Forms.DialogForms
                 PaymentID = DataStorage.PaymentList.Count + 1,
                 BookingID = booking.BookingID,
                 AmountPaid = booking.Deposit,
-                Deposit = booking.Deposit,
+                
                 PaidAt = DateTime.Now,
                 Booking = booking
             };

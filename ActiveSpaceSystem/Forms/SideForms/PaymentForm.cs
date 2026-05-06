@@ -1,5 +1,6 @@
 ﻿using ActiveSpace.Models;
 using ActiveSpaceSystem.Data;
+using ActiveSpaceSystem.Forms.DialogForms;
 using ActiveSpaceSystem.Forms.GridStyle;
 using ActiveSpaceSystem.Forms.Views;
 using ActiveSpaceSystem.Models.enums;
@@ -15,7 +16,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
     {
         private BindingList<PaymentViewModel> paymentsList;
         private PaymentGridRenderer gridRenderer;
-
+        
         public PaymentForm()
         {
             InitializeComponent();
@@ -23,12 +24,46 @@ namespace ActiveSpaceSystem.Forms.SideForms
             gridRenderer = new PaymentGridRenderer();
             SetupGrid();
             this.Load += PaymentForm_Load;
+            bookingDetailsCard.BtnPayment.Click += btn_payment_Click;
         }
 
         private void PaymentForm_Load(object sender, EventArgs e)
         {
             LoadData();
             dgvReservation.ClearSelection();
+        }
+        private void btn_payment_Click(object sender,EventArgs e)
+        {
+            string rawBookingID = bookingDetailsCard.BookingID;
+
+            // 2. تنظيف النص للحصول على الأرقام فقط وتجاهل أي حروف أو رموز مثل "B-"
+            string cleanNumbers = new string(rawBookingID.Where(char.IsDigit).ToArray());
+            if (int.TryParse(cleanNumbers, out int bookingId))
+            {
+
+
+                using (var paymentDialog = new AddPaymentForm())
+                {
+                    // تمرير البيانات للفورم قبل عرضه
+                    paymentDialog.SetBookingData(bookingId, $"{bookingDetailsCard.RemainingAmount}");
+
+                    // فتح الفورم كـ Dialog (شاشة حوارية تمنع النقاش خلفها حتى تُغلق)
+                    var result = paymentDialog.ShowDialog();
+
+                    // إذا تمت العملية بنجاح وضغط المستخدم على تأكيد
+                    if (result == DialogResult.OK)
+                    {
+                        // 1. إعادة تحميل البيانات وتحديث الجدول تلقائياً
+                        LoadData();
+
+                        // 2. تحديث كارد التفاصيل الجانبي ليظهر القيم الجديدة مباشرة
+                        ShowBookingDetails(bookingId);
+
+                        // 3. إلغاء أي تحديد عشوائي في الجدول
+                        dgvReservation.ClearSelection();
+                    }
+                }
+            }
         }
 
         private void SetupGrid()
@@ -48,6 +83,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
         private void AddColumns()
         {
+  
             dgvReservation.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "BookingID",
@@ -115,10 +151,12 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
         public void LoadData()
         {
-            // ربط وعرض قائمة العرض من الذاكرة مباشرة
             paymentsList = new BindingList<PaymentViewModel>(
                 DataStorage.BookingsList.Select(PaymentViewModel.FromBooking).ToList()
             );
+
+            
+         
             dgvReservation.DataSource = paymentsList;
         }
 
@@ -154,14 +192,34 @@ namespace ActiveSpaceSystem.Forms.SideForms
             {
                 if (item.Remaining > 0)
                 {
-                    MessageBox.Show($"انتقال لتسجيل دفعة للحجز: B-{item.BookingID}");
-                    // هنا تضع كود فتح واجهة الدفع، وتمرير الـ item.BookingID لها
+                    using (var paymentDialog = new AddPaymentForm())
+                    {
+                        // تمرير البيانات للفورم قبل عرضه
+                        paymentDialog.SetBookingData(item.BookingID, $"{item.Remaining} د.ل");
+
+                        // فتح الفورم كـ Dialog (شاشة حوارية تمنع النقاش خلفها حتى تُغلق)
+                        var result = paymentDialog.ShowDialog();
+
+                        // إذا تمت العملية بنجاح وضغط المستخدم على تأكيد
+                        if (result == DialogResult.OK)
+                        {
+                            // 1. إعادة تحميل البيانات وتحديث الجدول تلقائياً
+                            LoadData();
+
+                            // 2. تحديث كارد التفاصيل الجانبي ليظهر القيم الجديدة مباشرة
+                            ShowBookingDetails(item.BookingID);
+
+                            // 3. إلغاء أي تحديد عشوائي في الجدول
+                            dgvReservation.ClearSelection();
+                        }
+                    }
                 }
             }
             // 2. عند الضغط على بقية الحقول يُظهر الكارد الخاص بالتفاصيل
             else
             {
                 ShowBookingDetails(item.BookingID);
+                bookingDetailsCard.BtnPayment.Visible = item.Remaining > 0;
             }
         }
 
@@ -186,6 +244,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
                 bookingDetailsCard.IsItemSelected = true;
                 bookingDetailsCard.RemainingColor = remaining > 0 ? Color.Red : Color.Green;
+                bookingDetailsCard.BtnPayment.Visible = remaining > 0;
             }
         }
     }

@@ -29,6 +29,8 @@ namespace ActiveSpaceSystem.Models
       
         public int? CourtID { get; set; }
         public Court? Court { get; set; }
+        public int ExpenseTypeId { get; set; }
+        public ExpenseType ExpenseType { get; set; }
     
     }
 }

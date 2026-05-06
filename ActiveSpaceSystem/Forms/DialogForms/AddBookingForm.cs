@@ -1,8 +1,8 @@
 ﻿using ActiveSpace.Models;
 using ActiveSpaceSystem.CustomItems;
 using ActiveSpaceSystem.Data;
-using ActiveSpaceSystem.Models.enums;
 using ActiveSpaceSystem.Helpers; // استدعاء فضاء أسماء المساعدات الجديد
+using ActiveSpaceSystem.Models.enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,6 +12,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ActiveSpaceSystem.Forms.DialogForms
 {
@@ -135,6 +136,10 @@ namespace ActiveSpaceSystem.Forms.DialogForms
                     txtName.Focus();
                 }
             }
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
 
         private bool ValidateAndCheckCustomer()
@@ -145,7 +150,7 @@ namespace ActiveSpaceSystem.Forms.DialogForms
             {
                 ShowWarning(errorMessage);
                 txtName.Texts = "";
-                
+
                 this.BeginInvoke(new Action(() => txtPhone.Focus()));
                 return false;
             }
@@ -344,6 +349,85 @@ namespace ActiveSpaceSystem.Forms.DialogForms
         private void ShowError(string message)
         {
             MessageBox.Show(message, "خطأ في النظام", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void txtName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+
+                cmbCourtType.Focus();
+
+            }
+        }
+
+        private void txtprice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (e.KeyChar == '.')
+            {
+                dynamic customTextBox = sender;
+                string currentText = "";
+
+                try
+                {
+                    currentText = customTextBox.Texts;
+                }
+                catch
+                {
+                    currentText = customTextBox.Text;
+                }
+
+                if (currentText.Contains("."))
+                {
+                    e.Handled = true;
+                }
+            }
+
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                deposittxt.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void deposittxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (e.KeyChar == '.')
+            {
+                dynamic customTextBox = sender;
+                string currentText = "";
+
+                try
+                {
+                    currentText = customTextBox.Texts;
+                }
+                catch
+                {
+                    currentText = customTextBox.Text;
+                }
+
+                if (currentText.Contains("."))
+                {
+                    e.Handled = true;
+                }
+            }
         }
     }
 }

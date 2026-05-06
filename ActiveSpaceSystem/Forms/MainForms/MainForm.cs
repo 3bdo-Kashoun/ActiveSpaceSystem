@@ -17,6 +17,7 @@ namespace ActiveSpaceSystem.Forms.MainForms
         private PaymentForm PaymentForm = null!;
         private ReportsForm ReportsForm = null!;
         private Settings SettingsForm = null!;
+        private ExpensesForm ExpensesForm = null!;
 
         private Button? currentActiveButton = null;
 
@@ -94,11 +95,12 @@ namespace ActiveSpaceSystem.Forms.MainForms
             {
                 BookingForm = new ManageBooking();
             }
-            if (BookingForm != null) {
+            if (BookingForm != null)
+            {
                 BookingForm.LoadData();
             }
 
-           
+
             ShowFormInPanel(BookingForm);
         }
 
@@ -109,7 +111,8 @@ namespace ActiveSpaceSystem.Forms.MainForms
             {
                 ScheduleForm = new SchedulingForm();
             }
-            if (ScheduleForm != null) {
+            if (ScheduleForm != null)
+            {
                 ScheduleForm.LoadDataToGrid(ScheduleForm.dateTimePicker2.Value);
             }
             ShowFormInPanel(ScheduleForm);
@@ -153,7 +156,8 @@ namespace ActiveSpaceSystem.Forms.MainForms
             {
                 MangeCustomersForm = new MangeCustomers();
             }
-            if (MangeCustomersForm != null) { 
+            if (MangeCustomersForm != null)
+            {
                 MangeCustomersForm.LoadData();
             }
             ShowFormInPanel(MangeCustomersForm);
@@ -202,6 +206,16 @@ namespace ActiveSpaceSystem.Forms.MainForms
         private void button1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            ActivateButton(button10);
+            if (ExpensesForm == null || ExpensesForm.IsDisposed)
+            {
+                ExpensesForm = new ExpensesForm();
+            }
+            ShowFormInPanel(ExpensesForm);
         }
     }
 }

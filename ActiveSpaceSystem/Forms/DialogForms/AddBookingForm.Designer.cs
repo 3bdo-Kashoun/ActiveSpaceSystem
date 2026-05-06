@@ -134,6 +134,7 @@
             txtName.Size = new Size(330, 50);
             txtName.TabIndex = 4;
             txtName.Texts = "";
+            txtName.KeyPress += txtName_KeyPress;
             // 
             // label4
             // 
@@ -238,6 +239,7 @@
             txtprice.Size = new Size(330, 50);
             txtprice.TabIndex = 16;
             txtprice.Texts = "";
+            txtprice.KeyPress += txtprice_KeyPress;
             // 
             // label10
             // 
@@ -266,6 +268,7 @@
             deposittxt.Size = new Size(330, 50);
             deposittxt.TabIndex = 18;
             deposittxt.Texts = "";
+            deposittxt.KeyPress += deposittxt_KeyPress;
             // 
             // cmbCourtType
             // 

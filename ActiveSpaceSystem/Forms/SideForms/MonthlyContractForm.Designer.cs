@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             panel1 = new Panel();
             roundedButton1 = new ActiveSpaceSystem.CustomItems.RoundedButton();
             label3 = new Label();
             label1 = new Label();
             infoBox1 = new ActiveSpaceSystem.CustomItems.InfoBox();
-            statusCard1 = new ActiveSpaceSystem.CustomItems.StatusCard();
-            statusCard2 = new ActiveSpaceSystem.CustomItems.StatusCard();
-            statusCard3 = new ActiveSpaceSystem.CustomItems.StatusCard();
+            statusCardCont = new ActiveSpaceSystem.CustomItems.StatusCard();
+            statusCardTotal = new ActiveSpaceSystem.CustomItems.StatusCard();
+            statusCardEXP = new ActiveSpaceSystem.CustomItems.StatusCard();
             tableLayoutPanel1 = new TableLayoutPanel();
             panel2 = new Panel();
             dgvMonthlyContract = new ActiveSpaceSystem.CustomItems.CustomDataGridView();
@@ -58,6 +58,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1278, 156);
             panel1.TabIndex = 0;
+            panel1.Paint += panel1_Paint;
             // 
             // roundedButton1
             // 
@@ -130,74 +131,74 @@
             infoBox1.TitleColor = Color.FromArgb(29, 53, 87);
             infoBox1.TitleFont = new Font("Microsoft Sans Serif", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
             // 
-            // statusCard1
+            // statusCardCont
             // 
-            statusCard1.BackColor = Color.Transparent;
-            statusCard1.BorderColor = Color.FromArgb(240, 240, 240);
-            statusCard1.BorderRadius = 15;
-            statusCard1.CardBackColor = Color.White;
-            statusCard1.Dock = DockStyle.Fill;
-            statusCard1.Location = new Point(4, 4);
-            statusCard1.Margin = new Padding(4);
-            statusCard1.Name = "statusCard1";
-            statusCard1.Padding = new Padding(6);
-            statusCard1.ShadowBlur = 5;
-            statusCard1.ShadowColor = Color.FromArgb(100, 0, 0, 0);
-            statusCard1.ShowShadow = true;
-            statusCard1.Size = new Size(418, 142);
-            statusCard1.TabIndex = 2;
-            statusCard1.TitleColor = Color.Gray;
-            statusCard1.TitleFont = new Font("Microsoft Sans Serif", 10.2F);
-            statusCard1.TitleText = "العقود النشطة";
-            statusCard1.ValueColor = Color.FromArgb(46, 204, 113);
-            statusCard1.ValueFont = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
-            statusCard1.ValueText = "18";
+            statusCardCont.BackColor = Color.Transparent;
+            statusCardCont.BorderColor = Color.FromArgb(240, 240, 240);
+            statusCardCont.BorderRadius = 15;
+            statusCardCont.CardBackColor = Color.White;
+            statusCardCont.Dock = DockStyle.Fill;
+            statusCardCont.Location = new Point(4, 4);
+            statusCardCont.Margin = new Padding(4);
+            statusCardCont.Name = "statusCardCont";
+            statusCardCont.Padding = new Padding(6);
+            statusCardCont.ShadowBlur = 5;
+            statusCardCont.ShadowColor = Color.FromArgb(100, 0, 0, 0);
+            statusCardCont.ShowShadow = true;
+            statusCardCont.Size = new Size(418, 142);
+            statusCardCont.TabIndex = 2;
+            statusCardCont.TitleColor = Color.Gray;
+            statusCardCont.TitleFont = new Font("Microsoft Sans Serif", 10.2F);
+            statusCardCont.TitleText = "العقود النشطة";
+            statusCardCont.ValueColor = Color.FromArgb(46, 204, 113);
+            statusCardCont.ValueFont = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
+            statusCardCont.ValueText = "18";
             // 
-            // statusCard2
+            // statusCardTotal
             // 
-            statusCard2.BackColor = Color.Transparent;
-            statusCard2.BorderColor = Color.FromArgb(240, 240, 240);
-            statusCard2.BorderRadius = 15;
-            statusCard2.CardBackColor = Color.White;
-            statusCard2.Dock = DockStyle.Fill;
-            statusCard2.Location = new Point(430, 4);
-            statusCard2.Margin = new Padding(4);
-            statusCard2.Name = "statusCard2";
-            statusCard2.Padding = new Padding(6);
-            statusCard2.ShadowBlur = 5;
-            statusCard2.ShadowColor = Color.FromArgb(100, 0, 0, 0);
-            statusCard2.ShowShadow = true;
-            statusCard2.Size = new Size(418, 142);
-            statusCard2.TabIndex = 3;
-            statusCard2.TitleColor = Color.Gray;
-            statusCard2.TitleFont = new Font("Microsoft Sans Serif", 10.2F);
-            statusCard2.TitleText = "الإيرادات الشهرية المتوقعة";
-            statusCard2.ValueColor = Color.FromArgb(30, 58, 138);
-            statusCard2.ValueFont = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
-            statusCard2.ValueText = "15,200 د.ل";
+            statusCardTotal.BackColor = Color.Transparent;
+            statusCardTotal.BorderColor = Color.FromArgb(240, 240, 240);
+            statusCardTotal.BorderRadius = 15;
+            statusCardTotal.CardBackColor = Color.White;
+            statusCardTotal.Dock = DockStyle.Fill;
+            statusCardTotal.Location = new Point(430, 4);
+            statusCardTotal.Margin = new Padding(4);
+            statusCardTotal.Name = "statusCardTotal";
+            statusCardTotal.Padding = new Padding(6);
+            statusCardTotal.ShadowBlur = 5;
+            statusCardTotal.ShadowColor = Color.FromArgb(100, 0, 0, 0);
+            statusCardTotal.ShowShadow = true;
+            statusCardTotal.Size = new Size(418, 142);
+            statusCardTotal.TabIndex = 3;
+            statusCardTotal.TitleColor = Color.Gray;
+            statusCardTotal.TitleFont = new Font("Microsoft Sans Serif", 10.2F);
+            statusCardTotal.TitleText = "الإيرادات الشهرية المتوقعة";
+            statusCardTotal.ValueColor = Color.FromArgb(30, 58, 138);
+            statusCardTotal.ValueFont = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
+            statusCardTotal.ValueText = "15,200 د.ل";
             // 
-            // statusCard3
+            // statusCardEXP
             // 
-            statusCard3.BackColor = Color.Transparent;
-            statusCard3.BorderColor = Color.FromArgb(240, 240, 240);
-            statusCard3.BorderRadius = 15;
-            statusCard3.CardBackColor = Color.White;
-            statusCard3.Dock = DockStyle.Fill;
-            statusCard3.Location = new Point(856, 4);
-            statusCard3.Margin = new Padding(4);
-            statusCard3.Name = "statusCard3";
-            statusCard3.Padding = new Padding(6);
-            statusCard3.ShadowBlur = 5;
-            statusCard3.ShadowColor = Color.FromArgb(100, 0, 0, 0);
-            statusCard3.ShowShadow = true;
-            statusCard3.Size = new Size(418, 142);
-            statusCard3.TabIndex = 4;
-            statusCard3.TitleColor = Color.Gray;
-            statusCard3.TitleFont = new Font("Microsoft Sans Serif", 10.2F);
-            statusCard3.TitleText = "عقود تنتهي هذا الشهر";
-            statusCard3.ValueColor = Color.FromArgb(245, 158, 11);
-            statusCard3.ValueFont = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
-            statusCard3.ValueText = "3";
+            statusCardEXP.BackColor = Color.Transparent;
+            statusCardEXP.BorderColor = Color.FromArgb(240, 240, 240);
+            statusCardEXP.BorderRadius = 15;
+            statusCardEXP.CardBackColor = Color.White;
+            statusCardEXP.Dock = DockStyle.Fill;
+            statusCardEXP.Location = new Point(856, 4);
+            statusCardEXP.Margin = new Padding(4);
+            statusCardEXP.Name = "statusCardEXP";
+            statusCardEXP.Padding = new Padding(6);
+            statusCardEXP.ShadowBlur = 5;
+            statusCardEXP.ShadowColor = Color.FromArgb(100, 0, 0, 0);
+            statusCardEXP.ShowShadow = true;
+            statusCardEXP.Size = new Size(418, 142);
+            statusCardEXP.TabIndex = 4;
+            statusCardEXP.TitleColor = Color.Gray;
+            statusCardEXP.TitleFont = new Font("Microsoft Sans Serif", 10.2F);
+            statusCardEXP.TitleText = "عقود تنتهي هذا الشهر";
+            statusCardEXP.ValueColor = Color.FromArgb(245, 158, 11);
+            statusCardEXP.ValueFont = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
+            statusCardEXP.ValueText = "3";
             // 
             // tableLayoutPanel1
             // 
@@ -205,9 +206,9 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel1.Controls.Add(statusCard3, 2, 0);
-            tableLayoutPanel1.Controls.Add(statusCard2, 1, 0);
-            tableLayoutPanel1.Controls.Add(statusCard1, 0, 0);
+            tableLayoutPanel1.Controls.Add(statusCardEXP, 2, 0);
+            tableLayoutPanel1.Controls.Add(statusCardTotal, 1, 0);
+            tableLayoutPanel1.Controls.Add(statusCardCont, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Top;
             tableLayoutPanel1.Location = new Point(0, 277);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -235,23 +236,23 @@
             dgvMonthlyContract.BorderStyle = BorderStyle.None;
             dgvMonthlyContract.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvMonthlyContract.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(243, 244, 246);
-            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(33, 37, 41);
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(243, 244, 246);
-            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(33, 37, 41);
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvMonthlyContract.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(243, 244, 246);
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(33, 37, 41);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(243, 244, 246);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(33, 37, 41);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvMonthlyContract.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvMonthlyContract.ColumnHeadersHeight = 50;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(240, 245, 255);
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvMonthlyContract.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(240, 245, 255);
+            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvMonthlyContract.DefaultCellStyle = dataGridViewCellStyle4;
             dgvMonthlyContract.Dock = DockStyle.Fill;
             dgvMonthlyContract.EnableHeadersVisualStyles = false;
             dgvMonthlyContract.GridColor = Color.FromArgb(230, 230, 230);
@@ -269,6 +270,7 @@
             dgvMonthlyContract.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvMonthlyContract.Size = new Size(1278, 427);
             dgvMonthlyContract.TabIndex = 6;
+            dgvMonthlyContract.CellContentClick += dgvMonthlyContract_CellContentClick_1;
             // 
             // MonthlyContractForm
             // 
@@ -299,9 +301,9 @@
         private Label label1;
         private Label label3;
         private CustomItems.InfoBox infoBox1;
-        private CustomItems.StatusCard statusCard1;
-        private CustomItems.StatusCard statusCard2;
-        private CustomItems.StatusCard statusCard3;
+        private CustomItems.StatusCard statusCardCont;
+        private CustomItems.StatusCard statusCardTotal;
+        private CustomItems.StatusCard statusCardEXP;
         private CustomItems.RoundedButton roundedButton1;
         private TableLayoutPanel tableLayoutPanel1;
         private Panel panel2;

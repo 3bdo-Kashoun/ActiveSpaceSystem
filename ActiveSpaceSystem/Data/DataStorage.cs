@@ -15,8 +15,19 @@ namespace ActiveSpaceSystem.Data
         public static List<Court> CourtsList = new List<Court>();
         public static List<Customer> CustomersList = new List<Customer>();
         public static List<CourtType> CourtTypesList = new List<CourtType>();
-
+        public static List<MonthlyContract> ContractsList = new List<MonthlyContract>();
         public static List<Payment> PaymentList = new List<Payment>();
+
+        public static Dictionary<string, DayOfWeek> DaysMap = new Dictionary<string, DayOfWeek>
+        {
+        { "الأحد", DayOfWeek.Sunday },
+         { "الاثنين", DayOfWeek.Monday },
+         { "الثلاثاء", DayOfWeek.Tuesday },
+         { "الأربعاء", DayOfWeek.Wednesday },
+      { "الخميس", DayOfWeek.Thursday },
+    { "الجمعة", DayOfWeek.Friday },
+    { "السبت", DayOfWeek.Saturday }
+        };
         static DataStorage()    
         {
            

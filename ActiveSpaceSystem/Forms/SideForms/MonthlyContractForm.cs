@@ -1,39 +1,42 @@
-﻿using ActiveSpace.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Windows.Forms;
+using ActiveSpace.Models;
+using ActiveSpaceSystem.Data;
+using ActiveSpaceSystem.Forms.DialogForms;
+using ActiveSpaceSystem.Models.enums;
 namespace ActiveSpaceSystem.Forms.SideForms
 {
     public partial class MonthlyContractForm : Form
     {
-        // إعدادات الألوان والحالات
-        private string TextActive = "نشط";
+        // إعدادات الألوان والحالات
+        private string TextActive = "نشط";
         private string TextExpired = "منتهي";
         private string TextCanceled = "ملغي";
 
         private Color ColorActiveBack = Color.FromArgb(232, 245, 233); // أخضر فاتح
-        private Color ColorActiveText = Color.FromArgb(46, 125, 50);
+        private Color ColorActiveText = Color.FromArgb(46, 125, 50);
 
         private Color ColorExpiredBack = Color.FromArgb(255, 235, 238); // أحمر فاتح
-        private Color ColorExpiredText = Color.FromArgb(198, 40, 40);
+        private Color ColorExpiredText = Color.FromArgb(198, 40, 40);
 
         private Color ColorCanceledBack = Color.FromArgb(245, 245, 245); // رمادي فاتح
-        private Color ColorCanceledText = Color.FromArgb(117, 117, 117);
+        private Color ColorCanceledText = Color.FromArgb(117, 117, 117);
 
         public MonthlyContractForm()
         {
             InitializeComponent();
             this.TopLevel = false;
             this.dgvMonthlyContract.CellPainting += dgvMonthlyContract_CellPainting; // ربط حدث الرسم المخصص
-        }
+        }
 
         private void MonthlyContractForm_Load_1(object sender, EventArgs e)
         {
-            // إعدادات الجدول العامة
-            dgvMonthlyContract.RowTemplate.Height = 55;
+            // إعدادات الجدول العامة
+            dgvMonthlyContract.RowTemplate.Height = 55;
             dgvMonthlyContract.DefaultCellStyle.SelectionBackColor = Color.FromArgb(248, 249, 250);
             dgvMonthlyContract.DefaultCellStyle.SelectionForeColor = Color.Black;
             dgvMonthlyContract.DefaultCellStyle.Font = new Font("Tajawal", 9);
@@ -43,24 +46,25 @@ namespace ActiveSpaceSystem.Forms.SideForms
             {
                 var court = Court.GetFakeData().FirstOrDefault(c => c.CourtID == mc.CourtID);
                 var customer = Customer.GetFakeData().FirstOrDefault(cu => cu.CustomerID == mc.CustomerID);
+
                 return new
                 {
                     CustomerName = customer != null ? customer.FullName : "غير معروف",
                     PhoneNumber = customer != null ? customer.Phone : "غير معروف",
                     CourtName = court != null ? court.CourtName : "غير معروف",
                     DayOfWeek = GetArabicDay(mc.DayOfWeek), // دالة لتحويل اليوم للعربية للعرض فقط
-                    TimeSlot = $"{mc.FixedStartTime:hh\\:mm} - {mc.FixedEndTime:hh\\:mm}",
+                    TimeSlot = $"{mc.FixedStartTime:hh\\:mm} - {mc.FixedEndTime:hh\\:mm}",
                     StartDate = mc.StartDate.ToString("yyyy-MM-dd"),
                     EndDate = mc.EndDate.ToString("yyyy-MM-dd"),
                     Amount = mc.Bookings.Sum(b => b.TotalAmount),
                     Status = mc.Status.ToString() // نمرر الحالة كـ string للرسم
-                };
+                };
             }).ToList();
 
             dgvMonthlyContract.DataSource = data;
 
-            // تسمية الأعمدة
-            dgvMonthlyContract.Columns["CustomerName"].HeaderText = "اسم العميل";
+            // تسمية الأعمدة
+            dgvMonthlyContract.Columns["CustomerName"].HeaderText = "اسم العميل";
             dgvMonthlyContract.Columns["PhoneNumber"].HeaderText = "رقم الهاتف";
             dgvMonthlyContract.Columns["CourtName"].HeaderText = "الملعب";
             dgvMonthlyContract.Columns["DayOfWeek"].HeaderText = "اليوم";
@@ -70,10 +74,11 @@ namespace ActiveSpaceSystem.Forms.SideForms
             dgvMonthlyContract.Columns["Amount"].HeaderText = "المبلغ الإجمالي";
             dgvMonthlyContract.Columns["Status"].HeaderText = "الحالة";
 
+            UpdateDashboardCards();
         }
 
-        // حدث الرسم المخصص للحالات
-        private void dgvMonthlyContract_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        // حدث الرسم المخصص للحالات
+        private void dgvMonthlyContract_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
 
@@ -86,8 +91,8 @@ namespace ActiveSpaceSystem.Forms.SideForms
                 Color backColor = ColorActiveBack;
                 Color textColor = ColorActiveText;
 
-                // تحديد الألوان بناءً على الحالة
-                switch (rawStatus)
+                // تحديد الألوان بناءً على الحالة
+                switch (rawStatus)
                 {
                     case "Active":
                         displayStatus = TextActive;
@@ -106,11 +111,11 @@ namespace ActiveSpaceSystem.Forms.SideForms
                         break;
                 }
 
-                // رسم الشكل البيضاوي (Capsule)
-                using (GraphicsPath path = new GraphicsPath())
+                // رسم الشكل البيضاوي (Capsule)
+                using (GraphicsPath path = new GraphicsPath())
                 {
-                    // تصغير المستطيل قليلاً ليكون متناسقاً داخل الخلية
-                    Rectangle rect = new Rectangle(e.CellBounds.X + 10, e.CellBounds.Y + 15, e.CellBounds.Width - 20, e.CellBounds.Height - 30);
+                    // تصغير المستطيل قليلاً ليكون متناسقاً داخل الخلية
+                    Rectangle rect = new Rectangle(e.CellBounds.X + 10, e.CellBounds.Y + 15, e.CellBounds.Width - 20, e.CellBounds.Height - 30);
                     int d = rect.Height;
                     path.AddArc(rect.X, rect.Y, d, d, 90, 180);
                     path.AddArc(rect.Right - d, rect.Y, d, d, 270, 180);
@@ -121,8 +126,8 @@ namespace ActiveSpaceSystem.Forms.SideForms
                         e.Graphics.FillPath(sb, path);
                 }
 
-                // رسم النص فوق الشكل البيضاوي
-                TextRenderer.DrawText(e.Graphics, displayStatus, e.CellStyle.Font, e.CellBounds, textColor, TextFormatFlags.VerticalCenter | TextFormatFlags.HorizontalCenter);
+                // رسم النص فوق الشكل البيضاوي
+                TextRenderer.DrawText(e.Graphics, displayStatus, e.CellStyle.Font, e.CellBounds, textColor, TextFormatFlags.VerticalCenter | TextFormatFlags.HorizontalCenter);
                 e.Handled = true;
             }
         }
@@ -130,10 +135,10 @@ namespace ActiveSpaceSystem.Forms.SideForms
         private string GetArabicDay(string englishDay)
         {
             var days = new Dictionary<string, string>
-            {
-                {"Saturday", "السبت"}, {"Sunday", "الأحد"}, {"Monday", "الاثنين"},
-                {"Tuesday", "الثلاثاء"}, {"Wednesday", "الأربعاء"}, {"Thursday", "الخميس"}, {"Friday", "الجمعة"}
-            };
+      {
+        {"Saturday", "السبت"}, {"Sunday", "الأحد"}, {"Monday", "الاثنين"},
+        {"Tuesday", "الثلاثاء"}, {"Wednesday", "الأربعاء"}, {"Thursday", "الخميس"}, {"Friday", "الجمعة"}
+      };
             return days.ContainsKey(englishDay) ? days[englishDay] : englishDay;
         }
 
@@ -144,7 +149,96 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
         private void roundedButton1_Click(object sender, EventArgs e)
         {
+            using (var addForm = new AddContract())
+            {
+                // إظهار النافذة وانتظار إغلاقها
+                if (addForm.ShowDialog() == DialogResult.OK)
+                {
+                    // بمجرد إغلاق نافذة الإضافة بنجاح، نحدث الجدول فوراً
+                    RefreshContractsGrid();
+                }
+
+            }
+        }
+
+        private void dgvMonthlyContract_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+
+        // داخل FormContracts.cs
+        public void RefreshContractsGrid()
+        {
+            // 1. إعادة معالجة البيانات بنفس الطريقة الأصلية لدمج الأسماء وتنسيق المواعيد
+            var data = DataStorage.ContractsList.Select(mc =>
+            {
+                var court = DataStorage.CourtsList.FirstOrDefault(c => c.CourtID == mc.CourtID);
+                var customer = DataStorage.CustomersList.FirstOrDefault(cu => cu.CustomerID == mc.CustomerID);
+
+                return new
+                {
+                    CustomerName = customer != null ? customer.FullName : "غير معروف",
+                    PhoneNumber = customer != null ? customer.Phone : "غير معروف", // تأكد من اسم الخاصية في الموديل
+                    CourtName = court != null ? court.CourtName : "غير معروف",
+                    DayOfWeek = GetArabicDay(mc.DayOfWeek),
+                    TimeSlot = $"{mc.FixedStartTime:hh\\:mm} - {mc.FixedEndTime:hh\\:mm}",
+                    StartDate = mc.StartDate.ToString("yyyy-MM-dd"),
+                    EndDate = mc.EndDate.ToString("yyyy-MM-dd"),
+                    Amount = mc.Bookings.Sum(b => b.TotalAmount),
+                    Status = mc.Status.ToString()
+                };
+            }).ToList();
+
+            // 2. ربط البيانات الجديدة
+            dgvMonthlyContract.DataSource = null;
+            dgvMonthlyContract.DataSource = data;
+
+            // 3. إعادة تسمية الأعمدة (لأن DataSource = null يمسح العناوين)
+            dgvMonthlyContract.Columns["CustomerName"].HeaderText = "اسم العميل";
+            dgvMonthlyContract.Columns["PhoneNumber"].HeaderText = "رقم الهاتف";
+            dgvMonthlyContract.Columns["CourtName"].HeaderText = "الملعب";
+            dgvMonthlyContract.Columns["DayOfWeek"].HeaderText = "اليوم";
+            dgvMonthlyContract.Columns["TimeSlot"].HeaderText = "الفترة";
+            dgvMonthlyContract.Columns["StartDate"].HeaderText = "تاريخ البداية";
+            dgvMonthlyContract.Columns["EndDate"].HeaderText = "تاريخ النهاية";
+            dgvMonthlyContract.Columns["Amount"].HeaderText = "المبلغ الإجمالي";
+            dgvMonthlyContract.Columns["Status"].HeaderText = "الحالة";
+
+            // 4. تحديث الرسم
+            dgvMonthlyContract.Refresh();
+            UpdateDashboardCards();
+        }
+
+        private void UpdateDashboardCards()
+        {
+            // 1. حساب العقود النشطة
+            int activeCount = DataStorage.ContractsList.Count(c => c.Status == MonthlyContractStatus.Active);
+             statusCardCont.ValueText = activeCount.ToString();
+
+            // 2. حساب الإيرادات المتوقعة (مجموع مبالغ الحجوزات في العقود النشطة)
+            double totalRevenue = DataStorage.ContractsList
+                .Where(c => c.Status == MonthlyContractStatus.Active)
+                .Sum(c => c.Bookings.Sum(b => b.TotalAmount));
+
+            // تنسيق المبلغ ليظهر مع العملة (مثال: د.ل 15,200)
+            statusCardTotal.ValueText = totalRevenue.ToString("N0") + " د.ل";
+
+            // 3. حساب العقود التي تنتهي في الشهر الحالي
+            DateTime startOfMonth = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+            DateTime endOfMonth = startOfMonth.AddMonths(1).AddDays(-1);
+
+            int expiringSoon = DataStorage.ContractsList.Count(c =>
+                c.EndDate >= startOfMonth && c.EndDate <= endOfMonth);
+
+               statusCardEXP .ValueText = expiringSoon.ToString();
+            }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }
+
 }
+

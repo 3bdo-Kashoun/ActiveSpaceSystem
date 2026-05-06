@@ -58,12 +58,13 @@
             button1.Size = new Size(29, 29);
             button1.TabIndex = 1;
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(341, 79);
+            label2.Location = new Point(331, 79);
             label2.Name = "label2";
             label2.Size = new Size(115, 25);
             label2.TabIndex = 24;
@@ -77,7 +78,7 @@
             nametxt.Icon = null;
             nametxt.IconLocation = HorizontalAlignment.Left;
             nametxt.IconSize = 20;
-            nametxt.Location = new Point(43, 118);
+            nametxt.Location = new Point(33, 118);
             nametxt.Name = "nametxt";
             nametxt.passwordChar = "\0";
             nametxt.PlaceholderText = "أدخل النص هنا...";
@@ -85,6 +86,8 @@
             nametxt.Size = new Size(413, 50);
             nametxt.TabIndex = 25;
             nametxt.Texts = "";
+          
+            nametxt.KeyPress += nametxt_KeyPress;
             // 
             // phonetxt
             // 
@@ -94,7 +97,7 @@
             phonetxt.Icon = null;
             phonetxt.IconLocation = HorizontalAlignment.Left;
             phonetxt.IconSize = 20;
-            phonetxt.Location = new Point(43, 220);
+            phonetxt.Location = new Point(33, 220);
             phonetxt.Name = "phonetxt";
             phonetxt.passwordChar = "\0";
             phonetxt.PlaceholderText = "09XXXXXXXX";
@@ -102,6 +105,7 @@
             phonetxt.Size = new Size(413, 50);
             phonetxt.TabIndex = 27;
             phonetxt.Texts = "";
+            phonetxt.KeyPress += phonetxt_KeyPress;
             // 
             // label3
             // 
@@ -109,9 +113,9 @@
             label3.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.Location = new Point(341, 181);
             label3.Name = "label3";
-            label3.Size = new Size(115, 25);
+            label3.Size = new Size(105, 25);
             label3.TabIndex = 26;
-            label3.Text = "اسم العميل";
+            label3.Text = "رقم الهاتف";
             // 
             // roundedButton1
             // 
@@ -129,6 +133,7 @@
             roundedButton1.TabIndex = 28;
             roundedButton1.Text = "إلغاء";
             roundedButton1.UseVisualStyleBackColor = false;
+            roundedButton1.Click += roundedButton1_Click;
             // 
             // roundedButton2
             // 
@@ -146,6 +151,7 @@
             roundedButton2.TabIndex = 29;
             roundedButton2.Text = "إضافة العميل";
             roundedButton2.UseVisualStyleBackColor = false;
+            roundedButton2.Click += roundedButton2_Click;
             // 
             // AddCustomerForm
             // 

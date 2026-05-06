@@ -1,8 +1,8 @@
 ﻿using ActiveSpace.Models;
 using ActiveSpaceSystem.CustomItems;
 using ActiveSpaceSystem.Data;
-using ActiveSpaceSystem.Models.enums;
 using ActiveSpaceSystem.Helpers; // استدعاء فضاء أسماء المساعدات الجديد
+using ActiveSpaceSystem.Models.enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,6 +12,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ActiveSpaceSystem.Forms.DialogForms
 {
@@ -135,6 +136,10 @@ namespace ActiveSpaceSystem.Forms.DialogForms
                     txtName.Focus();
                 }
             }
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
 
         private bool ValidateAndCheckCustomer()
@@ -145,7 +150,7 @@ namespace ActiveSpaceSystem.Forms.DialogForms
             {
                 ShowWarning(errorMessage);
                 txtName.Texts = "";
-                
+
                 this.BeginInvoke(new Action(() => txtPhone.Focus()));
                 return false;
             }
@@ -154,6 +159,7 @@ namespace ActiveSpaceSystem.Forms.DialogForms
 
             if (customer != null)
             {
+
                 txtName.Texts = customer.FullName;
                 txtName.Enabled = false;
             }
@@ -175,10 +181,15 @@ namespace ActiveSpaceSystem.Forms.DialogForms
 
             Court selectedCourt = (Court)cmbCourt.SelectedItem;
             DateTime bookingDate = dtpBookingDate.Value.Date;
-            TimeSpan startTime = dtpStartTime.Value.TimeOfDay;
-            TimeSpan endTime = dtpEndTime.Value.TimeOfDay;
 
-            // استخدام كلاس الـ Helper للتحقق من حجز الساعة وتداخل الأوقات
+            // تصفير الثواني والملي ثانية بشكل نهائي لضمان توافق الحجز اليدوي والجدول
+            TimeSpan rawStart = dtpStartTime.Value.TimeOfDay;
+            TimeSpan rawEnd = dtpEndTime.Value.TimeOfDay;
+
+            TimeSpan startTime = new TimeSpan(rawStart.Hours, rawStart.Minutes, 0);
+            TimeSpan endTime = new TimeSpan(rawEnd.Hours, rawEnd.Minutes, 0);
+
+            // استخدام كلاس الـ Helper للتحقق من حجز الساعة، التاريخ الفائت، وتداخل الأوقات
             if (BookingFormHelper.IsCourtReserved(selectedCourt, bookingDate, startTime, endTime, out string reserveWarning))
             {
                 ShowWarning(reserveWarning);
@@ -194,7 +205,8 @@ namespace ActiveSpaceSystem.Forms.DialogForms
 
             try
             {
-                SaveNewBooking(totalAmount, deposit);
+                // حفظ الحجز مستخدمين الأوقات النظيفة الخالية من الثواني العشوائية
+                SaveNewBooking(totalAmount, deposit, startTime, endTime);
 
                 ShowInfo("تم تسجيل الحجز بنجاح ومزامنته مع الجدول الفعلي.");
                 this.DialogResult = DialogResult.OK;
@@ -266,7 +278,7 @@ namespace ActiveSpaceSystem.Forms.DialogForms
             return BookingStatus.Confirmed;
         }
 
-        private void SaveNewBooking(double totalAmount, double deposit)
+        private void SaveNewBooking(double totalAmount, double deposit, TimeSpan cleanStart, TimeSpan cleanEnd)
         {
             Court selectedCourt = (Court)cmbCourt.SelectedItem;
             double remainingDebt = totalAmount - deposit;
@@ -275,6 +287,7 @@ namespace ActiveSpaceSystem.Forms.DialogForms
             {
                 customer = new Customer
                 {
+                    CustomerID = DataStorage.CustomersList.Count() + 1,
                     FullName = txtName.Texts.Trim(),
                     Phone = txtPhone.Texts.Trim(),
                     TotalDebt = remainingDebt
@@ -292,8 +305,8 @@ namespace ActiveSpaceSystem.Forms.DialogForms
                 CourtID = selectedCourt.CourtID,
                 UserID = 1,
                 BookingDate = dtpBookingDate.Value.Date,
-                StartTime = dtpStartTime.Value.TimeOfDay,
-                EndTime = dtpEndTime.Value.TimeOfDay,
+                StartTime = cleanStart, // تخزين وقت البداية بدون ثواني عشوائية
+                EndTime = cleanEnd,     // تخزين وقت النهاية بدون ثواني عشوائية
                 TotalAmount = totalAmount,
                 Deposit = deposit,
                 Status = DetermineBookingStatus(totalAmount, deposit),
@@ -345,5 +358,7 @@ namespace ActiveSpaceSystem.Forms.DialogForms
         {
             MessageBox.Show(message, "خطأ في النظام", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+       
     }
 }

@@ -76,6 +76,7 @@
             txtPhone.TabIndex = 0;
             txtPhone.Texts = "";
             txtPhone.KeyPress += txtPhone_KeyPress;
+            txtPhone.Leave += txtPhone_Leave;
             // 
             // label1
             // 
@@ -367,6 +368,7 @@
             roundedButton1.TabIndex = 52;
             roundedButton1.Text = "حفظ الحجز";
             roundedButton1.UseVisualStyleBackColor = false;
+       
             // 
             // btnCancel
             // 

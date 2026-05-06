@@ -1,7 +1,9 @@
 ﻿using ActiveSpace.Models;
 using ActiveSpaceSystem.Data;
+using ActiveSpaceSystem.Forms.DialogForms;
 using ActiveSpaceSystem.Forms.GridStyle;
 using ActiveSpaceSystem.Forms.Views;
+using ActiveSpaceSystem.Models.enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -63,7 +65,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
         private void SetupGrid()
         {
-           
+
 
             // إعدادات الـ Grid
             dgvCustomers.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
@@ -142,6 +144,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
             InitializeActionImages();
             SetupGrid();
             LoadData();
+            updateStatisticsCards();
 
             if (dgvCustomers.Rows.Count > 0)
                 dgvCustomers.ClearSelection();
@@ -151,7 +154,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
         {
             try
             {
-                var data =DataStorage.CustomersList.Select(CustomerViewModel.FromCustomer).ToList();
+                var data = DataStorage.CustomersList.Select(CustomerViewModel.FromCustomer).ToList();
                 customersList = new BindingList<CustomerViewModel>(data);
                 dgvCustomers.DataSource = customersList;
             }
@@ -167,8 +170,8 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
             string columnName = dgvCustomers.Columns[e.ColumnIndex].Name;
 
-           
-           if (columnName == "Actions")
+
+            if (columnName == "Actions")
             {
                 gridRenderer.RenderActionsCell(e);
             }
@@ -211,9 +214,62 @@ namespace ActiveSpaceSystem.Forms.SideForms
             }
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void roundedButton1_Click(object sender, EventArgs e)
         {
+            AddCustomerForm addForm = new AddCustomerForm();
+            if (addForm.ShowDialog() == DialogResult.OK)
+            {
+                updateStatisticsCards();
+                LoadData();
+            }
 
+        }
+        private void updateStatisticsCards()
+        {
+            // 1. حساب إجمالي عدد العملاء
+            int totalCustomers = DataStorage.CustomersList.Count;
+            customerCard2.ValueText = totalCustomers.ToString();
+
+            // 2. حساب العملاء النشطون (مثلاً الذين لديهم حجوزات مؤكدة)
+            // نعتمد هنا على فرضية وجود قائمة حجوزات مرتبطة
+            int activeCustomers = DataStorage.BookingsList
+                                  .Where(b => b.Status == BookingStatus.Confirmed)
+                                  .Select(b => b.CustomerID)
+                                  .Distinct()
+                                  .Count();
+            customerCard1.ValueText = activeCustomers.ToString();
+
+            // 3. حساب إجمالي الديون
+            double totalDebts = DataStorage.CustomersList.Sum(c => c.TotalDebt);
+            customerCard3.ValueText = totalDebts.ToString("N0"); // تنسيق رقمي بدون أعشار
+        }
+
+        private void txtSearch__TextChanged(object sender, EventArgs e)
+        {
+            string searchTerm = txtSearch.Texts.Trim().ToLower();
+            var filteredData = DataStorage.CustomersList
+                .Where(c => c.FullName.ToLower().Contains(searchTerm) || c.Phone.Contains(searchTerm))
+                .Select(CustomerViewModel.FromCustomer)
+                .ToList();
+            customersList = new BindingList<CustomerViewModel>(filteredData);
+            dgvCustomers.DataSource = customersList;
+
+        }
+
+        private void btnAll_Click(object sender, EventArgs e)
+        {
+            LoadData();
+
+        }
+
+        private void btnDebtFilter_Click(object sender, EventArgs e)
+        {
+            var debtors = DataStorage.CustomersList
+        .Where(c => c.TotalDebt > 0)
+        .Select(CustomerViewModel.FromCustomer)
+        .ToList();
+
+            dgvCustomers.DataSource = new BindingList<CustomerViewModel>(debtors);
         }
     }
 }

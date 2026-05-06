@@ -8,31 +8,30 @@ namespace ActiveSpace.Models
         public int PaymentID { get; set; }
         public int BookingID { get; set; }
         public double AmountPaid { get; set; }
-        public double Deposit { get; set; }
+        
         public DateTime PaidAt { get; set; }
         public Booking Booking {  get; set; }
         
 
         public static List<Payment> GetFakeData() => new List<Payment>
         {
-            new Payment { PaymentID = 1, BookingID = 1, AmountPaid = 30, Deposit = 10, PaidAt = DateTime.Now,Booking=DataStorage.BookingsList.FirstOrDefault(c=>c.BookingID==1)},
-            new Payment { PaymentID = 2, BookingID = 2, AmountPaid = 120, Deposit = 10, PaidAt = DateTime.Now,Booking=DataStorage.BookingsList.FirstOrDefault(c=>c.BookingID==2)},
+            new Payment { PaymentID = 1, BookingID = 1, AmountPaid = 30, PaidAt = DateTime.Now,Booking=DataStorage.BookingsList.FirstOrDefault(c=>c.BookingID==1)},
+            new Payment { PaymentID = 2, BookingID = 2, AmountPaid = 120, PaidAt = DateTime.Now,Booking=DataStorage.BookingsList.FirstOrDefault(c=>c.BookingID==2)},
+            new Payment { PaymentID = 3, BookingID = 3, AmountPaid = 30, PaidAt = DateTime.Now,Booking=DataStorage.BookingsList.FirstOrDefault(c=>c.BookingID==3)},
         };
 
         public static double CalculateRemaining(int bookingID)
         {
-            // جلب كل المدفوعات لهذا الحجز
-            var allPayments = DataStorage.PaymentList.Where(p => p.BookingID == bookingID).ToList();
-
-            // حساب مجموع المبالغ المدفوعة (AmountPaid)
-            double totalPaid = allPayments.Sum(p => p.AmountPaid);
-
-            // جلب بيانات الحجز لمعرفة المبلغ الكلي
+            // 1. جلب بيانات الحجز لمعرفة السعر الإجمالي المتفق عليه
             var booking = DataStorage.BookingsList.FirstOrDefault(b => b.BookingID == bookingID);
-
             if (booking == null) return 0;
 
-            // المتبقي = الكلي - المدفوع
+            // 2. حساب مجموع كل المدفوعات الفعلية المسجلة لهذا الحجز
+            double totalPaid = DataStorage.PaymentList
+                                          .Where(p => p.BookingID == bookingID)
+                                          .Sum(p => p.AmountPaid);
+
+            // المتبقي = الإجمالي - كل ما تم دفعه فعلياً
             return booking.TotalAmount - totalPaid;
         }
     }

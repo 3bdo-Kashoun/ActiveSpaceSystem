@@ -229,7 +229,6 @@
             dgvReservation.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvReservation.Size = new Size(738, 467);
             dgvReservation.TabIndex = 25;
-            
             dgvReservation.CellPainting += dgvReservation_CellPainting;
             // 
             // bookingDetailsCard
@@ -242,7 +241,7 @@
             bookingDetailsCard.DataFont = new Font("Tajawal Medium", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             bookingDetailsCard.DepositAmount = "100 ر.س";
             bookingDetailsCard.Dock = DockStyle.Fill;
-            bookingDetailsCard.IsItemSelected = false;
+            bookingDetailsCard.IsItemSelected = true;
             bookingDetailsCard.LabelsFont = new Font("Tajawal", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             bookingDetailsCard.Location = new Point(3, 3);
             bookingDetailsCard.Name = "bookingDetailsCard";

@@ -61,6 +61,7 @@ namespace ActiveSpace.Models
         StartTime = new TimeSpan(21, 0, 0),
         EndTime = new TimeSpan(22, 30, 0), // حجز لمدة ساعة ونصف
         TotalAmount = 50,
+        Deposit=30,
         Status = BookingStatus.Confirmed,
         Customer =  Customer.GetFakeData().FirstOrDefault(c=>c.CustomerID==1),
         Court = Court.GetFakeData().FirstOrDefault(c=>c.CourtID==1),

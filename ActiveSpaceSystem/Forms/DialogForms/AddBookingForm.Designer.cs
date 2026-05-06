@@ -75,6 +75,7 @@
             txtPhone.TabIndex = 0;
             txtPhone.Texts = "";
             txtPhone.KeyPress += txtPhone_KeyPress;
+            txtPhone.Leave += txtPhone_Leave;
             // 
             // label1
             // 

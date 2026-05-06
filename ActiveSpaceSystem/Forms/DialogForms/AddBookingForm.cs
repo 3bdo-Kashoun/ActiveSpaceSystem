@@ -159,6 +159,7 @@ namespace ActiveSpaceSystem.Forms.DialogForms
 
             if (customer != null)
             {
+
                 txtName.Texts = customer.FullName;
                 txtName.Enabled = false;
             }
@@ -286,6 +287,7 @@ namespace ActiveSpaceSystem.Forms.DialogForms
             {
                 customer = new Customer
                 {
+                    CustomerID = DataStorage.CustomersList.Count() + 1,
                     FullName = txtName.Texts.Trim(),
                     Phone = txtPhone.Texts.Trim(),
                     TotalDebt = remainingDebt

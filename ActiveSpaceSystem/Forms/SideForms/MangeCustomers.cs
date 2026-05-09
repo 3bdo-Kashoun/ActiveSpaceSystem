@@ -271,5 +271,15 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
             dgvCustomers.DataSource = new BindingList<CustomerViewModel>(debtors);
         }
+
+        private void dgvCustomers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

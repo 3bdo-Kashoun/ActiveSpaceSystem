@@ -15,13 +15,17 @@ namespace ActiveSpaceSystem.Forms.Views
         public double PaidAmount { get; set; }
         public double Remaining { get; set; }
         public BookingStatus Status { get; set; }
+        public DateTime PaidAt {  get; set; }
+        public Booking Booking { get; set; } = new Booking();
 
-        public static PaymentViewModel FromBooking(Booking b)
+        public static PaymentViewModel FromBooking(Payment p)
         {
+            var b = p.Booking;
             // حساب إجمالي المدفوعات من قائمة المدفوعات الفعلية في الذاكرة
             double paid = DataStorage.PaymentList
                 .Where(p => p.BookingID == b.BookingID)
                 .Sum(p => p.AmountPaid);
+           
 
             return new PaymentViewModel
             {
@@ -31,7 +35,9 @@ namespace ActiveSpaceSystem.Forms.Views
                 TotalAmount = b.TotalAmount,
                 PaidAmount = paid,
                 Remaining = b.TotalAmount - paid,
-                Status = b.Status
+                Status = b.Status,
+                PaidAt = p.PaidAt,
+                Booking = b
             };
         }
     }

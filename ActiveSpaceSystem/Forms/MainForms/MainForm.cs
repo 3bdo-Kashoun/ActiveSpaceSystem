@@ -33,6 +33,7 @@ namespace ActiveSpaceSystem.Forms.MainForms
             button8.Click += button8_Click;
             LabelUser.Text = user.FullName;
             LabelRole.Text = user.Role == UserRole.Admin ? "مدير" : "موظف";
+            this.WindowState= FormWindowState.Maximized;
         }
 
         private void MainForm_Load(object sender, EventArgs e)

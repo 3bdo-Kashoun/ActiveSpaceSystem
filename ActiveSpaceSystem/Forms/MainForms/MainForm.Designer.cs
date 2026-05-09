@@ -311,7 +311,7 @@
             // 
             // lblDate
             // 
-            lblDate.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            lblDate.Anchor = AnchorStyles.Top;
             lblDate.AutoSize = true;
             lblDate.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDate.ForeColor = Color.FromArgb(64, 64, 64);

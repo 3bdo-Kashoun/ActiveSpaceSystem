@@ -16,7 +16,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
     {
         private BindingList<PaymentViewModel> paymentsList;
         private PaymentGridRenderer gridRenderer;
-        
+
         public PaymentForm()
         {
             InitializeComponent();
@@ -30,9 +30,83 @@ namespace ActiveSpaceSystem.Forms.SideForms
         private void PaymentForm_Load(object sender, EventArgs e)
         {
             LoadData();
+
             dgvReservation.ClearSelection();
+
         }
-        private void btn_payment_Click(object sender,EventArgs e)
+
+        private void UpdateCards()
+        {
+
+
+            string rlm = "\u200F";
+            TotalDebtsCard.ValueText = $"{rlm}{paymentsList.Where(p => p.Remaining > 0 && p.BookingDate == dtpPaymentDate.Value.ToString("yyyy-MM-dd")).Sum(p => p.Remaining):N2} د.ل";
+            TotalDebtsCard.SubValueText = $"{rlm}{paymentsList.Where(p => p.Remaining > 0 && p.BookingDate == dtpPaymentDate.Value.ToString("yyyy-MM-dd")).ToList().Count} حجز";
+            DailyIncomeCard.ValueText = $"{rlm}{paymentsList.Sum(p => p.PaidAmount):N2} د.ل";
+            DailyIncomeCard.SubValueText = $"{rlm}{paymentsList.Count} حجز";
+            UpdateDailyIncomeStats();
+            var firstPaymentsOnly = DataStorage.PaymentList
+    .GroupBy(p => p.BookingID)
+    .Select(g => g.OrderBy(p => p.PaymentID).First()) // نأخذ أول دفعة مسجلة تاريخياً لكل حجز
+    .ToList();
+
+            // 2. الآن نفلتر هذه "الدفعة الأولى" حسب التاريخ المختار ونجمع مبالغها
+            double totalRealDeposit = firstPaymentsOnly
+                .Where(p => p.PaidAt.Date == dtpPaymentDate.Value.Date)
+                .Sum(p => p.AmountPaid);
+            DownPaymentCard.ValueText = $"{rlm}{totalRealDeposit:N2} د.ل";
+
+            DownPaymentCard.SubValueText = $"{rlm}{paymentsList.Where(p => p.Booking.BookingDate.Date == dtpPaymentDate.Value.Date).ToList().Count} حجز";
+        }
+
+        private void UpdateDailyIncomeStats()
+        {
+            string rlm = "\u200F";
+
+            // 1. حساب إجمالي اليوم
+            // نستخدم .Date لضمان مقارنة الأيام فقط وتجاهل الوقت
+            // 1. حساب إجمالي اليوم من المصدر الرئيسي
+            double todayTotal = DataStorage.PaymentList
+                .Where(p => p.PaidAt.Date == dtpPaymentDate.Value.Date)
+                .Sum(p => p.AmountPaid);
+
+            // 2. حساب إجمالي الأمس من المصدر الرئيسي أيضاً
+            double yesterdayTotal = DataStorage.PaymentList
+                .Where(p => p.PaidAt.Date == dtpPaymentDate.Value.Date.AddDays(-1))
+                .Sum(p => p.AmountPaid);
+
+            // 3. حساب النسبة المئوية للتغير
+            double percentageDiff = 0;
+            if (yesterdayTotal > 0)
+            {
+                percentageDiff = (todayTotal - yesterdayTotal) / yesterdayTotal * 100;
+            }
+            else if (todayTotal > 0)
+            {
+                // إذا كان الأمس صفراً واليوم يوجد دخل، نعتبرها زيادة بنسبة 100%
+                percentageDiff = 100;
+            }
+
+            // 4. تحديث نص القيمة الرئيسية (الإيراد الحالي)
+            DailyIncomeCard.ValueText = $"{rlm}{todayTotal:N2} د.ل";
+
+            // 5. مقارنة النتائج لتحديد اللون والنص السفلي
+            if (percentageDiff >= 0)
+            {
+                // حالة الزيادة أو التساوي (أخضر)
+                DailyIncomeCard.SubValueColor = Color.FromArgb(40, 167, 69);
+                DailyIncomeCard.SubValueText = $"{rlm}منذ الأمس {rlm}+%{percentageDiff:0}";
+            }
+            else
+            {
+                // حالة النقصان (أحمر)
+                // نستخدم Math.Abs لتحويل الرقم السالب إلى موجب عند العرض بجانب علامة "-"
+                DailyIncomeCard.SubValueColor = Color.FromArgb(220, 53, 69);
+                DailyIncomeCard.SubValueText = $"{rlm}منذ الأمس {rlm}-%{Math.Abs(percentageDiff):0}";
+            }
+        }
+
+        private void btn_payment_Click(object sender, EventArgs e)
         {
             string rawBookingID = bookingDetailsCard.BookingID;
 
@@ -83,7 +157,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
         private void AddColumns()
         {
-  
+
             dgvReservation.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "BookingID",
@@ -147,17 +221,49 @@ namespace ActiveSpaceSystem.Forms.SideForms
                 HeaderText = "الإجراء",
                 Width = 120
             });
+            dgvReservation.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "PaidAt",
+                Name = "PaidAt",
+                HeaderText = "الإجراء",
+                Width = 0
+            });
+            if (dgvReservation.Columns["PaidAt"] != null)
+            {
+                dgvReservation.Columns["PaidAt"].Visible = false;
+            }
+            dgvReservation.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Booking",
+                Name = "Booking",
+                HeaderText = "الإجراء",
+                Width = 0
+            });
+            if (dgvReservation.Columns["Booking"] != null)
+            {
+                dgvReservation.Columns["Booking"].Visible = false;
+            }
+
+
+
         }
 
         public void LoadData()
         {
             paymentsList = new BindingList<PaymentViewModel>(
-                DataStorage.BookingsList.Select(PaymentViewModel.FromBooking).ToList()
-            );
+     DataStorage.PaymentList
+     .Where(b => b.PaidAt.Date == dtpPaymentDate.Value.Date || b.Booking.BookingDate.Date == dtpPaymentDate.Value.Date)
+     .GroupBy(b => b.BookingID) // تجميع المدفوعات حسب رقم الحجز
+     .Select(g => g.First())    // اختيار أول دفعة صادفتنا من كل حج
+     .Select(PaymentViewModel.FromBooking)
+     .ToList()
+ );
 
-            
-         
+
+
             dgvReservation.DataSource = paymentsList;
+
+            UpdateCards();
         }
 
         private void dgvReservation_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -247,5 +353,27 @@ namespace ActiveSpaceSystem.Forms.SideForms
                 bookingDetailsCard.BtnPayment.Visible = remaining > 0;
             }
         }
+
+        private void btnBackDate_Click(object sender, EventArgs e)
+        {
+            dtpPaymentDate.Value = dtpPaymentDate.Value.AddDays(-1);
+         
+        }
+
+        private void btnForwardDate_Click(object sender, EventArgs e)
+        {
+            dtpPaymentDate.Value = dtpPaymentDate.Value.AddDays(1);
+           
+        }
+
+        private void dtpPaymentDate_ValueChanged(object sender, EventArgs e)
+        {
+            LoadData();
+
+            bookingDetailsCard.IsItemSelected = false;
+            dgvReservation.ClearSelection();
+        }
+
+        
     }
 }

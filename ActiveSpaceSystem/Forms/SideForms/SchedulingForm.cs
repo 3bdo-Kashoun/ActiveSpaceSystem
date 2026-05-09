@@ -103,13 +103,16 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
                     using (AddBookingForm form = new AddBookingForm())
                     {
-                        // تمرير البيانات المبدئية للفورم
-                        form.cmbCourtType.SelectedValue = court.Type.TypeName;
-                        form.cmbCourt.SelectedValue = court.CourtName;
 
-                        form.dtpBookingDate.Value = dateTimePicker2.Value;
-                        form.dtpStartTime.Value = DateTime.Today.AddHours(selectedHour);
-                        form.dtpEndTime.Value = DateTime.Today.AddHours(selectedHour + 1);
+                        string courtTypeName = court.Type?.TypeName ?? "غير محدد";
+                        string courtNameForForm = court.CourtName ?? "غير محدد";
+
+                        DateTime selectedDate = dateTimePicker2.Value;
+                        DateTime startTime = selectedDate.Date.AddHours(selectedHour);
+                        DateTime endTime = selectedDate.Date.AddHours(selectedHour + 1);
+
+                        form.loadCourtData(courtNameForForm, courtTypeName, selectedDate, startTime, endTime);
+
 
                         if (form.ShowDialog() == DialogResult.OK)
                         {
@@ -124,6 +127,18 @@ namespace ActiveSpaceSystem.Forms.SideForms
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
             LoadDataToGrid(dateTimePicker2.Value);
+        }
+
+        private void btnForwardDate_Click(object sender, EventArgs e)
+        {
+            dateTimePicker2.Value = dateTimePicker2.Value.AddDays(1);
+        }
+
+        
+
+        private void btnBackDate_Click_1(object sender, EventArgs e)
+        {
+            dateTimePicker2.Value = dateTimePicker2.Value.AddDays(-1);
         }
     }
 }

@@ -149,8 +149,9 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
         public void LoadData()
         {
+            var dateToday = dtpManageBooking.Value.Date;
             bookingsList = new BindingList<BookingViewModel>(
-               DataStorage.BookingsList.Select(BookingViewModel.FromBooking).ToList()
+               DataStorage.BookingsList.Where(d=>d.BookingDate==dateToday).Select(BookingViewModel.FromBooking).ToList()
             );
             dgvBookings.DataSource = bookingsList;
             if (dgvBookings.Columns["BookingID"] != null)
@@ -252,13 +253,28 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
         private void txtsearch_TextChanged(object sender, EventArgs e)
         {
-            string searchTerm = txtsearch.Texts.Trim().ToLower();
-            var filteredData = DataStorage.BookingsList
-            .Where(b => b.Customer.Phone.Contains(searchTerm))
-             .Select(BookingViewModel.FromBooking)
-               .ToList();
-            bookingsList = new BindingList<BookingViewModel>(filteredData);
-            dgvBookings.DataSource = bookingsList;
+            if (txtsearch.Texts.Length == 10)
+            {
+                string searchTerm = txtsearch.Texts.Trim().ToLower();
+                var filteredData = DataStorage.BookingsList
+                .Where(b => b.Customer.Phone.Contains(searchTerm))
+                 .Select(BookingViewModel.FromBooking)
+                   .ToList();
+                bookingsList = new BindingList<BookingViewModel>(filteredData);
+                dgvBookings.DataSource = bookingsList;
+                return;
+            }
+            else
+            {
+                DateTime selectedDate = dtpManageBooking.Value.Date;
+                string searchTerm = txtsearch.Texts.Trim().ToLower();
+                var filteredData = DataStorage.BookingsList
+                .Where(b => b.Customer.Phone.Contains(searchTerm) && b.BookingDate == selectedDate)
+                 .Select(BookingViewModel.FromBooking)
+                   .ToList();
+                bookingsList = new BindingList<BookingViewModel>(filteredData);
+                dgvBookings.DataSource = bookingsList;
+            }
 
         }
 
@@ -272,21 +288,41 @@ namespace ActiveSpaceSystem.Forms.SideForms
             dtpManageBooking.Value = dtpManageBooking.Value.AddDays(1);
         }
 
+
         private void dtpManageBooking_ValueChanged(object sender, EventArgs e)
         {
-            // 1. الحصول على التاريخ المختار من الأداة (بدون الوقت)
             DateTime selectedDate = dtpManageBooking.Value.Date;
+            string searchTerm = txtsearch.Texts.Trim().ToLower();
 
-            // 2. فلترة القائمة الأصلية بناءً على التاريخ
-            var filteredData = DataStorage.BookingsList
-                .Where(b => b.BookingDate.Date == selectedDate) // نقارن التاريخ فقط ونهمش الوقت
-                .Select(BookingViewModel.FromBooking)
-                .ToList();
+            if (string.IsNullOrWhiteSpace(searchTerm))
+            {
+                // الحالة 1: مربع البحث فارغ - عرض حجوزات التاريخ المختار فقط
+                var dailyData = DataStorage.BookingsList
+                    .Where(b => b.BookingDate.Date == selectedDate)
+                    .Select(BookingViewModel.FromBooking)
+                    .ToList();
 
-            // 3. تحديث الجدول
-            dgvBookings.DataSource = new BindingList<BookingViewModel>(filteredData);
+                UpdateGrid(dailyData);
+            }
+            else
+            {
+               
+                    // الحالة 2: نص بحث قصير - فلترة بالتاريخ + النص معاً
+                    var filteredData = DataStorage.BookingsList
+                        .Where(b => b.Customer.Phone.Contains(searchTerm) && b.BookingDate.Date == selectedDate)
+                        .Select(BookingViewModel.FromBooking)
+                        .ToList();
 
+                    UpdateGrid(filteredData);
+                
+            }
+        }
 
+        // دالة مساعدة لتقليل تكرار الكود وتحديث الـ Grid
+        private void UpdateGrid(List<BookingViewModel> data)
+        {
+            bookingsList = new BindingList<BookingViewModel>(data);
+            dgvBookings.DataSource = bookingsList;
         }
     }
 }

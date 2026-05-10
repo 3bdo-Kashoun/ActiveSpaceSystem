@@ -66,9 +66,10 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(212, 361);
+            label9.Location = new Point(265, 451);
+            label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
-            label9.Size = new Size(152, 25);
+            label9.Size = new Size(179, 30);
             label9.TabIndex = 39;
             label9.Text = "تاريخ بداية العقد";
             // 
@@ -80,12 +81,13 @@
             txtPricePerHour.Icon = null;
             txtPricePerHour.IconLocation = HorizontalAlignment.Left;
             txtPricePerHour.IconSize = 20;
-            txtPricePerHour.Location = new Point(32, 489);
+            txtPricePerHour.Location = new Point(40, 611);
+            txtPricePerHour.Margin = new Padding(4);
             txtPricePerHour.Name = "txtPricePerHour";
             txtPricePerHour.passwordChar = "\0";
             txtPricePerHour.PlaceholderText = "أدخل النص هنا...";
             txtPricePerHour.RightToLeft = RightToLeft.Yes;
-            txtPricePerHour.Size = new Size(330, 50);
+            txtPricePerHour.Size = new Size(412, 62);
             txtPricePerHour.TabIndex = 38;
             txtPricePerHour.Texts = "";
             // 
@@ -93,9 +95,10 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(646, 361);
+            label8.Location = new Point(808, 451);
+            label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
-            label8.Size = new Size(111, 25);
+            label8.Size = new Size(134, 30);
             label8.TabIndex = 37;
             label8.Text = "وقت النهاية";
             // 
@@ -103,9 +106,10 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(257, 269);
+            label7.Location = new Point(321, 336);
+            label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new Size(107, 25);
+            label7.Size = new Size(129, 30);
             label7.TabIndex = 36;
             label7.Text = "وقت البداية";
             // 
@@ -113,19 +117,32 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(630, 263);
+            label6.Location = new Point(788, 329);
+            label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
-            label6.Size = new Size(136, 25);
+            label6.Size = new Size(165, 30);
             label6.TabIndex = 35;
             label6.Text = "اليوم الاسبوعي";
+            // 
+            // button1
+            // 
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.Location = new Point(12, 5);
+            button1.Margin = new Padding(4);
+            button1.Name = "button1";
+            button1.Size = new Size(39, 36);
+            button1.TabIndex = 27;
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Tajawal", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(532, 4);
+            label1.Location = new Point(665, 5);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(245, 33);
+            label1.Size = new Size(301, 42);
             label1.TabIndex = 24;
             label1.Text = "إضافة عقد شهري جديد";
             // 
@@ -133,9 +150,10 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.Location = new Point(613, 447);
+            label11.Location = new Point(766, 559);
+            label11.Margin = new Padding(4, 0, 4, 0);
             label11.Name = "label11";
-            label11.Size = new Size(156, 25);
+            label11.Size = new Size(184, 30);
             label11.TabIndex = 47;
             label11.Text = "تاريخ نهاية العقد";
             // 
@@ -143,9 +161,10 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(202, 447);
+            label10.Location = new Point(252, 559);
+            label10.Margin = new Padding(4, 0, 4, 0);
             label10.Name = "label10";
-            label10.Size = new Size(152, 25);
+            label10.Size = new Size(184, 30);
             label10.TabIndex = 49;
             label10.Text = "المبلغ لكل ساعة";
             // 
@@ -159,10 +178,10 @@
             btSave.FlatStyle = FlatStyle.Flat;
             btSave.Font = new Font("Tajawal", 16.1999989F, FontStyle.Bold);
             btSave.ForeColor = Color.White;
-            btSave.Location = new Point(425, 655);
+            btSave.Location = new Point(531, 819);
             btSave.Margin = new Padding(2);
             btSave.Name = "btSave";
-            btSave.Size = new Size(324, 60);
+            btSave.Size = new Size(405, 75);
             btSave.TabIndex = 50;
             btSave.Text = "حفظ الحجز";
             btSave.UseVisualStyleBackColor = false;
@@ -175,11 +194,12 @@
             customPanel3.BorderRadius = 10;
             customPanel3.BorderSize = 1F;
             customPanel3.Controls.Add(cmbDays);
-            customPanel3.Location = new Point(430, 298);
+            customPanel3.Location = new Point(538, 372);
+            customPanel3.Margin = new Padding(4);
             customPanel3.Name = "customPanel3";
             customPanel3.RightToLeft = RightToLeft.Yes;
             customPanel3.ShowShadow = false;
-            customPanel3.Size = new Size(336, 55);
+            customPanel3.Size = new Size(420, 69);
             customPanel3.TabIndex = 50;
             // 
             // cmbDays
@@ -189,10 +209,11 @@
             cmbDays.FlatStyle = FlatStyle.Flat;
             cmbDays.FormattingEnabled = true;
             cmbDays.Items.AddRange(new object[] { "السبت", "الاحد", "الاتنين", "التلاتاء", "الاربعاء", "الخميس", "الجمعة" });
-            cmbDays.Location = new Point(18, 13);
+            cmbDays.Location = new Point(22, 16);
+            cmbDays.Margin = new Padding(4);
             cmbDays.Name = "cmbDays";
             cmbDays.RightToLeft = RightToLeft.Yes;
-            cmbDays.Size = new Size(295, 28);
+            cmbDays.Size = new Size(368, 33);
             cmbDays.TabIndex = 6;
             cmbDays.SelectedIndexChanged += cmbDays_SelectedIndexChanged;
             // 
@@ -200,10 +221,10 @@
             // 
             labelHours.AutoSize = true;
             labelHours.Font = new Font("Segoe UI", 11F);
-            labelHours.Location = new Point(602, 538);
+            labelHours.Location = new Point(752, 672);
             labelHours.Margin = new Padding(2, 0, 2, 0);
             labelHours.Name = "labelHours";
-            labelHours.Size = new Size(0, 25);
+            labelHours.Size = new Size(0, 30);
             labelHours.TabIndex = 55;
             // 
             // customPanel2
@@ -213,20 +234,22 @@
             customPanel2.BorderRadius = 10;
             customPanel2.BorderSize = 1F;
             customPanel2.Controls.Add(cmbCourt);
-            customPanel2.Location = new Point(32, 198);
+            customPanel2.Location = new Point(40, 248);
+            customPanel2.Margin = new Padding(4);
             customPanel2.Name = "customPanel2";
             customPanel2.ShowShadow = false;
-            customPanel2.Size = new Size(330, 55);
+            customPanel2.Size = new Size(412, 69);
             customPanel2.TabIndex = 63;
             // 
             // cmbCourt
             // 
             cmbCourt.FlatStyle = FlatStyle.Flat;
             cmbCourt.FormattingEnabled = true;
-            cmbCourt.Location = new Point(18, 13);
+            cmbCourt.Location = new Point(22, 16);
+            cmbCourt.Margin = new Padding(4);
             cmbCourt.Name = "cmbCourt";
             cmbCourt.RightToLeft = RightToLeft.Yes;
-            cmbCourt.Size = new Size(295, 28);
+            cmbCourt.Size = new Size(368, 33);
             cmbCourt.TabIndex = 6;
             // 
             // customPanel1
@@ -236,10 +259,11 @@
             customPanel1.BorderRadius = 10;
             customPanel1.BorderSize = 1F;
             customPanel1.Controls.Add(cmbCourtType);
-            customPanel1.Location = new Point(436, 198);
+            customPanel1.Location = new Point(545, 248);
+            customPanel1.Margin = new Padding(4);
             customPanel1.Name = "customPanel1";
             customPanel1.ShowShadow = false;
-            customPanel1.Size = new Size(330, 55);
+            customPanel1.Size = new Size(412, 69);
             customPanel1.TabIndex = 62;
             // 
             // cmbCourtType
@@ -247,10 +271,11 @@
             cmbCourtType.DisplayMember = "CourtName";
             cmbCourtType.FlatStyle = FlatStyle.Flat;
             cmbCourtType.FormattingEnabled = true;
-            cmbCourtType.Location = new Point(18, 13);
+            cmbCourtType.Location = new Point(22, 16);
+            cmbCourtType.Margin = new Padding(4);
             cmbCourtType.Name = "cmbCourtType";
             cmbCourtType.RightToLeft = RightToLeft.Yes;
-            cmbCourtType.Size = new Size(295, 28);
+            cmbCourtType.Size = new Size(368, 33);
             cmbCourtType.TabIndex = 6;
             cmbCourtType.SelectedIndexChanged += cmbCourtType_SelectedIndexChanged;
             // 
@@ -258,9 +283,10 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(289, 161);
+            label5.Location = new Point(361, 201);
+            label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(75, 25);
+            label5.Size = new Size(89, 30);
             label5.TabIndex = 61;
             label5.Text = "الملعب";
             // 
@@ -268,9 +294,10 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(658, 161);
+            label4.Location = new Point(822, 201);
+            label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(108, 25);
+            label4.Size = new Size(129, 30);
             label4.TabIndex = 60;
             label4.Text = "نوع الملعب";
             // 
@@ -278,9 +305,10 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(661, 56);
+            label3.Location = new Point(826, 70);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(105, 25);
+            label3.Size = new Size(124, 30);
             label3.TabIndex = 59;
             label3.Text = "رقم الهاتف";
             // 
@@ -293,12 +321,13 @@
             txtName.Icon = null;
             txtName.IconLocation = HorizontalAlignment.Left;
             txtName.IconSize = 20;
-            txtName.Location = new Point(32, 96);
+            txtName.Location = new Point(40, 120);
+            txtName.Margin = new Padding(4);
             txtName.Name = "txtName";
             txtName.passwordChar = "\0";
             txtName.PlaceholderText = "أدخل النص هنا...";
             txtName.RightToLeft = RightToLeft.Yes;
-            txtName.Size = new Size(330, 50);
+            txtName.Size = new Size(412, 62);
             txtName.TabIndex = 58;
             txtName.Texts = "";
             // 
@@ -306,9 +335,10 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(247, 56);
+            label2.Location = new Point(309, 70);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(115, 25);
+            label2.Size = new Size(136, 30);
             label2.TabIndex = 57;
             label2.Text = "اسم العميل";
             // 
@@ -321,12 +351,13 @@
             txtPhone.Icon = null;
             txtPhone.IconLocation = HorizontalAlignment.Left;
             txtPhone.IconSize = 20;
-            txtPhone.Location = new Point(436, 96);
+            txtPhone.Location = new Point(545, 120);
+            txtPhone.Margin = new Padding(4);
             txtPhone.Name = "txtPhone";
             txtPhone.passwordChar = "\0";
             txtPhone.PlaceholderText = "أدخل النص هنا...";
             txtPhone.RightToLeft = RightToLeft.Yes;
-            txtPhone.Size = new Size(330, 50);
+            txtPhone.Size = new Size(412, 62);
             txtPhone.TabIndex = 56;
             txtPhone.Texts = "";
             txtPhone.Leave += txtPhone_Leave;
@@ -337,12 +368,13 @@
             dtpStartTime.CustomFormat = "HH:mm";
             dtpStartTime.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpStartTime.Format = DateTimePickerFormat.Custom;
-            dtpStartTime.Location = new Point(32, 305);
+            dtpStartTime.Location = new Point(40, 381);
+            dtpStartTime.Margin = new Padding(4);
             dtpStartTime.Name = "dtpStartTime";
             dtpStartTime.RightToLeft = RightToLeft.Yes;
             dtpStartTime.RightToLeftLayout = true;
             dtpStartTime.ShowUpDown = true;
-            dtpStartTime.Size = new Size(332, 34);
+            dtpStartTime.Size = new Size(414, 39);
             dtpStartTime.TabIndex = 65;
             // 
             // dtpEndTime
@@ -351,12 +383,13 @@
             dtpEndTime.CustomFormat = "HH:mm";
             dtpEndTime.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpEndTime.Format = DateTimePickerFormat.Custom;
-            dtpEndTime.Location = new Point(436, 396);
+            dtpEndTime.Location = new Point(545, 495);
+            dtpEndTime.Margin = new Padding(4);
             dtpEndTime.Name = "dtpEndTime";
             dtpEndTime.RightToLeft = RightToLeft.Yes;
             dtpEndTime.RightToLeftLayout = true;
             dtpEndTime.ShowUpDown = true;
-            dtpEndTime.Size = new Size(330, 34);
+            dtpEndTime.Size = new Size(412, 39);
             dtpEndTime.TabIndex = 64;
             // 
             // dtpBookingDate
@@ -364,11 +397,12 @@
             dtpBookingDate.CalendarFont = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dtpBookingDate.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dtpBookingDate.Format = DateTimePickerFormat.Short;
-            dtpBookingDate.Location = new Point(30, 396);
+            dtpBookingDate.Location = new Point(38, 495);
+            dtpBookingDate.Margin = new Padding(4);
             dtpBookingDate.Name = "dtpBookingDate";
             dtpBookingDate.RightToLeft = RightToLeft.Yes;
             dtpBookingDate.RightToLeftLayout = true;
-            dtpBookingDate.Size = new Size(332, 34);
+            dtpBookingDate.Size = new Size(414, 39);
             dtpBookingDate.TabIndex = 66;
             dtpBookingDate.ValueChanged += dtpBookingDate_ValueChanged;
             // 
@@ -377,11 +411,12 @@
             dateTimePicker1.CalendarFont = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dateTimePicker1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(436, 489);
+            dateTimePicker1.Location = new Point(545, 611);
+            dateTimePicker1.Margin = new Padding(4);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.RightToLeft = RightToLeft.Yes;
             dateTimePicker1.RightToLeftLayout = true;
-            dateTimePicker1.Size = new Size(330, 34);
+            dateTimePicker1.Size = new Size(412, 39);
             dateTimePicker1.TabIndex = 67;
             dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
             // 
@@ -395,9 +430,10 @@
             btnCancel.FlatStyle = FlatStyle.Flat;
             btnCancel.Font = new Font("Tajawal", 16.1999989F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCancel.ForeColor = SystemColors.GrayText;
-            btnCancel.Location = new Point(50, 650);
+            btnCancel.Location = new Point(62, 812);
+            btnCancel.Margin = new Padding(4);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(312, 64);
+            btnCancel.Size = new Size(390, 80);
             btnCancel.TabIndex = 68;
             btnCancel.Text = "إلغاء";
             btnCancel.UseVisualStyleBackColor = false;
@@ -407,10 +443,10 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.Location = new Point(554, 592);
+            label12.Location = new Point(512, 683);
+            label12.Margin = new Padding(4, 0, 4, 0);
             label12.Name = "label12";
-            label12.RightToLeft = RightToLeft.Yes;
-            label12.Size = new Size(135, 25);
+            label12.Size = new Size(152, 30);
             label12.TabIndex = 70;
             label12.Text = "الدفعة الأولية :";
             // 
@@ -423,21 +459,22 @@
             deposittxt.Icon = null;
             deposittxt.IconLocation = HorizontalAlignment.Left;
             deposittxt.IconSize = 20;
-            deposittxt.Location = new Point(202, 581);
+            deposittxt.Location = new Point(252, 726);
+            deposittxt.Margin = new Padding(4);
             deposittxt.Name = "deposittxt";
             deposittxt.passwordChar = "\0";
             deposittxt.PlaceholderText = "أدخل قيمة العربون هنا...";
             deposittxt.RightToLeft = RightToLeft.Yes;
-            deposittxt.Size = new Size(330, 50);
+            deposittxt.Size = new Size(412, 62);
             deposittxt.TabIndex = 69;
             deposittxt.Texts = "";
             // 
             // AddContract
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(782, 726);
+            ClientSize = new Size(978, 908);
             Controls.Add(label12);
             Controls.Add(deposittxt);
             Controls.Add(btnCancel);

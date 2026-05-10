@@ -1,86 +1,79 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ActiveSpaceSystem.Data;
 using ActiveSpaceSystem.Forms.MainForms;
 
 namespace ActiveSpaceSystem.Forms
 {
-
     public partial class LoginForm : Form
     {
-
         public LoginForm()
         {
             InitializeComponent();
         }
 
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-
-
-        }
-
-
-
-        private void materialTextBoxEdit1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-        }
-
-        private void abdulTextBox1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
         private void roundedButton1_Click_1(object sender, EventArgs e)
         {
-
-            string inputUser = txtUsername.Texts.Trim();
-            string inputPass = txtPassword.Texts.Trim();
-
-            // التأكد من أن الحقول ليست فارغة
-            if (string.IsNullOrEmpty(inputUser) || string.IsNullOrEmpty(inputPass))
+            try
             {
-                MessageBox.Show("الرجاء إدخال اسم المستخدم وكلمة المرور", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                // 1. التحقق من وجود الحقول (تجنب NullReferenceException إذا لم يتم تهيئة الأدوات)
+                if (txtUsername == null || txtPassword == null) return;
+
+                string inputUser = txtUsername.Texts?.Trim() ?? string.Empty;
+                string inputPass = txtPassword.Texts?.Trim() ?? string.Empty;
+
+                if (string.IsNullOrWhiteSpace(inputUser) || string.IsNullOrWhiteSpace(inputPass))
+                {
+                    MessageBox.Show("الرجاء إدخال اسم المستخدم وكلمة المرور", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtUsername.Focus();
+                    return;
+                }
+
+                // 2. تأمين الوصول إلى مصدر البيانات (تجنب NullReferenceException في القائمة)
+                if (DataStorage.UsersList == null)
+                {
+                    MessageBox.Show("خطأ في الاتصال بقاعدة البيانات الداخلية", "خطأ نظام", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // البحث في Data Structure
+                var user = DataStorage.UsersList.FirstOrDefault(u =>
+                    string.Equals(u.Username, inputUser, StringComparison.OrdinalIgnoreCase) &&
+                    u.Password == inputPass);
+
+                if (user != null)
+                {
+                    // 3. مسح البيانات وتغيير الحالة قبل الانتقال
+                    txtPassword.Texts = string.Empty;
+
+                    MainForm mainForm = new MainForm(user);    
+
+                    mainForm.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("اسم المستخدم أو كلمة المرور غير صحيحة", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtPassword.Texts = string.Empty; // من الأفضل مسح الباسورد عند الخطأ للأمان
+                    txtUsername.Focus();
+                }
             }
-
-            // البحث في Data Structure باستخدام LINQ
-            var user = DataStorage.UsersList.FirstOrDefault(u => u.Username == inputUser && u.Password == inputPass);
-
-            if (user != null)
+            catch (Exception ex)
             {
-                //MessageBox.Show($"أهلاً بك يا {user.Username}، تم الدخول بنجاح", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtPassword.Texts = ""; // مسح كلمة المرور بعد تسجيل الدخول
-                txtPassword.Focus(); // إعادة التركيز على حقل كلمة المرور
-                Form form = new MainForm( user);
-                form.Show();
-                this.Hide();
+                // 4. معالجة أي خطأ غير متوقع لمنع انهيار البرنامج (Crash)
+                MessageBox.Show($"حدث خطأ غير متوقع: {ex.Message}", "خطأ تقني", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
-            {
-                MessageBox.Show("اسم المستخدم أو كلمة المرور غير صحيحة", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-
         }
 
         private void roundedButton2_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            // تأكيد الخروج منعاً للضغط بالخطأ
+            var result = MessageBox.Show("هل أنت متأكد من رغبتك في الخروج؟", "تأكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
     }
 }

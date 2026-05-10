@@ -7,44 +7,48 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace ActiveSpaceSystem.Forms.DialogForms
 {
     public partial class AddCustomerForm : Form
     {
-        // استدعاء دالة من الويندوز لعمل الأركان الدائرية
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        private static extern IntPtr CreateRoundRectRgn
-    (
-        int nLeftRect,     // إحداثيات الزاوية اليسرى
-        int nTopRect,      // إحداثيات الزاوية العلوية
-        int nRightRect,    // إحداثيات الزاوية اليمنى السفلى
-        int nBottomRect,   // إحداثيات الزاوية اليمنى السفلى
-        int nWidthEllipse, // عرض الانحناء (كلما زاد زاد الدوران)
-        int nHeightEllipse // طول الانحناء
-    );
-       
+        private Customer _existingCustomer;
+        private bool _isEditMode = false;
+
+        // 1. مشيد الإضافة العادي
         public AddCustomerForm()
         {
             InitializeComponent();
+            _isEditMode = false;
+        }
+
+        // 2. مشيد التعديل - يستقبل كائن العميل المراد تعديله
+        public AddCustomerForm(Customer customer) : this()
+        {
+            _existingCustomer = customer;
+            _isEditMode = true;
+
+            // ملء الحقول بالبيانات الموجودة
+            nametxt.Texts = customer.FullName;
+            phonetxt.Texts = customer.Phone;
+
+            // تغيير نصوص الواجهة لتناسب وضع التعديل
+            lblTitle.Text = "تعديل بيانات العميل"; // تأكد من اسم Label العنوان لديك
+            roundedButton2.Text = "حفظ التعديلات";
         }
 
         private void AddCustomerForm_Load(object sender, EventArgs e)
         {
-            // هنا نضع كود الحواف الدائرية الذي كتبناه سابقاً
-            this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
-
+            // أي عمليات إعداد إضافية عند التحميل
         }
 
+        // زر الحفظ (إضافة أو تعديل)
         private void roundedButton2_Click(object sender, EventArgs e)
         {
             string errorMsg;
 
+            // التحقق من صحة الاسم
             if (!ValidationHelper.IsValidCustomerName(nametxt.Texts, out errorMsg))
             {
                 MessageBox.Show(errorMsg, "خطأ في البيانات", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -52,7 +56,7 @@ namespace ActiveSpaceSystem.Forms.DialogForms
                 return;
             }
 
-          
+            // التحقق من صحة رقم الهاتف
             if (!ValidationHelper.IsValidPhoneNumber(phonetxt.Texts, out errorMsg))
             {
                 MessageBox.Show(errorMsg, "خطأ في البيانات", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -62,30 +66,36 @@ namespace ActiveSpaceSystem.Forms.DialogForms
 
             try
             {
-                Customer newCustomer = new Customer
+                if (_isEditMode)
                 {
-                  
-                    CustomerID = DataStorage.CustomersList.Count + 1,
+                    // --- وضع التعديل ---
+                    _existingCustomer.FullName = nametxt.Texts.Trim();
+                    _existingCustomer.Phone = phonetxt.Texts.Trim();
 
-                  
-                    FullName = nametxt.Texts.Trim(),
-                    Phone = phonetxt.Texts.Trim(),
+                    MessageBox.Show("تم تحديث بيانات العميل بنجاح", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    // --- وضع الإضافة ---
+                    Customer newCustomer = new Customer
+                    {
+                        // توليد ID جديد بناءً على أكبر ID موجود + 1 لتجنب التكرار
+                        CustomerID = (DataStorage.CustomersList.Any() ? DataStorage.CustomersList.Max(c => c.CustomerID) : 0) + 1,
+                        FullName = nametxt.Texts.Trim(),
+                        Phone = phonetxt.Texts.Trim(),
+                        TotalDebt = 0
+                    };
 
-                    TotalDebt = 0
-                };
+                    DataStorage.CustomersList.Add(newCustomer);
+                    MessageBox.Show("تمت إضافة العميل بنجاح", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
 
-                
-                DataStorage.CustomersList.Add(newCustomer);
-
-                MessageBox.Show("تمت إضافة العميل بنجاح", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-               
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("حدث خطأ غير متوقع: " + ex.Message, "خطأ برمي", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("حدث خطأ غير متوقع: " + ex.Message, "خطأ برمجي", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -124,8 +134,5 @@ namespace ActiveSpaceSystem.Forms.DialogForms
         {
             this.Close();
         }
-
-     
-       
     }
 }

@@ -192,10 +192,57 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
         private void HandleEditClick(int rowIndex)
         {
-            if (rowIndex >= 0 && rowIndex < customersList.Count)
-            {
+            // 1. التحقق من صحة الفهرس ومحاولة الوصول للبيانات المرتبطة بالسطر
+            if (rowIndex < 0 || dgvCustomers.Rows[rowIndex].DataBoundItem == null) return;
 
-                MessageBox.Show("تعديل العميل: " + customersList[rowIndex].FullName);
+            // الحصول على الـ ViewModel للسطر المختار (أكثر أماناً من الاعتماد على الفهرس فقط)
+            var selectedCustomerVm = (CustomerViewModel)dgvCustomers.Rows[rowIndex].DataBoundItem;
+            int customerId = selectedCustomerVm.CustomerId;
+
+            // 2. البحث عن الكائن الأصلي في DataStorage
+            var customerToEdit = DataStorage.CustomersList.FirstOrDefault(c => c.CustomerID == customerId);
+
+            if (customerToEdit != null)
+            {
+                // 3. فتح واجهة الإضافة وإرسال بيانات العميل لها باستخدام المشيد (Constructor) الجديد
+                using (AddCustomerForm editForm = new AddCustomerForm(customerToEdit))
+                {
+                    if (editForm.ShowDialog() == DialogResult.OK)
+                    {
+
+                        // 4. تحديث البيانات في الواجهة الحالية
+                        // نفضل LoadData لإعادة بناء القائمة من الأصل المعدل
+                        LoadData();
+                        updateStatisticsCards();
+
+                        // 5. تحديث واجهة الحجوزات إذا كانت مفتوحة لضمان ظهور الاسم الجديد هناك
+                        var bookingForm = Application.OpenForms.OfType<ManageBooking>().FirstOrDefault();
+                        if (bookingForm != null)
+                        {
+                            bookingForm.LoadData();
+                        }
+                        // تحديث واجهة المدفوعات إذا كانت مفتوحة
+                        var paymentsForm = Application.OpenForms.OfType<PaymentForm>().FirstOrDefault(); // تأكد من اسم الكلاس لديك
+                        if (paymentsForm != null)
+                        {
+                            paymentsForm.LoadData();
+                        }
+
+                        // اختيار السطر الذي تم تعديله مجدداً (اختياري لتحسين تجربة المستخدم)
+                        foreach (DataGridViewRow row in dgvCustomers.Rows)
+                        {
+                            if (((CustomerViewModel)row.DataBoundItem).CustomerId == customerId)
+                            {
+                                row.Selected = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("عذراً، لم يتم العثور على بيانات العميل الأصلية.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

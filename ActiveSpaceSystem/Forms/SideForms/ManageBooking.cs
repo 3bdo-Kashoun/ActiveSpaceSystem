@@ -150,10 +150,31 @@ namespace ActiveSpaceSystem.Forms.SideForms
         public void LoadData()
         {
             var dateToday = dtpManageBooking.Value.Date;
-            bookingsList = new BindingList<BookingViewModel>(
-               DataStorage.BookingsList.Where(d=>d.BookingDate==dateToday).Select(BookingViewModel.FromBooking).ToList()
-            );
+
+            // جلب الحجوزات لليوم المحدد
+            var bookings = DataStorage.BookingsList
+                .Where(d => d.BookingDate.Date == dateToday)
+                .ToList();
+
+            // تحويل الحجوزات إلى ViewModels مع جلب الاسم المحدث من قائمة العملاء
+            var viewModels = bookings.Select(b => {
+                var viewModel = BookingViewModel.FromBooking(b);
+
+                // البحث عن العميل في القائمة الرئيسية للتأكد من الحصول على الاسم المحدث
+                var currentCustomer = DataStorage.CustomersList
+                    .FirstOrDefault(c => c.CustomerID == b.CustomerID);
+
+                if (currentCustomer != null)
+                {
+                    
+                }
+
+                return viewModel;
+            }).ToList();
+
+            bookingsList = new BindingList<BookingViewModel>(viewModels);
             dgvBookings.DataSource = bookingsList;
+
             if (dgvBookings.Columns["BookingID"] != null)
             {
                 dgvBookings.Columns["BookingID"].Visible = false;

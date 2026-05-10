@@ -1,10 +1,10 @@
 ﻿using ActiveSpace.Models;
 using ActiveSpaceSystem.CustomItems;
 using ActiveSpaceSystem.Data;
+using ActiveSpaceSystem.Forms.SideForms;
 using ActiveSpaceSystem.Forms.Views;
-using ActiveSpaceSystem.Helpers; // استدعاء فضاء أسماء المساعدات الجديد
+using ActiveSpaceSystem.Helpers;
 using ActiveSpaceSystem.Models.enums;
-using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,9 +12,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace ActiveSpaceSystem.Forms.DialogForms
 {
@@ -251,21 +249,14 @@ namespace ActiveSpaceSystem.Forms.DialogForms
 
         private void roundedButton1_Click(object sender, EventArgs e)
         {
-            // 1. التحقق من المدخلات (الاسم، الهاتف، المبالغ)
-            if (!ValidateAllInputs(out double totalAmount, out double deposit))
-            {
-                return;
-            }
+            // 1. التحقق من المدخلات
+            if (!ValidateAllInputs(out double totalAmount, out double deposit)) return;
 
             Court selectedCourt = (Court)cmbCourt.SelectedItem;
             DateTime bookingDate = dtpBookingDate.Value.Date;
-
-            // 2. تنظيف الأوقات من الثواني
             TimeSpan startTime = new TimeSpan(dtpStartTime.Value.Hour, dtpStartTime.Value.Minute, 0);
             TimeSpan endTime = new TimeSpan(dtpEndTime.Value.Hour, dtpEndTime.Value.Minute, 0);
 
-
-            // 4. التحقق المالي
             if (!BookingFormHelper.TryValidateFinancials(totalAmount, deposit, out string financialWarning))
             {
                 ShowWarning(financialWarning);
@@ -274,19 +265,32 @@ namespace ActiveSpaceSystem.Forms.DialogForms
 
             try
             {
-                // 5. التمييز بين الإضافة والتعديل
                 if (_bookingToEdit == null)
                 {
-                    // حالة إضافة حجز جديد
                     SaveNewBooking(totalAmount, deposit, startTime, endTime);
                     ShowInfo("تم تسجيل الحجز بنجاح.");
                 }
                 else
                 {
-                    // حالة تعديل حجز موجود
                     UpdateExistingBooking(totalAmount, deposit, startTime, endTime);
                     ShowInfo("تم تحديث بيانات الحجز بنجاح.");
                 }
+
+                // --- التعديل هنا: تحديث الواجهات الخارجية مباشرة ---
+
+                // 1. تحديث واجهة الحجوزات (الواجهة الأساسية التي تعرض الحجوزات اليومية)
+                var bookingForm = Application.OpenForms.OfType<ManageBooking>().FirstOrDefault();
+                bookingForm?.LoadData();
+
+                // 2. تحديث واجهة العملاء (لأن الديون TotalDebt قد تغيرت)
+                var customersForm = Application.OpenForms.OfType<MangeCustomers>().FirstOrDefault();
+                customersForm?.LoadData();
+
+                // 3. تحديث واجهة المدفوعات (لأننا أضفنا عربون جديد في سجل المدفوعات)
+                var paymentsForm = Application.OpenForms.OfType<PaymentForm>().FirstOrDefault();
+                paymentsForm?.LoadData();
+
+                // --------------------------------------------------
 
                 this.DialogResult = DialogResult.OK;
                 this.Close();

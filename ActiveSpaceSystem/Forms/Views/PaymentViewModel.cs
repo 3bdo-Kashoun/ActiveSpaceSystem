@@ -15,22 +15,29 @@ namespace ActiveSpaceSystem.Forms.Views
         public double PaidAmount { get; set; }
         public double Remaining { get; set; }
         public BookingStatus Status { get; set; }
-        public DateTime PaidAt {  get; set; }
+        public DateTime PaidAt { get; set; }
         public Booking Booking { get; set; } = new Booking();
 
         public static PaymentViewModel FromBooking(Payment p)
         {
             var b = p.Booking;
-            // حساب إجمالي المدفوعات من قائمة المدفوعات الفعلية في الذاكرة
+
+            // 1. البحث عن العميل في المصدر الرئيسي لضمان الحصول على الاسم المحدث دائماً
+            // نستخدم b.CustomerID للوصول للعميل الصحيح من قائمة العملاء العامة
+            var masterCustomer = DataStorage.CustomersList.FirstOrDefault(c => c.CustomerID == b.CustomerID);
+
+            // 2. حساب إجمالي المدفوعات من قائمة المدفوعات الفعلية في الذاكرة
             double paid = DataStorage.PaymentList
-                .Where(p => p.BookingID == b.BookingID)
-                .Sum(p => p.AmountPaid);
-           
+                .Where(pay => pay.BookingID == b.BookingID)
+                .Sum(pay => pay.AmountPaid);
 
             return new PaymentViewModel
             {
                 BookingID = b.BookingID,
-                CustomerName = b.Customer?.FullName ?? "غير معروف",
+
+                
+                CustomerName = masterCustomer?.FullName ?? b.Customer?.FullName ?? "غير معروف",
+
                 BookingDate = b.BookingDate.ToString("yyyy-MM-dd"),
                 TotalAmount = b.TotalAmount,
                 PaidAmount = paid,

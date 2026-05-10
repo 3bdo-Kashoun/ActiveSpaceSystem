@@ -47,7 +47,7 @@ namespace ActiveSpaceSystem.Forms
                     // 3. مسح البيانات وتغيير الحالة قبل الانتقال
                     txtPassword.Texts = string.Empty;
 
-                    MainForm mainForm = new MainForm(user);    
+                    MainForm mainForm = new MainForm(user);
 
                     mainForm.Show();
                     this.Hide();
@@ -74,6 +74,11 @@ namespace ActiveSpaceSystem.Forms
             {
                 Application.Exit();
             }
+        }
+
+        private void txtPassword__TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

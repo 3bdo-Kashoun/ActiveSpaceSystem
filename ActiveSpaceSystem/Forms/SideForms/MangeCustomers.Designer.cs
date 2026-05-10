@@ -64,7 +64,7 @@
             customerCard2.Size = new Size(336, 128);
             customerCard2.TabIndex = 1;
             customerCard2.TitleColor = Color.Gray;
-            customerCard2.TitleFont = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            customerCard2.TitleFont = new Font("Tajawal", 12F);
             customerCard2.TitleText = "إجمالي العملاء";
             customerCard2.ValueColor = Color.MidnightBlue;
             customerCard2.ValueFont = new Font("Segoe UI", 18F, FontStyle.Bold);
@@ -83,7 +83,7 @@
             customerCard1.Size = new Size(334, 128);
             customerCard1.TabIndex = 2;
             customerCard1.TitleColor = Color.Gray;
-            customerCard1.TitleFont = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            customerCard1.TitleFont = new Font("Tajawal", 12F);
             customerCard1.TitleText = "العملاء النشطون";
             customerCard1.ValueColor = Color.FromArgb(100, 185, 129);
             customerCard1.ValueFont = new Font("Segoe UI", 18F, FontStyle.Bold);
@@ -102,7 +102,7 @@
             customerCard3.Size = new Size(334, 128);
             customerCard3.TabIndex = 3;
             customerCard3.TitleColor = Color.Gray;
-            customerCard3.TitleFont = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            customerCard3.TitleFont = new Font("Tajawal", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             customerCard3.TitleText = "إجمالي الديون";
             customerCard3.ValueColor = Color.FromArgb(220, 38, 38);
             customerCard3.ValueFont = new Font("Segoe UI", 18F, FontStyle.Bold);
@@ -118,7 +118,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1022, 134);
             panel1.TabIndex = 4;
-           
             // 
             // roundedButton1
             // 
@@ -129,14 +128,14 @@
             roundedButton1.BorderSize = 0;
             roundedButton1.FlatAppearance.BorderSize = 0;
             roundedButton1.FlatStyle = FlatStyle.Flat;
-            roundedButton1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            roundedButton1.Font = new Font("Tajawal", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             roundedButton1.ForeColor = Color.White;
             roundedButton1.Image = Properties.Resources.icons8_add_50__1_;
             roundedButton1.ImageAlign = ContentAlignment.MiddleRight;
             roundedButton1.Location = new Point(35, 44);
             roundedButton1.Name = "roundedButton1";
             roundedButton1.Padding = new Padding(20, 10, 20, 10);
-            roundedButton1.Size = new Size(228, 64);
+            roundedButton1.Size = new Size(246, 64);
             roundedButton1.TabIndex = 10;
             roundedButton1.Text = "إضافة عميل جديد";
             roundedButton1.TextAlign = ContentAlignment.MiddleLeft;
@@ -147,12 +146,12 @@
             // 
             label3.Anchor = AnchorStyles.Right;
             label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Tajawal", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.DimGray;
-            label3.Location = new Point(803, 79);
+            label3.Location = new Point(763, 79);
             label3.Name = "label3";
             label3.RightToLeft = RightToLeft.Yes;
-            label3.Size = new Size(183, 20);
+            label3.Size = new Size(223, 23);
             label3.TabIndex = 9;
             label3.Text = "متابعة بيانات وحجوزات العملاء";
             // 
@@ -160,11 +159,11 @@
             // 
             label1.Anchor = AnchorStyles.Right;
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Tajawal", 19.7999973F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.MidnightBlue;
-            label1.Location = new Point(828, 28);
+            label1.Location = new Point(792, 28);
             label1.Name = "label1";
-            label1.Size = new Size(168, 39);
+            label1.Size = new Size(204, 49);
             label1.TabIndex = 8;
             label1.Text = "إدارة العملاء";
             // 
@@ -177,7 +176,7 @@
             btnDebtFilter.ButtonIcon = null;
             btnDebtFilter.FlatAppearance.BorderSize = 0;
             btnDebtFilter.FlatStyle = FlatStyle.Flat;
-            btnDebtFilter.Font = new Font("Microsoft Sans Serif", 12F);
+            btnDebtFilter.Font = new Font("Tajawal", 12F);
             btnDebtFilter.ForeColor = Color.FromArgb(220, 38, 38);
             btnDebtFilter.IconAlignment = ContentAlignment.MiddleLeft;
             btnDebtFilter.IconSize = new Size(16, 16);
@@ -200,7 +199,7 @@
             btnAll.ButtonIcon = null;
             btnAll.FlatAppearance.BorderSize = 0;
             btnAll.FlatStyle = FlatStyle.Flat;
-            btnAll.Font = new Font("Microsoft Sans Serif", 12F);
+            btnAll.Font = new Font("Tajawal", 12F);
             btnAll.IconAlignment = ContentAlignment.MiddleLeft;
             btnAll.IconSize = new Size(16, 16);
             btnAll.IsToggled = false;
@@ -324,6 +323,7 @@
             dgvCustomers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCustomers.Size = new Size(1022, 295);
             dgvCustomers.TabIndex = 9;
+            // 
             // MangeCustomers
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);

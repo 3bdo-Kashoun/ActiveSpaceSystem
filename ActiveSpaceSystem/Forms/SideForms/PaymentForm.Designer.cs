@@ -179,7 +179,7 @@
             DownPaymentCard.TitleFont = new Font("Tajawal Medium", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             DownPaymentCard.TitleText = "إجمالي الدفعات المقدمة";
             DownPaymentCard.ValueColor = Color.FromArgb(43, 127, 255);
-            DownPaymentCard.ValueFont = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
+            DownPaymentCard.ValueFont = new Font("Tajawal", 16.1999989F, FontStyle.Bold);
             DownPaymentCard.ValueText = "5,650 د.ل";
             // 
             // TotalDebtsCard
@@ -202,7 +202,7 @@
             TotalDebtsCard.TitleFont = new Font("Tajawal Medium", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             TotalDebtsCard.TitleText = "إجمالي الديون";
             TotalDebtsCard.ValueColor = Color.FromArgb(220, 38, 38);
-            TotalDebtsCard.ValueFont = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
+            TotalDebtsCard.ValueFont = new Font("Tajawal", 16.1999989F, FontStyle.Bold);
             TotalDebtsCard.ValueText = "3,290 د.ل";
             // 
             // DailyIncomeCard
@@ -225,7 +225,7 @@
             DailyIncomeCard.TitleFont = new Font("Tajawal Medium", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             DailyIncomeCard.TitleText = "إجمالي الإيرادات";
             DailyIncomeCard.ValueColor = Color.FromArgb(46, 204, 113);
-            DailyIncomeCard.ValueFont = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
+            DailyIncomeCard.ValueFont = new Font("Tajawal", 16.1999989F, FontStyle.Bold);
             DailyIncomeCard.ValueText = "12,450 د.ل";
             // 
             // tableLayoutPanel2

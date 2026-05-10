@@ -54,12 +54,12 @@
             // 
             label3.Anchor = AnchorStyles.Right;
             label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Tajawal", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.DimGray;
-            label3.Location = new Point(744, 70);
+            label3.Location = new Point(768, 74);
             label3.Name = "label3";
             label3.RightToLeft = RightToLeft.Yes;
-            label3.Size = new Size(181, 20);
+            label3.Size = new Size(213, 23);
             label3.TabIndex = 6;
             label3.Text = "إدارة إعدادات النظام والملاعب";
             label3.Click += label3_Click;
@@ -68,11 +68,11 @@
             // 
             label1.Anchor = AnchorStyles.Right;
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Tajawal", 19.7999973F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.MidnightBlue;
-            label1.Location = new Point(806, 19);
+            label1.Location = new Point(823, 25);
             label1.Name = "label1";
-            label1.Size = new Size(134, 39);
+            label1.Size = new Size(158, 49);
             label1.TabIndex = 0;
             label1.Text = "الإعدادات";
             // 
@@ -95,7 +95,7 @@
             tabButton1.BorderSize = 2;
             tabButton1.FlatAppearance.BorderSize = 0;
             tabButton1.FlatStyle = FlatStyle.Flat;
-            tabButton1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
+            tabButton1.Font = new Font("Tajawal", 11.999999F, FontStyle.Bold);
             tabButton1.ForeColor = Color.White;
             tabButton1.IsActive = true;
             tabButton1.Location = new Point(823, 2);
@@ -115,7 +115,7 @@
             tabButton3.BorderSize = 2;
             tabButton3.FlatAppearance.BorderSize = 0;
             tabButton3.FlatStyle = FlatStyle.Flat;
-            tabButton3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
+            tabButton3.Font = new Font("Tajawal", 11.999999F, FontStyle.Bold);
             tabButton3.ForeColor = Color.Black;
             tabButton3.IsActive = false;
             tabButton3.Location = new Point(639, 2);
@@ -135,7 +135,7 @@
             tabButton2.BorderSize = 2;
             tabButton2.FlatAppearance.BorderSize = 0;
             tabButton2.FlatStyle = FlatStyle.Flat;
-            tabButton2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
+            tabButton2.Font = new Font("Tajawal", 11.999999F, FontStyle.Bold);
             tabButton2.ForeColor = Color.Black;
             tabButton2.IsActive = false;
             tabButton2.Location = new Point(455, 2);

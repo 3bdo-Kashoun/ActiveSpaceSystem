@@ -138,6 +138,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
             SetupGrid();
             LoadData();
             updateStatisticsCards();
+            btnAll.IsToggled = true; // تعيين زر "الكل" كافتراضي
 
             if (dgvCustomers.Rows.Count > 0)
                 dgvCustomers.ClearSelection();
@@ -150,6 +151,8 @@ namespace ActiveSpaceSystem.Forms.SideForms
                 var data = DataStorage.CustomersList.Select(CustomerViewModel.FromCustomer).ToList();
                 customersList = new BindingList<CustomerViewModel>(data);
                 dgvCustomers.DataSource = customersList;
+                if (dgvCustomers.Columns["CustomerId"]!=null)
+                   dgvCustomers.Columns["CustomerId"].Visible = false; // إخفاء عمود المعرف إذا كان موجوداً
             }
             catch (Exception ex)
             {
@@ -191,18 +194,58 @@ namespace ActiveSpaceSystem.Forms.SideForms
         {
             if (rowIndex >= 0 && rowIndex < customersList.Count)
             {
+
                 MessageBox.Show("تعديل العميل: " + customersList[rowIndex].FullName);
             }
         }
 
         private void HandleDeleteClick(int rowIndex)
         {
-            if (rowIndex >= 0 && rowIndex < customersList.Count)
+            // 1. الوصول للـ ViewModel الموجود في السطر الذي نقر عليه المستخدم
+            var customerVm = dgvCustomers.Rows[rowIndex].DataBoundItem as CustomerViewModel;
+
+            if (customerVm == null) return;
+
+            var result = MessageBox.Show("هل أنت متأكد من الحذف النهائي؟", "تأكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
             {
-                if (MessageBox.Show($"هل أنت متأكد من حذف العميل: {customersList[rowIndex].FullName}؟",
-                    "تأكيد الحذف", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                try
                 {
-                    customersList.RemoveAt(rowIndex);
+                    // 2. الحذف من القائمة الأصلية (المرجع الرئيسي)
+                    // نستخدم RemoveAll لضمان البحث في القائمة الأصلية وحذف العنصر المطابق للمعرّف
+                    DataStorage.CustomersList.RemoveAll(c => c.CustomerID == customerVm.CustomerId);
+
+                    // حذف الحجوزات المرتبطة أيضاً من المرجع الرئيسي
+                    DataStorage.BookingsList.RemoveAll(b => b.CustomerID == customerVm.CustomerId);
+
+                    // 3. تحديث العدادات العلوية
+                    updateStatisticsCards();
+                    // 1. ابحث عن واجهة ManageBooking المفتوحة في التطبيق
+                    var manageBookingForm = Application.OpenForms.OfType<ManageBooking>().FirstOrDefault();
+
+                    // 2. إذا كانت الواجهة موجودة (مفتوحة)، قم باستدعاء دالة التحميل الخاصة بها
+                    if (manageBookingForm != null)
+                    {
+                        manageBookingForm.LoadData();
+                    }
+
+                    // 4. تحديث الجدول: 
+                    // إذا كان المستخدم يبحث حالياً، نحدث البحث، وإذا كان يعرض الكل، نحدث الكل
+                    if (!string.IsNullOrWhiteSpace(txtSearch.Texts))
+                    {
+                        txtSearch__TextChanged(null, null); // إعادة تشغيل الفلتر الحالي
+                    }
+                    else
+                    {
+                        LoadData(); // إعادة تحميل القائمة الكاملة
+                    }
+
+                    MessageBox.Show("تم الحذف من الذاكرة بنجاح.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"خطأ: {ex.Message}");
                 }
             }
         }
@@ -240,18 +283,30 @@ namespace ActiveSpaceSystem.Forms.SideForms
         private void txtSearch__TextChanged(object sender, EventArgs e)
         {
             string searchTerm = txtSearch.Texts.Trim().ToLower();
-            var filteredData = DataStorage.CustomersList
+
+            // دائماً نسحب من المصدر الرئيسي
+            var filtered = DataStorage.CustomersList
                 .Where(c => c.FullName.ToLower().Contains(searchTerm) || c.Phone.Contains(searchTerm))
                 .Select(CustomerViewModel.FromCustomer)
                 .ToList();
-            customersList = new BindingList<CustomerViewModel>(filteredData);
-            dgvCustomers.DataSource = customersList;
 
+            dgvCustomers.DataSource = new BindingList<CustomerViewModel>(filtered);
         }
 
         private void btnAll_Click(object sender, EventArgs e)
         {
-            LoadData();
+            try
+            {
+                var data = DataStorage.CustomersList.Select(CustomerViewModel.FromCustomer).ToList();
+                customersList = new BindingList<CustomerViewModel>(data);
+                dgvCustomers.DataSource = customersList;
+               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("خطأ في تحميل البيانات: " + ex.Message);
+            }
+
             SetFilterButtonsState(btnAll);
 
         }

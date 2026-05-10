@@ -6,27 +6,29 @@ namespace ActiveSpaceSystem.Forms.Views
 {
     public class CustomerViewModel
     {
+        public int CustomerId { get; set; }
         public string FullName { get; set; }
         public string Phone { get; set; }
         public double TotalDebt { get; set; }
         public int NoShowCount { get; set; }
         public string LastBookingDate { get; set; }
-      
-        
+
+
         public static CustomerViewModel FromCustomer(Customer c)
         {
-            // محاكاة لتاريخ آخر حجز بما أن المودل لا يحتوي عليه مباشرة حالياً
-            // في الواقع العملي سيتم جلب هذا من قاعدة البيانات
-            string lastBooking = "2023-10-15"; // قيمة افتراضية للتوضيح
+            string lastBooking = "2023-10-15";
 
             return new CustomerViewModel
             {
+                // هذا هو السطر الناقص الذي سيحل كل المشكلة
+                CustomerId = c.CustomerID,
+
                 FullName = c.FullName,
                 Phone = c.Phone,
                 TotalDebt = c.TotalDebt,
-                
                 LastBookingDate = lastBooking,
-                
+                // أضف هذه أيضاً إذا كنت تحتاجها في الجدول
+                NoShowCount = 0
             };
         }
     }

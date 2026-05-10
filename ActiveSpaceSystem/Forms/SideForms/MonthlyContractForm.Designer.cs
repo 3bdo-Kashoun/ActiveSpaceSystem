@@ -58,7 +58,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1278, 156);
             panel1.TabIndex = 0;
-            panel1.Paint += panel1_Paint;
+         
             // 
             // roundedButton1
             // 
@@ -270,7 +270,7 @@
             dgvMonthlyContract.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvMonthlyContract.Size = new Size(1278, 427);
             dgvMonthlyContract.TabIndex = 6;
-            dgvMonthlyContract.CellContentClick += dgvMonthlyContract_CellContentClick_1;
+         
             // 
             // MonthlyContractForm
             // 

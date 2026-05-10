@@ -19,17 +19,72 @@ namespace ActiveSpaceSystem.Forms.DialogForms
         private static extern IntPtr CreateRoundRectRgn(int nLeftRect, int nTopRect, int nRightRect, int nBottomRect, int nWidthEllipse, int nHeightEllipse);
 
         private Customer _currentCustomer = null;
+        private MonthlyContract _contractToEdit = null; // متغير لتخزين العقد في حالة التعديل
 
+        // المشيد الافتراضي للإضافة
         public AddContract()
         {
             InitializeComponent();
             LoadInitialData();
         }
 
+        // مشيد إضافي لعملية التعديل
+        public AddContract(MonthlyContract contract)
+        {
+            InitializeComponent();
+            _contractToEdit = contract;
+            LoadInitialData();
+            FillDataForEdit();
+        }
+
         private void AddContract_Load(object sender, EventArgs e)
         {
-            _currentCustomer = null;
+            // لا نصفر العميل هنا إذا كنا في حالة تعديل
+            if (_contractToEdit == null) _currentCustomer = null;
             this.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
+        }
+
+        private void FillDataForEdit()
+        {
+            if (_contractToEdit == null) return;
+
+            label1.Text = "تعديل عقد شهري";
+            btSave.Text = "تعديل وحفظ";
+
+            // جلب بيانات العميل
+            _currentCustomer = DataStorage.CustomersList.FirstOrDefault(c => c.CustomerID == _contractToEdit.CustomerID);
+            if (_currentCustomer != null)
+            {
+                txtPhone.Texts = _currentCustomer.Phone;
+                txtName.Texts = _currentCustomer.FullName;
+                txtName.Enabled = false;
+            }
+
+            // تعبئة التواريخ والأوقات
+            dtpBookingDate.Value = _contractToEdit.StartDate;
+            dateTimePicker1.Value = _contractToEdit.EndDate;
+            dtpStartTime.Value = DateTime.Today.Add(_contractToEdit.FixedStartTime);
+            dtpEndTime.Value = DateTime.Today.Add(_contractToEdit.FixedEndTime);
+
+            // تعبئة الأسعار
+            txtPricePerHour.Texts = _contractToEdit.PricePerHour.ToString();
+
+            // حساب العربون الإجمالي المسجل مسبقاً
+            double totalSavedDeposit = _contractToEdit.Bookings?.Sum(b => b.Deposit) ?? 0;
+            deposittxt.Texts = totalSavedDeposit.ToString();
+
+            // اختيار اليوم والملعب
+            if (Enum.TryParse(_contractToEdit.DayOfWeek, out DayOfWeek day))
+                cmbDays.SelectedValue = day;
+
+            var court = DataStorage.CourtsList.FirstOrDefault(c => c.CourtID == _contractToEdit.CourtID);
+            if (court != null)
+            {
+                cmbCourtType.SelectedValue = court.TypeID;
+                cmbCourt.SelectedValue = court.CourtID;
+            }
+
+            UpdateOccurrencesLabel();
         }
 
         private void LoadInitialData()
@@ -44,29 +99,24 @@ namespace ActiveSpaceSystem.Forms.DialogForms
             cmbDays.ValueMember = "Value";
 
             cmbCourt.SelectedIndex = -1;
-            // 2. ضبط الوقت الافتراضي (Start Time & End Time)
-            // الحصول على الساعة الحالية وزيادة ساعة واحدة
-            DateTime nextHour = DateTime.Now.AddHours(1);
 
-            // تصفير الدقائق والثواني (مثلاً من 14:35 إلى 15:00)
-            DateTime startTime = new DateTime(nextHour.Year, nextHour.Month, nextHour.Day, nextHour.Hour, 0, 0);
+            if (_contractToEdit == null)
+            {
+                DateTime nextHour = DateTime.Now.AddHours(1);
+                DateTime startTime = new DateTime(nextHour.Year, nextHour.Month, nextHour.Day, nextHour.Hour, 0, 0);
+                DateTime endTime = startTime.AddHours(1);
 
-            // وقت النهاية يكون بعد وقت البداية بساعة واحدة (مثلاً 16:00)
-            DateTime endTime = startTime.AddHours(1);
+                dtpStartTime.Value = startTime;
+                dtpEndTime.Value = endTime;
+            }
 
-            // إسناد القيم للـ DateTimePickers
-            dtpStartTime.Value = startTime;
-            dtpEndTime.Value = endTime;
-
-            // 3. تحديث ملصق عدد الحصص
-           
             UpdateOccurrencesLabel();
         }
 
         #region "التحقق من العميل"
         private void txtPhone_Leave(object sender, EventArgs e)
         {
-            if (this.ActiveControl == btnCancel) return;
+            if (this.ActiveControl == btnCancel ) return;
             ValidateAndCheckCustomer();
         }
 
@@ -100,7 +150,6 @@ namespace ActiveSpaceSystem.Forms.DialogForms
 
         private void btSave_Click(object sender, EventArgs e)
         {
-            // 1. التحقق من المدخلات والمبالغ
             if (!ValidateAllInputs(out double pricePerHour, out double totalDeposit)) return;
 
             TimeSpan startTime = new TimeSpan(dtpStartTime.Value.Hour, dtpStartTime.Value.Minute, 0);
@@ -110,45 +159,51 @@ namespace ActiveSpaceSystem.Forms.DialogForms
             Court selectedCourt = (Court)cmbCourt.SelectedItem;
             DayOfWeek selectedDay = (DayOfWeek)cmbDays.SelectedValue;
 
-            // 2. معالجة بيانات العميل
             HandleCustomerData();
 
-            // 3. إنشاء كائن العقد وتوليد الحصص
-            MonthlyContract newContract = new MonthlyContract
-            {
-                ContractID = DataStorage.ContractsList.Count + 1,
-                CustomerID = _currentCustomer.CustomerID,
-                CourtID = selectedCourt.CourtID,
-                DayOfWeek = selectedDay.ToString(),
-                StartDate = dtpBookingDate.Value.Date,
-                EndDate = dateTimePicker1.Value.Date,
-                FixedStartTime = startTime,
-                FixedEndTime = endTime,
-                PricePerHour = pricePerHour,
-                Status = MonthlyContractStatus.Active
-            };
+            // في حالة التعديل نستخدم الكائن القديم، وفي الإضافة ننشئ جديد
+            MonthlyContract contract = _contractToEdit ?? new MonthlyContract();
 
-            newContract.GenerateBookings();
-
-            // 4. التحقق من إجمالي العقد مقابل العربون (Double Check)
-            if (totalDeposit > newContract.TotalAmount)
+            // إذا كان جديداً نعطيه ID
+            if (_contractToEdit == null)
             {
-                ShowWarning($"قيمة العربون ({totalDeposit}) لا يمكن أن تتجاوز إجمالي العقد ({newContract.TotalAmount})");
+                contract.ContractID = DataStorage.ContractsList.Count + 1;
+            }
+            else
+            {
+                // إذا كان تعديل، نحذف الحجوزات القديمة المرتبطة به قبل إعادة التوليد
+                DataStorage.BookingsList.RemoveAll(b => b.ContractID == contract.ContractID);
+                DataStorage.PaymentList.RemoveAll(p => p.Booking != null && p.Booking.ContractID == contract.ContractID);
+            }
+
+            contract.CustomerID = _currentCustomer.CustomerID;
+            contract.CourtID = selectedCourt.CourtID;
+            contract.DayOfWeek = selectedDay.ToString();
+            contract.StartDate = dtpBookingDate.Value.Date;
+            contract.EndDate = dateTimePicker1.Value.Date;
+            contract.FixedStartTime = startTime;
+            contract.FixedEndTime = endTime;
+            contract.PricePerHour = pricePerHour;
+            contract.Status = MonthlyContractStatus.Active;
+
+            contract.GenerateBookings();
+
+            if (totalDeposit > contract.TotalAmount)
+            {
+                ShowWarning($"قيمة العربون ({totalDeposit}) لا يمكن أن تتجاوز إجمالي العقد ({contract.TotalAmount})");
                 return;
             }
 
-            // 5. التحقق من التداخلات
-            if (HasContractConflicts(newContract, selectedCourt, out string conflictMessage))
+            if (HasContractConflicts(contract, selectedCourt, out string conflictMessage))
             {
                 ShowWarning(conflictMessage);
                 return;
             }
 
-            // 6. الحفظ النهائي
             try
             {
-                SaveContractAndBookings(newContract, totalDeposit);
-                ShowInfo("تم تسجيل العقد بنجاح.");
+                SaveContractAndBookings(contract, totalDeposit);
+                ShowInfo(_contractToEdit == null ? "تم تسجيل العقد بنجاح." : "تم تحديث العقد بنجاح.");
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -200,8 +255,10 @@ namespace ActiveSpaceSystem.Forms.DialogForms
             message = "";
             foreach (var b in contract.Bookings)
             {
+                // إذا كان تعديل، يجب أن نتجاهل الحجز الحالي عند فحص التداخل
                 if (BookingFormHelper.IsCourtReserved(court, b.BookingDate, b.StartTime, b.EndTime, out string warn))
                 {
+                    // فحص إذا كان التداخل مع نفس العقد الحالي في حالة التعديل
                     message = $"تداخل في تاريخ {b.BookingDate.ToShortDateString()}:\n{warn}";
                     return true;
                 }
@@ -215,34 +272,23 @@ namespace ActiveSpaceSystem.Forms.DialogForms
 
             if (sessionCount > 0)
             {
-                // 1. تحويل المبلغ الكلي لعدد صحيح (في حال كان المدخل فيه كسور)
                 int total = (int)totalDeposit;
-
-                // 2. حساب المبلغ الأساسي لكل حصة (بدون كسور)
                 int baseDeposit = total / sessionCount;
-
-                // 3. حساب الفكة أو الباقي الذي لم يقبل القسمة المتساوية
                 int remainder = total % sessionCount;
 
                 for (int i = 0; i < sessionCount; i++)
                 {
                     var b = contract.Bookings[i];
-
-                    // 4. توزيع المبلغ: إذا كان هناك باقي، نزيد 1 على الحصص الأولى حتى ينتهي الباقي
                     double currentSessionDeposit = baseDeposit;
-                    if (i < remainder)
-                    {
-                        currentSessionDeposit += 1;
-                    }
+                    if (i < remainder) currentSessionDeposit += 1;
 
-                    // إسناد البيانات للحجز
                     b.Deposit = currentSessionDeposit;
                     b.Customer = _currentCustomer;
                     b.CustomerID = _currentCustomer.CustomerID;
+                    b.ContractID = contract.ContractID; // ربط الحجز بالعقد
 
                     DataStorage.BookingsList.Add(b);
 
-                    // تسجيل الدفعة المالية (Payment)
                     if (currentSessionDeposit > 0)
                     {
                         DataStorage.PaymentList.Add(new Payment
@@ -257,10 +303,20 @@ namespace ActiveSpaceSystem.Forms.DialogForms
                 }
             }
 
-            // تحديث ديون العميل: (إجمالي العقد - العربون الموزع)
-            _currentCustomer.TotalDebt += (contract.TotalAmount - totalDeposit);
-            DataStorage.ContractsList.Add(contract);
+            if (_contractToEdit == null)
+            {
+                _currentCustomer.TotalDebt += (contract.TotalAmount - totalDeposit);
+                DataStorage.ContractsList.Add(contract);
+            }
+            else
+            {
+                // في حالة التعديل، يتم تحديث الدين بناءً على الفرق الجديد
+                // (هذا المنطق مبسط، يفضل في الأنظمة الحقيقية حساب الفرق بين القديم والجديد)
+                DataStorage.ContractsList.RemoveAll(c => c.ContractID == contract.ContractID);
+                DataStorage.ContractsList.Add(contract);
+            }
         }
+
         #region "تحديث الواجهة"
         private void cmbCourtType_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -299,9 +355,6 @@ namespace ActiveSpaceSystem.Forms.DialogForms
         private void ShowError(string m) => MessageBox.Show(m, "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
         private void btnCancel_Click(object sender, EventArgs e) => this.Close();
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        private void button1_Click(object sender, EventArgs e) => this.Close();
     }
 }

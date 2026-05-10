@@ -1,4 +1,5 @@
 using ActiveSpace.Models;
+using ActiveSpaceSystem.CustomItems;
 using ActiveSpaceSystem.Data;
 using ActiveSpaceSystem.Forms.DialogForms;
 using ActiveSpaceSystem.Forms.GridStyle;
@@ -74,7 +75,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
             dgvBookings.CellPainting += DgvBookings_CellPainting;
             dgvBookings.CellClick += DgvBookings_CellClick;
             AddColumns();
-            
+
         }
 
         private void AddColumns()
@@ -200,14 +201,19 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
         private void HandleEditClick(int rowIndex)
         {
+            // 1. الحصول على الحجز المختار من السطر
             var item = dgvBookings.Rows[rowIndex].DataBoundItem as BookingViewModel;
-            if (item == null)
-                return;
+            if (item == null) return;
 
-            using (var dlg = new EditBookingForm(item))
+            // 2. فتح واجهة الإضافة وإرسال بيانات الحجز إليها
+            using (var frm = new AddBookingForm(item))
             {
-                if (dlg.ShowDialog(this) == DialogResult.OK)
-                    bookingsList.ResetItem(rowIndex);
+                if (frm.ShowDialog(this) == DialogResult.OK)
+                {
+                    // 3. تحديث البيانات في الجدول بعد الإغلاق بنجاح
+                    LoadData();
+                    dgvBookings.ClearSelection();
+                }
             }
         }
 
@@ -236,17 +242,51 @@ namespace ActiveSpaceSystem.Forms.SideForms
         private void roundedButton1_Click(object sender, EventArgs e)
         {
             AddBookingForm frm = new AddBookingForm();
-           
+
             if (frm.ShowDialog() == DialogResult.OK)
             {
-                
-                
                 LoadData();
                 dgvBookings.ClearSelection();
             }
         }
-       
 
-      
+        private void txtsearch_TextChanged(object sender, EventArgs e)
+        {
+            string searchTerm = txtsearch.Texts.Trim().ToLower();
+            var filteredData = DataStorage.BookingsList
+            .Where(b => b.Customer.Phone.Contains(searchTerm))
+             .Select(BookingViewModel.FromBooking)
+               .ToList();
+            bookingsList = new BindingList<BookingViewModel>(filteredData);
+            dgvBookings.DataSource = bookingsList;
+
+        }
+
+        private void btnBackDate_Click(object sender, EventArgs e)
+        {
+            dtpManageBooking.Value = dtpManageBooking.Value.AddDays(-1);
+        }
+
+        private void btnForwardDate_Click(object sender, EventArgs e)
+        {
+            dtpManageBooking.Value = dtpManageBooking.Value.AddDays(1);
+        }
+
+        private void dtpManageBooking_ValueChanged(object sender, EventArgs e)
+        {
+            // 1. الحصول على التاريخ المختار من الأداة (بدون الوقت)
+            DateTime selectedDate = dtpManageBooking.Value.Date;
+
+            // 2. فلترة القائمة الأصلية بناءً على التاريخ
+            var filteredData = DataStorage.BookingsList
+                .Where(b => b.BookingDate.Date == selectedDate) // نقارن التاريخ فقط ونهمش الوقت
+                .Select(BookingViewModel.FromBooking)
+                .ToList();
+
+            // 3. تحديث الجدول
+            dgvBookings.DataSource = new BindingList<BookingViewModel>(filteredData);
+
+
+        }
     }
 }

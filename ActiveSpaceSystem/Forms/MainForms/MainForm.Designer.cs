@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             panel1 = new Panel();
+            button10 = new Button();
             panel5 = new Panel();
             pictureBox1 = new PictureBox();
             LabelRole = new Label();
@@ -50,7 +51,6 @@
             button9 = new Button();
             panel3 = new Panel();
             timer1 = new System.Windows.Forms.Timer(components);
-            button10 = new Button();
             panel1.SuspendLayout();
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -75,11 +75,31 @@
             panel1.Controls.Add(panel4);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(4, 4, 4, 4);
+            panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
             panel1.RightToLeft = RightToLeft.No;
             panel1.Size = new Size(300, 1005);
             panel1.TabIndex = 0;
+            // 
+            // button10
+            // 
+            button10.FlatAppearance.BorderSize = 0;
+            button10.FlatStyle = FlatStyle.Flat;
+            button10.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button10.ForeColor = Color.White;
+            button10.Image = Properties.Resources.icons8_payment_32;
+            button10.ImageAlign = ContentAlignment.MiddleRight;
+            button10.Location = new Point(21, 642);
+            button10.Margin = new Padding(5);
+            button10.Name = "button10";
+            button10.Padding = new Padding(12, 0, 12, 0);
+            button10.Size = new Size(265, 58);
+            button10.TabIndex = 15;
+            button10.Text = "المصروفات";
+            button10.TextAlign = ContentAlignment.MiddleRight;
+            button10.TextImageRelation = TextImageRelation.TextBeforeImage;
+            button10.UseVisualStyleBackColor = false;
+            button10.Click += button10_Click;
             // 
             // panel5
             // 
@@ -88,7 +108,7 @@
             panel5.Controls.Add(LabelUser);
             panel5.Dock = DockStyle.Bottom;
             panel5.Location = new Point(0, 905);
-            panel5.Margin = new Padding(5, 5, 5, 5);
+            panel5.Margin = new Padding(5);
             panel5.Name = "panel5";
             panel5.Size = new Size(300, 100);
             panel5.TabIndex = 14;
@@ -97,7 +117,7 @@
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(246, 22);
-            pictureBox1.Margin = new Padding(5, 5, 5, 5);
+            pictureBox1.Margin = new Padding(5);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(64, 69);
             pictureBox1.TabIndex = 2;
@@ -136,7 +156,7 @@
             button8.Image = (Image)resources.GetObject("button8.Image");
             button8.ImageAlign = ContentAlignment.MiddleRight;
             button8.Location = new Point(21, 808);
-            button8.Margin = new Padding(5, 5, 5, 5);
+            button8.Margin = new Padding(5);
             button8.Name = "button8";
             button8.Padding = new Padding(12, 0, 12, 0);
             button8.Size = new Size(265, 58);
@@ -155,7 +175,7 @@
             button7.Image = (Image)resources.GetObject("button7.Image");
             button7.ImageAlign = ContentAlignment.MiddleRight;
             button7.Location = new Point(21, 725);
-            button7.Margin = new Padding(5, 5, 5, 5);
+            button7.Margin = new Padding(5);
             button7.Name = "button7";
             button7.Padding = new Padding(12, 0, 12, 0);
             button7.Size = new Size(265, 58);
@@ -174,7 +194,7 @@
             button6.Image = (Image)resources.GetObject("button6.Image");
             button6.ImageAlign = ContentAlignment.MiddleRight;
             button6.Location = new Point(21, 393);
-            button6.Margin = new Padding(5, 5, 5, 5);
+            button6.Margin = new Padding(5);
             button6.Name = "button6";
             button6.Padding = new Padding(12, 0, 12, 0);
             button6.Size = new Size(265, 58);
@@ -193,7 +213,7 @@
             button5.Image = (Image)resources.GetObject("button5.Image");
             button5.ImageAlign = ContentAlignment.MiddleRight;
             button5.Location = new Point(21, 476);
-            button5.Margin = new Padding(5, 5, 5, 5);
+            button5.Margin = new Padding(5);
             button5.Name = "button5";
             button5.Padding = new Padding(12, 0, 12, 0);
             button5.Size = new Size(265, 58);
@@ -212,7 +232,7 @@
             button4.Image = (Image)resources.GetObject("button4.Image");
             button4.ImageAlign = ContentAlignment.MiddleRight;
             button4.Location = new Point(21, 559);
-            button4.Margin = new Padding(5, 5, 5, 5);
+            button4.Margin = new Padding(5);
             button4.Name = "button4";
             button4.Padding = new Padding(12, 0, 12, 0);
             button4.Size = new Size(265, 58);
@@ -231,7 +251,7 @@
             button2.Image = (Image)resources.GetObject("button2.Image");
             button2.ImageAlign = ContentAlignment.MiddleRight;
             button2.Location = new Point(21, 310);
-            button2.Margin = new Padding(5, 5, 5, 5);
+            button2.Margin = new Padding(5);
             button2.Name = "button2";
             button2.Padding = new Padding(12, 0, 12, 0);
             button2.Size = new Size(265, 58);
@@ -251,7 +271,7 @@
             button1.Image = (Image)resources.GetObject("button1.Image");
             button1.ImageAlign = ContentAlignment.MiddleRight;
             button1.Location = new Point(21, 227);
-            button1.Margin = new Padding(5, 5, 5, 5);
+            button1.Margin = new Padding(5);
             button1.Name = "button1";
             button1.Padding = new Padding(12, 0, 12, 0);
             button1.Size = new Size(265, 58);
@@ -271,7 +291,7 @@
             button3.Image = (Image)resources.GetObject("button3.Image");
             button3.ImageAlign = ContentAlignment.MiddleRight;
             button3.Location = new Point(21, 144);
-            button3.Margin = new Padding(5, 5, 5, 5);
+            button3.Margin = new Padding(5);
             button3.Name = "button3";
             button3.Padding = new Padding(12, 0, 12, 0);
             button3.Size = new Size(265, 58);
@@ -286,7 +306,7 @@
             panel4.Controls.Add(pictureBox3);
             panel4.Dock = DockStyle.Top;
             panel4.Location = new Point(0, 0);
-            panel4.Margin = new Padding(5, 5, 5, 5);
+            panel4.Margin = new Padding(5);
             panel4.Name = "panel4";
             panel4.Size = new Size(300, 134);
             panel4.TabIndex = 4;
@@ -296,7 +316,7 @@
             pictureBox3.Dock = DockStyle.Right;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.Location = new Point(55, 0);
-            pictureBox3.Margin = new Padding(5, 5, 5, 5);
+            pictureBox3.Margin = new Padding(5);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(245, 134);
             pictureBox3.TabIndex = 0;
@@ -309,7 +329,7 @@
             panel2.Controls.Add(button9);
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(300, 0);
-            panel2.Margin = new Padding(5, 5, 5, 5);
+            panel2.Margin = new Padding(5);
             panel2.Name = "panel2";
             panel2.Size = new Size(1278, 88);
             panel2.TabIndex = 1;
@@ -337,7 +357,7 @@
             button9.Image = (Image)resources.GetObject("button9.Image");
             button9.ImageAlign = ContentAlignment.MiddleRight;
             button9.Location = new Point(49, 11);
-            button9.Margin = new Padding(5, 5, 5, 5);
+            button9.Margin = new Padding(5);
             button9.Name = "button9";
             button9.Size = new Size(265, 71);
             button9.TabIndex = 15;
@@ -351,9 +371,9 @@
             // 
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(300, 88);
-            panel3.Margin = new Padding(5, 5, 5, 5);
+            panel3.Margin = new Padding(5);
             panel3.Name = "panel3";
-            panel3.Padding = new Padding(31, 31, 31, 31);
+            panel3.Padding = new Padding(31);
             panel3.Size = new Size(1278, 917);
             panel3.TabIndex = 2;
             // 
@@ -361,26 +381,6 @@
             // 
             timer1.Enabled = true;
             timer1.Tick += timer1_Tick;
-            // 
-            // button10
-            // 
-            button10.FlatAppearance.BorderSize = 0;
-            button10.FlatStyle = FlatStyle.Flat;
-            button10.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button10.ForeColor = Color.White;
-            button10.Image = Properties.Resources.icons8_payment_32;
-            button10.ImageAlign = ContentAlignment.MiddleRight;
-            button10.Location = new Point(21, 642);
-            button10.Margin = new Padding(5);
-            button10.Name = "button10";
-            button10.Padding = new Padding(12, 0, 12, 0);
-            button10.Size = new Size(265, 58);
-            button10.TabIndex = 15;
-            button10.Text = "المدفوعات";
-            button10.TextAlign = ContentAlignment.MiddleRight;
-            button10.TextImageRelation = TextImageRelation.TextBeforeImage;
-            button10.UseVisualStyleBackColor = false;
-            button10.Click += button10_Click;
             // 
             // MainForm
             // 
@@ -392,7 +392,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Margin = new Padding(5, 5, 5, 5);
+            Margin = new Padding(5);
             Name = "MainForm";
             RightToLeft = RightToLeft.Yes;
             RightToLeftLayout = true;

@@ -31,25 +31,25 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             panel1 = new Panel();
-            button10 = new Button();
+            btExpense = new Button();
             panel5 = new Panel();
             pictureBox1 = new PictureBox();
             LabelRole = new Label();
             LabelUser = new Label();
-            button8 = new Button();
-            button7 = new Button();
-            button6 = new Button();
-            button5 = new Button();
-            button4 = new Button();
-            button2 = new Button();
-            button1 = new Button();
-            button3 = new Button();
+            btSettings = new Button();
+            btReports = new Button();
+            btCustomers = new Button();
+            btContract = new Button();
+            btPayment = new Button();
+            btScheduling = new Button();
+            btBooking = new Button();
+            btMain = new Button();
             panel4 = new Panel();
             pictureBox3 = new PictureBox();
             panel2 = new Panel();
             lblDate = new Label();
-            button9 = new Button();
-            panel3 = new Panel();
+            btLogout = new Button();
+            PanelContaint = new Panel();
             timer1 = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             panel5.SuspendLayout();
@@ -62,16 +62,16 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(31, 41, 55);
-            panel1.Controls.Add(button10);
+            panel1.Controls.Add(btExpense);
             panel1.Controls.Add(panel5);
-            panel1.Controls.Add(button8);
-            panel1.Controls.Add(button7);
-            panel1.Controls.Add(button6);
-            panel1.Controls.Add(button5);
-            panel1.Controls.Add(button4);
-            panel1.Controls.Add(button2);
-            panel1.Controls.Add(button1);
-            panel1.Controls.Add(button3);
+            panel1.Controls.Add(btSettings);
+            panel1.Controls.Add(btReports);
+            panel1.Controls.Add(btCustomers);
+            panel1.Controls.Add(btContract);
+            panel1.Controls.Add(btPayment);
+            panel1.Controls.Add(btScheduling);
+            panel1.Controls.Add(btBooking);
+            panel1.Controls.Add(btMain);
             panel1.Controls.Add(panel4);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
@@ -81,25 +81,25 @@
             panel1.Size = new Size(300, 1005);
             panel1.TabIndex = 0;
             // 
-            // button10
+            // btExpense
             // 
-            button10.FlatAppearance.BorderSize = 0;
-            button10.FlatStyle = FlatStyle.Flat;
-            button10.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button10.ForeColor = Color.White;
-            button10.Image = Properties.Resources.icons8_payment_32;
-            button10.ImageAlign = ContentAlignment.MiddleRight;
-            button10.Location = new Point(21, 642);
-            button10.Margin = new Padding(5);
-            button10.Name = "button10";
-            button10.Padding = new Padding(12, 0, 12, 0);
-            button10.Size = new Size(265, 58);
-            button10.TabIndex = 15;
-            button10.Text = "المصروفات";
-            button10.TextAlign = ContentAlignment.MiddleRight;
-            button10.TextImageRelation = TextImageRelation.TextBeforeImage;
-            button10.UseVisualStyleBackColor = false;
-            button10.Click += button10_Click;
+            btExpense.FlatAppearance.BorderSize = 0;
+            btExpense.FlatStyle = FlatStyle.Flat;
+            btExpense.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btExpense.ForeColor = Color.White;
+            btExpense.Image = Properties.Resources.icons8_payment_32;
+            btExpense.ImageAlign = ContentAlignment.MiddleRight;
+            btExpense.Location = new Point(21, 642);
+            btExpense.Margin = new Padding(5);
+            btExpense.Name = "btExpense";
+            btExpense.Padding = new Padding(12, 0, 12, 0);
+            btExpense.Size = new Size(265, 58);
+            btExpense.TabIndex = 15;
+            btExpense.Text = "المصروفات";
+            btExpense.TextAlign = ContentAlignment.MiddleRight;
+            btExpense.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btExpense.UseVisualStyleBackColor = false;
+            btExpense.Click += button10_Click;
             // 
             // panel5
             // 
@@ -147,159 +147,157 @@
             LabelUser.TabIndex = 0;
             LabelUser.Text = "احمد محمد";
             // 
-            // button8
+            // btSettings
             // 
-            button8.FlatAppearance.BorderSize = 0;
-            button8.FlatStyle = FlatStyle.Flat;
-            button8.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button8.ForeColor = Color.White;
-            button8.Image = (Image)resources.GetObject("button8.Image");
-            button8.ImageAlign = ContentAlignment.MiddleRight;
-            button8.Location = new Point(21, 808);
-            button8.Margin = new Padding(5);
-            button8.Name = "button8";
-            button8.Padding = new Padding(12, 0, 12, 0);
-            button8.Size = new Size(265, 58);
-            button8.TabIndex = 13;
-            button8.Text = "الإعدادات";
-            button8.TextAlign = ContentAlignment.MiddleRight;
-            button8.TextImageRelation = TextImageRelation.TextBeforeImage;
-            button8.UseVisualStyleBackColor = false;
+            btSettings.FlatAppearance.BorderSize = 0;
+            btSettings.FlatStyle = FlatStyle.Flat;
+            btSettings.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btSettings.ForeColor = Color.White;
+            btSettings.Image = (Image)resources.GetObject("btSettings.Image");
+            btSettings.ImageAlign = ContentAlignment.MiddleRight;
+            btSettings.Location = new Point(21, 808);
+            btSettings.Margin = new Padding(5);
+            btSettings.Name = "btSettings";
+            btSettings.Padding = new Padding(12, 0, 12, 0);
+            btSettings.Size = new Size(265, 58);
+            btSettings.TabIndex = 13;
+            btSettings.Text = "الإعدادات";
+            btSettings.TextAlign = ContentAlignment.MiddleRight;
+            btSettings.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btSettings.UseVisualStyleBackColor = false;
             // 
-            // button7
+            // btReports
             // 
-            button7.FlatAppearance.BorderSize = 0;
-            button7.FlatStyle = FlatStyle.Flat;
-            button7.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button7.ForeColor = Color.White;
-            button7.Image = (Image)resources.GetObject("button7.Image");
-            button7.ImageAlign = ContentAlignment.MiddleRight;
-            button7.Location = new Point(21, 725);
-            button7.Margin = new Padding(5);
-            button7.Name = "button7";
-            button7.Padding = new Padding(12, 0, 12, 0);
-            button7.Size = new Size(265, 58);
-            button7.TabIndex = 12;
-            button7.Text = "التقارير";
-            button7.TextAlign = ContentAlignment.MiddleRight;
-            button7.TextImageRelation = TextImageRelation.TextBeforeImage;
-            button7.UseVisualStyleBackColor = false;
+            btReports.FlatAppearance.BorderSize = 0;
+            btReports.FlatStyle = FlatStyle.Flat;
+            btReports.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btReports.ForeColor = Color.White;
+            btReports.Image = (Image)resources.GetObject("btReports.Image");
+            btReports.ImageAlign = ContentAlignment.MiddleRight;
+            btReports.Location = new Point(21, 725);
+            btReports.Margin = new Padding(5);
+            btReports.Name = "btReports";
+            btReports.Padding = new Padding(12, 0, 12, 0);
+            btReports.Size = new Size(265, 58);
+            btReports.TabIndex = 12;
+            btReports.Text = "التقارير";
+            btReports.TextAlign = ContentAlignment.MiddleRight;
+            btReports.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btReports.UseVisualStyleBackColor = false;
             // 
-            // button6
+            // btCustomers
             // 
-            button6.FlatAppearance.BorderSize = 0;
-            button6.FlatStyle = FlatStyle.Flat;
-            button6.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button6.ForeColor = Color.White;
-            button6.Image = (Image)resources.GetObject("button6.Image");
-            button6.ImageAlign = ContentAlignment.MiddleRight;
-            button6.Location = new Point(21, 393);
-            button6.Margin = new Padding(5);
-            button6.Name = "button6";
-            button6.Padding = new Padding(12, 0, 12, 0);
-            button6.Size = new Size(265, 58);
-            button6.TabIndex = 11;
-            button6.Text = "العملاء";
-            button6.TextAlign = ContentAlignment.MiddleRight;
-            button6.TextImageRelation = TextImageRelation.TextBeforeImage;
-            button6.UseVisualStyleBackColor = false;
+            btCustomers.FlatAppearance.BorderSize = 0;
+            btCustomers.FlatStyle = FlatStyle.Flat;
+            btCustomers.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btCustomers.ForeColor = Color.White;
+            btCustomers.Image = (Image)resources.GetObject("btCustomers.Image");
+            btCustomers.ImageAlign = ContentAlignment.MiddleRight;
+            btCustomers.Location = new Point(21, 393);
+            btCustomers.Margin = new Padding(5);
+            btCustomers.Name = "btCustomers";
+            btCustomers.Padding = new Padding(12, 0, 12, 0);
+            btCustomers.Size = new Size(265, 58);
+            btCustomers.TabIndex = 11;
+            btCustomers.Text = "العملاء";
+            btCustomers.TextAlign = ContentAlignment.MiddleRight;
+            btCustomers.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btCustomers.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // btContract
             // 
-            button5.FlatAppearance.BorderSize = 0;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button5.ForeColor = Color.White;
-            button5.Image = (Image)resources.GetObject("button5.Image");
-            button5.ImageAlign = ContentAlignment.MiddleRight;
-            button5.Location = new Point(21, 476);
-            button5.Margin = new Padding(5);
-            button5.Name = "button5";
-            button5.Padding = new Padding(12, 0, 12, 0);
-            button5.Size = new Size(265, 58);
-            button5.TabIndex = 10;
-            button5.Text = "العقود الشهرية";
-            button5.TextAlign = ContentAlignment.MiddleRight;
-            button5.TextImageRelation = TextImageRelation.TextBeforeImage;
-            button5.UseVisualStyleBackColor = false;
+            btContract.FlatAppearance.BorderSize = 0;
+            btContract.FlatStyle = FlatStyle.Flat;
+            btContract.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btContract.ForeColor = Color.White;
+            btContract.Image = (Image)resources.GetObject("btContract.Image");
+            btContract.ImageAlign = ContentAlignment.MiddleRight;
+            btContract.Location = new Point(21, 476);
+            btContract.Margin = new Padding(5);
+            btContract.Name = "btContract";
+            btContract.Padding = new Padding(12, 0, 12, 0);
+            btContract.Size = new Size(265, 58);
+            btContract.TabIndex = 10;
+            btContract.Text = "العقود الشهرية";
+            btContract.TextAlign = ContentAlignment.MiddleRight;
+            btContract.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btContract.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // btPayment
             // 
-            button4.FlatAppearance.BorderSize = 0;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.ForeColor = Color.White;
-            button4.Image = (Image)resources.GetObject("button4.Image");
-            button4.ImageAlign = ContentAlignment.MiddleRight;
-            button4.Location = new Point(21, 559);
-            button4.Margin = new Padding(5);
-            button4.Name = "button4";
-            button4.Padding = new Padding(12, 0, 12, 0);
-            button4.Size = new Size(265, 58);
-            button4.TabIndex = 9;
-            button4.Text = "المدفوعات";
-            button4.TextAlign = ContentAlignment.MiddleRight;
-            button4.TextImageRelation = TextImageRelation.TextBeforeImage;
-            button4.UseVisualStyleBackColor = false;
+            btPayment.FlatAppearance.BorderSize = 0;
+            btPayment.FlatStyle = FlatStyle.Flat;
+            btPayment.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btPayment.ForeColor = Color.White;
+            btPayment.Image = (Image)resources.GetObject("btPayment.Image");
+            btPayment.ImageAlign = ContentAlignment.MiddleRight;
+            btPayment.Location = new Point(21, 559);
+            btPayment.Margin = new Padding(5);
+            btPayment.Name = "btPayment";
+            btPayment.Padding = new Padding(12, 0, 12, 0);
+            btPayment.Size = new Size(265, 58);
+            btPayment.TabIndex = 9;
+            btPayment.Text = "المدفوعات";
+            btPayment.TextAlign = ContentAlignment.MiddleRight;
+            btPayment.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btPayment.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btScheduling
             // 
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.White;
-            button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.ImageAlign = ContentAlignment.MiddleRight;
-            button2.Location = new Point(21, 310);
-            button2.Margin = new Padding(5);
-            button2.Name = "button2";
-            button2.Padding = new Padding(12, 0, 12, 0);
-            button2.Size = new Size(265, 58);
-            button2.TabIndex = 8;
-            button2.Text = "الجدولة";
-            button2.TextAlign = ContentAlignment.MiddleRight;
-            button2.TextImageRelation = TextImageRelation.TextBeforeImage;
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click_1;
+            btScheduling.FlatAppearance.BorderSize = 0;
+            btScheduling.FlatStyle = FlatStyle.Flat;
+            btScheduling.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btScheduling.ForeColor = Color.White;
+            btScheduling.Image = (Image)resources.GetObject("btScheduling.Image");
+            btScheduling.ImageAlign = ContentAlignment.MiddleRight;
+            btScheduling.Location = new Point(21, 310);
+            btScheduling.Margin = new Padding(5);
+            btScheduling.Name = "btScheduling";
+            btScheduling.Padding = new Padding(12, 0, 12, 0);
+            btScheduling.Size = new Size(265, 58);
+            btScheduling.TabIndex = 8;
+            btScheduling.Text = "الجدولة";
+            btScheduling.TextAlign = ContentAlignment.MiddleRight;
+            btScheduling.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btScheduling.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btBooking
             // 
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.ImageAlign = ContentAlignment.MiddleRight;
-            button1.Location = new Point(21, 227);
-            button1.Margin = new Padding(5);
-            button1.Name = "button1";
-            button1.Padding = new Padding(12, 0, 12, 0);
-            button1.Size = new Size(265, 58);
-            button1.TabIndex = 7;
-            button1.Text = "إدارة الحجوزات";
-            button1.TextAlign = ContentAlignment.MiddleRight;
-            button1.TextImageRelation = TextImageRelation.TextBeforeImage;
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click_1;
+            btBooking.FlatAppearance.BorderSize = 0;
+            btBooking.FlatStyle = FlatStyle.Flat;
+            btBooking.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btBooking.ForeColor = Color.White;
+            btBooking.Image = (Image)resources.GetObject("btBooking.Image");
+            btBooking.ImageAlign = ContentAlignment.MiddleRight;
+            btBooking.Location = new Point(21, 227);
+            btBooking.Margin = new Padding(5);
+            btBooking.Name = "btBooking";
+            btBooking.Padding = new Padding(12, 0, 12, 0);
+            btBooking.Size = new Size(265, 58);
+            btBooking.TabIndex = 7;
+            btBooking.Text = "إدارة الحجوزات";
+            btBooking.TextAlign = ContentAlignment.MiddleRight;
+            btBooking.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btBooking.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btMain
             // 
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.White;
-            button3.Image = (Image)resources.GetObject("button3.Image");
-            button3.ImageAlign = ContentAlignment.MiddleRight;
-            button3.Location = new Point(21, 144);
-            button3.Margin = new Padding(5);
-            button3.Name = "button3";
-            button3.Padding = new Padding(12, 0, 12, 0);
-            button3.Size = new Size(265, 58);
-            button3.TabIndex = 6;
-            button3.Text = "الرئيسية";
-            button3.TextAlign = ContentAlignment.MiddleRight;
-            button3.TextImageRelation = TextImageRelation.TextBeforeImage;
-            button3.UseVisualStyleBackColor = false;
+            btMain.FlatAppearance.BorderSize = 0;
+            btMain.FlatStyle = FlatStyle.Flat;
+            btMain.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btMain.ForeColor = Color.White;
+            btMain.Image = (Image)resources.GetObject("btMain.Image");
+            btMain.ImageAlign = ContentAlignment.MiddleRight;
+            btMain.Location = new Point(21, 144);
+            btMain.Margin = new Padding(5);
+            btMain.Name = "btMain";
+            btMain.Padding = new Padding(12, 0, 12, 0);
+            btMain.Size = new Size(265, 58);
+            btMain.TabIndex = 6;
+            btMain.Text = "الرئيسية";
+            btMain.TextAlign = ContentAlignment.MiddleRight;
+            btMain.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btMain.UseVisualStyleBackColor = false;
             // 
             // panel4
             // 
@@ -326,7 +324,7 @@
             // 
             panel2.BackColor = Color.White;
             panel2.Controls.Add(lblDate);
-            panel2.Controls.Add(button9);
+            panel2.Controls.Add(btLogout);
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(300, 0);
             panel2.Margin = new Padding(5);
@@ -347,35 +345,35 @@
             lblDate.TabIndex = 16;
             lblDate.Text = "label3";
             // 
-            // button9
+            // btLogout
             // 
-            button9.Anchor = AnchorStyles.Left;
-            button9.FlatAppearance.BorderSize = 0;
-            button9.FlatStyle = FlatStyle.Flat;
-            button9.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button9.ForeColor = Color.Black;
-            button9.Image = (Image)resources.GetObject("button9.Image");
-            button9.ImageAlign = ContentAlignment.MiddleRight;
-            button9.Location = new Point(49, 11);
-            button9.Margin = new Padding(5);
-            button9.Name = "button9";
-            button9.Size = new Size(265, 71);
-            button9.TabIndex = 15;
-            button9.Text = "تسجيل خروج";
-            button9.TextAlign = ContentAlignment.MiddleRight;
-            button9.TextImageRelation = TextImageRelation.TextBeforeImage;
-            button9.UseVisualStyleBackColor = false;
-            button9.Click += button9_Click_1;
+            btLogout.Anchor = AnchorStyles.Left;
+            btLogout.FlatAppearance.BorderSize = 0;
+            btLogout.FlatStyle = FlatStyle.Flat;
+            btLogout.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btLogout.ForeColor = Color.Black;
+            btLogout.Image = (Image)resources.GetObject("btLogout.Image");
+            btLogout.ImageAlign = ContentAlignment.MiddleRight;
+            btLogout.Location = new Point(49, 11);
+            btLogout.Margin = new Padding(5);
+            btLogout.Name = "btLogout";
+            btLogout.Size = new Size(265, 71);
+            btLogout.TabIndex = 15;
+            btLogout.Text = "تسجيل خروج";
+            btLogout.TextAlign = ContentAlignment.MiddleRight;
+            btLogout.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btLogout.UseVisualStyleBackColor = false;
+            btLogout.Click += button9_Click_1;
             // 
-            // panel3
+            // PanelContaint
             // 
-            panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(300, 88);
-            panel3.Margin = new Padding(5);
-            panel3.Name = "panel3";
-            panel3.Padding = new Padding(31);
-            panel3.Size = new Size(1278, 917);
-            panel3.TabIndex = 2;
+            PanelContaint.Dock = DockStyle.Fill;
+            PanelContaint.Location = new Point(300, 88);
+            PanelContaint.Margin = new Padding(5);
+            PanelContaint.Name = "PanelContaint";
+            PanelContaint.Padding = new Padding(31);
+            PanelContaint.Size = new Size(1278, 917);
+            PanelContaint.TabIndex = 2;
             // 
             // timer1
             // 
@@ -388,7 +386,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(248, 250, 252);
             ClientSize = new Size(1578, 1005);
-            Controls.Add(panel3);
+            Controls.Add(PanelContaint);
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -415,24 +413,24 @@
 
         private Panel panel1;
         private Panel panel2;
-        private Panel panel3;
+        private Panel PanelContaint;
         private Panel panel4;
-        private Button button3;
-        private Button button1;
-        private Button button6;
-        private Button button5;
-        private Button button4;
-        private Button button2;
-        private Button button8;
-        private Button button7;
+        private Button btMain;
+        private Button btBooking;
+        private Button btCustomers;
+        private Button btContract;
+        private Button btPayment;
+        private Button btScheduling;
+        private Button btSettings;
+        private Button btReports;
         private Panel panel5;
         private Label LabelRole;
         private Label LabelUser;
         private PictureBox pictureBox1;
-        private Button button9;
+        private Button btLogout;
         private System.Windows.Forms.Timer timer1;
         private Label lblDate;
         private PictureBox pictureBox3;
-        private Button button10;
+        private Button btExpense;
     }
 }

@@ -57,8 +57,9 @@
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(4, 4, 4, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1022, 125);
+            panel1.Size = new Size(1278, 156);
             panel1.TabIndex = 1;
             // 
             // roundedButton1
@@ -74,10 +75,11 @@
             roundedButton1.ForeColor = Color.White;
             roundedButton1.Image = Properties.Resources.icons8_add_50__1_;
             roundedButton1.ImageAlign = ContentAlignment.MiddleRight;
-            roundedButton1.Location = new Point(24, 35);
+            roundedButton1.Location = new Point(30, 44);
+            roundedButton1.Margin = new Padding(4, 4, 4, 4);
             roundedButton1.Name = "roundedButton1";
-            roundedButton1.Padding = new Padding(20, 10, 20, 10);
-            roundedButton1.Size = new Size(219, 64);
+            roundedButton1.Padding = new Padding(25, 12, 25, 12);
+            roundedButton1.Size = new Size(274, 80);
             roundedButton1.TabIndex = 7;
             roundedButton1.Text = "إضافة حجز جديد";
             roundedButton1.TextAlign = ContentAlignment.MiddleLeft;
@@ -90,10 +92,11 @@
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.DimGray;
-            label3.Location = new Point(775, 76);
+            label3.Location = new Point(969, 95);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.RightToLeft = RightToLeft.Yes;
-            label3.Size = new Size(175, 20);
+            label3.Size = new Size(217, 25);
             label3.TabIndex = 6;
             label3.Text = "إدارة ومتابعة جميع الحجوزات";
             // 
@@ -103,10 +106,10 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.MidnightBlue;
-            label1.Location = new Point(755, 28);
+            label1.Location = new Point(944, 35);
             label1.Margin = new Padding(0);
             label1.Name = "label1";
-            label1.Size = new Size(208, 39);
+            label1.Size = new Size(244, 46);
             label1.TabIndex = 0;
             label1.Text = "إدارة الحجوزات";
             // 
@@ -116,20 +119,20 @@
             panel2.Controls.Add(panel3);
             panel2.Controls.Add(customPanel1);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 125);
+            panel2.Location = new Point(0, 156);
             panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1022, 558);
+            panel2.Size = new Size(1278, 698);
             panel2.TabIndex = 2;
             // 
             // panel3
             // 
             panel3.Controls.Add(dgvBookings);
             panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(0, 107);
+            panel3.Location = new Point(0, 134);
             panel3.Margin = new Padding(2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1022, 451);
+            panel3.Size = new Size(1278, 564);
             panel3.TabIndex = 9;
             // 
             // dgvBookings
@@ -166,6 +169,7 @@
             dgvBookings.HeaderBackColor = Color.FromArgb(243, 244, 246);
             dgvBookings.HeaderForeColor = Color.FromArgb(33, 37, 41);
             dgvBookings.Location = new Point(0, 0);
+            dgvBookings.Margin = new Padding(4, 4, 4, 4);
             dgvBookings.MultiSelect = false;
             dgvBookings.Name = "dgvBookings";
             dgvBookings.ReadOnly = true;
@@ -175,7 +179,7 @@
             dgvBookings.RowHeight = 50;
             dgvBookings.RowTemplate.Height = 50;
             dgvBookings.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvBookings.Size = new Size(1022, 451);
+            dgvBookings.Size = new Size(1278, 564);
             dgvBookings.TabIndex = 8;
             // 
             // customPanel1
@@ -190,9 +194,10 @@
             customPanel1.Controls.Add(txtsearch);
             customPanel1.Dock = DockStyle.Top;
             customPanel1.Location = new Point(0, 0);
+            customPanel1.Margin = new Padding(4, 4, 4, 4);
             customPanel1.Name = "customPanel1";
             customPanel1.ShowShadow = true;
-            customPanel1.Size = new Size(1022, 107);
+            customPanel1.Size = new Size(1278, 134);
             customPanel1.TabIndex = 8;
             // 
             // btnForwardDate
@@ -207,9 +212,10 @@
             btnForwardDate.ForeColor = Color.Silver;
             btnForwardDate.IconAlignment = ContentAlignment.MiddleCenter;
             btnForwardDate.IconSize = new Size(25, 25);
-            btnForwardDate.Location = new Point(24, 39);
+            btnForwardDate.Location = new Point(30, 49);
+            btnForwardDate.Margin = new Padding(4, 4, 4, 4);
             btnForwardDate.Name = "btnForwardDate";
-            btnForwardDate.Size = new Size(40, 31);
+            btnForwardDate.Size = new Size(50, 39);
             btnForwardDate.TabIndex = 19;
             btnForwardDate.UseVisualStyleBackColor = false;
             btnForwardDate.Click += btnForwardDate_Click;
@@ -226,9 +232,10 @@
             btnBackDate.ForeColor = Color.Silver;
             btnBackDate.IconAlignment = ContentAlignment.MiddleCenter;
             btnBackDate.IconSize = new Size(25, 25);
-            btnBackDate.Location = new Point(321, 39);
+            btnBackDate.Location = new Point(401, 49);
+            btnBackDate.Margin = new Padding(4, 4, 4, 4);
             btnBackDate.Name = "btnBackDate";
-            btnBackDate.Size = new Size(40, 31);
+            btnBackDate.Size = new Size(50, 39);
             btnBackDate.TabIndex = 18;
             btnBackDate.UseVisualStyleBackColor = false;
             btnBackDate.Click += btnBackDate_Click;
@@ -238,39 +245,41 @@
             dtpManageBooking.CustomFormat = "yyyy / MM / dd";
             dtpManageBooking.Font = new Font("Tajawal", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpManageBooking.Format = DateTimePickerFormat.Custom;
-            dtpManageBooking.Location = new Point(74, 39);
+            dtpManageBooking.Location = new Point(92, 49);
             dtpManageBooking.Margin = new Padding(2);
             dtpManageBooking.Name = "dtpManageBooking";
             dtpManageBooking.RightToLeft = RightToLeft.Yes;
             dtpManageBooking.RightToLeftLayout = true;
-            dtpManageBooking.Size = new Size(237, 31);
+            dtpManageBooking.Size = new Size(295, 36);
             dtpManageBooking.TabIndex = 17;
             dtpManageBooking.ValueChanged += dtpManageBooking_ValueChanged;
             // 
             // txtsearch
             // 
+            txtsearch.Anchor = AnchorStyles.Right;
             txtsearch.BackColor = Color.White;
             txtsearch.BorderColor = Color.FromArgb(29, 53, 87);
             txtsearch.BorderRadius = 15;
             txtsearch.Icon = Properties.Resources.magnifying_glass;
             txtsearch.IconLocation = HorizontalAlignment.Right;
             txtsearch.IconSize = 32;
-            txtsearch.Location = new Point(803, 20);
+            txtsearch.Location = new Point(684, 36);
+            txtsearch.Margin = new Padding(4, 4, 4, 4);
             txtsearch.Name = "txtsearch";
             txtsearch.passwordChar = "\0";
             txtsearch.PlaceholderText = "بحث عن رقم الهاتف";
             txtsearch.RightToLeft = RightToLeft.Yes;
-            txtsearch.Size = new Size(792, 50);
+            txtsearch.Size = new Size(557, 62);
             txtsearch.TabIndex = 0;
             txtsearch.Texts = "";
             txtsearch._TextChanged += txtsearch_TextChanged;
             // 
             // ManageBooking
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(248, 249, 250);
-            ClientSize = new Size(1022, 683);
+            ClientSize = new Size(1278, 854);
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;

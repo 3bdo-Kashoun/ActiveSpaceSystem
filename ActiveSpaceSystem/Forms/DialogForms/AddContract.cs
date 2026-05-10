@@ -282,5 +282,10 @@ namespace ActiveSpaceSystem.Forms.DialogForms
         private void ShowInfo(string m) => MessageBox.Show(m, "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
         private void ShowError(string m) => MessageBox.Show(m, "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
         private void btnCancel_Click(object sender, EventArgs e) => this.Close();
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -58,9 +58,9 @@ namespace ActiveSpaceSystem.Forms.SideForms
                     }
                 }
             }
-            catch
+            catch (Exception ex) 
             {
-                // إذا فشل تحميل الصور، يتم ترك ImageList فارغاً
+                MessageBox.Show("خطاء في تحميل الصور", "تحدير", MessageBoxButtons.OK);
             }
         }
 

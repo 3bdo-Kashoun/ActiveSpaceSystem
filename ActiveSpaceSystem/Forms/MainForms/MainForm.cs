@@ -24,14 +24,14 @@ namespace ActiveSpaceSystem.Forms.MainForms
         public MainForm(User user)
         {
             InitializeComponent();
-            button1.Click += button1_Click;
-            button2.Click += button2_Click;
-            button3.Click += button3_Click;
-            button4.Click += button4_Click;
-            button5.Click += button5_Click;
-            button6.Click += button6_Click;
-            button7.Click += button7_Click;
-            button8.Click += button8_Click;
+            btBooking.Click += button1_Click;
+            btScheduling.Click += button2_Click;
+            btMain.Click += button3_Click;
+            btPayment.Click += button4_Click;
+            btContract.Click += button5_Click;
+            btCustomers.Click += button6_Click;
+            btReports.Click += button7_Click;
+            btSettings.Click += button8_Click;
             LabelUser.Text = user.FullName;
             LabelRole.Text = user.Role == UserRole.Admin ? "مدير" : "موظف";
             this.WindowState= FormWindowState.Maximized;
@@ -43,7 +43,7 @@ namespace ActiveSpaceSystem.Forms.MainForms
             lblDate.Text = DateTime.Now.ToString("dddd، dd MMMM yyyy", new System.Globalization.CultureInfo("ar-EG"));
 
             // تعيين الزر الرئيسي كنشط افتراضياً
-            ActivateButton(button3);
+            ActivateButton(btMain);
             ShowFormInPanel(new Dashboard()); // أو أي شاشة ترغب بها
         }
 
@@ -51,6 +51,127 @@ namespace ActiveSpaceSystem.Forms.MainForms
         {
             lblDate.Text = DateTime.Now.ToString("dddd، dd MMMM yyyy", new System.Globalization.CultureInfo("ar-EG"));
         }
+     
+
+        // أزرار القائمة:
+        private void button3_Click(object sender, EventArgs e)   // الرئيسية
+        {
+            ActivateButton(btMain);
+            if (DashForm == null || DashForm.IsDisposed)
+            {
+                DashForm = new Dashboard();
+            }
+            ShowFormInPanel(DashForm);
+        }
+
+        private void button1_Click(object sender, EventArgs e)   // إدارة الحجوزات
+        {
+            ActivateButton(btBooking);
+            if (BookingForm == null || BookingForm.IsDisposed)
+            {
+                BookingForm = new ManageBooking();
+                BookingForm.LoadData();
+            }
+
+            ShowFormInPanel(BookingForm);
+        }
+
+        private void button2_Click(object sender, EventArgs e)   // الجدولة
+        {
+            ActivateButton(btScheduling);
+            if (ScheduleForm == null || ScheduleForm.IsDisposed)
+            {
+                ScheduleForm = new SchedulingForm();
+                ScheduleForm.LoadDataToGrid(ScheduleForm.dateTimePicker2.Value);
+
+            }
+            ShowFormInPanel(ScheduleForm);
+        }
+
+        private void button5_Click(object sender, EventArgs e)   // العقود الشهرية
+        {
+            ActivateButton(btContract);
+            if (MonthlyContractForm == null || MonthlyContractForm.IsDisposed)
+            {
+                MonthlyContractForm = new MonthlyContractForm();
+            }
+            ShowFormInPanel(MonthlyContractForm);
+        }
+
+        private void button4_Click(object sender, EventArgs e)   // المدفوعات
+        {
+            ActivateButton(btPayment);
+            if (PaymentForm == null || PaymentForm.IsDisposed)
+            {
+                PaymentForm = new PaymentForm();
+                PaymentForm.LoadData();
+            }
+           
+            ShowFormInPanel(PaymentForm);
+        }
+
+        private void button7_Click(object sender, EventArgs e)   // التقارير
+        {
+            ActivateButton(btReports);
+            if (ReportsForm == null || ReportsForm.IsDisposed)
+            {
+                ReportsForm = new ReportsForm();
+            }
+            ShowFormInPanel(ReportsForm);
+        }
+
+        private void button6_Click(object sender, EventArgs e)   // العملاء
+        {
+            ActivateButton(btCustomers);
+            if (MangeCustomersForm == null || MangeCustomersForm.IsDisposed)
+            {
+                MangeCustomersForm = new MangeCustomers();
+                MangeCustomersForm.LoadData();
+            }
+            ShowFormInPanel(MangeCustomersForm);
+        }
+
+        private void button8_Click(object sender, EventArgs e)   // الإعدادات
+        {
+            ActivateButton(btSettings);
+            if (SettingsForm == null || SettingsForm.IsDisposed)
+            {
+                SettingsForm = new Settings();
+            }
+            ShowFormInPanel(SettingsForm);
+        }
+
+        private void button9_Click_1(object sender, EventArgs e)
+        {
+
+            this.Tag = "logout";
+            // إظهار واجهة الدخول الموجودة مسبقاً في الذاكرة
+            Application.OpenForms["LoginForm"].Show();
+
+            // إغلاق الواجهة الحالية
+            this.Close();
+
+        }
+
+        private void button10_Click(object sender, EventArgs e) //المصروفات
+        {
+            ActivateButton(btExpense);
+            if (ExpensesForm == null || ExpensesForm.IsDisposed)
+            {
+                ExpensesForm = new ExpensesForm();
+            }
+            ShowFormInPanel(ExpensesForm);
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+            if (this.Tag == null)
+            {
+                Application.Exit();
+            }
+        }
+
 
         // دالة لتغيير لون الأزرار
         private void ActivateButton(Button btn)
@@ -65,158 +186,21 @@ namespace ActiveSpaceSystem.Forms.MainForms
             currentActiveButton = btn;
         }
 
-        // دالة لعرض النموذج داخل panel3
+
+
+
+        // دالة لعرض النموذج داخل PanelContaint
         private void ShowFormInPanel(Form form)
         {
-            panel3.Controls.Clear();
+            PanelContaint.Controls.Clear();
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.None;
             form.Dock = DockStyle.Fill;
             form.RightToLeft = RightToLeft.Yes;
             form.RightToLeftLayout = true;
-            panel3.Controls.Add(form);
+            PanelContaint.Controls.Add(form);
             form.Show();
         }
 
-        // أزرار القائمة:
-        private void button3_Click(object sender, EventArgs e)   // الرئيسية
-        {
-            ActivateButton(button3);
-            if (DashForm == null || DashForm.IsDisposed)
-            {
-                DashForm = new Dashboard();
-            }
-            ShowFormInPanel(DashForm);
-        }
-
-        private void button1_Click(object sender, EventArgs e)   // إدارة الحجوزات
-        {
-            ActivateButton(button1);
-            if (BookingForm == null || BookingForm.IsDisposed)
-            {
-                BookingForm = new ManageBooking();
-            }
-            if (BookingForm != null)
-            {
-                BookingForm.LoadData();
-            }
-
-
-            ShowFormInPanel(BookingForm);
-        }
-
-        private void button2_Click(object sender, EventArgs e)   // الجدولة
-        {
-            ActivateButton(button2);
-            if (ScheduleForm == null || ScheduleForm.IsDisposed)
-            {
-                ScheduleForm = new SchedulingForm();
-            }
-            if (ScheduleForm != null)
-            {
-                ScheduleForm.LoadDataToGrid(ScheduleForm.dateTimePicker2.Value);
-            }
-            ShowFormInPanel(ScheduleForm);
-        }
-
-        private void button5_Click(object sender, EventArgs e)   // العقود الشهرية
-        {
-            ActivateButton(button5);
-            if (MonthlyContractForm == null || MonthlyContractForm.IsDisposed)
-            {
-                MonthlyContractForm = new MonthlyContractForm();
-            }
-            ShowFormInPanel(MonthlyContractForm);
-        }
-
-        private void button4_Click(object sender, EventArgs e)   // المدفوعات
-        {
-            ActivateButton(button4);
-            if (PaymentForm == null || PaymentForm.IsDisposed)
-            {
-                PaymentForm = new PaymentForm();
-            }
-            PaymentForm.LoadData();
-            ShowFormInPanel(PaymentForm);
-        }
-
-        private void button7_Click(object sender, EventArgs e)   // التقارير
-        {
-            ActivateButton(button7);
-            if (ReportsForm == null || ReportsForm.IsDisposed)
-            {
-                ReportsForm = new ReportsForm();
-            }
-            ShowFormInPanel(ReportsForm);
-        }
-
-        private void button6_Click(object sender, EventArgs e)   // العملاء
-        {
-            ActivateButton(button6);
-            if (MangeCustomersForm == null || MangeCustomersForm.IsDisposed)
-            {
-                MangeCustomersForm = new MangeCustomers();
-            }
-            if (MangeCustomersForm != null)
-            {
-                MangeCustomersForm.LoadData();
-            }
-            ShowFormInPanel(MangeCustomersForm);
-        }
-
-        private void button8_Click(object sender, EventArgs e)   // الإعدادات
-        {
-            ActivateButton(button8);
-            if (SettingsForm == null || SettingsForm.IsDisposed)
-            {
-                SettingsForm = new Settings();
-            }
-            ShowFormInPanel(SettingsForm);
-        }
-
-
-        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
-            if (this.Tag == null)
-            {
-                Application.Exit();
-            }
-        }
-
-
-
-        private void button9_Click_1(object sender, EventArgs e)
-        {
-
-            this.Tag = "logout";
-
-            // إظهار واجهة الدخول الموجودة مسبقاً في الذاكرة
-            Application.OpenForms["LoginForm"].Show();
-
-            // إغلاق الواجهة الحالية
-            this.Close();
-
-        }
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-            ActivateButton(button10);
-            if (ExpensesForm == null || ExpensesForm.IsDisposed)
-            {
-                ExpensesForm = new ExpensesForm();
-            }
-            ShowFormInPanel(ExpensesForm);
-        }
     }
 }

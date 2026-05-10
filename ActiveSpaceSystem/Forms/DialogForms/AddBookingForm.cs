@@ -97,7 +97,6 @@ namespace ActiveSpaceSystem.Forms.DialogForms
             customer = null;
             this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
 
-<<<<<<< HEAD
             // 2. ضبط الوقت الافتراضي (Start Time & End Time)
             // الحصول على الساعة الحالية وزيادة ساعة واحدة
             DateTime nextHour = DateTime.Now.AddHours(1);
@@ -114,11 +113,7 @@ namespace ActiveSpaceSystem.Forms.DialogForms
 
 
 
-=======
 
-
-
->>>>>>> b3c9359d1a65f6d5dc031a22db1fe0aeac90a6fd
             roundedButton1.Click += roundedButton1_Click;
         }
 

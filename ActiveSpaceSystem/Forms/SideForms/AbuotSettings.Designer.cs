@@ -50,19 +50,18 @@ namespace ActiveSpaceSystem.Forms.SideForms
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1108, 108);
+            panel1.Size = new Size(886, 86);
             panel1.TabIndex = 0;
-            panel1.Paint += panel1_Paint;
             // 
             // label1
             // 
             label1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Tajawal Medium", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(868, 30);
+            label1.Location = new Point(694, 24);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(202, 50);
+            label1.Size = new Size(171, 41);
             label1.TabIndex = 0;
             label1.Text = "حول النظام";
             label1.Click += label1_Click;
@@ -77,13 +76,11 @@ namespace ActiveSpaceSystem.Forms.SideForms
             panel2.Controls.Add(label3);
             panel2.Controls.Add(label2);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 108);
+            panel2.Location = new Point(0, 86);
             panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1108, 450);
+            panel2.Size = new Size(886, 360);
             panel2.TabIndex = 1;
-            panel2.Paint += panel2_Paint;
-            // 
             // roundedButton1
             // 
             roundedButton1.Anchor = AnchorStyles.Left;
@@ -95,10 +92,10 @@ namespace ActiveSpaceSystem.Forms.SideForms
             roundedButton1.FlatStyle = FlatStyle.Flat;
             roundedButton1.Font = new Font("Tajawal Medium", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             roundedButton1.ForeColor = Color.White;
-            roundedButton1.Location = new Point(129, 82);
+            roundedButton1.Location = new Point(103, 66);
             roundedButton1.Margin = new Padding(2);
             roundedButton1.Name = "roundedButton1";
-            roundedButton1.Size = new Size(192, 60);
+            roundedButton1.Size = new Size(154, 48);
             roundedButton1.TabIndex = 6;
             roundedButton1.Text = "حفظ";
             roundedButton1.UseVisualStyleBackColor = false;
@@ -115,12 +112,12 @@ namespace ActiveSpaceSystem.Forms.SideForms
             abdulTextBox3.Icon = null;
             abdulTextBox3.IconLocation = HorizontalAlignment.Left;
             abdulTextBox3.IconSize = 20;
-            abdulTextBox3.Location = new Point(406, 344);
+            abdulTextBox3.Location = new Point(325, 275);
             abdulTextBox3.Margin = new Padding(2);
             abdulTextBox3.Name = "abdulTextBox3";
             abdulTextBox3.passwordChar = "\0";
             abdulTextBox3.PlaceholderText = "";
-            abdulTextBox3.Size = new Size(702, 60);
+            abdulTextBox3.Size = new Size(562, 48);
             abdulTextBox3.TabIndex = 5;
             abdulTextBox3.Texts = "Active Team";
             // 
@@ -129,10 +126,10 @@ namespace ActiveSpaceSystem.Forms.SideForms
             label4.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             label4.AutoSize = true;
             label4.Font = new Font("Tajawal", 10.999999F);
-            label4.Location = new Point(973, 294);
+            label4.Location = new Point(778, 235);
             label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(117, 30);
+            label4.Size = new Size(103, 26);
             label4.TabIndex = 4;
             label4.Text = "فريق العمل";
             // 
@@ -147,15 +144,14 @@ namespace ActiveSpaceSystem.Forms.SideForms
             abdulTextBox2.Icon = null;
             abdulTextBox2.IconLocation = HorizontalAlignment.Left;
             abdulTextBox2.IconSize = 20;
-            abdulTextBox2.Location = new Point(406, 216);
+            abdulTextBox2.Location = new Point(325, 173);
             abdulTextBox2.Margin = new Padding(2);
             abdulTextBox2.Name = "abdulTextBox2";
             abdulTextBox2.passwordChar = "\0";
             abdulTextBox2.PlaceholderText = "";
-            abdulTextBox2.Size = new Size(702, 60);
+            abdulTextBox2.Size = new Size(562, 48);
             abdulTextBox2.TabIndex = 3;
             abdulTextBox2.Texts = "1.0.0";
-            abdulTextBox2._TextChanged += abdulTextBox2__TextChanged;
             // 
             // abdulTextBox1
             // 
@@ -167,12 +163,12 @@ namespace ActiveSpaceSystem.Forms.SideForms
             abdulTextBox1.Icon = null;
             abdulTextBox1.IconLocation = HorizontalAlignment.Left;
             abdulTextBox1.IconSize = 20;
-            abdulTextBox1.Location = new Point(406, 82);
+            abdulTextBox1.Location = new Point(325, 66);
             abdulTextBox1.Margin = new Padding(2);
             abdulTextBox1.Name = "abdulTextBox1";
             abdulTextBox1.passwordChar = "\0";
             abdulTextBox1.PlaceholderText = "";
-            abdulTextBox1.Size = new Size(702, 60);
+            abdulTextBox1.Size = new Size(562, 48);
             abdulTextBox1.TabIndex = 2;
             abdulTextBox1.Texts = "";
             // 
@@ -181,10 +177,10 @@ namespace ActiveSpaceSystem.Forms.SideForms
             label3.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             label3.AutoSize = true;
             label3.Font = new Font("Tajawal", 10.999999F);
-            label3.Location = new Point(973, 163);
+            label3.Location = new Point(778, 130);
             label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(124, 30);
+            label3.Size = new Size(111, 26);
             label3.TabIndex = 1;
             label3.Text = "اصدار النظام";
             label3.Click += label3_Click;
@@ -194,20 +190,20 @@ namespace ActiveSpaceSystem.Forms.SideForms
             label2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             label2.AutoSize = true;
             label2.Font = new Font("Tajawal", 10.999999F);
-            label2.Location = new Point(973, 33);
+            label2.Location = new Point(778, 26);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(115, 30);
+            label2.Size = new Size(102, 26);
             label2.TabIndex = 0;
             label2.Text = "اسم النظام";
             label2.Click += label2_Click;
             // 
             // AbuotSettings
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(248, 249, 250);
-            ClientSize = new Size(1108, 558);
+            ClientSize = new Size(886, 446);
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;

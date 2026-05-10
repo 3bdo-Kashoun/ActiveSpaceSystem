@@ -29,32 +29,22 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddStadiumForm));
-            dtpOpenTime = new DateTimePicker();
             label8 = new Label();
             label4 = new Label();
             label2 = new Label();
             button1 = new Button();
             label1 = new Label();
             nametxt = new ActiveSpaceSystem.CustomItems.AbdulTextBox();
-            dtpCloseTime = new DateTimePicker();
             label3 = new Label();
             roundedButton2 = new ActiveSpaceSystem.CustomItems.RoundedButton();
             roundedButton1 = new ActiveSpaceSystem.CustomItems.RoundedButton();
             customPanel1 = new ActiveSpaceSystem.CustomItems.CustomPanel();
             roundedButton3 = new ActiveSpaceSystem.CustomItems.RoundedButton();
             cmbCourtType = new ComboBox();
+            dtpOpenTime = new DateTimePicker();
+            dtpCloseTime = new DateTimePicker();
             customPanel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // dtpOpenTime
-            // 
-            dtpOpenTime.CalendarFont = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dtpOpenTime.Format = DateTimePickerFormat.Time;
-            dtpOpenTime.Location = new Point(377, 218);
-            dtpOpenTime.Name = "dtpOpenTime";
-            dtpOpenTime.RightToLeft = RightToLeft.Yes;
-            dtpOpenTime.Size = new Size(330, 27);
-            dtpOpenTime.TabIndex = 25;
             // 
             // label8
             // 
@@ -122,16 +112,6 @@
             nametxt.Size = new Size(330, 50);
             nametxt.TabIndex = 22;
             nametxt.Texts = "";
-            // 
-            // dtpCloseTime
-            // 
-            dtpCloseTime.CalendarFont = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dtpCloseTime.Format = DateTimePickerFormat.Time;
-            dtpCloseTime.Location = new Point(41, 218);
-            dtpCloseTime.Name = "dtpCloseTime";
-            dtpCloseTime.RightToLeft = RightToLeft.Yes;
-            dtpCloseTime.Size = new Size(330, 27);
-            dtpCloseTime.TabIndex = 44;
             // 
             // label3
             // 
@@ -221,18 +201,46 @@
             cmbCourtType.Size = new Size(251, 28);
             cmbCourtType.TabIndex = 6;
             // 
+            // dtpOpenTime
+            // 
+            dtpOpenTime.CalendarFont = new Font("Tajawal", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dtpOpenTime.CustomFormat = "HH:mm";
+            dtpOpenTime.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dtpOpenTime.Format = DateTimePickerFormat.Custom;
+            dtpOpenTime.Location = new Point(377, 211);
+            dtpOpenTime.Name = "dtpOpenTime";
+            dtpOpenTime.RightToLeft = RightToLeft.Yes;
+            dtpOpenTime.RightToLeftLayout = true;
+            dtpOpenTime.ShowUpDown = true;
+            dtpOpenTime.Size = new Size(330, 34);
+            dtpOpenTime.TabIndex = 51;
+            // 
+            // dtpCloseTime
+            // 
+            dtpCloseTime.CalendarFont = new Font("Tajawal", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dtpCloseTime.CustomFormat = "HH:mm";
+            dtpCloseTime.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dtpCloseTime.Format = DateTimePickerFormat.Custom;
+            dtpCloseTime.Location = new Point(41, 211);
+            dtpCloseTime.Name = "dtpCloseTime";
+            dtpCloseTime.RightToLeft = RightToLeft.Yes;
+            dtpCloseTime.RightToLeftLayout = true;
+            dtpCloseTime.ShowUpDown = true;
+            dtpCloseTime.Size = new Size(330, 34);
+            dtpCloseTime.TabIndex = 52;
+            // 
             // AddStadiumForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(731, 343);
+            Controls.Add(dtpCloseTime);
+            Controls.Add(dtpOpenTime);
             Controls.Add(customPanel1);
             Controls.Add(roundedButton2);
             Controls.Add(roundedButton1);
-            Controls.Add(dtpCloseTime);
             Controls.Add(label3);
-            Controls.Add(dtpOpenTime);
             Controls.Add(label8);
             Controls.Add(label4);
             Controls.Add(label2);
@@ -250,20 +258,19 @@
         }
 
         #endregion
-
-        private DateTimePicker dtpOpenTime;
         private Label label8;
         private Label label4;
         private Label label2;
         private Button button1;
         private Label label1;
         private CustomItems.AbdulTextBox nametxt;
-        private DateTimePicker dtpCloseTime;
         private Label label3;
         private CustomItems.RoundedButton roundedButton2;
         private CustomItems.RoundedButton roundedButton1;
         private CustomItems.CustomPanel customPanel1;
         private ComboBox cmbCourtType;
         private CustomItems.RoundedButton roundedButton3;
+        public DateTimePicker dtpOpenTime;
+        public DateTimePicker dtpCloseTime;
     }
 }

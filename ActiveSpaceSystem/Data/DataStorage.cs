@@ -17,16 +17,18 @@ namespace ActiveSpaceSystem.Data
         public static List<CourtType> CourtTypesList = new List<CourtType>();
         public static List<MonthlyContract> ContractsList = new List<MonthlyContract>();
         public static List<Payment> PaymentList = new List<Payment>();
+        public static List<Expense> AllExpenses = new List<Expense>();
+
 
         public static Dictionary<string, DayOfWeek> DaysMap = new Dictionary<string, DayOfWeek>
         {
         { "الأحد", DayOfWeek.Sunday },
-         { "الاثنين", DayOfWeek.Monday },
-         { "الثلاثاء", DayOfWeek.Tuesday },
-         { "الأربعاء", DayOfWeek.Wednesday },
-      { "الخميس", DayOfWeek.Thursday },
-    { "الجمعة", DayOfWeek.Friday },
-    { "السبت", DayOfWeek.Saturday }
+        { "الاثنين", DayOfWeek.Monday },
+        { "الثلاثاء", DayOfWeek.Tuesday },
+        { "الأربعاء", DayOfWeek.Wednesday },
+        { "الخميس", DayOfWeek.Thursday },
+        { "الجمعة", DayOfWeek.Friday },
+        { "السبت", DayOfWeek.Saturday }
         };
         static DataStorage()    
         {
@@ -96,5 +98,42 @@ namespace ActiveSpaceSystem.Data
             return schedule;
         }
 
+        public static void SeedExpenseData()
+        {
+            // نتحقق أولاً حتى لا تتكرر البيانات في كل مرة نفتح فيها الواجهة
+            if (AllExpenses.Count > 0) return;
+
+            AllExpenses.Add(new Expense
+            {
+                ExpenseDate = DateTime.Now.AddDays(-2),
+                Amount = 2400.50m,
+                Description = "فاتورة الكهرباء لشهر مايو - الفرع الرئيسي",
+                ExpenseType = new ExpenseType { ExpenseName = "كهرباء ومياه" }
+            });
+
+            AllExpenses.Add(new Expense
+            {
+                ExpenseDate = DateTime.Now.AddDays(-5),
+                Amount = 15000,
+                Description = "إيجار المستودع رقم 4",
+                ExpenseType = new ExpenseType { ExpenseName = "إيجارات" }
+            });
+
+            AllExpenses.Add(new Expense
+            {
+                ExpenseDate = DateTime.Now.AddDays(-1),
+                Amount = 850.75m,
+                Description = "إعلانات فيسبوك وإنستقرام",
+                ExpenseType = new ExpenseType { ExpenseName = "تسويق" }
+            });
+
+            AllExpenses.Add(new Expense
+            {
+                ExpenseDate = DateTime.Now,
+                Amount = 320,
+                Description = "إصلاح مكيف صالة الاستقبال",
+                ExpenseType = new ExpenseType { ExpenseName = "صيانة الملاعب" }
+            });
+        }
     }
 }

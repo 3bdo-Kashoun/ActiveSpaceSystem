@@ -74,7 +74,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
             dgvBookings.CellPainting += DgvBookings_CellPainting;
             dgvBookings.CellClick += DgvBookings_CellClick;
             AddColumns();
-            
+
         }
 
         private void AddColumns()
@@ -236,17 +236,19 @@ namespace ActiveSpaceSystem.Forms.SideForms
         private void roundedButton1_Click(object sender, EventArgs e)
         {
             AddBookingForm frm = new AddBookingForm();
-           
+
             if (frm.ShowDialog() == DialogResult.OK)
             {
-                
-                
+
+
                 LoadData();
                 dgvBookings.ClearSelection();
             }
         }
-       
 
-      
+        private void dgvBookings_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

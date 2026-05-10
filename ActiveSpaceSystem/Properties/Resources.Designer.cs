@@ -133,6 +133,16 @@ namespace ActiveSpaceSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_delete_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-delete-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_edit_48 {
             get {
                 object obj = ResourceManager.GetObject("icons8-edit-48", resourceCulture);
@@ -256,6 +266,16 @@ namespace ActiveSpaceSystem.Properties {
         internal static System.Drawing.Bitmap icons8_users_48__1_ {
             get {
                 object obj = ResourceManager.GetObject("icons8-users-48 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap loupe {
+            get {
+                object obj = ResourceManager.GetObject("loupe", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -30,21 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddExpens));
             label1 = new Label();
-            txtCustomerName = new ActiveSpaceSystem.CustomItems.AbdulTextBox();
-            label2 = new Label();
             label4 = new Label();
             label8 = new Label();
-            txtPricePerHour = new ActiveSpaceSystem.CustomItems.AbdulTextBox();
-            dtpEndTime = new DateTimePicker();
+            txtAmount = new ActiveSpaceSystem.CustomItems.AbdulTextBox();
+            dtpDate = new DateTimePicker();
             btCancel = new ActiveSpaceSystem.CustomItems.RoundedButton();
             label10 = new Label();
             btSave = new ActiveSpaceSystem.CustomItems.RoundedButton();
-            cmbCourtType = new ComboBox();
-            customPanel1 = new ActiveSpaceSystem.CustomItems.CustomPanel();
+            cmbCategory = new ComboBox();
+            panel1 = new ActiveSpaceSystem.CustomItems.CustomPanel();
             button1 = new Button();
             label3 = new Label();
-            abdulTextBox1 = new ActiveSpaceSystem.CustomItems.AbdulTextBox();
-            customPanel1.SuspendLayout();
+            txtDescription = new ActiveSpaceSystem.CustomItems.AbdulTextBox();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -57,35 +55,6 @@
             label1.Size = new Size(265, 42);
             label1.TabIndex = 61;
             label1.Text = "إضافة مصروف جديد";
-            // 
-            // txtCustomerName
-            // 
-            txtCustomerName.BackColor = Color.White;
-            txtCustomerName.BorderColor = Color.FromArgb(29, 53, 87);
-            txtCustomerName.BorderRadius = 15;
-            txtCustomerName.Icon = null;
-            txtCustomerName.IconLocation = HorizontalAlignment.Left;
-            txtCustomerName.IconSize = 20;
-            txtCustomerName.Location = new Point(13, 270);
-            txtCustomerName.Margin = new Padding(4);
-            txtCustomerName.Name = "txtCustomerName";
-            txtCustomerName.passwordChar = "\0";
-            txtCustomerName.PlaceholderText = "أدخل النص هنا...";
-            txtCustomerName.RightToLeft = RightToLeft.Yes;
-            txtCustomerName.Size = new Size(412, 62);
-            txtCustomerName.TabIndex = 84;
-            txtCustomerName.Texts = "";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(338, 216);
-            label2.Margin = new Padding(4, 0, 4, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(89, 30);
-            label2.TabIndex = 65;
-            label2.Text = "العنوان";
             // 
             // label4
             // 
@@ -102,43 +71,43 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(814, 86);
+            label8.Location = new Point(840, 90);
             label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
             label8.Size = new Size(79, 30);
             label8.TabIndex = 72;
             label8.Text = "التاريخ";
             // 
-            // txtPricePerHour
+            // txtAmount
             // 
-            txtPricePerHour.BackColor = Color.White;
-            txtPricePerHour.BorderColor = Color.FromArgb(29, 53, 87);
-            txtPricePerHour.BorderRadius = 15;
-            txtPricePerHour.Icon = null;
-            txtPricePerHour.IconLocation = HorizontalAlignment.Left;
-            txtPricePerHour.IconSize = 20;
-            txtPricePerHour.Location = new Point(481, 270);
-            txtPricePerHour.Margin = new Padding(4);
-            txtPricePerHour.Name = "txtPricePerHour";
-            txtPricePerHour.passwordChar = "\0";
-            txtPricePerHour.PlaceholderText = "أدخل النص هنا...";
-            txtPricePerHour.RightToLeft = RightToLeft.Yes;
-            txtPricePerHour.Size = new Size(412, 62);
-            txtPricePerHour.TabIndex = 73;
-            txtPricePerHour.Texts = "";
+            txtAmount.BackColor = Color.White;
+            txtAmount.BorderColor = Color.FromArgb(29, 53, 87);
+            txtAmount.BorderRadius = 15;
+            txtAmount.Icon = null;
+            txtAmount.IconLocation = HorizontalAlignment.Left;
+            txtAmount.IconSize = 20;
+            txtAmount.Location = new Point(507, 295);
+            txtAmount.Margin = new Padding(4);
+            txtAmount.Name = "txtAmount";
+            txtAmount.passwordChar = "\0";
+            txtAmount.PlaceholderText = "أدخل النص هنا...";
+            txtAmount.RightToLeft = RightToLeft.Yes;
+            txtAmount.Size = new Size(412, 62);
+            txtAmount.TabIndex = 73;
+            txtAmount.Texts = "";
             // 
-            // dtpEndTime
+            // dtpDate
             // 
-            dtpEndTime.CalendarFont = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dtpEndTime.Format = DateTimePickerFormat.Time;
-            dtpEndTime.Location = new Point(485, 147);
-            dtpEndTime.Margin = new Padding(4);
-            dtpEndTime.Name = "dtpEndTime";
-            dtpEndTime.RightToLeft = RightToLeft.Yes;
-            dtpEndTime.RightToLeftLayout = true;
-            dtpEndTime.ShowUpDown = true;
-            dtpEndTime.Size = new Size(412, 31);
-            dtpEndTime.TabIndex = 62;
+            dtpDate.CalendarFont = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dtpDate.Format = DateTimePickerFormat.Time;
+            dtpDate.Location = new Point(507, 158);
+            dtpDate.Margin = new Padding(4);
+            dtpDate.Name = "dtpDate";
+            dtpDate.RightToLeft = RightToLeft.Yes;
+            dtpDate.RightToLeftLayout = true;
+            dtpDate.ShowUpDown = true;
+            dtpDate.Size = new Size(412, 31);
+            dtpDate.TabIndex = 62;
             // 
             // btCancel
             // 
@@ -150,9 +119,9 @@
             btCancel.FlatStyle = FlatStyle.Flat;
             btCancel.Font = new Font("Tajawal", 16.1999989F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btCancel.ForeColor = Color.DimGray;
-            btCancel.Location = new Point(15, 581);
+            btCancel.Location = new Point(12, 394);
             btCancel.Name = "btCancel";
-            btCancel.Size = new Size(405, 75);
+            btCancel.Size = new Size(415, 75);
             btCancel.TabIndex = 77;
             btCancel.Text = "إلغاء";
             btCancel.UseVisualStyleBackColor = false;
@@ -162,7 +131,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(814, 209);
+            label10.Location = new Point(842, 227);
             label10.Margin = new Padding(4, 0, 4, 0);
             label10.Name = "label10";
             label10.Size = new Size(77, 30);
@@ -179,7 +148,7 @@
             btSave.FlatStyle = FlatStyle.Flat;
             btSave.Font = new Font("Tajawal", 16.1999989F, FontStyle.Bold);
             btSave.ForeColor = Color.White;
-            btSave.Location = new Point(514, 581);
+            btSave.Location = new Point(514, 395);
             btSave.Name = "btSave";
             btSave.Size = new Size(405, 75);
             btSave.TabIndex = 80;
@@ -187,32 +156,32 @@
             btSave.UseVisualStyleBackColor = false;
             btSave.Click += btSave_Click;
             // 
-            // cmbCourtType
+            // cmbCategory
             // 
-            cmbCourtType.DisplayMember = "CourtName";
-            cmbCourtType.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbCourtType.FlatStyle = FlatStyle.Flat;
-            cmbCourtType.FormattingEnabled = true;
-            cmbCourtType.Location = new Point(14, 17);
-            cmbCourtType.Margin = new Padding(4);
-            cmbCourtType.Name = "cmbCourtType";
-            cmbCourtType.RightToLeft = RightToLeft.Yes;
-            cmbCourtType.Size = new Size(368, 33);
-            cmbCourtType.TabIndex = 6;
+            cmbCategory.DisplayMember = "CourtName";
+            cmbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCategory.FlatStyle = FlatStyle.Flat;
+            cmbCategory.FormattingEnabled = true;
+            cmbCategory.Location = new Point(14, 17);
+            cmbCategory.Margin = new Padding(4);
+            cmbCategory.Name = "cmbCategory";
+            cmbCategory.RightToLeft = RightToLeft.Yes;
+            cmbCategory.Size = new Size(368, 33);
+            cmbCategory.TabIndex = 6;
             // 
-            // customPanel1
+            // panel1
             // 
-            customPanel1.BackColor = Color.White;
-            customPanel1.BorderColor = Color.Black;
-            customPanel1.BorderRadius = 10;
-            customPanel1.BorderSize = 1F;
-            customPanel1.Controls.Add(cmbCourtType);
-            customPanel1.Location = new Point(15, 124);
-            customPanel1.Margin = new Padding(4);
-            customPanel1.Name = "customPanel1";
-            customPanel1.ShowShadow = false;
-            customPanel1.Size = new Size(412, 69);
-            customPanel1.TabIndex = 82;
+            panel1.BackColor = Color.White;
+            panel1.BorderColor = Color.Black;
+            panel1.BorderRadius = 10;
+            panel1.BorderSize = 1F;
+            panel1.Controls.Add(cmbCategory);
+            panel1.Location = new Point(15, 134);
+            panel1.Margin = new Padding(4);
+            panel1.Name = "panel1";
+            panel1.ShowShadow = false;
+            panel1.Size = new Size(412, 69);
+            panel1.TabIndex = 82;
             // 
             // button1
             // 
@@ -229,56 +198,55 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(457, 381);
+            label3.Location = new Point(351, 236);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(85, 30);
             label3.TabIndex = 78;
             label3.Text = "الوصف";
             // 
-            // abdulTextBox1
+            // txtDescription
             // 
-            abdulTextBox1.BackColor = Color.White;
-            abdulTextBox1.BorderColor = Color.FromArgb(29, 53, 87);
-            abdulTextBox1.BorderRadius = 15;
-            abdulTextBox1.Icon = null;
-            abdulTextBox1.IconLocation = HorizontalAlignment.Left;
-            abdulTextBox1.IconSize = 20;
-            abdulTextBox1.Location = new Point(156, 427);
-            abdulTextBox1.Margin = new Padding(4);
-            abdulTextBox1.Name = "abdulTextBox1";
-            abdulTextBox1.passwordChar = "\0";
-            abdulTextBox1.PlaceholderText = "أدخل النص هنا...";
-            abdulTextBox1.RightToLeft = RightToLeft.Yes;
-            abdulTextBox1.Size = new Size(640, 98);
-            abdulTextBox1.TabIndex = 85;
-            abdulTextBox1.Texts = "";
+            txtDescription.BackColor = Color.White;
+            txtDescription.BorderColor = Color.FromArgb(29, 53, 87);
+            txtDescription.BorderRadius = 15;
+            txtDescription.Icon = null;
+            txtDescription.IconLocation = HorizontalAlignment.Left;
+            txtDescription.IconSize = 20;
+            txtDescription.Location = new Point(15, 299);
+            txtDescription.Margin = new Padding(4);
+            txtDescription.Name = "txtDescription";
+            txtDescription.passwordChar = "\0";
+            txtDescription.PlaceholderText = "أدخل النص هنا...";
+            txtDescription.RightToLeft = RightToLeft.Yes;
+            txtDescription.Size = new Size(412, 62);
+            txtDescription.TabIndex = 85;
+            txtDescription.Texts = "";
             // 
             // AddExpens
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(937, 682);
-            Controls.Add(abdulTextBox1);
-            Controls.Add(txtCustomerName);
-            Controls.Add(customPanel1);
+            ClientSize = new Size(937, 505);
+            Controls.Add(txtDescription);
+            Controls.Add(panel1);
             Controls.Add(btSave);
             Controls.Add(label3);
             Controls.Add(label10);
             Controls.Add(btCancel);
-            Controls.Add(dtpEndTime);
-            Controls.Add(txtPricePerHour);
+            Controls.Add(dtpDate);
+            Controls.Add(txtAmount);
             Controls.Add(label8);
             Controls.Add(label4);
-            Controls.Add(label2);
             Controls.Add(button1);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "AddExpens";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AddExpens";
-            customPanel1.ResumeLayout(false);
+            Load += AddExpens_Load;
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -286,19 +254,17 @@
         #endregion
 
         private Label label1;
-        private CustomItems.AbdulTextBox txtCustomerName;
-        private Label label2;
         private Label label4;
         private Label label8;
-        private CustomItems.AbdulTextBox txtPricePerHour;
-        private DateTimePicker dtpEndTime;
+        private CustomItems.AbdulTextBox txtAmount;
+        private DateTimePicker dtpDate;
         private CustomItems.RoundedButton btCancel;
         private Label label10;
         private CustomItems.RoundedButton btSave;
-        public ComboBox cmbCourtType;
-        private CustomItems.CustomPanel customPanel1;
+        public ComboBox cmbCategory;
+        private CustomItems.CustomPanel panel1;
         private Button button1;
         private Label label3;
-        private CustomItems.AbdulTextBox abdulTextBox1;
+        private CustomItems.AbdulTextBox txtDescription;
     }
 }

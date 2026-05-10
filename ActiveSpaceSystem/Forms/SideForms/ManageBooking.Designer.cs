@@ -77,7 +77,7 @@
             roundedButton1.Location = new Point(24, 37);
             roundedButton1.Name = "roundedButton1";
             roundedButton1.Padding = new Padding(20, 10, 20, 10);
-            roundedButton1.Size = new Size(219, 67);
+            roundedButton1.Size = new Size(234, 67);
             roundedButton1.TabIndex = 7;
             roundedButton1.Text = "إضافة حجز جديد";
             roundedButton1.TextAlign = ContentAlignment.MiddleLeft;

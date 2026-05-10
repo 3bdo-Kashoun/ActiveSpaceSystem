@@ -81,6 +81,7 @@ namespace ActiveSpaceSystem.Forms.DialogForms
                         TypeID = selecttype.TypeID,
                         OpenTime = dtpOpenTime.Value.TimeOfDay,
                         CloseTime = dtpCloseTime.Value.TimeOfDay,
+                        Type= selecttype
                     };
 
                     DataStorage.CourtsList.Add(newcort);

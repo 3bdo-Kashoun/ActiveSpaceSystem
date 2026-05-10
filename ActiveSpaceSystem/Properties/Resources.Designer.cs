@@ -19,7 +19,7 @@ namespace ActiveSpaceSystem.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -57,6 +57,16 @@ namespace ActiveSpaceSystem.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap calendar_70 {
+            get {
+                object obj = ResourceManager.GetObject("calendar-70", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -326,6 +336,36 @@ namespace ActiveSpaceSystem.Properties {
         internal static System.Drawing.Bitmap Modern_Soccer_Ball_and_Pin_Logo__1_1 {
             get {
                 object obj = ResourceManager.GetObject("Modern Soccer Ball and Pin Logo (1)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mon_70 {
+            get {
+                object obj = ResourceManager.GetObject("mon-70", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pulse_70 {
+            get {
+                object obj = ResourceManager.GetObject("pulse-70", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap users_70__1_ {
+            get {
+                object obj = ResourceManager.GetObject("users-70 (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

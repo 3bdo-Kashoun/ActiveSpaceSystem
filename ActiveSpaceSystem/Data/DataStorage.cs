@@ -135,5 +135,6 @@ namespace ActiveSpaceSystem.Data
                 ExpenseType = new ExpenseType { ExpenseName = "صيانة الملاعب" }
             });
         }
+
     }
 }

@@ -75,10 +75,9 @@
             panel1.Controls.Add(panel4);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
             panel1.RightToLeft = RightToLeft.No;
-            panel1.Size = new Size(300, 1005);
+            panel1.Size = new Size(240, 804);
             panel1.TabIndex = 0;
             // 
             // btExpense
@@ -89,11 +88,11 @@
             btExpense.ForeColor = Color.White;
             btExpense.Image = Properties.Resources.icons8_payment_32;
             btExpense.ImageAlign = ContentAlignment.MiddleRight;
-            btExpense.Location = new Point(21, 642);
-            btExpense.Margin = new Padding(5);
+            btExpense.Location = new Point(17, 514);
+            btExpense.Margin = new Padding(4);
             btExpense.Name = "btExpense";
-            btExpense.Padding = new Padding(12, 0, 12, 0);
-            btExpense.Size = new Size(265, 58);
+            btExpense.Padding = new Padding(10, 0, 10, 0);
+            btExpense.Size = new Size(212, 46);
             btExpense.TabIndex = 15;
             btExpense.Text = "المصروفات";
             btExpense.TextAlign = ContentAlignment.MiddleRight;
@@ -107,19 +106,19 @@
             panel5.Controls.Add(LabelRole);
             panel5.Controls.Add(LabelUser);
             panel5.Dock = DockStyle.Bottom;
-            panel5.Location = new Point(0, 905);
-            panel5.Margin = new Padding(5);
+            panel5.Location = new Point(0, 724);
+            panel5.Margin = new Padding(4);
             panel5.Name = "panel5";
-            panel5.Size = new Size(300, 100);
+            panel5.Size = new Size(240, 80);
             panel5.TabIndex = 14;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(246, 22);
-            pictureBox1.Margin = new Padding(5);
+            pictureBox1.Location = new Point(197, 18);
+            pictureBox1.Margin = new Padding(4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(64, 69);
+            pictureBox1.Size = new Size(51, 55);
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
             // 
@@ -128,10 +127,9 @@
             LabelRole.AutoSize = true;
             LabelRole.Font = new Font("Microsoft Sans Serif", 9.799999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             LabelRole.ForeColor = Color.Silver;
-            LabelRole.Location = new Point(69, 66);
-            LabelRole.Margin = new Padding(4, 0, 4, 0);
+            LabelRole.Location = new Point(55, 53);
             LabelRole.Name = "LabelRole";
-            LabelRole.Size = new Size(60, 25);
+            LabelRole.Size = new Size(50, 20);
             LabelRole.TabIndex = 1;
             LabelRole.Text = "موظف";
             // 
@@ -140,10 +138,9 @@
             LabelUser.AutoSize = true;
             LabelUser.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             LabelUser.ForeColor = Color.White;
-            LabelUser.Location = new Point(55, 22);
-            LabelUser.Margin = new Padding(4, 0, 4, 0);
+            LabelUser.Location = new Point(44, 18);
             LabelUser.Name = "LabelUser";
-            LabelUser.Size = new Size(102, 29);
+            LabelUser.Size = new Size(90, 25);
             LabelUser.TabIndex = 0;
             LabelUser.Text = "احمد محمد";
             // 
@@ -155,11 +152,11 @@
             btSettings.ForeColor = Color.White;
             btSettings.Image = (Image)resources.GetObject("btSettings.Image");
             btSettings.ImageAlign = ContentAlignment.MiddleRight;
-            btSettings.Location = new Point(21, 808);
-            btSettings.Margin = new Padding(5);
+            btSettings.Location = new Point(17, 646);
+            btSettings.Margin = new Padding(4);
             btSettings.Name = "btSettings";
-            btSettings.Padding = new Padding(12, 0, 12, 0);
-            btSettings.Size = new Size(265, 58);
+            btSettings.Padding = new Padding(10, 0, 10, 0);
+            btSettings.Size = new Size(212, 46);
             btSettings.TabIndex = 13;
             btSettings.Text = "الإعدادات";
             btSettings.TextAlign = ContentAlignment.MiddleRight;
@@ -174,11 +171,11 @@
             btReports.ForeColor = Color.White;
             btReports.Image = (Image)resources.GetObject("btReports.Image");
             btReports.ImageAlign = ContentAlignment.MiddleRight;
-            btReports.Location = new Point(21, 725);
-            btReports.Margin = new Padding(5);
+            btReports.Location = new Point(17, 580);
+            btReports.Margin = new Padding(4);
             btReports.Name = "btReports";
-            btReports.Padding = new Padding(12, 0, 12, 0);
-            btReports.Size = new Size(265, 58);
+            btReports.Padding = new Padding(10, 0, 10, 0);
+            btReports.Size = new Size(212, 46);
             btReports.TabIndex = 12;
             btReports.Text = "التقارير";
             btReports.TextAlign = ContentAlignment.MiddleRight;
@@ -193,11 +190,11 @@
             btCustomers.ForeColor = Color.White;
             btCustomers.Image = (Image)resources.GetObject("btCustomers.Image");
             btCustomers.ImageAlign = ContentAlignment.MiddleRight;
-            btCustomers.Location = new Point(21, 393);
-            btCustomers.Margin = new Padding(5);
+            btCustomers.Location = new Point(17, 314);
+            btCustomers.Margin = new Padding(4);
             btCustomers.Name = "btCustomers";
-            btCustomers.Padding = new Padding(12, 0, 12, 0);
-            btCustomers.Size = new Size(265, 58);
+            btCustomers.Padding = new Padding(10, 0, 10, 0);
+            btCustomers.Size = new Size(212, 46);
             btCustomers.TabIndex = 11;
             btCustomers.Text = "العملاء";
             btCustomers.TextAlign = ContentAlignment.MiddleRight;
@@ -212,11 +209,11 @@
             btContract.ForeColor = Color.White;
             btContract.Image = (Image)resources.GetObject("btContract.Image");
             btContract.ImageAlign = ContentAlignment.MiddleRight;
-            btContract.Location = new Point(21, 476);
-            btContract.Margin = new Padding(5);
+            btContract.Location = new Point(17, 381);
+            btContract.Margin = new Padding(4);
             btContract.Name = "btContract";
-            btContract.Padding = new Padding(12, 0, 12, 0);
-            btContract.Size = new Size(265, 58);
+            btContract.Padding = new Padding(10, 0, 10, 0);
+            btContract.Size = new Size(212, 46);
             btContract.TabIndex = 10;
             btContract.Text = "العقود الشهرية";
             btContract.TextAlign = ContentAlignment.MiddleRight;
@@ -231,11 +228,11 @@
             btPayment.ForeColor = Color.White;
             btPayment.Image = (Image)resources.GetObject("btPayment.Image");
             btPayment.ImageAlign = ContentAlignment.MiddleRight;
-            btPayment.Location = new Point(21, 559);
-            btPayment.Margin = new Padding(5);
+            btPayment.Location = new Point(17, 447);
+            btPayment.Margin = new Padding(4);
             btPayment.Name = "btPayment";
-            btPayment.Padding = new Padding(12, 0, 12, 0);
-            btPayment.Size = new Size(265, 58);
+            btPayment.Padding = new Padding(10, 0, 10, 0);
+            btPayment.Size = new Size(212, 46);
             btPayment.TabIndex = 9;
             btPayment.Text = "المدفوعات";
             btPayment.TextAlign = ContentAlignment.MiddleRight;
@@ -250,11 +247,11 @@
             btScheduling.ForeColor = Color.White;
             btScheduling.Image = (Image)resources.GetObject("btScheduling.Image");
             btScheduling.ImageAlign = ContentAlignment.MiddleRight;
-            btScheduling.Location = new Point(21, 310);
-            btScheduling.Margin = new Padding(5);
+            btScheduling.Location = new Point(17, 248);
+            btScheduling.Margin = new Padding(4);
             btScheduling.Name = "btScheduling";
-            btScheduling.Padding = new Padding(12, 0, 12, 0);
-            btScheduling.Size = new Size(265, 58);
+            btScheduling.Padding = new Padding(10, 0, 10, 0);
+            btScheduling.Size = new Size(212, 46);
             btScheduling.TabIndex = 8;
             btScheduling.Text = "الجدولة";
             btScheduling.TextAlign = ContentAlignment.MiddleRight;
@@ -269,11 +266,11 @@
             btBooking.ForeColor = Color.White;
             btBooking.Image = (Image)resources.GetObject("btBooking.Image");
             btBooking.ImageAlign = ContentAlignment.MiddleRight;
-            btBooking.Location = new Point(21, 227);
-            btBooking.Margin = new Padding(5);
+            btBooking.Location = new Point(17, 182);
+            btBooking.Margin = new Padding(4);
             btBooking.Name = "btBooking";
-            btBooking.Padding = new Padding(12, 0, 12, 0);
-            btBooking.Size = new Size(265, 58);
+            btBooking.Padding = new Padding(10, 0, 10, 0);
+            btBooking.Size = new Size(212, 46);
             btBooking.TabIndex = 7;
             btBooking.Text = "إدارة الحجوزات";
             btBooking.TextAlign = ContentAlignment.MiddleRight;
@@ -288,35 +285,36 @@
             btMain.ForeColor = Color.White;
             btMain.Image = (Image)resources.GetObject("btMain.Image");
             btMain.ImageAlign = ContentAlignment.MiddleRight;
-            btMain.Location = new Point(21, 144);
-            btMain.Margin = new Padding(5);
+            btMain.Location = new Point(17, 115);
+            btMain.Margin = new Padding(4);
             btMain.Name = "btMain";
-            btMain.Padding = new Padding(12, 0, 12, 0);
-            btMain.Size = new Size(265, 58);
+            btMain.Padding = new Padding(10, 0, 10, 0);
+            btMain.Size = new Size(212, 46);
             btMain.TabIndex = 6;
             btMain.Text = "الرئيسية";
             btMain.TextAlign = ContentAlignment.MiddleRight;
             btMain.TextImageRelation = TextImageRelation.TextBeforeImage;
             btMain.UseVisualStyleBackColor = false;
+            btMain.Click += btMain_Click;
             // 
             // panel4
             // 
             panel4.Controls.Add(pictureBox3);
             panel4.Dock = DockStyle.Top;
             panel4.Location = new Point(0, 0);
-            panel4.Margin = new Padding(5);
+            panel4.Margin = new Padding(4);
             panel4.Name = "panel4";
-            panel4.Size = new Size(300, 134);
+            panel4.Size = new Size(240, 107);
             panel4.TabIndex = 4;
             // 
             // pictureBox3
             // 
             pictureBox3.Dock = DockStyle.Right;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(55, 0);
-            pictureBox3.Margin = new Padding(5);
+            pictureBox3.Location = new Point(44, 0);
+            pictureBox3.Margin = new Padding(4);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(245, 134);
+            pictureBox3.Size = new Size(196, 107);
             pictureBox3.TabIndex = 0;
             pictureBox3.TabStop = false;
             // 
@@ -326,10 +324,10 @@
             panel2.Controls.Add(lblDate);
             panel2.Controls.Add(btLogout);
             panel2.Dock = DockStyle.Top;
-            panel2.Location = new Point(300, 0);
-            panel2.Margin = new Padding(5);
+            panel2.Location = new Point(240, 0);
+            panel2.Margin = new Padding(4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1278, 88);
+            panel2.Size = new Size(1022, 70);
             panel2.TabIndex = 1;
             // 
             // lblDate
@@ -338,10 +336,10 @@
             lblDate.AutoSize = true;
             lblDate.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDate.ForeColor = Color.FromArgb(64, 64, 64);
-            lblDate.Location = new Point(602, 32);
-            lblDate.Margin = new Padding(5, 0, 5, 0);
+            lblDate.Location = new Point(482, 26);
+            lblDate.Margin = new Padding(4, 0, 4, 0);
             lblDate.Name = "lblDate";
-            lblDate.Size = new Size(85, 29);
+            lblDate.Size = new Size(70, 25);
             lblDate.TabIndex = 16;
             lblDate.Text = "label3";
             // 
@@ -354,10 +352,10 @@
             btLogout.ForeColor = Color.Black;
             btLogout.Image = (Image)resources.GetObject("btLogout.Image");
             btLogout.ImageAlign = ContentAlignment.MiddleRight;
-            btLogout.Location = new Point(49, 11);
-            btLogout.Margin = new Padding(5);
+            btLogout.Location = new Point(39, 9);
+            btLogout.Margin = new Padding(4);
             btLogout.Name = "btLogout";
-            btLogout.Size = new Size(265, 71);
+            btLogout.Size = new Size(212, 57);
             btLogout.TabIndex = 15;
             btLogout.Text = "تسجيل خروج";
             btLogout.TextAlign = ContentAlignment.MiddleRight;
@@ -368,11 +366,10 @@
             // PanelContaint
             // 
             PanelContaint.Dock = DockStyle.Fill;
-            PanelContaint.Location = new Point(300, 88);
-            PanelContaint.Margin = new Padding(5);
+            PanelContaint.Location = new Point(240, 70);
+            PanelContaint.Margin = new Padding(4);
             PanelContaint.Name = "PanelContaint";
-            PanelContaint.Padding = new Padding(31);
-            PanelContaint.Size = new Size(1278, 917);
+            PanelContaint.Size = new Size(1022, 734);
             PanelContaint.TabIndex = 2;
             // 
             // timer1
@@ -382,15 +379,15 @@
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(248, 250, 252);
-            ClientSize = new Size(1578, 1005);
+            ClientSize = new Size(1262, 804);
             Controls.Add(PanelContaint);
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Margin = new Padding(5);
+            Margin = new Padding(4);
             Name = "MainForm";
             RightToLeft = RightToLeft.Yes;
             RightToLeftLayout = true;

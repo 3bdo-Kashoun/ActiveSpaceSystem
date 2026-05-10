@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -26,18 +27,17 @@ namespace ActiveSpaceSystem.CustomItems
         private int shadowSize = 6;
         private int shadowOpacity = 40;
         private Image cardIcon;
+        private int iconSize = 36; // الحقل الخاص بحجم الأيقونة
 
         // --- الخصائص (Properties) لظهورها في الـ Designer ---
 
         [Category("Abdul Style - Content")]
-        private bool _isUpdating = false;
-private bool _needsInvalidate = false;
-
-public string TitleText { get => titleText; set { titleText = value; if(!_isUpdating) Invalidate(); else _needsInvalidate = true; } }
+        private bool _isUpdating = false; private bool _needsInvalidate = false;
+        public string TitleText { get => titleText; set { titleText = value; if (!_isUpdating) Invalidate(); else _needsInvalidate = true; } }
         [Category("Abdul Style - Content")]
-        public string ValueText { get => valueText; set { valueText = value; if(!_isUpdating) Invalidate(); else _needsInvalidate = true; } }
+        public string ValueText { get => valueText; set { valueText = value; if (!_isUpdating) Invalidate(); else _needsInvalidate = true; } }
         [Category("Abdul Style - Content")]
-        public string SubValueText { get => subValueText; set { subValueText = value; if(!_isUpdating) Invalidate(); else _needsInvalidate = true; } }
+        public string SubValueText { get => subValueText; set { subValueText = value; if (!_isUpdating) Invalidate(); else _needsInvalidate = true; } }
 
         [Category("Abdul Style - Colors")]
         public Color TitleColor { get => titleColor; set { titleColor = value; Invalidate(); } }
@@ -53,7 +53,7 @@ public string TitleText { get => titleText; set { titleText = value; if(!_isUpda
         [Category("Abdul Style - Fonts")]
         public Font ValueFont { get => valueFont; set { valueFont = value; Invalidate(); } }
         [Category("Abdul Style - Fonts")]
-        public Font SubValueFont { get => subValueFont; set { subValueFont = value; if(!_isUpdating) Invalidate(); else _needsInvalidate = true; } }
+        public Font SubValueFont { get => subValueFont; set { subValueFont = value; if (!_isUpdating) Invalidate(); else _needsInvalidate = true; } }
 
         [Category("Abdul Style - Appearance")]
         public int BorderRadius { get => borderRadius; set { borderRadius = value; Invalidate(); } }
@@ -61,6 +61,10 @@ public string TitleText { get => titleText; set { titleText = value; if(!_isUpda
         public int ShadowSize { get => shadowSize; set { shadowSize = value; Invalidate(); } }
         [Category("Abdul Style - Appearance")]
         public Image CardIcon { get => cardIcon; set { cardIcon = value; Invalidate(); } }
+
+        // الخاصية الجديدة للتحكم في حجم الأيقونة
+        [Category("Abdul Style - Appearance")]
+        public int IconSize { get => iconSize; set { iconSize = value; Invalidate(); } }
 
         public AdvancedStatusCard()
         {
@@ -86,7 +90,7 @@ public string TitleText { get => titleText; set { titleText = value; if(!_isUpda
             }
         }
 
-        
+
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -136,8 +140,8 @@ public string TitleText { get => titleText; set { titleText = value; if(!_isUpda
 
                 if (cardIcon != null)
                 {
-                    int imgSize = 36;
-                    g.DrawImage(cardIcon, iconRect.X + (iconBoxSize - imgSize) / 2, iconRect.Y + (iconBoxSize - imgSize) / 2, imgSize, imgSize);
+                    // تم استخدام الخاصية iconSize هنا بدلاً من الرقم الثابت
+                    g.DrawImage(cardIcon, iconRect.X + (iconBoxSize - iconSize) / 2, iconRect.Y + (iconBoxSize - iconSize) / 2, iconSize, iconSize);
                 }
             }
 
@@ -171,7 +175,5 @@ public string TitleText { get => titleText; set { titleText = value; if(!_isUpda
             path.CloseFigure();
             return path;
         }
-
     }
-
 }

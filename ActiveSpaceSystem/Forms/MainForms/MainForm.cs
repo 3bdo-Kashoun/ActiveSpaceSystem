@@ -20,6 +20,8 @@ namespace ActiveSpaceSystem.Forms.MainForms
         private ExpensesForm ExpensesForm = null!;
 
         private Button? currentActiveButton = null;
+        private int oldWidth = 0;
+        private int oldheight = 0;
 
         public MainForm(User user)
         {
@@ -32,10 +34,18 @@ namespace ActiveSpaceSystem.Forms.MainForms
             btCustomers.Click += button6_Click;
             btReports.Click += button7_Click;
             btSettings.Click += button8_Click;
+            this.Resize += MainForm_Resize;
+            //1280, 851
+            oldWidth = 1280;
+            oldheight = 851;
             LabelUser.Text = user.FullName;
             LabelRole.Text = user.Role == UserRole.Admin ? "مدير" : "موظف";
-            this.WindowState= FormWindowState.Maximized;
+            this.WindowState = FormWindowState.Maximized;
+
         }
+
+
+
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -44,14 +54,14 @@ namespace ActiveSpaceSystem.Forms.MainForms
 
             // تعيين الزر الرئيسي كنشط افتراضياً
             ActivateButton(btMain);
-            ShowFormInPanel(new Dashboard()); // أو أي شاشة ترغب بها
+            ShowFormInPanel(new DashBoardForm()); // أو أي شاشة ترغب بها
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblDate.Text = DateTime.Now.ToString("dddd، dd MMMM yyyy", new System.Globalization.CultureInfo("ar-EG"));
         }
-     
+
 
         // أزرار القائمة:
         private void button3_Click(object sender, EventArgs e)   // الرئيسية
@@ -60,6 +70,11 @@ namespace ActiveSpaceSystem.Forms.MainForms
             if (DashForm == null || DashForm.IsDisposed)
             {
                 DashForm = new DashBoardForm();
+                
+            }
+            if (DashForm != null)
+            {
+                DashForm.LoadData();
             }
             ShowFormInPanel(DashForm);
         }
@@ -72,6 +87,10 @@ namespace ActiveSpaceSystem.Forms.MainForms
                 BookingForm = new ManageBooking();
                 BookingForm.LoadData();
             }
+            if (BookingForm != null)
+            {
+                BookingForm.LoadData();
+            }
 
             ShowFormInPanel(BookingForm);
         }
@@ -82,8 +101,12 @@ namespace ActiveSpaceSystem.Forms.MainForms
             if (ScheduleForm == null || ScheduleForm.IsDisposed)
             {
                 ScheduleForm = new SchedulingForm();
-                ScheduleForm.LoadDataToGrid(ScheduleForm.dateTimePicker2.Value);
+                
 
+            }
+            if (ScheduleForm != null)
+            {
+                ScheduleForm.LoadDataToGrid(ScheduleForm.dateTimePicker2.Value);
             }
             ShowFormInPanel(ScheduleForm);
         }
@@ -94,6 +117,10 @@ namespace ActiveSpaceSystem.Forms.MainForms
             if (MonthlyContractForm == null || MonthlyContractForm.IsDisposed)
             {
                 MonthlyContractForm = new MonthlyContractForm();
+            }
+            if (MangeCustomersForm != null)
+            {
+                MangeCustomersForm.LoadData();
             }
             ShowFormInPanel(MonthlyContractForm);
         }
@@ -106,7 +133,11 @@ namespace ActiveSpaceSystem.Forms.MainForms
                 PaymentForm = new PaymentForm();
                 PaymentForm.LoadData();
             }
-           
+            if (PaymentForm != null)
+            {
+                PaymentForm.LoadData();
+            }
+
             ShowFormInPanel(PaymentForm);
         }
 
@@ -195,12 +226,46 @@ namespace ActiveSpaceSystem.Forms.MainForms
             PanelContaint.Controls.Clear();
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.None;
-            form.Dock = DockStyle.Fill;
+
+            // التحقق من حالة النافذة عند الفتح
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                form.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                form.Dock = DockStyle.None;
+                this.Width = oldWidth;
+                this.Height = oldheight;
+
+            }
+
             form.RightToLeft = RightToLeft.Yes;
             form.RightToLeftLayout = true;
             PanelContaint.Controls.Add(form);
             form.Show();
         }
+        // أضف هذا الحدث من نافذة الخصائص (Events) أو داخل Constructor
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+            if (PanelContaint.Controls.Count > 0 && PanelContaint.Controls[0] is Form activeForm)
+            {
+                if (this.WindowState == FormWindowState.Maximized)
+                {
+                    activeForm.Dock = DockStyle.Fill;
+                }
+                else if (this.WindowState == FormWindowState.Normal)
+                {
+                    activeForm.Dock = DockStyle.None;
+                    this.Size = new Size(oldWidth, oldheight); // إرجاع الحجم القديم بالظبط
+                    activeForm.Size = new Size(PanelContaint.Width, PanelContaint.Height); // حجم الفورم الداخلي
+                }
+            }
+        }
 
+        private void btMain_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

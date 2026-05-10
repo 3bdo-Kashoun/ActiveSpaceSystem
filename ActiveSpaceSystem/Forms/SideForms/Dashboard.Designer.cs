@@ -365,7 +365,6 @@
             chartArea1.AxisY.MajorGrid.Enabled = false;
             chartArea1.Name = "ChartArea1";
             chart1.ChartAreas.Add(chartArea1);
-            chart1.Dock = DockStyle.Fill;
             legend1.Name = "Legend1";
             chart1.Legends.Add(legend1);
             chart1.Location = new Point(10, 10);
@@ -376,7 +375,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             chart1.Series.Add(series1);
-            chart1.Size = new Size(1005, 386);
+            chart1.Size = new Size(931, 386);
             chart1.TabIndex = 5;
             chart1.Text = "chart1";
             // 

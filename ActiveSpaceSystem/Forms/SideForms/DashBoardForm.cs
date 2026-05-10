@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace ActiveSpaceSystem.Forms.SideForms
 {
@@ -19,12 +20,67 @@ namespace ActiveSpaceSystem.Forms.SideForms
         public DashBoardForm()
         {
             InitializeComponent();
-            LoadCourts();
+            this.Load += (s, e) => {
+                LoadCourts();
+                UpdateCards();
+
+            };
+            customChart1.LoadWeeklyRevenueFromStorage();
+            
+
         }
 
         private void label19_Click(object sender, EventArgs e)
         {
 
+        }
+        public void LoadData()
+        {
+            LoadCourts();
+            UpdateCards();
+            customChart1.LoadWeeklyRevenueFromStorage();
+        }
+        private void UpdateCards()
+        {
+            TotalBookingCountCard.ValueText = DataStorage.BookingsList.Count.ToString();
+            TotalCustomersCard.ValueText = DataStorage.CustomersList.Count.ToString();
+
+            string rlm = "\u200F";
+
+            // 1. حساب إجمالي الدخل اليوم
+            double todayTotal = DataStorage.PaymentList
+                .Where(p => p.PaidAt.Date == DateTime.Today.Date)
+                .Sum(b => b.AmountPaid);
+            TotalIncomeCard.ValueText = $"{rlm}{todayTotal:N2} د.ل";
+
+            // --- حساب معدل الإشغال للملاعب اليوم ---
+
+            // 2. جلب حجوزات اليوم فقط
+            var todayBookings = DataStorage.BookingsList
+                .Where(b => b.BookingDate.Date == DateTime.Today.Date)
+                .ToList();
+
+            // 3. حساب إجمالي الساعات المحجوزة فعلياً
+            double totalBookedHours = todayBookings.Sum(b => (b.EndTime - b.StartTime).TotalHours);
+
+            // 4. حساب إجمالي الساعات المتاحة (ساعات العمل لجميع الملاعب)
+            double totalAvailableHours = DataStorage.CourtsList.Sum(c => {
+                TimeSpan closing = (c.CloseTime == TimeSpan.Zero) ? new TimeSpan(23, 59, 59) : c.CloseTime;
+                return (closing - c.OpenTime).TotalHours;
+            });
+
+            // 5. حساب النسبة المئوية
+            double occupancyRate = 0;
+            if (totalAvailableHours > 0)
+            {
+                occupancyRate = (totalBookedHours / totalAvailableHours) * 100;
+            }
+
+            // 6. عرض النسبة في الكارد الخاص بها (بافتراض اسم الكارد OccupancyRateCard)
+            // نستخدم N1 لعرض رقم عشري واحد مثل 75.5%
+            PercentgeCard.ValueText = $"{occupancyRate:N1}%";
+
+           
         }
         public void LoadCourts()
         {
@@ -41,7 +97,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
                 if (currentBooking != null)
                 {
                     card.IsReserved = true;
-                    card.ReservationTime = $"محجوز من {currentBooking.StartTime:HH:mm} إلى {currentBooking.EndTime:HH:mm}";
+                    card.ReservationTime = $"محجوز من {currentBooking.StartTime:hh\\:mm} إلى {currentBooking.EndTime:hh\\:mm}";
                 }
                 else
                 {
@@ -68,40 +124,48 @@ namespace ActiveSpaceSystem.Forms.SideForms
             );
         }
 
-        private void DashBoardForm_MinimumSizeChanged(object sender, EventArgs e)
-        {
-            foreach (var card in flowLayoutPanel1.Controls.OfType<AdvancedStatusCard>())
-            {
-                card.Width = 100; // تحديث عرض الكروت عند تغيير حجم الشاشة
-            }
-        }
+
+
+        // تعريف الفلاق خارج الدالة (على مستوى الكلاس)
+        bool isFirstMode = true;
 
         private void DashBoardForm_DockChanged(object sender, EventArgs e)
         {
-            foreach (var card in flowLayoutPanel1.Controls.OfType<AdvancedStatusCard>())
+            if (isFirstMode)
             {
-                card.Width = 350; // تحديث عرض الكروت عند تغيير حجم الشاشة
+                // --- الإعدادات الجديدة (المرة الأولى) ---
+                foreach (var card in flowLayoutPanel1.Controls.OfType<AdvancedStatusCard>())
+                {
+                    card.Width = 360;
+                    card.Margin = new Padding(10, 0, 10, 0); // مسافة أكبر بين الكروت
+                }
+                flowLayoutPanel1.Padding = new Padding(30, 20, 30, 0); // تقليل الحشو حول الكروت
+
             }
-            flowLayoutPanel1.FlowDirection = FlowDirection.RightToLeft; // تغيير اتجاه التدفق إلى عمودي
-            foreach (var card in CourtPanel.Controls.OfType<CourtCard>())
+            else
             {
-                card.Width = CourtPanel.ClientSize.Width - 25; // تحديث عرض الكروت عند تغيير حجم الشاشة
+                // --- الإعدادات القديمة (المرة الثانية) ---
+                foreach (var card in flowLayoutPanel1.Controls.OfType<AdvancedStatusCard>())
+                {
+                    card.Width = 420; // افترضنا أن هذا هو العرض القديم
+                    card.Margin = new Padding(10);
+                }
+                flowLayoutPanel1.FlowDirection = FlowDirection.RightToLeft;
+                flowLayoutPanel1.Padding = new Padding(30, 20, 30, 20);
+
+
+
             }
-        }
+            isFirstMode = !isFirstMode;
 
-        private void CourtPanel_DockChanged(object sender, EventArgs e)
-        {
 
         }
 
-        private void CourtPanel_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
+
+
         private void CourtPanel_Resize(object sender, EventArgs e)
         {
-            // SuspendLayout تمنع الوميض (Flicker) أثناء تحديث الأحجام
-            CourtPanel.SuspendLayout();
 
             foreach (var card in CourtPanel.Controls.OfType<CourtCard>())
             {
@@ -110,6 +174,21 @@ namespace ActiveSpaceSystem.Forms.SideForms
             }
 
             CourtPanel.ResumeLayout();
+
         }
+
+        private void flowLayoutPanel1_SizeChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel5_SizeChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+
+
+       
     }
 }

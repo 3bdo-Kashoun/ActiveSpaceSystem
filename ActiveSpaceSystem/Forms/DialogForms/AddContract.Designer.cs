@@ -124,9 +124,6 @@
             label6.TabIndex = 35;
             label6.Text = "اليوم الاسبوعي";
             // 
-            // button1
-            // 
-           
             // 
             // label1
             // 

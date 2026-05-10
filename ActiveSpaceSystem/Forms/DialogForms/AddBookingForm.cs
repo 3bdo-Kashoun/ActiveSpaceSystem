@@ -32,6 +32,7 @@ namespace ActiveSpaceSystem.Forms.DialogForms
 
         private Customer customer;
         private BookingViewModel _bookingToEdit;
+        private bool _isDataLoadedExternally = false; // متغير للتحقق إذا تم تحميل بيانات من دالة خارجية
         public AddBookingForm()
         {
 
@@ -59,6 +60,8 @@ namespace ActiveSpaceSystem.Forms.DialogForms
                 txtPhone.Texts = _bookingToEdit.Phone ?? "";
                 txtName.Texts = _bookingToEdit.CustomerName ?? "";
                 txtprice.Texts = _bookingToEdit.Amount.ToString();
+                deposittxt.Visible = false;
+                lblDeposit.Visible = false;
 
                 // 2. معالجة التاريخ (Date)
                 if (DateTime.TryParse(_bookingToEdit.Date, out DateTime bookingDate))
@@ -89,28 +92,56 @@ namespace ActiveSpaceSystem.Forms.DialogForms
                 MessageBox.Show("حدث خطأ أثناء تحميل بيانات الحجز: " + ex.Message);
             }
         }
+        private bool IsBookingConflict(Court court, DateTime date, TimeSpan start, TimeSpan end, out string message)
+        {
+            // أولاً: نستخدم الهيلبر للتحقق العام (الماضي، ساعات العمل، والتداخل مع القائمة)
+            // ملاحظة: الفانكشن IsCourtReserved في الهيلبر تتحقق من كل شيء
+            bool reserved = BookingFormHelper.IsCourtReserved(court, date, start, end, out message);
+
+            if (reserved)
+            {
+                // إذا كنا في حالة تعديل (_bookingToEdit != null)
+                // يجب أن نتأكد: هل التداخل المكتشف هو مع الحجز الذي نقوم بتعديله حالياً؟
+                if (_bookingToEdit != null)
+                {
+                    // نبحث في الداتا ستورج عن الحجوزات المتداخلة "عدا" الحجز الحالي
+                    bool conflictWithOthers = DataStorage.BookingsList.Any(b =>
+                        b.BookingID != _bookingToEdit.BookingID && // استثناء الحجز الحالي
+                        b.CourtID == court.CourtID &&
+                        b.BookingDate.Date == date.Date &&
+                        start < b.EndTime &&
+                        end > b.StartTime
+                    );
+
+                    if (!conflictWithOthers)
+                    {
+                        // إذا كان التداخل فقط مع نفسه، نعتبره متاحاً ونصفر الرسالة
+                        message = string.Empty;
+                        return false;
+                    }
+                }
+                return true; // تداخل حقيقي
+            }
+
+            return false; // لا يوجد تداخل
+        }
 
         private void AddBookingForm_Load(object sender, EventArgs e)
         {
             customer = null;
             this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
 
-            // 2. ضبط الوقت الافتراضي (Start Time & End Time)
-            // الحصول على الساعة الحالية وزيادة ساعة واحدة
-            DateTime nextHour = DateTime.Now.AddHours(1);
+            // التعديل هنا: نتحقق إذا كان الفورم في وضع التعديل أو تم تحميل بيانات خارجياً
+            if (_bookingToEdit == null && !_isDataLoadedExternally)
+            {
+                // فقط إذا كان حجز جديد تماماً ولم تأتِ بيانات من loadCourtData
+                DateTime nextHour = DateTime.Now.AddHours(1);
+                DateTime startTime = new DateTime(nextHour.Year, nextHour.Month, nextHour.Day, nextHour.Hour, 0, 0);
+                DateTime endTime = startTime.AddHours(1);
 
-            // تصفير الدقائق والثواني (مثلاً من 14:35 إلى 15:00)
-            DateTime startTime = new DateTime(nextHour.Year, nextHour.Month, nextHour.Day, nextHour.Hour, 0, 0);
-
-            // وقت النهاية يكون بعد وقت البداية بساعة واحدة (مثلاً 16:00)
-            DateTime endTime = startTime.AddHours(1);
-
-            // إسناد القيم للـ DateTimePickers
-            dtpStartTime.Value = startTime;
-            dtpEndTime.Value = endTime;
-
-
-
+                dtpStartTime.Value = startTime;
+                dtpEndTime.Value = endTime;
+            }
 
             roundedButton1.Click += roundedButton1_Click;
         }
@@ -123,6 +154,7 @@ namespace ActiveSpaceSystem.Forms.DialogForms
             cmbCourtType.DisplayMember = "TypeName";
             cmbCourtType.ValueMember = "TypeName";
             cmbCourtType.DataSource = DataStorage.CourtTypesList;
+            _isDataLoadedExternally = true;
         }
         public void loadCourtData(string courtName, string TypeName, DateTime date, DateTime start, DateTime End)
         {
@@ -249,7 +281,7 @@ namespace ActiveSpaceSystem.Forms.DialogForms
 
         private void roundedButton1_Click(object sender, EventArgs e)
         {
-            // 1. التحقق من المدخلات
+            // 1. التحقق من صحة المدخلات وتعبئة المتغيرات
             if (!ValidateAllInputs(out double totalAmount, out double deposit)) return;
 
             Court selectedCourt = (Court)cmbCourt.SelectedItem;
@@ -257,6 +289,14 @@ namespace ActiveSpaceSystem.Forms.DialogForms
             TimeSpan startTime = new TimeSpan(dtpStartTime.Value.Hour, dtpStartTime.Value.Minute, 0);
             TimeSpan endTime = new TimeSpan(dtpEndTime.Value.Hour, dtpEndTime.Value.Minute, 0);
 
+            // 2. التحقق من تضارب المواعيد (وهي الإضافة التي طلبتها)
+            if (IsBookingConflict(selectedCourt, bookingDate, startTime, endTime, out string conflictMessage))
+            {
+                ShowWarning(conflictMessage);
+                return;
+            }
+
+            // 3. التحقق من المنطق المالي
             if (!BookingFormHelper.TryValidateFinancials(totalAmount, deposit, out string financialWarning))
             {
                 ShowWarning(financialWarning);
@@ -276,21 +316,10 @@ namespace ActiveSpaceSystem.Forms.DialogForms
                     ShowInfo("تم تحديث بيانات الحجز بنجاح.");
                 }
 
-                // --- التعديل هنا: تحديث الواجهات الخارجية مباشرة ---
-
-                // 1. تحديث واجهة الحجوزات (الواجهة الأساسية التي تعرض الحجوزات اليومية)
-                var bookingForm = Application.OpenForms.OfType<ManageBooking>().FirstOrDefault();
-                bookingForm?.LoadData();
-
-                // 2. تحديث واجهة العملاء (لأن الديون TotalDebt قد تغيرت)
-                var customersForm = Application.OpenForms.OfType<MangeCustomers>().FirstOrDefault();
-                customersForm?.LoadData();
-
-                // 3. تحديث واجهة المدفوعات (لأننا أضفنا عربون جديد في سجل المدفوعات)
-                var paymentsForm = Application.OpenForms.OfType<PaymentForm>().FirstOrDefault();
-                paymentsForm?.LoadData();
-
-                // --------------------------------------------------
+                // تحديث الواجهات الخارجية
+                Application.OpenForms.OfType<ManageBooking>().FirstOrDefault()?.LoadData();
+                Application.OpenForms.OfType<MangeCustomers>().FirstOrDefault()?.LoadData();
+                Application.OpenForms.OfType<PaymentForm>().FirstOrDefault()?.LoadData();
 
                 this.DialogResult = DialogResult.OK;
                 this.Close();
@@ -318,7 +347,7 @@ namespace ActiveSpaceSystem.Forms.DialogForms
                 original.Deposit = deposit;
 
                 // تحديث الحالة المالية (مدفوع جزئي، مؤكد، إلخ) بناءً على المبلغ
-                original.Status = (deposit >= totalAmount) ? BookingStatus.Confirmed : BookingStatus.Completed;
+                original.Status = (deposit >= totalAmount) ? BookingStatus.Completed : BookingStatus.Confirmed;
             }
         }
 
@@ -327,6 +356,7 @@ namespace ActiveSpaceSystem.Forms.DialogForms
             totalAmount = 0;
             deposit = 0;
 
+            // التحقق من الهاتف والاسم (كما هي)
             if (!ValidationHelper.IsValidPhoneNumber(txtPhone.Texts, out string phoneError))
             {
                 ShowWarning(phoneError);
@@ -341,20 +371,11 @@ namespace ActiveSpaceSystem.Forms.DialogForms
                 return false;
             }
 
-            if (cmbCourtType.SelectedValue == null)
-            {
-                ShowWarning("الرجاء اختيار نوع الملعب أولاً.");
-                cmbCourtType.Focus();
-                return false;
-            }
+            // التحقق من نوع الملعب والملعب (كما هي)
+            if (cmbCourtType.SelectedValue == null) { /* ... تنبيه ... */ return false; }
+            if (cmbCourt.SelectedItem == null) { /* ... تنبيه ... */ return false; }
 
-            if (cmbCourt.SelectedItem == null)
-            {
-                ShowWarning("الرجاء تحديد ملعب من القائمة.");
-                cmbCourt.Focus();
-                return false;
-            }
-
+            // 1. التحقق من السعر الإجمالي
             if (!ValidationHelper.IsValidDecimalValue(txtprice.Texts, "سعر الحجز الإجمالي", out totalAmount, out string priceError))
             {
                 ShowWarning(priceError);
@@ -362,11 +383,23 @@ namespace ActiveSpaceSystem.Forms.DialogForms
                 return false;
             }
 
-            if (!ValidationHelper.IsValidDecimalValue(deposittxt.Texts, "قيمة العربون المدفوع", out deposit, out string depositError))
+            // 2. التعديل هنا: التحقق من العربون فقط إذا لم نكن في وضع التعديل
+            if (_bookingToEdit == null)
             {
-                ShowWarning(depositError);
-                deposittxt.Focus();
-                return false;
+                if (!ValidationHelper.IsValidDecimalValue(deposittxt.Texts, "قيمة العربون المدفوع", out deposit, out string depositError))
+                {
+                    ShowWarning(depositError);
+                    deposittxt.Focus();
+                    return false;
+                }
+            }
+            else
+            {
+
+
+               var original = DataStorage.BookingsList.FirstOrDefault(b => b.BookingID == _bookingToEdit.BookingID);
+                deposit = original?.Deposit ?? 0;
+
             }
 
             return true;

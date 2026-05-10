@@ -286,7 +286,7 @@
             Margin = new Padding(4);
             Name = "MonthlyContractForm";
             Text = "MonthlyContractForm";
-            Load += MonthlyContractForm_Load_1;
+            
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);

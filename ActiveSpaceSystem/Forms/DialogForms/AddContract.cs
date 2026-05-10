@@ -141,7 +141,7 @@ namespace ActiveSpaceSystem.Forms.DialogForms
             }
             else
             {
-                txtName.Texts = "";
+                
                 txtName.Enabled = true;
             }
             return true;
@@ -175,7 +175,8 @@ namespace ActiveSpaceSystem.Forms.DialogForms
                 DataStorage.BookingsList.RemoveAll(b => b.ContractID == contract.ContractID);
                 DataStorage.PaymentList.RemoveAll(p => p.Booking != null && p.Booking.ContractID == contract.ContractID);
             }
-
+            
+            var customer = DataStorage.CustomersList.FirstOrDefault(c => c.CustomerID == _currentCustomer.CustomerID);
             contract.CustomerID = _currentCustomer.CustomerID;
             contract.CourtID = selectedCourt.CourtID;
             contract.DayOfWeek = selectedDay.ToString();
@@ -185,6 +186,8 @@ namespace ActiveSpaceSystem.Forms.DialogForms
             contract.FixedEndTime = endTime;
             contract.PricePerHour = pricePerHour;
             contract.Status = MonthlyContractStatus.Active;
+            contract.Customer = customer;
+
 
             contract.GenerateBookings();
 

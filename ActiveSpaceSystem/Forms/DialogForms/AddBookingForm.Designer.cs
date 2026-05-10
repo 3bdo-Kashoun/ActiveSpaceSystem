@@ -44,7 +44,7 @@
             dtpEndTime = new DateTimePicker();
             label9 = new Label();
             txtprice = new ActiveSpaceSystem.CustomItems.AbdulTextBox();
-            label10 = new Label();
+            lblDeposit = new Label();
             deposittxt = new ActiveSpaceSystem.CustomItems.AbdulTextBox();
             cmbCourtType = new ComboBox();
             customPanel1 = new ActiveSpaceSystem.CustomItems.CustomPanel();
@@ -239,15 +239,15 @@
             txtprice.TabIndex = 16;
             txtprice.Texts = "";
             // 
-            // label10
+            // lblDeposit
             // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(521, 477);
-            label10.Name = "label10";
-            label10.Size = new Size(62, 25);
-            label10.TabIndex = 19;
-            label10.Text = "عربون";
+            lblDeposit.AutoSize = true;
+            lblDeposit.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDeposit.Location = new Point(521, 477);
+            lblDeposit.Name = "lblDeposit";
+            lblDeposit.Size = new Size(62, 25);
+            lblDeposit.TabIndex = 19;
+            lblDeposit.Text = "عربون";
             // 
             // deposittxt
             // 
@@ -345,7 +345,6 @@
             roundedButton1.TabIndex = 52;
             roundedButton1.Text = "حفظ الحجز";
             roundedButton1.UseVisualStyleBackColor = false;
-        
             // 
             // btnCancel
             // 
@@ -378,7 +377,7 @@
             Controls.Add(customPanel1);
             Controls.Add(dtpEndTime);
             Controls.Add(dtpBookingDate);
-            Controls.Add(label10);
+            Controls.Add(lblDeposit);
             Controls.Add(deposittxt);
             Controls.Add(label9);
             Controls.Add(txtprice);
@@ -422,7 +421,7 @@
         private Label label8;
         private Label label9;
         private CustomItems.AbdulTextBox txtprice;
-        private Label label10;
+        private Label lblDeposit;
         private CustomItems.AbdulTextBox deposittxt;
         private CustomItems.CustomPanel customPanel1;
         public DateTimePicker dtpBookingDate;

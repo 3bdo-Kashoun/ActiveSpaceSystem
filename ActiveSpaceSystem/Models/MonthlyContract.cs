@@ -28,6 +28,7 @@ namespace ActiveSpace.Models
         public double Deposit { get; set; } // مبلغ العربون المدفوع عند توقيع العقد
 
         public MonthlyContractStatus Status { get; set; }
+        public Customer Customer { get; set; }
 
         public List<Booking> Bookings { get; set; } = new List<Booking>();
 
@@ -88,7 +89,8 @@ namespace ActiveSpace.Models
             FixedEndTime = new TimeSpan(21, 30, 0),  // إلى 9:30 مساءً (ساعة ونصف)
             DayOfWeek = "Saturday",
             PricePerHour = 50, // سعر الساعة
-            Status = MonthlyContractStatus.Active
+            Status = MonthlyContractStatus.Active,
+            Customer = DataStorage.CustomersList[0] // ربط كائن العميل بالعقد
         },
 
         // العقد الثاني: حجز يوم الثلاثاء بدأ من أسبوع مضى
@@ -103,7 +105,8 @@ namespace ActiveSpace.Models
             FixedEndTime = new TimeSpan(19, 0, 0),  // إلى الساعة 7 مساءً (ساعة واحدة)
             DayOfWeek = "Tuesday",
             PricePerHour = 40,
-            Status = MonthlyContractStatus.Active
+            Status = MonthlyContractStatus.Active,
+            Customer=DataStorage.CustomersList.Count > 1 ? DataStorage.CustomersList[1] : DataStorage.CustomersList[0] // ربط كائن العميل بالعقد
         }
     };
 

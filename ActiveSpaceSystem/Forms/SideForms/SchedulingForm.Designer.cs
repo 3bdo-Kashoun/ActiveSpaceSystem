@@ -46,6 +46,8 @@
             stadiumGrid1 = new ActiveSpaceSystem.CustomItems.StadiumGrid();
             panel4 = new Panel();
             statusCard4 = new ActiveSpaceSystem.CustomItems.StatusCard();
+            btnBackDate = new ActiveSpaceSystem.CustomItems.IconButton();
+            btnForwardDate = new ActiveSpaceSystem.CustomItems.IconButton();
             dateTimePicker2 = new DateTimePicker();
             pillButton5 = new ActiveSpaceSystem.CustomItems.PillButton();
             pillButton4 = new ActiveSpaceSystem.CustomItems.PillButton();
@@ -316,17 +318,19 @@
             // 
             // statusCard4
             // 
+            statusCard4.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             statusCard4.BackColor = Color.Transparent;
             statusCard4.BorderColor = Color.Black;
             statusCard4.BorderRadius = 15;
             statusCard4.CardBackColor = Color.White;
+            statusCard4.Controls.Add(btnBackDate);
+            statusCard4.Controls.Add(btnForwardDate);
             statusCard4.Controls.Add(dateTimePicker2);
             statusCard4.Controls.Add(pillButton5);
             statusCard4.Controls.Add(pillButton4);
             statusCard4.Controls.Add(pillButton3);
             statusCard4.Controls.Add(pillButton2);
             statusCard4.Controls.Add(pillButton1);
-            statusCard4.Dock = DockStyle.Fill;
             statusCard4.Location = new Point(0, 0);
             statusCard4.Margin = new Padding(80);
             statusCard4.Name = "statusCard4";
@@ -343,13 +347,53 @@
             statusCard4.ValueFont = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             statusCard4.ValueText = "";
             // 
+            // btnBackDate
+            // 
+            btnBackDate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnBackDate.BackColor = Color.LightGray;
+            btnBackDate.BorderColor = Color.PaleVioletRed;
+            btnBackDate.BorderRadius = 15;
+            btnBackDate.BorderSize = 0;
+            btnBackDate.ButtonIcon = Properties.Resources.icons8_arrow_right_50;
+            btnBackDate.FlatAppearance.BorderSize = 0;
+            btnBackDate.FlatStyle = FlatStyle.Flat;
+            btnBackDate.ForeColor = Color.Silver;
+            btnBackDate.IconAlignment = ContentAlignment.MiddleCenter;
+            btnBackDate.IconSize = new Size(25, 25);
+            btnBackDate.Location = new Point(963, 34);
+            btnBackDate.Name = "btnBackDate";
+            btnBackDate.Size = new Size(40, 31);
+            btnBackDate.TabIndex = 18;
+            btnBackDate.UseVisualStyleBackColor = false;
+            btnBackDate.Click += btnBackDate_Click_1;
+            // 
+            // btnForwardDate
+            // 
+            btnForwardDate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnForwardDate.BackColor = Color.LightGray;
+            btnForwardDate.BorderColor = Color.PaleVioletRed;
+            btnForwardDate.BorderRadius = 15;
+            btnForwardDate.BorderSize = 0;
+            btnForwardDate.ButtonIcon = Properties.Resources.icons8_arrow_left_50;
+            btnForwardDate.FlatAppearance.BorderSize = 0;
+            btnForwardDate.FlatStyle = FlatStyle.Flat;
+            btnForwardDate.ForeColor = Color.Silver;
+            btnForwardDate.IconAlignment = ContentAlignment.MiddleCenter;
+            btnForwardDate.IconSize = new Size(25, 25);
+            btnForwardDate.Location = new Point(660, 34);
+            btnForwardDate.Name = "btnForwardDate";
+            btnForwardDate.Size = new Size(40, 31);
+            btnForwardDate.TabIndex = 17;
+            btnForwardDate.UseVisualStyleBackColor = false;
+            btnForwardDate.Click += btnForwardDate_Click;
+            // 
             // dateTimePicker2
             // 
-            dateTimePicker2.Anchor = AnchorStyles.Right;
+            dateTimePicker2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             dateTimePicker2.CustomFormat = "yyyy / MM / dd";
             dateTimePicker2.Font = new Font("Tajawal", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dateTimePicker2.Format = DateTimePickerFormat.Custom;
-            dateTimePicker2.Location = new Point(713, 34);
+            dateTimePicker2.Location = new Point(716, 34);
             dateTimePicker2.Margin = new Padding(2);
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.RightToLeft = RightToLeft.Yes;
@@ -522,5 +566,7 @@
         private CustomItems.StatusCard statusCard3;
         private CustomItems.StatusCard statusCard2;
         public DateTimePicker dateTimePicker2;
+        private CustomItems.IconButton btnForwardDate;
+        private CustomItems.IconButton btnBackDate;
     }
 }

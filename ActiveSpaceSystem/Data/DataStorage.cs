@@ -38,7 +38,7 @@ namespace ActiveSpaceSystem.Data
             CourtsList = Court.GetFakeData();
             CourtTypesList=CourtType.GetFakeData();
             
-         
+            ContractsList = MonthlyContract.GetFakeData();
             BookingsList = Booking.GetFakeData();
             PaymentList = Payment.GetFakeData();
 

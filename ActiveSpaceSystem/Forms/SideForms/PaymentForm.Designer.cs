@@ -31,12 +31,15 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel1 = new Panel();
+            btnForwardDate = new ActiveSpaceSystem.CustomItems.IconButton();
+            btnBackDate = new ActiveSpaceSystem.CustomItems.IconButton();
+            dtpPaymentDate = new DateTimePicker();
             label3 = new Label();
             label1 = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
-            advancedStatusCard3 = new ActiveSpaceSystem.CustomItems.AdvancedStatusCard();
-            advancedStatusCard2 = new ActiveSpaceSystem.CustomItems.AdvancedStatusCard();
-            advancedStatusCard1 = new ActiveSpaceSystem.CustomItems.AdvancedStatusCard();
+            DownPaymentCard = new ActiveSpaceSystem.CustomItems.AdvancedStatusCard();
+            TotalDebtsCard = new ActiveSpaceSystem.CustomItems.AdvancedStatusCard();
+            DailyIncomeCard = new ActiveSpaceSystem.CustomItems.AdvancedStatusCard();
             tableLayoutPanel2 = new TableLayoutPanel();
             dgvReservation = new ActiveSpaceSystem.CustomItems.CustomDataGridView();
             bookingDetailsCard = new ActiveSpaceSystem.CustomItems.BookingDetailsCard();
@@ -49,6 +52,9 @@
             // panel1
             // 
             panel1.AutoScroll = true;
+            panel1.Controls.Add(btnForwardDate);
+            panel1.Controls.Add(btnBackDate);
+            panel1.Controls.Add(dtpPaymentDate);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
@@ -57,6 +63,58 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1064, 101);
             panel1.TabIndex = 13;
+            // 
+            // btnForwardDate
+            // 
+            btnForwardDate.BackColor = Color.LightGray;
+            btnForwardDate.BorderColor = Color.PaleVioletRed;
+            btnForwardDate.BorderRadius = 15;
+            btnForwardDate.BorderSize = 0;
+            btnForwardDate.ButtonIcon = Properties.Resources.icons8_arrow_left_50;
+            btnForwardDate.FlatAppearance.BorderSize = 0;
+            btnForwardDate.FlatStyle = FlatStyle.Flat;
+            btnForwardDate.ForeColor = Color.Silver;
+            btnForwardDate.IconAlignment = ContentAlignment.MiddleCenter;
+            btnForwardDate.IconSize = new Size(25, 25);
+            btnForwardDate.Location = new Point(70, 40);
+            btnForwardDate.Name = "btnForwardDate";
+            btnForwardDate.Size = new Size(40, 31);
+            btnForwardDate.TabIndex = 16;
+            btnForwardDate.UseVisualStyleBackColor = false;
+            btnForwardDate.Click += btnForwardDate_Click;
+            // 
+            // btnBackDate
+            // 
+            btnBackDate.BackColor = Color.LightGray;
+            btnBackDate.BorderColor = Color.PaleVioletRed;
+            btnBackDate.BorderRadius = 15;
+            btnBackDate.BorderSize = 0;
+            btnBackDate.ButtonIcon = Properties.Resources.icons8_arrow_right_50;
+            btnBackDate.FlatAppearance.BorderSize = 0;
+            btnBackDate.FlatStyle = FlatStyle.Flat;
+            btnBackDate.ForeColor = Color.Silver;
+            btnBackDate.IconAlignment = ContentAlignment.MiddleCenter;
+            btnBackDate.IconSize = new Size(25, 25);
+            btnBackDate.Location = new Point(367, 40);
+            btnBackDate.Name = "btnBackDate";
+            btnBackDate.Size = new Size(40, 31);
+            btnBackDate.TabIndex = 15;
+            btnBackDate.UseVisualStyleBackColor = false;
+            btnBackDate.Click += btnBackDate_Click;
+            // 
+            // dtpPaymentDate
+            // 
+            dtpPaymentDate.CustomFormat = "yyyy / MM / dd";
+            dtpPaymentDate.Font = new Font("Tajawal", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dtpPaymentDate.Format = DateTimePickerFormat.Custom;
+            dtpPaymentDate.Location = new Point(120, 40);
+            dtpPaymentDate.Margin = new Padding(2);
+            dtpPaymentDate.Name = "dtpPaymentDate";
+            dtpPaymentDate.RightToLeft = RightToLeft.Yes;
+            dtpPaymentDate.RightToLeftLayout = true;
+            dtpPaymentDate.Size = new Size(237, 31);
+            dtpPaymentDate.TabIndex = 14;
+            dtpPaymentDate.ValueChanged += dtpPaymentDate_ValueChanged;
             // 
             // label3
             // 
@@ -89,9 +147,9 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel1.Controls.Add(advancedStatusCard3, 2, 0);
-            tableLayoutPanel1.Controls.Add(advancedStatusCard2, 1, 0);
-            tableLayoutPanel1.Controls.Add(advancedStatusCard1, 0, 0);
+            tableLayoutPanel1.Controls.Add(DownPaymentCard, 2, 0);
+            tableLayoutPanel1.Controls.Add(TotalDebtsCard, 1, 0);
+            tableLayoutPanel1.Controls.Add(DailyIncomeCard, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Top;
             tableLayoutPanel1.Location = new Point(0, 101);
             tableLayoutPanel1.Margin = new Padding(2);
@@ -101,74 +159,74 @@
             tableLayoutPanel1.Size = new Size(1064, 127);
             tableLayoutPanel1.TabIndex = 16;
             // 
-            // advancedStatusCard3
+            // DownPaymentCard
             // 
-            advancedStatusCard3.BackColor = Color.White;
-            advancedStatusCard3.BorderRadius = 20;
-            advancedStatusCard3.CardIcon = Properties.Resources.icons8_bank_approved_48;
-            advancedStatusCard3.Dock = DockStyle.Fill;
-            advancedStatusCard3.IconBackColor = Color.FromArgb(43, 127, 255);
-            advancedStatusCard3.Location = new Point(3, 3);
-            advancedStatusCard3.Name = "advancedStatusCard3";
-            advancedStatusCard3.Padding = new Padding(10);
-            advancedStatusCard3.ShadowSize = 1;
-            advancedStatusCard3.Size = new Size(350, 121);
-            advancedStatusCard3.SubValueColor = Color.Gray;
-            advancedStatusCard3.SubValueFont = new Font("Tajawal", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            advancedStatusCard3.SubValueText = "اليوم";
-            advancedStatusCard3.TabIndex = 18;
-            advancedStatusCard3.TitleColor = Color.Gray;
-            advancedStatusCard3.TitleFont = new Font("Tajawal Medium", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            advancedStatusCard3.TitleText = "العربون المحصل";
-            advancedStatusCard3.ValueColor = Color.FromArgb(43, 127, 255);
-            advancedStatusCard3.ValueFont = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
-            advancedStatusCard3.ValueText = "5,650 د.ل";
+            DownPaymentCard.BackColor = Color.White;
+            DownPaymentCard.BorderRadius = 20;
+            DownPaymentCard.CardIcon = Properties.Resources.icons8_bank_approved_48;
+            DownPaymentCard.Dock = DockStyle.Fill;
+            DownPaymentCard.IconBackColor = Color.FromArgb(43, 127, 255);
+            DownPaymentCard.Location = new Point(3, 3);
+            DownPaymentCard.Name = "DownPaymentCard";
+            DownPaymentCard.Padding = new Padding(10);
+            DownPaymentCard.ShadowSize = 1;
+            DownPaymentCard.Size = new Size(350, 121);
+            DownPaymentCard.SubValueColor = Color.Gray;
+            DownPaymentCard.SubValueFont = new Font("Tajawal", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            DownPaymentCard.SubValueText = "اليوم";
+            DownPaymentCard.TabIndex = 18;
+            DownPaymentCard.TitleColor = Color.Gray;
+            DownPaymentCard.TitleFont = new Font("Tajawal Medium", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            DownPaymentCard.TitleText = "إجمالي الدفعات المقدمة";
+            DownPaymentCard.ValueColor = Color.FromArgb(43, 127, 255);
+            DownPaymentCard.ValueFont = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
+            DownPaymentCard.ValueText = "5,650 د.ل";
             // 
-            // advancedStatusCard2
+            // TotalDebtsCard
             // 
-            advancedStatusCard2.BackColor = Color.White;
-            advancedStatusCard2.BorderRadius = 20;
-            advancedStatusCard2.CardIcon = Properties.Resources.icons8_alert_50__1_;
-            advancedStatusCard2.Dock = DockStyle.Fill;
-            advancedStatusCard2.IconBackColor = Color.FromArgb(220, 38, 38);
-            advancedStatusCard2.Location = new Point(359, 3);
-            advancedStatusCard2.Name = "advancedStatusCard2";
-            advancedStatusCard2.Padding = new Padding(10);
-            advancedStatusCard2.ShadowSize = 1;
-            advancedStatusCard2.Size = new Size(348, 121);
-            advancedStatusCard2.SubValueColor = Color.Gray;
-            advancedStatusCard2.SubValueFont = new Font("Tajawal", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            advancedStatusCard2.SubValueText = "15 حجز";
-            advancedStatusCard2.TabIndex = 15;
-            advancedStatusCard2.TitleColor = Color.Gray;
-            advancedStatusCard2.TitleFont = new Font("Tajawal Medium", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            advancedStatusCard2.TitleText = "إجمالي الديون";
-            advancedStatusCard2.ValueColor = Color.FromArgb(220, 38, 38);
-            advancedStatusCard2.ValueFont = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
-            advancedStatusCard2.ValueText = "3,290 د.ل";
+            TotalDebtsCard.BackColor = Color.White;
+            TotalDebtsCard.BorderRadius = 20;
+            TotalDebtsCard.CardIcon = Properties.Resources.icons8_alert_50__1_;
+            TotalDebtsCard.Dock = DockStyle.Fill;
+            TotalDebtsCard.IconBackColor = Color.FromArgb(220, 38, 38);
+            TotalDebtsCard.Location = new Point(359, 3);
+            TotalDebtsCard.Name = "TotalDebtsCard";
+            TotalDebtsCard.Padding = new Padding(10);
+            TotalDebtsCard.ShadowSize = 1;
+            TotalDebtsCard.Size = new Size(348, 121);
+            TotalDebtsCard.SubValueColor = Color.Gray;
+            TotalDebtsCard.SubValueFont = new Font("Tajawal", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TotalDebtsCard.SubValueText = "15 حجز";
+            TotalDebtsCard.TabIndex = 15;
+            TotalDebtsCard.TitleColor = Color.Gray;
+            TotalDebtsCard.TitleFont = new Font("Tajawal Medium", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            TotalDebtsCard.TitleText = "إجمالي الديون";
+            TotalDebtsCard.ValueColor = Color.FromArgb(220, 38, 38);
+            TotalDebtsCard.ValueFont = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
+            TotalDebtsCard.ValueText = "3,290 د.ل";
             // 
-            // advancedStatusCard1
+            // DailyIncomeCard
             // 
-            advancedStatusCard1.BackColor = Color.White;
-            advancedStatusCard1.BorderRadius = 20;
-            advancedStatusCard1.CardIcon = Properties.Resources.icons8_money_50__1___2_;
-            advancedStatusCard1.Dock = DockStyle.Fill;
-            advancedStatusCard1.IconBackColor = Color.FromArgb(46, 204, 113);
-            advancedStatusCard1.Location = new Point(713, 3);
-            advancedStatusCard1.Name = "advancedStatusCard1";
-            advancedStatusCard1.Padding = new Padding(10);
-            advancedStatusCard1.ShadowSize = 1;
-            advancedStatusCard1.Size = new Size(348, 121);
-            advancedStatusCard1.SubValueColor = Color.FromArgb(46, 204, 113);
-            advancedStatusCard1.SubValueFont = new Font("Tajawal", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            advancedStatusCard1.SubValueText = "+12% منذ الأمس";
-            advancedStatusCard1.TabIndex = 16;
-            advancedStatusCard1.TitleColor = Color.Gray;
-            advancedStatusCard1.TitleFont = new Font("Tajawal Medium", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            advancedStatusCard1.TitleText = "إجمالي الإيرادات اليوم";
-            advancedStatusCard1.ValueColor = Color.FromArgb(46, 204, 113);
-            advancedStatusCard1.ValueFont = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
-            advancedStatusCard1.ValueText = "12,450 د.ل";
+            DailyIncomeCard.BackColor = Color.White;
+            DailyIncomeCard.BorderRadius = 20;
+            DailyIncomeCard.CardIcon = Properties.Resources.icons8_money_50__1___2_;
+            DailyIncomeCard.Dock = DockStyle.Fill;
+            DailyIncomeCard.IconBackColor = Color.FromArgb(46, 204, 113);
+            DailyIncomeCard.Location = new Point(713, 3);
+            DailyIncomeCard.Name = "DailyIncomeCard";
+            DailyIncomeCard.Padding = new Padding(10);
+            DailyIncomeCard.ShadowSize = 1;
+            DailyIncomeCard.Size = new Size(348, 121);
+            DailyIncomeCard.SubValueColor = Color.FromArgb(46, 204, 113);
+            DailyIncomeCard.SubValueFont = new Font("Tajawal", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            DailyIncomeCard.SubValueText = "+12% منذ الأمس";
+            DailyIncomeCard.TabIndex = 16;
+            DailyIncomeCard.TitleColor = Color.Gray;
+            DailyIncomeCard.TitleFont = new Font("Tajawal Medium", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            DailyIncomeCard.TitleText = "إجمالي الإيرادات";
+            DailyIncomeCard.ValueColor = Color.FromArgb(46, 204, 113);
+            DailyIncomeCard.ValueFont = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
+            DailyIncomeCard.ValueText = "12,450 د.ل";
             // 
             // tableLayoutPanel2
             // 
@@ -241,7 +299,7 @@
             bookingDetailsCard.DataFont = new Font("Tajawal Medium", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             bookingDetailsCard.DepositAmount = "100 ر.س";
             bookingDetailsCard.Dock = DockStyle.Fill;
-            bookingDetailsCard.IsItemSelected = true;
+            bookingDetailsCard.IsItemSelected = false;
             bookingDetailsCard.LabelsFont = new Font("Tajawal", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             bookingDetailsCard.Location = new Point(3, 3);
             bookingDetailsCard.Name = "bookingDetailsCard";
@@ -283,11 +341,14 @@
         private Label label3;
         private Label label1;
         private TableLayoutPanel tableLayoutPanel1;
-        private CustomItems.AdvancedStatusCard advancedStatusCard1;
-        private CustomItems.AdvancedStatusCard advancedStatusCard2;
+        private CustomItems.AdvancedStatusCard DailyIncomeCard;
+        private CustomItems.AdvancedStatusCard TotalDebtsCard;
         private TableLayoutPanel tableLayoutPanel2;
         private CustomItems.BookingDetailsCard bookingDetailsCard;
-        private CustomItems.AdvancedStatusCard advancedStatusCard3;
+        private CustomItems.AdvancedStatusCard DownPaymentCard;
         private CustomItems.CustomDataGridView dgvReservation;
+        public DateTimePicker dtpPaymentDate;
+        private CustomItems.IconButton btnForwardDate;
+        private CustomItems.IconButton btnBackDate;
     }
 }

@@ -1,28 +1,24 @@
-﻿using System;
+﻿using ActiveSpace.Models;
+using ActiveSpaceSystem.CustomItems;
+using ActiveSpaceSystem.Data;
+using ActiveSpaceSystem.Helpers;
+using ActiveSpaceSystem.Models.enums;
+using System;
 using System.Collections.Generic;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using ActiveSpace.Models;
-using ActiveSpaceSystem.Data;
-using ActiveSpaceSystem.Models.enums;
 
 namespace ActiveSpaceSystem.Forms.DialogForms
 {
-
     public partial class AddContract : Form
     {
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn(int nLeftRect, int nTopRect, int nRightRect, int nBottomRect, int nWidthEllipse, int nHeightEllipse);
 
-
-
-
+        private Customer _currentCustomer = null;
 
         public AddContract()
         {
@@ -30,188 +26,261 @@ namespace ActiveSpaceSystem.Forms.DialogForms
             LoadInitialData();
         }
 
-        private void roundedButton2_Click(object sender, EventArgs e)
-        
-           
+        private void AddContract_Load(object sender, EventArgs e)
         {
-            string customerName = txtCustomerName.Texts.Trim();
+            _currentCustomer = null;
+            this.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
+        }
 
-            // البحث عن العميل
-            var customer = DataStorage.CustomersList
-                .FirstOrDefault(c => c.FullName.Equals(customerName, StringComparison.OrdinalIgnoreCase));
+        private void LoadInitialData()
+        {
+            cmbCourtType.DataSource = DataStorage.CourtTypesList.ToList();
+            cmbCourtType.DisplayMember = "TypeName";
+            cmbCourtType.ValueMember = "TypeID";
+            cmbCourtType.SelectedIndex = -1;
 
-            // إذا لم يوجد العميل، نقوم بإنشائه فوراً
-            if (customer == null)
+            cmbDays.DataSource = new BindingSource(DataStorage.DaysMap, null);
+            cmbDays.DisplayMember = "Key";
+            cmbDays.ValueMember = "Value";
+
+            cmbCourt.SelectedIndex = -1;
+            UpdateOccurrencesLabel();
+        }
+
+        #region "التحقق من العميل"
+        private void txtPhone_Leave(object sender, EventArgs e)
+        {
+            if (this.ActiveControl == btnCancel) return;
+            ValidateAndCheckCustomer();
+        }
+
+        private bool ValidateAndCheckCustomer()
+        {
+            string phoneText = txtPhone.Texts.Trim();
+
+            if (!ValidationHelper.IsValidPhoneNumber(phoneText, out string errorMessage))
             {
-                customer = new Customer
-                {
-                    CustomerID = DataStorage.CustomersList.Count + 1,
-                    FullName = customerName,
-                    Phone = txtPhone.Texts // استخدام رقم الهاتف من الواجهة
-                };
-                DataStorage.CustomersList.Add(customer);
+                ShowWarning(errorMessage);
+                txtName.Texts = "";
+                this.BeginInvoke(new Action(() => txtPhone.Focus()));
+                return false;
             }
 
-            // إكمال عملية إنشاء العقد باستخدام العميل (القديم أو الجديد)
+            _currentCustomer = DataStorage.CustomersList.FirstOrDefault(c => c.Phone == phoneText);
+
+            if (_currentCustomer != null)
+            {
+                txtName.Texts = _currentCustomer.FullName;
+                txtName.Enabled = false;
+            }
+            else
+            {
+                txtName.Texts = "";
+                txtName.Enabled = true;
+            }
+            return true;
+        }
+        #endregion
+
+        private void btSave_Click(object sender, EventArgs e)
+        {
+            // 1. التحقق من المدخلات والمبالغ
+            if (!ValidateAllInputs(out double pricePerHour, out double totalDeposit)) return;
+
+            TimeSpan startTime = new TimeSpan(dtpStartTime.Value.Hour, dtpStartTime.Value.Minute, 0);
+            TimeSpan endTime = new TimeSpan(dtpEndTime.Value.Hour, dtpEndTime.Value.Minute, 0);
+
+            if (cmbCourt.SelectedItem == null) { ShowWarning("الرجاء تحديد ملعب."); return; }
+            Court selectedCourt = (Court)cmbCourt.SelectedItem;
+            DayOfWeek selectedDay = (DayOfWeek)cmbDays.SelectedValue;
+
+            // 2. معالجة بيانات العميل
+            HandleCustomerData();
+
+            // 3. إنشاء كائن العقد وتوليد الحصص
             MonthlyContract newContract = new MonthlyContract
             {
                 ContractID = DataStorage.ContractsList.Count + 1,
-                CustomerID = customer.CustomerID,
-                CourtID = (int)cmbCourts.SelectedValue,
-                DayOfWeek = ((DayOfWeek)cmbDays.SelectedValue).ToString(),
-                StartDate = dtpStartDate.Value.Date,
-                EndDate = dtpEndDate.Value.Date,
-                FixedStartTime = dtpStartTime.Value.TimeOfDay,
-                FixedEndTime = dtpEndTime.Value.TimeOfDay,
-                PricePerHour = double.TryParse(txtPricePerHour.Text, out double price) ? price : 0,
+                CustomerID = _currentCustomer.CustomerID,
+                CourtID = selectedCourt.CourtID,
+                DayOfWeek = selectedDay.ToString(),
+                StartDate = dtpBookingDate.Value.Date,
+                EndDate = dateTimePicker1.Value.Date,
+                FixedStartTime = startTime,
+                FixedEndTime = endTime,
+                PricePerHour = pricePerHour,
                 Status = MonthlyContractStatus.Active
             };
 
             newContract.GenerateBookings();
 
-            if (IsPeriodAvailable(newContract))
+            // 4. التحقق من إجمالي العقد مقابل العربون (Double Check)
+            if (totalDeposit > newContract.TotalAmount)
             {
-                DataStorage.ContractsList.Add(newContract);
-                DataStorage.BookingsList.AddRange(newContract.Bookings);
-                MessageBox.Show("تمت إضافة العميل الجديد وحفظ العقد بنجاح!");
-                // داخل كود زر الحفظ بعد نجاح عملية الإضافة لـ DataStorage
-                this.DialogResult = DialogResult.OK; // هذه هي الإشارة للواجهة الرئيسية
-                this.Close();
-             
+                ShowWarning($"قيمة العربون ({totalDeposit}) لا يمكن أن تتجاوز إجمالي العقد ({newContract.TotalAmount})");
+                return;
             }
-         
-        }
-        
 
-        private void AddContract_Load(object sender, EventArgs e)
+            // 5. التحقق من التداخلات
+            if (HasContractConflicts(newContract, selectedCourt, out string conflictMessage))
+            {
+                ShowWarning(conflictMessage);
+                return;
+            }
+
+            // 6. الحفظ النهائي
+            try
+            {
+                SaveContractAndBookings(newContract, totalDeposit);
+                ShowInfo("تم تسجيل العقد بنجاح.");
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                ShowError("خطأ أثناء الحفظ: " + ex.Message);
+            }
+        }
+
+        private bool ValidateAllInputs(out double price, out double deposit)
         {
+            price = 0; deposit = 0;
 
+            if (!ValidateAndCheckCustomer()) return false;
+            if (cmbDays.SelectedValue == null) { ShowWarning("يرجى اختيار يوم العقد."); return false; }
+
+            if (!ValidationHelper.IsValidDecimalValue(txtPricePerHour.Texts, "سعر الساعة", out price, out string pErr))
+            { ShowWarning(pErr); return false; }
+
+            if (!ValidationHelper.IsValidDecimalValue(deposittxt.Texts, "العربون", out deposit, out string dErr))
+            { ShowWarning(dErr); return false; }
+
+            if (dtpBookingDate.Value.Date > dateTimePicker1.Value.Date)
+            {
+                ShowWarning("تاريخ البداية بعد تاريخ النهاية!");
+                return false;
+            }
+
+            return true;
         }
 
-        private void LoadInitialData()
+        private void HandleCustomerData()
         {
-            
-
-
-
-            //  تعبئة قائمة الملاعب
-            cmbCourts.DataSource = null;
-            cmbCourts.DataSource = DataStorage.CourtsList;
-            cmbCourts.DisplayMember = "CourtName";
-            cmbCourts.ValueMember = "CourtID";
-
-
-            //  تعبئة قائمة انواع الملاعب
-            cmbCourtType.DataSource = null;
-            cmbCourtType.DataSource = DataStorage.CourtTypesList;
-            cmbCourtType.DisplayMember = "TypeName";
-            cmbCourtType.ValueMember = "TypeID";
-
-            // في Form_Load
-            cmbDays.DataSource = new BindingSource(DataStorage.DaysMap, null);
-            cmbDays.DisplayMember = "Key";   // يظهر للمستخدم: الأحد، الاثنين...
-            cmbDays.ValueMember = "Value";   // القيمة البرمجية: Sunday, Monday...
-            // جعل القوائم تبدأ بدون اختيار 
-            cmbCourts.SelectedIndex = -1;
-            cmbCourtType.SelectedIndex = -1;
-            cmbDays.SelectedIndex = 0;
+            if (_currentCustomer == null)
+            {
+                _currentCustomer = new Customer
+                {
+                    CustomerID = DataStorage.CustomersList.Count + 1,
+                    FullName = txtName.Texts.Trim(),
+                    Phone = txtPhone.Texts.Trim(),
+                    TotalDebt = 0
+                };
+                DataStorage.CustomersList.Add(_currentCustomer);
+            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private bool HasContractConflicts(MonthlyContract contract, Court court, out string message)
         {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
+            message = "";
+            foreach (var b in contract.Bookings)
+            {
+                if (BookingFormHelper.IsCourtReserved(court, b.BookingDate, b.StartTime, b.EndTime, out string warn))
+                {
+                    message = $"تداخل في تاريخ {b.BookingDate.ToShortDateString()}:\n{warn}";
+                    return true;
+                }
+            }
+            return false;
         }
 
-        private void roundedButton1_Click(object sender, EventArgs e)
+        private void SaveContractAndBookings(MonthlyContract contract, double totalDeposit)
         {
-   
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
-         
-        }
+            int sessionCount = contract.Bookings.Count;
 
+            if (sessionCount > 0)
+            {
+                // 1. تحويل المبلغ الكلي لعدد صحيح (في حال كان المدخل فيه كسور)
+                int total = (int)totalDeposit;
+
+                // 2. حساب المبلغ الأساسي لكل حصة (بدون كسور)
+                int baseDeposit = total / sessionCount;
+
+                // 3. حساب الفكة أو الباقي الذي لم يقبل القسمة المتساوية
+                int remainder = total % sessionCount;
+
+                for (int i = 0; i < sessionCount; i++)
+                {
+                    var b = contract.Bookings[i];
+
+                    // 4. توزيع المبلغ: إذا كان هناك باقي، نزيد 1 على الحصص الأولى حتى ينتهي الباقي
+                    double currentSessionDeposit = baseDeposit;
+                    if (i < remainder)
+                    {
+                        currentSessionDeposit += 1;
+                    }
+
+                    // إسناد البيانات للحجز
+                    b.Deposit = currentSessionDeposit;
+                    b.Customer = _currentCustomer;
+                    b.CustomerID = _currentCustomer.CustomerID;
+
+                    DataStorage.BookingsList.Add(b);
+
+                    // تسجيل الدفعة المالية (Payment)
+                    if (currentSessionDeposit > 0)
+                    {
+                        DataStorage.PaymentList.Add(new Payment
+                        {
+                            PaymentID = DataStorage.PaymentList.Count + 1,
+                            BookingID = b.BookingID,
+                            AmountPaid = currentSessionDeposit,
+                            PaidAt = DateTime.Now,
+                            Booking = b
+                        });
+                    }
+                }
+            }
+
+            // تحديث ديون العميل: (إجمالي العقد - العربون الموزع)
+            _currentCustomer.TotalDebt += (contract.TotalAmount - totalDeposit);
+            DataStorage.ContractsList.Add(contract);
+        }
+        #region "تحديث الواجهة"
         private void cmbCourtType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbCourtType.SelectedValue != null && cmbCourtType.SelectedValue is int typeId)
+            if (cmbCourtType.SelectedValue is int typeId)
             {
-                // 2. فلترة قائمة الملاعب من المخزن بناءً على الـ TypeID المختار
-                var filteredCourts = DataStorage.CourtsList
-                    .Where(c => c.TypeID == typeId)
-                    .ToList();
-
-                // 3. تحديث قائمة الملاعب
-                cmbCourts.DataSource = null; // تنظيف القائمة أولاً
-                cmbCourts.DataSource = filteredCourts;
-                cmbCourts.DisplayMember = "CourtName";
-                cmbCourts.ValueMember = "CourtID";
-
-                // اختيار أول ملعب تلقائياً أو تركه فارغاً
-                cmbCourts.SelectedIndex = -1;
+                cmbCourt.DataSource = DataStorage.CourtsList.Where(c => c.TypeID == typeId).ToList();
+                cmbCourt.DisplayMember = "CourtName";
+                cmbCourt.ValueMember = "CourtID";
             }
         }
 
         private int CalculateOccurrences()
         {
-            DateTime start = dtpStartDate.Value.Date;
-            DateTime end = dtpEndDate.Value.Date;
-
-            // جلب اليوم كـ Enum مباشرة بفضل الـ ValueMember
+            DateTime start = dtpBookingDate.Value.Date;
+            DateTime end = dateTimePicker1.Value.Date;
             if (cmbDays.SelectedValue is DayOfWeek selectedDay)
             {
-                if (start > end) return 0;
-
                 int count = 0;
                 for (DateTime date = start; date <= end; date = date.AddDays(1))
                 {
-                    if (date.DayOfWeek == selectedDay)
-                    {
-                        count++;
-                    }
+                    if (date.DayOfWeek == selectedDay) count++;
                 }
                 return count;
             }
             return 0;
         }
 
-        private void dtpStartDate_ValueChanged(object sender, EventArgs e)
-        {
+        private void UpdateOccurrencesLabel() => labelHours.Text = $"عدد الحصص: {CalculateOccurrences()}";
+        private void dtpBookingDate_ValueChanged(object sender, EventArgs e) => UpdateOccurrencesLabel();
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e) => UpdateOccurrencesLabel();
+        private void cmbDays_SelectedIndexChanged(object sender, EventArgs e) => UpdateOccurrencesLabel();
+        #endregion
 
-            int Hours = CalculateOccurrences();
-                labelHours.Text = $"عدد الحصص: {Hours}";
-        }
-
-        private void dtpEndDate_ValueChanged(object sender, EventArgs e)
-        {
-            int Hours = CalculateOccurrences();
-            labelHours.Text = $"عدد الحصص: {Hours}";
-        }
-
-        private void cmbDays_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int Hours = CalculateOccurrences();
-            labelHours.Text = $"عدد الحصص: {Hours}";
-        }
-
-
-        private bool IsPeriodAvailable(MonthlyContract contract)
-        {
-            // فحص كل حجز مولد من العقد الجديد مقابل الحجوزات الموجودة فعلياً
-            foreach (var newBooking in contract.Bookings)
-            {
-                bool hasConflict = DataStorage.BookingsList.Any(old =>
-                    old.CourtID == contract.CourtID &&
-                    old.BookingDate.Date == newBooking.BookingDate.Date &&
-                    old.Status != BookingStatus.Completed &&
-                    ((newBooking.StartTime >= old.StartTime && newBooking.StartTime < old.EndTime) ||
-                     (newBooking.EndTime > old.StartTime && newBooking.EndTime <= old.EndTime)));
-
-                if (hasConflict) return false;
-            }
-            return true;
-        }
+        private void ShowWarning(string m) => MessageBox.Show(m, "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        private void ShowInfo(string m) => MessageBox.Show(m, "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        private void ShowError(string m) => MessageBox.Show(m, "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        private void btnCancel_Click(object sender, EventArgs e) => this.Close();
     }
-
-
-
 }

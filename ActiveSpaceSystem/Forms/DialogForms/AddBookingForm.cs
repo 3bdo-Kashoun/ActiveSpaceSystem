@@ -33,7 +33,11 @@ namespace ActiveSpaceSystem.Forms.DialogForms
 
         public AddBookingForm()
         {
+          
             InitializeComponent();
+            LoadCourtTypes();
+            LoadCourts();
+
         }
 
         private void AddBookingForm_Load(object sender, EventArgs e)
@@ -41,10 +45,9 @@ namespace ActiveSpaceSystem.Forms.DialogForms
             customer = null;
             this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
 
-            LoadCourtTypes();
-            LoadCourts();
+          
 
-            cmbCourtType.SelectedIndex = -1;
+           
             roundedButton1.Click += roundedButton1_Click;
         }
 
@@ -54,8 +57,16 @@ namespace ActiveSpaceSystem.Forms.DialogForms
             cmbCourtType.Items.Clear();
 
             cmbCourtType.DisplayMember = "TypeName";
-            cmbCourtType.ValueMember = "TypeID";
+            cmbCourtType.ValueMember = "TypeName";
             cmbCourtType.DataSource = DataStorage.CourtTypesList;
+        }
+        public void loadCourtData(string courtName,string TypeName,DateTime date,DateTime start,DateTime End)
+        {
+            cmbCourt.SelectedValue= courtName;
+            cmbCourtType.SelectedValue = TypeName;
+            dtpBookingDate.Value = date;
+            dtpStartTime.Value = start;
+            dtpEndTime.Value = End;
         }
 
         private void LoadCourts()

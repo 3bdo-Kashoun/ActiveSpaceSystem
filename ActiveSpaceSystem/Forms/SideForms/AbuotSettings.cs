@@ -20,10 +20,6 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void roundedButton1_Click(object sender, EventArgs e)
         {
@@ -31,14 +27,6 @@ namespace ActiveSpaceSystem.Forms.SideForms
             abdulTextBox1.Texts = SystemName;
         }
 
-        private void abdulTextBox2__TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+      
     }
 }

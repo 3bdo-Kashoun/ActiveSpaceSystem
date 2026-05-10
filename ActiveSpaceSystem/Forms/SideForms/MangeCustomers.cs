@@ -122,13 +122,6 @@ namespace ActiveSpaceSystem.Forms.SideForms
                 Width = 120
             });
 
-            dgvCustomers.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                DataPropertyName = "ReliabilityFlag",
-                HeaderText = "الموثوقية",
-                Name = "ReliabilityFlag",
-                Width = 130
-            });
 
             dgvCustomers.Columns.Add(new DataGridViewTextBoxColumn
             {
@@ -259,6 +252,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
         private void btnAll_Click(object sender, EventArgs e)
         {
             LoadData();
+            SetFilterButtonsState(btnAll);
 
         }
 
@@ -270,16 +264,16 @@ namespace ActiveSpaceSystem.Forms.SideForms
         .ToList();
 
             dgvCustomers.DataSource = new BindingList<CustomerViewModel>(debtors);
+            SetFilterButtonsState(btnDebtFilter);
         }
 
-        private void dgvCustomers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void SetFilterButtonsState(Control activeBtn)
         {
-
+            var buttons = new[] { btnAll, btnDebtFilter };
+            foreach (var btn in buttons)
+                if (btn != null) btn.IsToggled = (btn == activeBtn);
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
     }
 }

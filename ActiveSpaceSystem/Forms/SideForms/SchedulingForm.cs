@@ -14,6 +14,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
     {
         private List<ScheduleRowViewModel> scheduleList;
 
+        private string selectedCategory = "الكل";
         public SchedulingForm()
         {
             InitializeComponent();
@@ -62,20 +63,27 @@ namespace ActiveSpaceSystem.Forms.SideForms
             stadiumGrid1.Rows.Clear();
             scheduleList = new List<ScheduleRowViewModel>();
 
-            foreach (var court in DataStorage.CourtsList)
+            // 1. تصفية الملاعب بناءً على الفئة المختارة
+            var courtsToDisplay = DataStorage.CourtsList.Where(c =>
             {
-                // 1. بناء السطر بالقيم العربية المتوافقة مع رسم الكنترول المخصص
+                // إذا كان الفلتر "الكل" اعرض كل شيء
+                if (selectedCategory == "الكل") return true;
+
+                // التحقق من أن نوع الملعب ليس فارغاً وأن الاسم يطابق الفلتر (تجاهل المسافات)
+                return c.Type != null && c.Type.TypeName.Trim() == selectedCategory.Trim();
+            }).ToList();
+
+            // 2. بناء السطور للملاعب المفلترة فقط
+            foreach (var court in courtsToDisplay)
+            {
                 var rowData = ScheduleRowViewModel.BuildRow(court, targetDate);
                 scheduleList.Add(rowData);
 
-                // 2. تجهيز القيم لإضافتها للـ GridRow
                 List<object> rowValues = new List<object> { rowData.CourtName };
-
                 for (int i = 8; i <= 23; i++)
                 {
-                    rowValues.Add(rowData.HourlySlots[$"h{i}"]);
+                    rowValues.Add(rowData.HourlySlots.ContainsKey($"h{i}") ? rowData.HourlySlots[$"h{i}"] : "");
                 }
-
                 stadiumGrid1.Rows.Add(rowValues.ToArray());
             }
 
@@ -134,11 +142,53 @@ namespace ActiveSpaceSystem.Forms.SideForms
             dateTimePicker2.Value = dateTimePicker2.Value.AddDays(1);
         }
 
-        
+
 
         private void btnBackDate_Click_1(object sender, EventArgs e)
         {
             dateTimePicker2.Value = dateTimePicker2.Value.AddDays(-1);
+        }
+
+        private void FilterScheduling(string category)
+        {
+            selectedCategory = category; // تحديث الفئة المختارة (مثل: "القدم"، "بادل")
+
+            // استدعاء دالة التحميل الأصلية التي قمنا بتعديلها في الخطوة السابقة
+            LoadDataToGrid(dateTimePicker2.Value);
+
+
+        }
+
+        private void SetFilterButtonsState(Control activeBtn)
+        {
+            var buttons = new[] { btnAll, btnFootBall, btnBasketBall, btnPadel };
+            foreach (var btn in buttons)
+                if (btn != null) btn.Checked = (btn == activeBtn);
+        }
+        private void pillButton1_Click(object sender, EventArgs e)
+        {
+
+            FilterScheduling("الكل");
+            SetFilterButtonsState(btnAll);
+        }
+
+
+        private void pillButton2_Click(object sender, EventArgs e)
+        {
+            FilterScheduling("كرة قدم");
+            SetFilterButtonsState(btnFootBall);
+        }
+
+        private void pillButton3_Click(object sender, EventArgs e)
+        {
+            FilterScheduling("كرة سلة");
+            SetFilterButtonsState(btnBasketBall);
+        }
+
+        private void pillButton5_Click(object sender, EventArgs e)
+        {
+            FilterScheduling("بادل");
+            SetFilterButtonsState(btnPadel);
         }
     }
 }

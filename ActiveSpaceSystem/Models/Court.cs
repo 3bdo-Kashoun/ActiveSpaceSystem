@@ -10,9 +10,9 @@ namespace ActiveSpace.Models
         public string CourtName { get; set; } = string.Empty;
         public TimeSpan OpenTime { get; set; }
         public TimeSpan CloseTime { get; set; }
-        public CourtStatus Status { get; set; } 
+        public CourtStatus Status { get; set; }
 
-       
+        public string Category { get; set; }
         public CourtType? Type { get; set; }
 
         public static List<Court> GetFakeData() => new List<Court>

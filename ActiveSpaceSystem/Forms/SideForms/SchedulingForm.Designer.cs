@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             panel1 = new Panel();
             label3 = new Label();
             label1 = new Label();
@@ -49,11 +49,10 @@
             btnBackDate = new ActiveSpaceSystem.CustomItems.IconButton();
             btnForwardDate = new ActiveSpaceSystem.CustomItems.IconButton();
             dateTimePicker2 = new DateTimePicker();
-            pillButton5 = new ActiveSpaceSystem.CustomItems.PillButton();
-            pillButton4 = new ActiveSpaceSystem.CustomItems.PillButton();
-            pillButton3 = new ActiveSpaceSystem.CustomItems.PillButton();
-            pillButton2 = new ActiveSpaceSystem.CustomItems.PillButton();
-            pillButton1 = new ActiveSpaceSystem.CustomItems.PillButton();
+            btnPadel = new ActiveSpaceSystem.CustomItems.PillButton();
+            btnBasketBall = new ActiveSpaceSystem.CustomItems.PillButton();
+            btnFootBall = new ActiveSpaceSystem.CustomItems.PillButton();
+            btnAll = new ActiveSpaceSystem.CustomItems.PillButton();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             statusCard1.SuspendLayout();
@@ -276,23 +275,23 @@
             stadiumGrid1.BorderStyle = BorderStyle.None;
             stadiumGrid1.CellBorderStyle = DataGridViewCellBorderStyle.None;
             stadiumGrid1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(243, 244, 246);
-            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(52, 58, 64);
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            stadiumGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(243, 244, 246);
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(52, 58, 64);
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            stadiumGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             stadiumGrid1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            stadiumGrid1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 9F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            stadiumGrid1.DefaultCellStyle = dataGridViewCellStyle4;
             stadiumGrid1.Dock = DockStyle.Fill;
             stadiumGrid1.EnableHeadersVisualStyles = false;
             stadiumGrid1.GridColor = Color.White;
@@ -326,11 +325,10 @@
             statusCard4.Controls.Add(btnBackDate);
             statusCard4.Controls.Add(btnForwardDate);
             statusCard4.Controls.Add(dateTimePicker2);
-            statusCard4.Controls.Add(pillButton5);
-            statusCard4.Controls.Add(pillButton4);
-            statusCard4.Controls.Add(pillButton3);
-            statusCard4.Controls.Add(pillButton2);
-            statusCard4.Controls.Add(pillButton1);
+            statusCard4.Controls.Add(btnPadel);
+            statusCard4.Controls.Add(btnBasketBall);
+            statusCard4.Controls.Add(btnFootBall);
+            statusCard4.Controls.Add(btnAll);
             statusCard4.Location = new Point(0, 0);
             statusCard4.Margin = new Padding(80);
             statusCard4.Name = "statusCard4";
@@ -402,120 +400,101 @@
             dateTimePicker2.TabIndex = 13;
             dateTimePicker2.ValueChanged += dateTimePicker2_ValueChanged;
             // 
-            // pillButton5
+            // btnPadel
             // 
-            pillButton5.BackColor = Color.White;
-            pillButton5.BackgroundImageLayout = ImageLayout.None;
-            pillButton5.Checked = false;
-            pillButton5.CheckedBackColor = Color.FromArgb(41, 51, 146);
-            pillButton5.CheckedForeColor = Color.White;
-            pillButton5.FlatAppearance.BorderSize = 0;
-            pillButton5.FlatStyle = FlatStyle.Flat;
-            pillButton5.Font = new Font("Tajawal Medium", 10.2F, FontStyle.Bold);
-            pillButton5.ForeColor = Color.FromArgb(64, 64, 64);
-            pillButton5.GroupName = "";
-            pillButton5.Location = new Point(26, 24);
-            pillButton5.Margin = new Padding(2);
-            pillButton5.Name = "pillButton5";
-            pillButton5.Radius = 10;
-            pillButton5.Size = new Size(90, 43);
-            pillButton5.TabIndex = 12;
-            pillButton5.Text = "بادل";
-            pillButton5.UncheckedBackColor = Color.FromArgb(242, 242, 242);
-            pillButton5.UncheckedForeColor = Color.FromArgb(64, 64, 64);
-            pillButton5.UseVisualStyleBackColor = false;
+            btnPadel.BackColor = Color.White;
+            btnPadel.BackgroundImageLayout = ImageLayout.None;
+            btnPadel.Checked = false;
+            btnPadel.CheckedBackColor = Color.FromArgb(41, 51, 146);
+            btnPadel.CheckedForeColor = Color.White;
+            btnPadel.FlatAppearance.BorderSize = 0;
+            btnPadel.FlatStyle = FlatStyle.Flat;
+            btnPadel.Font = new Font("Tajawal Medium", 10.2F, FontStyle.Bold);
+            btnPadel.ForeColor = Color.FromArgb(64, 64, 64);
+            btnPadel.GroupName = "";
+            btnPadel.Location = new Point(131, 23);
+            btnPadel.Margin = new Padding(2);
+            btnPadel.Name = "btnPadel";
+            btnPadel.Radius = 10;
+            btnPadel.Size = new Size(90, 43);
+            btnPadel.TabIndex = 12;
+            btnPadel.Text = "بادل";
+            btnPadel.UncheckedBackColor = Color.FromArgb(242, 242, 242);
+            btnPadel.UncheckedForeColor = Color.FromArgb(64, 64, 64);
+            btnPadel.UseVisualStyleBackColor = false;
+            btnPadel.Click += pillButton5_Click;
             // 
-            // pillButton4
+            // btnBasketBall
             // 
-            pillButton4.BackColor = Color.White;
-            pillButton4.BackgroundImageLayout = ImageLayout.None;
-            pillButton4.Checked = false;
-            pillButton4.CheckedBackColor = Color.FromArgb(41, 51, 146);
-            pillButton4.CheckedForeColor = Color.White;
-            pillButton4.FlatAppearance.BorderSize = 0;
-            pillButton4.FlatStyle = FlatStyle.Flat;
-            pillButton4.Font = new Font("Tajawal Medium", 10.2F, FontStyle.Bold);
-            pillButton4.ForeColor = Color.FromArgb(64, 64, 64);
-            pillButton4.GroupName = "";
-            pillButton4.Location = new Point(133, 24);
-            pillButton4.Margin = new Padding(2);
-            pillButton4.Name = "pillButton4";
-            pillButton4.Radius = 10;
-            pillButton4.Size = new Size(90, 43);
-            pillButton4.TabIndex = 11;
-            pillButton4.Text = "الطائرة";
-            pillButton4.UncheckedBackColor = Color.FromArgb(242, 242, 242);
-            pillButton4.UncheckedForeColor = Color.FromArgb(64, 64, 64);
-            pillButton4.UseVisualStyleBackColor = false;
+            btnBasketBall.BackColor = Color.White;
+            btnBasketBall.BackgroundImageLayout = ImageLayout.None;
+            btnBasketBall.Checked = false;
+            btnBasketBall.CheckedBackColor = Color.FromArgb(41, 51, 146);
+            btnBasketBall.CheckedForeColor = Color.White;
+            btnBasketBall.FlatAppearance.BorderSize = 0;
+            btnBasketBall.FlatStyle = FlatStyle.Flat;
+            btnBasketBall.Font = new Font("Tajawal Medium", 10.2F, FontStyle.Bold);
+            btnBasketBall.ForeColor = Color.FromArgb(64, 64, 64);
+            btnBasketBall.GroupName = "";
+            btnBasketBall.Location = new Point(239, 23);
+            btnBasketBall.Margin = new Padding(2);
+            btnBasketBall.Name = "btnBasketBall";
+            btnBasketBall.Radius = 10;
+            btnBasketBall.Size = new Size(90, 43);
+            btnBasketBall.TabIndex = 10;
+            btnBasketBall.Text = "سلة";
+            btnBasketBall.UncheckedBackColor = Color.FromArgb(242, 242, 242);
+            btnBasketBall.UncheckedForeColor = Color.FromArgb(64, 64, 64);
+            btnBasketBall.UseVisualStyleBackColor = false;
+            btnBasketBall.Click += pillButton3_Click;
             // 
-            // pillButton3
+            // btnFootBall
             // 
-            pillButton3.BackColor = Color.White;
-            pillButton3.BackgroundImageLayout = ImageLayout.None;
-            pillButton3.Checked = false;
-            pillButton3.CheckedBackColor = Color.FromArgb(41, 51, 146);
-            pillButton3.CheckedForeColor = Color.White;
-            pillButton3.FlatAppearance.BorderSize = 0;
-            pillButton3.FlatStyle = FlatStyle.Flat;
-            pillButton3.Font = new Font("Tajawal Medium", 10.2F, FontStyle.Bold);
-            pillButton3.ForeColor = Color.FromArgb(64, 64, 64);
-            pillButton3.GroupName = "";
-            pillButton3.Location = new Point(239, 23);
-            pillButton3.Margin = new Padding(2);
-            pillButton3.Name = "pillButton3";
-            pillButton3.Radius = 10;
-            pillButton3.Size = new Size(90, 43);
-            pillButton3.TabIndex = 10;
-            pillButton3.Text = "تنس";
-            pillButton3.UncheckedBackColor = Color.FromArgb(242, 242, 242);
-            pillButton3.UncheckedForeColor = Color.FromArgb(64, 64, 64);
-            pillButton3.UseVisualStyleBackColor = false;
+            btnFootBall.BackColor = Color.White;
+            btnFootBall.BackgroundImageLayout = ImageLayout.None;
+            btnFootBall.Checked = false;
+            btnFootBall.CheckedBackColor = Color.FromArgb(41, 51, 146);
+            btnFootBall.CheckedForeColor = Color.White;
+            btnFootBall.FlatAppearance.BorderSize = 0;
+            btnFootBall.FlatStyle = FlatStyle.Flat;
+            btnFootBall.Font = new Font("Tajawal Medium", 10.2F, FontStyle.Bold);
+            btnFootBall.ForeColor = Color.FromArgb(64, 64, 64);
+            btnFootBall.GroupName = "";
+            btnFootBall.Location = new Point(346, 22);
+            btnFootBall.Margin = new Padding(2);
+            btnFootBall.Name = "btnFootBall";
+            btnFootBall.Radius = 10;
+            btnFootBall.Size = new Size(90, 43);
+            btnFootBall.TabIndex = 9;
+            btnFootBall.Text = "القدم";
+            btnFootBall.UncheckedBackColor = Color.FromArgb(242, 242, 242);
+            btnFootBall.UncheckedForeColor = Color.FromArgb(64, 64, 64);
+            btnFootBall.UseVisualStyleBackColor = false;
+            btnFootBall.Click += pillButton2_Click;
             // 
-            // pillButton2
+            // btnAll
             // 
-            pillButton2.BackColor = Color.White;
-            pillButton2.BackgroundImageLayout = ImageLayout.None;
-            pillButton2.Checked = false;
-            pillButton2.CheckedBackColor = Color.FromArgb(41, 51, 146);
-            pillButton2.CheckedForeColor = Color.White;
-            pillButton2.FlatAppearance.BorderSize = 0;
-            pillButton2.FlatStyle = FlatStyle.Flat;
-            pillButton2.Font = new Font("Tajawal Medium", 10.2F, FontStyle.Bold);
-            pillButton2.ForeColor = Color.FromArgb(64, 64, 64);
-            pillButton2.GroupName = "";
-            pillButton2.Location = new Point(346, 22);
-            pillButton2.Margin = new Padding(2);
-            pillButton2.Name = "pillButton2";
-            pillButton2.Radius = 10;
-            pillButton2.Size = new Size(90, 43);
-            pillButton2.TabIndex = 9;
-            pillButton2.Text = "القدم";
-            pillButton2.UncheckedBackColor = Color.FromArgb(242, 242, 242);
-            pillButton2.UncheckedForeColor = Color.FromArgb(64, 64, 64);
-            pillButton2.UseVisualStyleBackColor = false;
-            // 
-            // pillButton1
-            // 
-            pillButton1.BackColor = Color.White;
-            pillButton1.BackgroundImageLayout = ImageLayout.None;
-            pillButton1.Checked = true;
-            pillButton1.CheckedBackColor = Color.FromArgb(41, 51, 146);
-            pillButton1.CheckedForeColor = Color.White;
-            pillButton1.FlatAppearance.BorderSize = 0;
-            pillButton1.FlatStyle = FlatStyle.Flat;
-            pillButton1.Font = new Font("Tajawal Medium", 10.2F, FontStyle.Bold);
-            pillButton1.ForeColor = Color.FromArgb(64, 64, 64);
-            pillButton1.GroupName = "";
-            pillButton1.Location = new Point(452, 22);
-            pillButton1.Margin = new Padding(2);
-            pillButton1.Name = "pillButton1";
-            pillButton1.Radius = 10;
-            pillButton1.Size = new Size(90, 43);
-            pillButton1.TabIndex = 8;
-            pillButton1.Text = "الكل ";
-            pillButton1.UncheckedBackColor = Color.FromArgb(242, 242, 242);
-            pillButton1.UncheckedForeColor = Color.FromArgb(64, 64, 64);
-            pillButton1.UseVisualStyleBackColor = false;
+            btnAll.BackColor = Color.White;
+            btnAll.BackgroundImageLayout = ImageLayout.None;
+            btnAll.Checked = true;
+            btnAll.CheckedBackColor = Color.FromArgb(41, 51, 146);
+            btnAll.CheckedForeColor = Color.White;
+            btnAll.FlatAppearance.BorderSize = 0;
+            btnAll.FlatStyle = FlatStyle.Flat;
+            btnAll.Font = new Font("Tajawal Medium", 10.2F, FontStyle.Bold);
+            btnAll.ForeColor = Color.FromArgb(64, 64, 64);
+            btnAll.GroupName = "";
+            btnAll.Location = new Point(452, 22);
+            btnAll.Margin = new Padding(2);
+            btnAll.Name = "btnAll";
+            btnAll.Radius = 10;
+            btnAll.Size = new Size(90, 43);
+            btnAll.TabIndex = 8;
+            btnAll.Text = "الكل ";
+            btnAll.UncheckedBackColor = Color.FromArgb(242, 242, 242);
+            btnAll.UncheckedForeColor = Color.FromArgb(64, 64, 64);
+            btnAll.UseVisualStyleBackColor = false;
+            btnAll.Click += pillButton1_Click;
             // 
             // SchedulingForm
             // 
@@ -550,11 +529,10 @@
         private Panel panel4;
         private CustomItems.StadiumGrid stadiumGrid1;
         private CustomItems.StatusCard statusCard4;
-        private CustomItems.PillButton pillButton5;
-        private CustomItems.PillButton pillButton4;
-        private CustomItems.PillButton pillButton3;
-        private CustomItems.PillButton pillButton2;
-        private CustomItems.PillButton pillButton1;
+        private CustomItems.PillButton btnPadel;
+        private CustomItems.PillButton btnBasketBall;
+        private CustomItems.PillButton btnFootBall;
+        private CustomItems.PillButton btnAll;
         private Label label3;
         private Label label1;
         private CustomItems.StatusCard statusCard1;

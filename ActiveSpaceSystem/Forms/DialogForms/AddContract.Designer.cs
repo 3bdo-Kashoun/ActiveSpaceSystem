@@ -28,13 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddContract));
             label9 = new Label();
             txtPricePerHour = new ActiveSpaceSystem.CustomItems.AbdulTextBox();
             label8 = new Label();
             label7 = new Label();
             label6 = new Label();
-            button1 = new Button();
             label1 = new Label();
             label11 = new Label();
             label10 = new Label();
@@ -120,15 +118,6 @@
             label6.Size = new Size(136, 25);
             label6.TabIndex = 35;
             label6.Text = "اليوم الاسبوعي";
-            // 
-            // button1
-            // 
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.Location = new Point(10, 4);
-            button1.Name = "button1";
-            button1.Size = new Size(31, 29);
-            button1.TabIndex = 27;
-            button1.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -418,11 +407,12 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.Location = new Point(477, 544);
+            label12.Location = new Point(554, 592);
             label12.Name = "label12";
-            label12.Size = new Size(125, 25);
+            label12.RightToLeft = RightToLeft.Yes;
+            label12.Size = new Size(135, 25);
             label12.TabIndex = 70;
-            label12.Text = "الدفعة الأولية";
+            label12.Text = "الدفعة الأولية :";
             // 
             // deposittxt
             // 
@@ -473,7 +463,6 @@
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(label6);
-            Controls.Add(button1);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(2);
@@ -494,7 +483,6 @@
         private Label label8;
         private Label label7;
         private Label label6;
-        private Button button1;
         private Label label1;
         private Label label11;
         private Label label10;

@@ -9,7 +9,7 @@ namespace ActiveSpaceSystem.Forms.MainForms
 {
     public partial class MainForm : Form
     {
-        private Dashboard DashForm = null!;
+        private DashBoardForm DashForm = null!;
         private ManageBooking BookingForm = null!;
         private SchedulingForm ScheduleForm = null!;
         private MonthlyContractForm MonthlyContractForm = null!;
@@ -44,7 +44,7 @@ namespace ActiveSpaceSystem.Forms.MainForms
 
             // تعيين الزر الرئيسي كنشط افتراضياً
             ActivateButton(button3);
-            ShowFormInPanel(new Dashboard()); // أو أي شاشة ترغب بها
+            ShowFormInPanel(new DashBoardForm()); // أو أي شاشة ترغب بها
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -84,7 +84,7 @@ namespace ActiveSpaceSystem.Forms.MainForms
             ActivateButton(button3);
             if (DashForm == null || DashForm.IsDisposed)
             {
-                DashForm = new Dashboard();
+                DashForm = new DashBoardForm();
             }
             ShowFormInPanel(DashForm);
         }

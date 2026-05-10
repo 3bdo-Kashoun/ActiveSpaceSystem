@@ -43,10 +43,9 @@
             // 
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Tajawal", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitle.Location = new Point(338, 34);
-            lblTitle.Margin = new Padding(4, 0, 4, 0);
+            lblTitle.Location = new Point(270, 27);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(234, 42);
+            lblTitle.Size = new Size(190, 33);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "إضافة عميل جديد";
             // 
@@ -54,10 +53,9 @@
             // 
             button1.FlatStyle = FlatStyle.Popup;
             button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.Location = new Point(55, 34);
-            button1.Margin = new Padding(4, 4, 4, 4);
+            button1.Location = new Point(44, 27);
             button1.Name = "button1";
-            button1.Size = new Size(36, 36);
+            button1.Size = new Size(29, 29);
             button1.TabIndex = 1;
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
@@ -66,10 +64,9 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(414, 99);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(331, 79);
             label2.Name = "label2";
-            label2.Size = new Size(136, 30);
+            label2.Size = new Size(115, 25);
             label2.TabIndex = 24;
             label2.Text = "اسم العميل";
             // 
@@ -81,13 +78,12 @@
             nametxt.Icon = null;
             nametxt.IconLocation = HorizontalAlignment.Left;
             nametxt.IconSize = 20;
-            nametxt.Location = new Point(41, 148);
-            nametxt.Margin = new Padding(4, 4, 4, 4);
+            nametxt.Location = new Point(33, 118);
             nametxt.Name = "nametxt";
             nametxt.passwordChar = "\0";
             nametxt.PlaceholderText = "أدخل النص هنا...";
             nametxt.RightToLeft = RightToLeft.Yes;
-            nametxt.Size = new Size(516, 62);
+            nametxt.Size = new Size(413, 50);
             nametxt.TabIndex = 25;
             nametxt.Texts = "";
             nametxt.KeyPress += nametxt_KeyPress;
@@ -100,13 +96,12 @@
             phonetxt.Icon = null;
             phonetxt.IconLocation = HorizontalAlignment.Left;
             phonetxt.IconSize = 20;
-            phonetxt.Location = new Point(41, 275);
-            phonetxt.Margin = new Padding(4, 4, 4, 4);
+            phonetxt.Location = new Point(33, 220);
             phonetxt.Name = "phonetxt";
             phonetxt.passwordChar = "\0";
             phonetxt.PlaceholderText = "09XXXXXXXX";
             phonetxt.RightToLeft = RightToLeft.Yes;
-            phonetxt.Size = new Size(516, 62);
+            phonetxt.Size = new Size(413, 50);
             phonetxt.TabIndex = 27;
             phonetxt.Texts = "";
             phonetxt.KeyPress += phonetxt_KeyPress;
@@ -115,10 +110,9 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(426, 226);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(341, 181);
             label3.Name = "label3";
-            label3.Size = new Size(124, 30);
+            label3.Size = new Size(105, 25);
             label3.TabIndex = 26;
             label3.Text = "رقم الهاتف";
             // 
@@ -132,10 +126,9 @@
             roundedButton1.FlatStyle = FlatStyle.Flat;
             roundedButton1.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
             roundedButton1.ForeColor = Color.Gray;
-            roundedButton1.Location = new Point(78, 371);
-            roundedButton1.Margin = new Padding(4, 4, 4, 4);
+            roundedButton1.Location = new Point(62, 297);
             roundedButton1.Name = "roundedButton1";
-            roundedButton1.Size = new Size(235, 54);
+            roundedButton1.Size = new Size(188, 43);
             roundedButton1.TabIndex = 28;
             roundedButton1.Text = "إلغاء";
             roundedButton1.UseVisualStyleBackColor = false;
@@ -151,10 +144,9 @@
             roundedButton2.FlatStyle = FlatStyle.Flat;
             roundedButton2.Font = new Font("Tajawal Medium", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
             roundedButton2.ForeColor = Color.White;
-            roundedButton2.Location = new Point(320, 371);
-            roundedButton2.Margin = new Padding(4, 4, 4, 4);
+            roundedButton2.Location = new Point(256, 297);
             roundedButton2.Name = "roundedButton2";
-            roundedButton2.Size = new Size(235, 54);
+            roundedButton2.Size = new Size(188, 43);
             roundedButton2.TabIndex = 29;
             roundedButton2.Text = "إضافة العميل";
             roundedButton2.UseVisualStyleBackColor = false;
@@ -162,9 +154,10 @@
             // 
             // AddCustomerForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(606, 465);
+            BackColor = Color.White;
+            ClientSize = new Size(485, 372);
             Controls.Add(roundedButton2);
             Controls.Add(roundedButton1);
             Controls.Add(phonetxt);
@@ -174,7 +167,6 @@
             Controls.Add(button1);
             Controls.Add(lblTitle);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4, 4, 4, 4);
             Name = "AddCustomerForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AddCustomerForm";

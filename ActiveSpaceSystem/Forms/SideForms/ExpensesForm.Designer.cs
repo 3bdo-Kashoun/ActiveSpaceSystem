@@ -61,8 +61,9 @@ namespace ActiveSpaceSystem.Forms.SideForms
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(2, 2, 2, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1278, 150);
+            panel1.Size = new Size(1022, 120);
             panel1.TabIndex = 0;
             // 
             // btnOpenAdd
@@ -74,15 +75,14 @@ namespace ActiveSpaceSystem.Forms.SideForms
             btnOpenAdd.BorderSize = 0;
             btnOpenAdd.FlatAppearance.BorderSize = 0;
             btnOpenAdd.FlatStyle = FlatStyle.Flat;
-            btnOpenAdd.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnOpenAdd.Font = new Font("Tajawal", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnOpenAdd.ForeColor = Color.White;
             btnOpenAdd.Image = Properties.Resources.icons8_add_24;
             btnOpenAdd.ImageAlign = ContentAlignment.MiddleRight;
-            btnOpenAdd.Location = new Point(45, 44);
-            btnOpenAdd.Margin = new Padding(4);
+            btnOpenAdd.Location = new Point(36, 35);
             btnOpenAdd.Name = "btnOpenAdd";
-            btnOpenAdd.Padding = new Padding(25, 12, 25, 12);
-            btnOpenAdd.Size = new Size(285, 80);
+            btnOpenAdd.Padding = new Padding(20, 10, 20, 10);
+            btnOpenAdd.Size = new Size(228, 64);
             btnOpenAdd.TabIndex = 12;
             btnOpenAdd.Text = "إضافة مصروف جديد";
             btnOpenAdd.TextAlign = ContentAlignment.MiddleLeft;
@@ -93,28 +93,26 @@ namespace ActiveSpaceSystem.Forms.SideForms
             // 
             label3.Anchor = AnchorStyles.Right;
             label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Tajawal", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.DimGray;
-            label3.Location = new Point(1016, 85);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(674, 68);
             label3.Name = "label3";
             label3.RightToLeft = RightToLeft.Yes;
-            label3.Size = new Size(227, 25);
+            label3.Size = new Size(322, 23);
             label3.TabIndex = 11;
-            label3.Text = "متابعة بيانات وحجوزات العملاء";
+            label3.Text = "متابعة وتسجيل جميع المصروفات التشغيلية";
             // 
             // label1
             // 
             label1.Anchor = AnchorStyles.Right;
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Tajawal", 19.7999973F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.MidnightBlue;
-            label1.Location = new Point(1047, 21);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(742, 17);
             label1.Name = "label1";
-            label1.Size = new Size(196, 46);
+            label1.Size = new Size(264, 49);
             label1.TabIndex = 10;
-            label1.Text = "إدارة العملاء";
+            label1.Text = "إدارة المصروفات";
             // 
             // tableLayoutPanel1
             // 
@@ -127,12 +125,12 @@ namespace ActiveSpaceSystem.Forms.SideForms
             tableLayoutPanel1.Controls.Add(advancedStatusCard3, 1, 0);
             tableLayoutPanel1.Controls.Add(advancedStatusCard1, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Top;
-            tableLayoutPanel1.Location = new Point(0, 150);
+            tableLayoutPanel1.Location = new Point(0, 120);
             tableLayoutPanel1.Margin = new Padding(2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1278, 159);
+            tableLayoutPanel1.Size = new Size(1022, 127);
             tableLayoutPanel1.TabIndex = 17;
             // 
             // advancedStatusCard4
@@ -141,13 +139,13 @@ namespace ActiveSpaceSystem.Forms.SideForms
             advancedStatusCard4.BorderRadius = 20;
             advancedStatusCard4.CardIcon = Properties.Resources.icons8_money_50;
             advancedStatusCard4.Dock = DockStyle.Fill;
+            advancedStatusCard4.Font = new Font("Tajawal", 9F);
             advancedStatusCard4.IconBackColor = Color.FromArgb(220, 38, 38);
-            advancedStatusCard4.Location = new Point(856, 4);
-            advancedStatusCard4.Margin = new Padding(4);
+            advancedStatusCard4.Location = new Point(683, 3);
             advancedStatusCard4.Name = "advancedStatusCard4";
-            advancedStatusCard4.Padding = new Padding(12);
+            advancedStatusCard4.Padding = new Padding(10, 10, 10, 10);
             advancedStatusCard4.ShadowSize = 1;
-            advancedStatusCard4.Size = new Size(418, 151);
+            advancedStatusCard4.Size = new Size(336, 121);
             advancedStatusCard4.SubValueColor = Color.Gray;
             advancedStatusCard4.SubValueFont = new Font("Tajawal", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             advancedStatusCard4.SubValueText = "";
@@ -156,7 +154,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
             advancedStatusCard4.TitleFont = new Font("Tajawal Medium", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             advancedStatusCard4.TitleText = "إجمالي المصروفات";
             advancedStatusCard4.ValueColor = Color.FromArgb(220, 38, 38);
-            advancedStatusCard4.ValueFont = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
+            advancedStatusCard4.ValueFont = new Font("Tajawal", 16.1999989F, FontStyle.Bold);
             advancedStatusCard4.ValueText = "١٧٬٥٨٠ د.ل";
             // 
             // advancedStatusCard3
@@ -165,13 +163,13 @@ namespace ActiveSpaceSystem.Forms.SideForms
             advancedStatusCard3.BorderRadius = 20;
             advancedStatusCard3.CardIcon = Properties.Resources.icons8_money_50__1_;
             advancedStatusCard3.Dock = DockStyle.Fill;
+            advancedStatusCard3.Font = new Font("Tajawal", 9F);
             advancedStatusCard3.IconBackColor = Color.FromArgb(43, 127, 255);
-            advancedStatusCard3.Location = new Point(430, 4);
-            advancedStatusCard3.Margin = new Padding(4);
+            advancedStatusCard3.Location = new Point(343, 3);
             advancedStatusCard3.Name = "advancedStatusCard3";
-            advancedStatusCard3.Padding = new Padding(12);
+            advancedStatusCard3.Padding = new Padding(10, 10, 10, 10);
             advancedStatusCard3.ShadowSize = 1;
-            advancedStatusCard3.Size = new Size(418, 151);
+            advancedStatusCard3.Size = new Size(334, 121);
             advancedStatusCard3.SubValueColor = Color.Gray;
             advancedStatusCard3.SubValueFont = new Font("Tajawal", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             advancedStatusCard3.SubValueText = "";
@@ -180,7 +178,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
             advancedStatusCard3.TitleFont = new Font("Tajawal Medium", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             advancedStatusCard3.TitleText = "مصروفات الشهرالحالي";
             advancedStatusCard3.ValueColor = Color.FromArgb(43, 127, 255);
-            advancedStatusCard3.ValueFont = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
+            advancedStatusCard3.ValueFont = new Font("Tajawal", 16.1999989F, FontStyle.Bold);
             advancedStatusCard3.ValueText = "١٧٬٥٨٠ د.ل";
             // 
             // advancedStatusCard1
@@ -189,13 +187,13 @@ namespace ActiveSpaceSystem.Forms.SideForms
             advancedStatusCard1.BorderRadius = 20;
             advancedStatusCard1.CardIcon = Properties.Resources.icons8_invoice_50;
             advancedStatusCard1.Dock = DockStyle.Fill;
+            advancedStatusCard1.Font = new Font("Tajawal", 9F);
             advancedStatusCard1.IconBackColor = Color.FromArgb(46, 204, 113);
-            advancedStatusCard1.Location = new Point(4, 4);
-            advancedStatusCard1.Margin = new Padding(4);
+            advancedStatusCard1.Location = new Point(3, 3);
             advancedStatusCard1.Name = "advancedStatusCard1";
-            advancedStatusCard1.Padding = new Padding(12);
+            advancedStatusCard1.Padding = new Padding(10, 10, 10, 10);
             advancedStatusCard1.ShadowSize = 1;
-            advancedStatusCard1.Size = new Size(418, 151);
+            advancedStatusCard1.Size = new Size(334, 121);
             advancedStatusCard1.SubValueColor = Color.FromArgb(46, 204, 113);
             advancedStatusCard1.SubValueFont = new Font("Tajawal", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             advancedStatusCard1.SubValueText = "";
@@ -204,7 +202,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
             advancedStatusCard1.TitleFont = new Font("Tajawal Medium", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             advancedStatusCard1.TitleText = "عدد المصروفات";
             advancedStatusCard1.ValueColor = Color.FromArgb(46, 204, 113);
-            advancedStatusCard1.ValueFont = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
+            advancedStatusCard1.ValueFont = new Font("Tajawal", 16.1999989F, FontStyle.Bold);
             advancedStatusCard1.ValueText = "١٧٬٥٨٠ د.ل";
             // 
             // statusCard4
@@ -219,14 +217,14 @@ namespace ActiveSpaceSystem.Forms.SideForms
             statusCard4.Controls.Add(btnFilterMaintenance);
             statusCard4.Controls.Add(btnFilterAll);
             statusCard4.Dock = DockStyle.Top;
-            statusCard4.Location = new Point(0, 309);
-            statusCard4.Margin = new Padding(100);
+            statusCard4.Location = new Point(0, 247);
+            statusCard4.Margin = new Padding(80, 80, 80, 80);
             statusCard4.Name = "statusCard4";
-            statusCard4.Padding = new Padding(50);
+            statusCard4.Padding = new Padding(40, 40, 40, 40);
             statusCard4.ShadowBlur = 5;
             statusCard4.ShadowColor = Color.FromArgb(0, 0, 192);
             statusCard4.ShowShadow = true;
-            statusCard4.Size = new Size(1278, 116);
+            statusCard4.Size = new Size(1022, 93);
             statusCard4.TabIndex = 18;
             statusCard4.TitleColor = Color.Gray;
             statusCard4.TitleFont = new Font("Microsoft Sans Serif", 10F);
@@ -239,11 +237,12 @@ namespace ActiveSpaceSystem.Forms.SideForms
             // 
             txtSearch.Anchor = AnchorStyles.Right;
             txtSearch.BorderStyle = BorderStyle.FixedSingle;
-            txtSearch.Location = new Point(754, 28);
+            txtSearch.Location = new Point(603, 22);
+            txtSearch.Margin = new Padding(2, 2, 2, 2);
             txtSearch.Multiline = true;
             txtSearch.Name = "txtSearch";
             txtSearch.RightToLeft = RightToLeft.Yes;
-            txtSearch.Size = new Size(471, 54);
+            txtSearch.Size = new Size(377, 44);
             txtSearch.TabIndex = 15;
             txtSearch.TextChanged += txtSearch_TextChanged;
             // 
@@ -259,11 +258,11 @@ namespace ActiveSpaceSystem.Forms.SideForms
             btnFilterSalaries.Font = new Font("Tajawal Medium", 10.2F, FontStyle.Bold);
             btnFilterSalaries.ForeColor = Color.FromArgb(64, 64, 64);
             btnFilterSalaries.GroupName = "";
-            btnFilterSalaries.Location = new Point(45, 28);
+            btnFilterSalaries.Location = new Point(36, 22);
             btnFilterSalaries.Margin = new Padding(2);
             btnFilterSalaries.Name = "btnFilterSalaries";
             btnFilterSalaries.Radius = 10;
-            btnFilterSalaries.Size = new Size(178, 54);
+            btnFilterSalaries.Size = new Size(142, 43);
             btnFilterSalaries.TabIndex = 11;
             btnFilterSalaries.Text = "رواتب الموظفين";
             btnFilterSalaries.UncheckedBackColor = Color.FromArgb(242, 242, 242);
@@ -283,11 +282,11 @@ namespace ActiveSpaceSystem.Forms.SideForms
             btnFilterElectricity.Font = new Font("Tajawal Medium", 10.2F, FontStyle.Bold);
             btnFilterElectricity.ForeColor = Color.FromArgb(64, 64, 64);
             btnFilterElectricity.GroupName = "";
-            btnFilterElectricity.Location = new Point(245, 28);
+            btnFilterElectricity.Location = new Point(196, 22);
             btnFilterElectricity.Margin = new Padding(2);
             btnFilterElectricity.Name = "btnFilterElectricity";
             btnFilterElectricity.Radius = 10;
-            btnFilterElectricity.Size = new Size(112, 54);
+            btnFilterElectricity.Size = new Size(90, 43);
             btnFilterElectricity.TabIndex = 10;
             btnFilterElectricity.Text = "كهرباء";
             btnFilterElectricity.UncheckedBackColor = Color.FromArgb(242, 242, 242);
@@ -307,11 +306,11 @@ namespace ActiveSpaceSystem.Forms.SideForms
             btnFilterMaintenance.Font = new Font("Tajawal Medium", 10.2F, FontStyle.Bold);
             btnFilterMaintenance.ForeColor = Color.FromArgb(64, 64, 64);
             btnFilterMaintenance.GroupName = "";
-            btnFilterMaintenance.Location = new Point(379, 28);
+            btnFilterMaintenance.Location = new Point(303, 22);
             btnFilterMaintenance.Margin = new Padding(2);
             btnFilterMaintenance.Name = "btnFilterMaintenance";
             btnFilterMaintenance.Radius = 10;
-            btnFilterMaintenance.Size = new Size(163, 54);
+            btnFilterMaintenance.Size = new Size(130, 43);
             btnFilterMaintenance.TabIndex = 9;
             btnFilterMaintenance.Text = " صيانة الملاعب";
             btnFilterMaintenance.UncheckedBackColor = Color.FromArgb(242, 242, 242);
@@ -331,11 +330,11 @@ namespace ActiveSpaceSystem.Forms.SideForms
             btnFilterAll.Font = new Font("Tajawal Medium", 10.2F, FontStyle.Bold);
             btnFilterAll.ForeColor = Color.FromArgb(64, 64, 64);
             btnFilterAll.GroupName = "";
-            btnFilterAll.Location = new Point(564, 28);
+            btnFilterAll.Location = new Point(451, 22);
             btnFilterAll.Margin = new Padding(2);
             btnFilterAll.Name = "btnFilterAll";
             btnFilterAll.Radius = 10;
-            btnFilterAll.Size = new Size(112, 54);
+            btnFilterAll.Size = new Size(90, 43);
             btnFilterAll.TabIndex = 8;
             btnFilterAll.Text = "الكل ";
             btnFilterAll.UncheckedBackColor = Color.FromArgb(242, 242, 242);
@@ -347,9 +346,10 @@ namespace ActiveSpaceSystem.Forms.SideForms
             // 
             panel2.Controls.Add(dgvExpenses);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 425);
+            panel2.Location = new Point(0, 340);
+            panel2.Margin = new Padding(2, 2, 2, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1278, 429);
+            panel2.Size = new Size(1022, 343);
             panel2.TabIndex = 19;
             // 
             // dgvExpenses
@@ -386,7 +386,6 @@ namespace ActiveSpaceSystem.Forms.SideForms
             dgvExpenses.HeaderBackColor = Color.FromArgb(243, 244, 246);
             dgvExpenses.HeaderForeColor = Color.FromArgb(33, 37, 41);
             dgvExpenses.Location = new Point(0, 0);
-            dgvExpenses.Margin = new Padding(4);
             dgvExpenses.MultiSelect = false;
             dgvExpenses.Name = "dgvExpenses";
             dgvExpenses.ReadOnly = true;
@@ -396,20 +395,21 @@ namespace ActiveSpaceSystem.Forms.SideForms
             dgvExpenses.RowHeight = 50;
             dgvExpenses.RowTemplate.Height = 50;
             dgvExpenses.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvExpenses.Size = new Size(1278, 429);
+            dgvExpenses.Size = new Size(1022, 343);
             dgvExpenses.TabIndex = 9;
             // 
             // ExpensesForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1278, 854);
+            ClientSize = new Size(1022, 683);
             Controls.Add(panel2);
             Controls.Add(statusCard4);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(2, 2, 2, 2);
             Name = "ExpensesForm";
             Text = "ExpensesForm";
             panel1.ResumeLayout(false);

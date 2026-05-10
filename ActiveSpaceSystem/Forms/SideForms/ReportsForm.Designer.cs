@@ -153,21 +153,22 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(67, 86);
+            label7.Font = new Font("Tajawal Medium", 9F, FontStyle.Bold);
+            label7.Location = new Point(97, 86);
             label7.Name = "label7";
-            label7.Size = new Size(142, 18);
+            label7.Size = new Size(179, 21);
             label7.TabIndex = 2;
             label7.Text = "+12% عن الشهر الماضي";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Microsoft Sans Serif", 16.1999989F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Font = new Font("Tajawal", 18F, FontStyle.Bold);
             label6.ForeColor = Color.FromArgb(16, 185, 129);
-            label6.Location = new Point(75, 42);
+            label6.Location = new Point(66, 42);
             label6.Name = "label6";
             label6.RightToLeft = RightToLeft.Yes;
-            label6.Size = new Size(161, 31);
+            label6.Size = new Size(173, 44);
             label6.TabIndex = 1;
             label6.Text = "245,800 د.ل";
             // 
@@ -175,11 +176,11 @@
             // 
             label5.AutoSize = true;
             label5.BackColor = Color.Transparent;
-            label5.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Font = new Font("Tajawal Medium", 10.2F, FontStyle.Bold);
             label5.ForeColor = Color.FromArgb(107, 114, 128);
-            label5.Location = new Point(115, 13);
+            label5.Location = new Point(102, 10);
             label5.Name = "label5";
-            label5.Size = new Size(103, 20);
+            label5.Size = new Size(137, 23);
             label5.TabIndex = 0;
             label5.Text = "إجمالي الإيرادات";
             // 
@@ -201,22 +202,22 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(54, 84);
+            label8.Font = new Font("Tajawal Medium", 9F, FontStyle.Bold);
+            label8.Location = new Point(60, 84);
             label8.Name = "label8";
-            label8.Size = new Size(160, 20);
+            label8.Size = new Size(180, 21);
             label8.TabIndex = 2;
             label8.Text = "+18% عن الشهر الماضي";
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Font = new Font("Microsoft Sans Serif", 16.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.Font = new Font("Tajawal", 18F, FontStyle.Bold);
             label9.ForeColor = Color.FromArgb(30, 58, 138);
-            label9.Location = new Point(139, 39);
+            label9.Location = new Point(180, 39);
             label9.Name = "label9";
             label9.RightToLeft = RightToLeft.Yes;
-            label9.Size = new Size(66, 33);
+            label9.Size = new Size(60, 44);
             label9.TabIndex = 1;
             label9.Text = "821";
             // 
@@ -224,11 +225,11 @@
             // 
             label10.AutoSize = true;
             label10.BackColor = Color.Transparent;
-            label10.Font = new Font("Microsoft Sans Serif", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label10.Font = new Font("Tajawal Medium", 10.2F, FontStyle.Bold);
             label10.ForeColor = Color.FromArgb(107, 114, 128);
-            label10.Location = new Point(98, 11);
+            label10.Location = new Point(96, 10);
             label10.Name = "label10";
-            label10.Size = new Size(117, 22);
+            label10.Size = new Size(144, 23);
             label10.TabIndex = 0;
             label10.Text = "إجمالي الحجوزات";
             // 
@@ -250,23 +251,23 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Font = new Font("Microsoft Sans Serif", 10.2F);
+            label11.Font = new Font("Tajawal Medium", 9F, FontStyle.Bold);
             label11.ForeColor = Color.FromArgb(107, 114, 128);
-            label11.Location = new Point(142, 85);
+            label11.Location = new Point(157, 85);
             label11.Name = "label11";
-            label11.Size = new Size(64, 20);
+            label11.Size = new Size(84, 21);
             label11.TabIndex = 2;
             label11.Text = "هذا الشهر";
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Font = new Font("Microsoft Sans Serif", 16.1999989F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label12.Font = new Font("Tajawal", 18F, FontStyle.Bold);
             label12.ForeColor = Color.FromArgb(37, 99, 235);
-            label12.Location = new Point(102, 40);
+            label12.Location = new Point(107, 40);
             label12.Name = "label12";
             label12.RightToLeft = RightToLeft.Yes;
-            label12.Size = new Size(129, 31);
+            label12.Size = new Size(134, 44);
             label12.TabIndex = 1;
             label12.Text = "8,193 د.ل";
             // 
@@ -274,11 +275,11 @@
             // 
             label13.AutoSize = true;
             label13.BackColor = Color.Transparent;
-            label13.Font = new Font("Microsoft Sans Serif", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label13.Font = new Font("Tajawal Medium", 10.2F, FontStyle.Bold);
             label13.ForeColor = Color.FromArgb(107, 114, 128);
-            label13.Location = new Point(93, 11);
+            label13.Location = new Point(59, 10);
             label13.Name = "label13";
-            label13.Size = new Size(135, 22);
+            label13.Size = new Size(182, 23);
             label13.TabIndex = 0;
             label13.Text = "متوسط الإيراد اليومي";
             // 
@@ -300,23 +301,23 @@
             // label14
             // 
             label14.AutoSize = true;
-            label14.Font = new Font("Microsoft Sans Serif", 10.2F);
+            label14.Font = new Font("Tajawal Medium", 9F, FontStyle.Bold);
             label14.ForeColor = Color.FromArgb(107, 114, 128);
             label14.Location = new Point(123, 82);
             label14.Name = "label14";
-            label14.Size = new Size(83, 20);
+            label14.Size = new Size(116, 21);
             label14.TabIndex = 2;
             label14.Text = "متوسط الشهر";
             // 
             // label15
             // 
             label15.AutoSize = true;
-            label15.Font = new Font("Microsoft Sans Serif", 16.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label15.Font = new Font("Tajawal", 18F, FontStyle.Bold);
             label15.ForeColor = Color.FromArgb(13, 148, 136);
-            label15.Location = new Point(169, 38);
+            label15.Location = new Point(168, 38);
             label15.Name = "label15";
             label15.RightToLeft = RightToLeft.Yes;
-            label15.Size = new Size(76, 33);
+            label15.Size = new Size(71, 44);
             label15.TabIndex = 1;
             label15.Text = "76%";
             // 
@@ -324,11 +325,11 @@
             // 
             label16.AutoSize = true;
             label16.BackColor = Color.Transparent;
-            label16.Font = new Font("Microsoft Sans Serif", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label16.Font = new Font("Tajawal Medium", 10.2F, FontStyle.Bold);
             label16.ForeColor = Color.FromArgb(107, 114, 128);
-            label16.Location = new Point(123, 10);
+            label16.Location = new Point(109, 10);
             label16.Name = "label16";
-            label16.Size = new Size(89, 22);
+            label16.Size = new Size(130, 23);
             label16.TabIndex = 0;
             label16.Text = "معدل الإشغال";
             // 
@@ -346,12 +347,12 @@
             // label34
             // 
             label34.AutoSize = true;
-            label34.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label34.Font = new Font("Tajawal", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label34.ForeColor = Color.FromArgb(59, 130, 246);
-            label34.Location = new Point(48, 31);
+            label34.Location = new Point(105, 24);
             label34.Name = "label34";
             label34.RightToLeft = RightToLeft.Yes;
-            label34.Size = new Size(720, 20);
+            label34.Size = new Size(835, 23);
             label34.TabIndex = 18;
             label34.Text = "📊 جميع البيانات المعروضة تم حسابها للفترة من 2026-04-01 إلى 2026-04-30. يمكنك تغيير الفترة الزمنية لتحديث التقارير.";
             // 
@@ -361,7 +362,7 @@
             panel23.Controls.Add(label1);
             panel23.Dock = DockStyle.Top;
             panel23.Location = new Point(0, 0);
-            panel23.Margin = new Padding(2, 2, 2, 2);
+            panel23.Margin = new Padding(2);
             panel23.Name = "panel23";
             panel23.Size = new Size(1022, 120);
             panel23.TabIndex = 20;
@@ -370,11 +371,11 @@
             // 
             label2.Anchor = AnchorStyles.Right;
             label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Tajawal", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.FromArgb(107, 114, 128);
-            label2.Location = new Point(780, 66);
+            label2.Location = new Point(765, 60);
             label2.Name = "label2";
-            label2.Size = new Size(231, 20);
+            label2.Size = new Size(245, 23);
             label2.TabIndex = 3;
             label2.Text = "تحليل شامل لأداء المجمع الرياضي";
             // 
@@ -382,12 +383,12 @@
             // 
             label1.Anchor = AnchorStyles.Right;
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Tajawal", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(30, 58, 138);
-            label1.Location = new Point(782, 16);
+            label1.Location = new Point(729, 16);
             label1.Name = "label1";
             label1.RightToLeft = RightToLeft.Yes;
-            label1.Size = new Size(238, 36);
+            label1.Size = new Size(281, 44);
             label1.TabIndex = 2;
             label1.Text = "التقارير والإحصائيات";
             // 
@@ -456,12 +457,12 @@
             myGunaButton1.BorderRadius = 20;
             myGunaButton1.FlatAppearance.BorderSize = 0;
             myGunaButton1.FlatStyle = FlatStyle.Flat;
-            myGunaButton1.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            myGunaButton1.Font = new Font("Tajawal", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             myGunaButton1.ForeColor = Color.White;
             myGunaButton1.HoverBackColor = Color.FromArgb(29, 53, 87);
             myGunaButton1.Image = (Image)resources.GetObject("myGunaButton1.Image");
             myGunaButton1.ImageAlign = ContentAlignment.MiddleRight;
-            myGunaButton1.Location = new Point(65, 43);
+            myGunaButton1.Location = new Point(59, 38);
             myGunaButton1.Name = "myGunaButton1";
             myGunaButton1.NormalBackColor = Color.FromArgb(26, 188, 156);
             myGunaButton1.Size = new Size(162, 56);
@@ -473,10 +474,10 @@
             // 
             label4.Anchor = AnchorStyles.Right;
             label4.AutoSize = true;
-            label4.Font = new Font("Microsoft Sans Serif", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Font = new Font("Tajawal", 10.7999992F, FontStyle.Bold);
             label4.Location = new Point(552, 10);
             label4.Name = "label4";
-            label4.Size = new Size(74, 22);
+            label4.Size = new Size(77, 26);
             label4.TabIndex = 11;
             label4.Text = "إلى تاريخ";
             // 
@@ -484,10 +485,10 @@
             // 
             label3.Anchor = AnchorStyles.Right;
             label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Tajawal", 10.7999992F, FontStyle.Bold);
             label3.Location = new Point(922, 10);
             label3.Name = "label3";
-            label3.Size = new Size(71, 22);
+            label3.Size = new Size(77, 26);
             label3.TabIndex = 10;
             label3.Text = "من تاريخ";
             // 
@@ -504,7 +505,7 @@
             tableLayoutPanel1.Controls.Add(panel6, 1, 0);
             tableLayoutPanel1.Dock = DockStyle.Top;
             tableLayoutPanel1.Location = new Point(0, 240);
-            tableLayoutPanel1.Margin = new Padding(2, 2, 2, 2);
+            tableLayoutPanel1.Margin = new Padding(2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
@@ -518,7 +519,7 @@
             panel1.Controls.Add(chart1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 360);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
             panel1.Size = new Size(1022, 560);
             panel1.TabIndex = 23;
@@ -527,12 +528,12 @@
             // 
             label17.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             label17.AutoSize = true;
-            label17.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label17.Font = new Font("Tajawal", 16.1999989F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label17.ForeColor = Color.Black;
             label17.Location = new Point(657, 33);
             label17.Name = "label17";
             label17.RightToLeft = RightToLeft.Yes;
-            label17.Size = new Size(292, 32);
+            label17.Size = new Size(333, 40);
             label17.TabIndex = 8;
             label17.Text = "الإيرادات حسب نوع الملعب";
             // 
@@ -564,7 +565,7 @@
             panel8.Controls.Add(label18);
             panel8.Dock = DockStyle.Top;
             panel8.Location = new Point(0, 920);
-            panel8.Margin = new Padding(2, 2, 2, 2);
+            panel8.Margin = new Padding(2);
             panel8.Name = "panel8";
             panel8.Size = new Size(1022, 563);
             panel8.TabIndex = 24;
@@ -609,10 +610,10 @@
             // 
             label18.Anchor = AnchorStyles.Right;
             label18.AutoSize = true;
-            label18.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label18.Font = new Font("Tajawal", 16.1999989F, FontStyle.Bold);
             label18.Location = new Point(770, 39);
             label18.Name = "label18";
-            label18.Size = new Size(197, 32);
+            label18.Size = new Size(223, 40);
             label18.TabIndex = 2;
             label18.Text = "الإيرادات الشهرية";
             // 
@@ -622,7 +623,7 @@
             panel9.Controls.Add(label35);
             panel9.Dock = DockStyle.Top;
             panel9.Location = new Point(0, 1483);
-            panel9.Margin = new Padding(2, 2, 2, 2);
+            panel9.Margin = new Padding(2);
             panel9.Name = "panel9";
             panel9.Size = new Size(1022, 533);
             panel9.TabIndex = 25;
@@ -658,10 +659,10 @@
             // 
             label35.Anchor = AnchorStyles.Right;
             label35.AutoSize = true;
-            label35.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label35.Font = new Font("Tajawal", 16.1999989F, FontStyle.Bold);
             label35.Location = new Point(554, 31);
             label35.Name = "label35";
-            label35.Size = new Size(362, 32);
+            label35.Size = new Size(382, 40);
             label35.TabIndex = 2;
             label35.Text = "أوقات الذروة (أكثر الأوقات حجزاً)";
             // 
@@ -673,7 +674,7 @@
             tableLayoutPanel2.Controls.Add(label21, 0, 0);
             tableLayoutPanel2.Dock = DockStyle.Top;
             tableLayoutPanel2.Location = new Point(0, 2016);
-            tableLayoutPanel2.Margin = new Padding(2, 2, 2, 2);
+            tableLayoutPanel2.Margin = new Padding(2);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RightToLeft = RightToLeft.No;
             tableLayoutPanel2.RowCount = 2;
@@ -713,7 +714,7 @@
             customDataGridView1.HeaderBackColor = Color.FromArgb(248, 249, 250);
             customDataGridView1.HeaderForeColor = Color.FromArgb(33, 37, 41);
             customDataGridView1.Location = new Point(2, 90);
-            customDataGridView1.Margin = new Padding(2, 2, 2, 2);
+            customDataGridView1.Margin = new Padding(2);
             customDataGridView1.MultiSelect = false;
             customDataGridView1.Name = "customDataGridView1";
             customDataGridView1.RowHeadersVisible = false;
@@ -756,10 +757,10 @@
             // 
             label21.Anchor = AnchorStyles.Right;
             label21.AutoSize = true;
-            label21.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label21.Location = new Point(805, 28);
+            label21.Font = new Font("Tajawal", 16.1999989F, FontStyle.Bold);
+            label21.Location = new Point(787, 24);
             label21.Name = "label21";
-            label21.Size = new Size(214, 32);
+            label21.Size = new Size(232, 40);
             label21.TabIndex = 3;
             label21.Text = "العملاء الأكثر حجزاً";
             // 
@@ -767,10 +768,10 @@
             // 
             label19.Anchor = AnchorStyles.Right;
             label19.AutoSize = true;
-            label19.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label19.Font = new Font("Tajawal", 16.1999989F, FontStyle.Bold);
             label19.Location = new Point(706, 146);
             label19.Name = "label19";
-            label19.Size = new Size(226, 32);
+            label19.Size = new Size(238, 40);
             label19.TabIndex = 0;
             label19.Text = "الملاعب الأكثر حجزاً";
             label19.Click += label19_Click;
@@ -798,7 +799,7 @@
             panel10.Controls.Add(label19);
             panel10.Dock = DockStyle.Top;
             panel10.Location = new Point(0, 2425);
-            panel10.Margin = new Padding(2, 2, 2, 2);
+            panel10.Margin = new Padding(2);
             panel10.Name = "panel10";
             panel10.Size = new Size(1022, 683);
             panel10.TabIndex = 27;
@@ -827,7 +828,7 @@
             label31.AutoSize = true;
             label31.Font = new Font("Microsoft Sans Serif", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label31.ForeColor = Color.FromArgb(107, 114, 128);
-            label31.Location = new Point(954, 533);
+            label31.Location = new Point(947, 533);
             label31.Name = "label31";
             label31.RightToLeft = RightToLeft.Yes;
             label31.Size = new Size(61, 22);
@@ -838,12 +839,12 @@
             // 
             label32.Anchor = AnchorStyles.Right;
             label32.AutoSize = true;
-            label32.Font = new Font("Microsoft Sans Serif", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label32.Font = new Font("Tajawal", 10.7999992F, FontStyle.Bold);
             label32.ForeColor = Color.FromArgb(107, 114, 128);
-            label32.Location = new Point(161, 497);
+            label32.Location = new Point(69, 489);
             label32.Name = "label32";
             label32.RightToLeft = RightToLeft.Yes;
-            label32.Size = new Size(87, 22);
+            label32.Size = new Size(74, 26);
             label32.TabIndex = 33;
             label32.Text = " 170 حجز";
             // 
@@ -851,11 +852,11 @@
             // 
             label33.Anchor = AnchorStyles.Right;
             label33.AutoSize = true;
-            label33.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label33.Font = new Font("Tajawal", 13.8F, FontStyle.Bold);
             label33.ForeColor = Color.FromArgb(31, 41, 55);
-            label33.Location = new Point(861, 492);
+            label33.Location = new Point(822, 486);
             label33.Name = "label33";
-            label33.Size = new Size(157, 29);
+            label33.Size = new Size(190, 33);
             label33.TabIndex = 32;
             label33.Text = "ملعب كرة القدم 2";
             // 
@@ -901,7 +902,7 @@
             label28.AutoSize = true;
             label28.Font = new Font("Microsoft Sans Serif", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label28.ForeColor = Color.FromArgb(107, 114, 128);
-            label28.Location = new Point(936, 457);
+            label28.Location = new Point(962, 457);
             label28.Name = "label28";
             label28.RightToLeft = RightToLeft.Yes;
             label28.Size = new Size(46, 22);
@@ -912,12 +913,12 @@
             // 
             label29.Anchor = AnchorStyles.Right;
             label29.AutoSize = true;
-            label29.Font = new Font("Microsoft Sans Serif", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label29.Font = new Font("Tajawal", 10.7999992F, FontStyle.Bold);
             label29.ForeColor = Color.FromArgb(107, 114, 128);
-            label29.Location = new Point(165, 408);
+            label29.Location = new Point(75, 408);
             label29.Name = "label29";
             label29.RightToLeft = RightToLeft.Yes;
-            label29.Size = new Size(81, 22);
+            label29.Size = new Size(70, 26);
             label29.TabIndex = 29;
             label29.Text = "165 حجز";
             // 
@@ -925,11 +926,11 @@
             // 
             label30.Anchor = AnchorStyles.Right;
             label30.AutoSize = true;
-            label30.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label30.Font = new Font("Tajawal", 13.8F, FontStyle.Bold);
             label30.ForeColor = Color.FromArgb(31, 41, 55);
-            label30.Location = new Point(891, 408);
+            label30.Location = new Point(857, 408);
             label30.Name = "label30";
-            label30.Size = new Size(131, 29);
+            label30.Size = new Size(155, 33);
             label30.TabIndex = 28;
             label30.Text = "ملعب البادل 1";
             // 
@@ -939,7 +940,7 @@
             label25.AutoSize = true;
             label25.Font = new Font("Microsoft Sans Serif", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label25.ForeColor = Color.FromArgb(107, 114, 128);
-            label25.Location = new Point(936, 376);
+            label25.Location = new Point(962, 376);
             label25.Name = "label25";
             label25.RightToLeft = RightToLeft.No;
             label25.Size = new Size(46, 22);
@@ -950,12 +951,12 @@
             // 
             label26.Anchor = AnchorStyles.Right;
             label26.AutoSize = true;
-            label26.Font = new Font("Microsoft Sans Serif", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label26.Font = new Font("Tajawal", 10.7999992F, FontStyle.Bold);
             label26.ForeColor = Color.FromArgb(107, 114, 128);
-            label26.Location = new Point(165, 325);
+            label26.Location = new Point(75, 330);
             label26.Name = "label26";
             label26.RightToLeft = RightToLeft.Yes;
-            label26.Size = new Size(81, 22);
+            label26.Size = new Size(71, 26);
             label26.TabIndex = 26;
             label26.Text = "198 حجز";
             // 
@@ -963,11 +964,11 @@
             // 
             label27.Anchor = AnchorStyles.Right;
             label27.AutoSize = true;
-            label27.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label27.Font = new Font("Tajawal", 13.8F, FontStyle.Bold);
             label27.ForeColor = Color.FromArgb(31, 41, 55);
-            label27.Location = new Point(885, 320);
+            label27.Location = new Point(851, 320);
             label27.Name = "label27";
-            label27.Size = new Size(130, 29);
+            label27.Size = new Size(161, 33);
             label27.TabIndex = 25;
             label27.Text = "ملعب التنس 1";
             // 
@@ -977,7 +978,7 @@
             label24.AutoSize = true;
             label24.Font = new Font("Microsoft Sans Serif", 10.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label24.ForeColor = Color.FromArgb(107, 114, 128);
-            label24.Location = new Point(936, 288);
+            label24.Location = new Point(962, 288);
             label24.Name = "label24";
             label24.RightToLeft = RightToLeft.Yes;
             label24.Size = new Size(46, 22);
@@ -989,12 +990,12 @@
             // 
             label23.Anchor = AnchorStyles.Right;
             label23.AutoSize = true;
-            label23.Font = new Font("Microsoft Sans Serif", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label23.Font = new Font("Tajawal", 10.7999992F, FontStyle.Bold);
             label23.ForeColor = Color.FromArgb(107, 114, 128);
-            label23.Location = new Point(165, 237);
+            label23.Location = new Point(75, 242);
             label23.Name = "label23";
             label23.RightToLeft = RightToLeft.Yes;
-            label23.Size = new Size(81, 22);
+            label23.Size = new Size(72, 26);
             label23.TabIndex = 23;
             label23.Text = "285 حجز";
             // 
@@ -1002,11 +1003,11 @@
             // 
             label22.Anchor = AnchorStyles.Right;
             label22.AutoSize = true;
-            label22.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label22.Font = new Font("Tajawal", 13.8F, FontStyle.Bold);
             label22.ForeColor = Color.FromArgb(31, 41, 55);
-            label22.Location = new Point(859, 232);
+            label22.Location = new Point(825, 232);
             label22.Name = "label22";
-            label22.Size = new Size(157, 29);
+            label22.Size = new Size(187, 33);
             label22.TabIndex = 20;
             label22.Text = "ملعب كرة القدم 1";
             // 

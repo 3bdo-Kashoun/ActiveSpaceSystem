@@ -84,7 +84,7 @@
             // 
             btExpense.FlatAppearance.BorderSize = 0;
             btExpense.FlatStyle = FlatStyle.Flat;
-            btExpense.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btExpense.Font = new Font("Tajawal", 11.999999F, FontStyle.Bold);
             btExpense.ForeColor = Color.White;
             btExpense.Image = Properties.Resources.icons8_payment_32;
             btExpense.ImageAlign = ContentAlignment.MiddleRight;
@@ -148,7 +148,7 @@
             // 
             btSettings.FlatAppearance.BorderSize = 0;
             btSettings.FlatStyle = FlatStyle.Flat;
-            btSettings.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btSettings.Font = new Font("Tajawal", 11.999999F, FontStyle.Bold);
             btSettings.ForeColor = Color.White;
             btSettings.Image = (Image)resources.GetObject("btSettings.Image");
             btSettings.ImageAlign = ContentAlignment.MiddleRight;
@@ -167,7 +167,7 @@
             // 
             btReports.FlatAppearance.BorderSize = 0;
             btReports.FlatStyle = FlatStyle.Flat;
-            btReports.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btReports.Font = new Font("Tajawal", 11.999999F, FontStyle.Bold);
             btReports.ForeColor = Color.White;
             btReports.Image = (Image)resources.GetObject("btReports.Image");
             btReports.ImageAlign = ContentAlignment.MiddleRight;
@@ -186,7 +186,7 @@
             // 
             btCustomers.FlatAppearance.BorderSize = 0;
             btCustomers.FlatStyle = FlatStyle.Flat;
-            btCustomers.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btCustomers.Font = new Font("Tajawal", 11.999999F, FontStyle.Bold);
             btCustomers.ForeColor = Color.White;
             btCustomers.Image = (Image)resources.GetObject("btCustomers.Image");
             btCustomers.ImageAlign = ContentAlignment.MiddleRight;
@@ -205,7 +205,7 @@
             // 
             btContract.FlatAppearance.BorderSize = 0;
             btContract.FlatStyle = FlatStyle.Flat;
-            btContract.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btContract.Font = new Font("Tajawal", 11.999999F, FontStyle.Bold);
             btContract.ForeColor = Color.White;
             btContract.Image = (Image)resources.GetObject("btContract.Image");
             btContract.ImageAlign = ContentAlignment.MiddleRight;
@@ -224,7 +224,7 @@
             // 
             btPayment.FlatAppearance.BorderSize = 0;
             btPayment.FlatStyle = FlatStyle.Flat;
-            btPayment.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btPayment.Font = new Font("Tajawal", 11.999999F, FontStyle.Bold);
             btPayment.ForeColor = Color.White;
             btPayment.Image = (Image)resources.GetObject("btPayment.Image");
             btPayment.ImageAlign = ContentAlignment.MiddleRight;
@@ -243,7 +243,7 @@
             // 
             btScheduling.FlatAppearance.BorderSize = 0;
             btScheduling.FlatStyle = FlatStyle.Flat;
-            btScheduling.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btScheduling.Font = new Font("Tajawal", 11.999999F, FontStyle.Bold);
             btScheduling.ForeColor = Color.White;
             btScheduling.Image = (Image)resources.GetObject("btScheduling.Image");
             btScheduling.ImageAlign = ContentAlignment.MiddleRight;
@@ -262,7 +262,7 @@
             // 
             btBooking.FlatAppearance.BorderSize = 0;
             btBooking.FlatStyle = FlatStyle.Flat;
-            btBooking.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btBooking.Font = new Font("Tajawal", 11.999999F, FontStyle.Bold);
             btBooking.ForeColor = Color.White;
             btBooking.Image = (Image)resources.GetObject("btBooking.Image");
             btBooking.ImageAlign = ContentAlignment.MiddleRight;
@@ -281,7 +281,7 @@
             // 
             btMain.FlatAppearance.BorderSize = 0;
             btMain.FlatStyle = FlatStyle.Flat;
-            btMain.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btMain.Font = new Font("Tajawal", 11.999999F, FontStyle.Bold);
             btMain.ForeColor = Color.White;
             btMain.Image = (Image)resources.GetObject("btMain.Image");
             btMain.ImageAlign = ContentAlignment.MiddleRight;
@@ -334,12 +334,12 @@
             // 
             lblDate.Anchor = AnchorStyles.Top;
             lblDate.AutoSize = true;
-            lblDate.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDate.Font = new Font("Tajawal", 11.999999F, FontStyle.Bold);
             lblDate.ForeColor = Color.FromArgb(64, 64, 64);
             lblDate.Location = new Point(482, 26);
             lblDate.Margin = new Padding(4, 0, 4, 0);
             lblDate.Name = "lblDate";
-            lblDate.Size = new Size(70, 25);
+            lblDate.Size = new Size(65, 29);
             lblDate.TabIndex = 16;
             lblDate.Text = "label3";
             // 
@@ -348,7 +348,7 @@
             btLogout.Anchor = AnchorStyles.Left;
             btLogout.FlatAppearance.BorderSize = 0;
             btLogout.FlatStyle = FlatStyle.Flat;
-            btLogout.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btLogout.Font = new Font("Tajawal", 11.999999F, FontStyle.Bold);
             btLogout.ForeColor = Color.Black;
             btLogout.Image = (Image)resources.GetObject("btLogout.Image");
             btLogout.ImageAlign = ContentAlignment.MiddleRight;

@@ -28,13 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddContract));
             label9 = new Label();
             txtPricePerHour = new ActiveSpaceSystem.CustomItems.AbdulTextBox();
             label8 = new Label();
             label7 = new Label();
             label6 = new Label();
-            button1 = new Button();
             label1 = new Label();
             label11 = new Label();
             label10 = new Label();
@@ -450,7 +448,7 @@
             label12.Name = "label12";
             label12.Size = new Size(152, 30);
             label12.TabIndex = 70;
-            label12.Text = "الدفعة الأولية";
+            label12.Text = "الدفعة الأولية :";
             // 
             // deposittxt
             // 
@@ -502,7 +500,6 @@
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(label6);
-            Controls.Add(button1);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(2);
@@ -523,7 +520,6 @@
         private Label label8;
         private Label label7;
         private Label label6;
-        private Button button1;
         private Label label1;
         private Label label11;
         private Label label10;

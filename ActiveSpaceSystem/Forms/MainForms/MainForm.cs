@@ -9,7 +9,7 @@ namespace ActiveSpaceSystem.Forms.MainForms
 {
     public partial class MainForm : Form
     {
-        private Dashboard DashForm = null!;
+        private DashBoardForm DashForm = null!;
         private ManageBooking BookingForm = null!;
         private SchedulingForm ScheduleForm = null!;
         private MonthlyContractForm MonthlyContractForm = null!;
@@ -59,7 +59,7 @@ namespace ActiveSpaceSystem.Forms.MainForms
             ActivateButton(btMain);
             if (DashForm == null || DashForm.IsDisposed)
             {
-                DashForm = new Dashboard();
+                DashForm = new DashBoardForm();
             }
             ShowFormInPanel(DashForm);
         }

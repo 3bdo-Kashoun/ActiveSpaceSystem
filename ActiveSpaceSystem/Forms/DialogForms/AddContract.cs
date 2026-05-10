@@ -44,6 +44,22 @@ namespace ActiveSpaceSystem.Forms.DialogForms
             cmbDays.ValueMember = "Value";
 
             cmbCourt.SelectedIndex = -1;
+            // 2. ضبط الوقت الافتراضي (Start Time & End Time)
+            // الحصول على الساعة الحالية وزيادة ساعة واحدة
+            DateTime nextHour = DateTime.Now.AddHours(1);
+
+            // تصفير الدقائق والثواني (مثلاً من 14:35 إلى 15:00)
+            DateTime startTime = new DateTime(nextHour.Year, nextHour.Month, nextHour.Day, nextHour.Hour, 0, 0);
+
+            // وقت النهاية يكون بعد وقت البداية بساعة واحدة (مثلاً 16:00)
+            DateTime endTime = startTime.AddHours(1);
+
+            // إسناد القيم للـ DateTimePickers
+            dtpStartTime.Value = startTime;
+            dtpEndTime.Value = endTime;
+
+            // 3. تحديث ملصق عدد الحصص
+           
             UpdateOccurrencesLabel();
         }
 

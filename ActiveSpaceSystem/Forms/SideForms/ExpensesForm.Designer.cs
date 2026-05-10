@@ -40,13 +40,13 @@ namespace ActiveSpaceSystem.Forms.SideForms
             advancedStatusCard3 = new ActiveSpaceSystem.CustomItems.AdvancedStatusCard();
             advancedStatusCard1 = new ActiveSpaceSystem.CustomItems.AdvancedStatusCard();
             statusCard4 = new ActiveSpaceSystem.CustomItems.StatusCard();
+            txtSearch = new TextBox();
             btnFilterSalaries = new ActiveSpaceSystem.CustomItems.PillButton();
             btnFilterElectricity = new ActiveSpaceSystem.CustomItems.PillButton();
             btnFilterMaintenance = new ActiveSpaceSystem.CustomItems.PillButton();
             btnFilterAll = new ActiveSpaceSystem.CustomItems.PillButton();
             panel2 = new Panel();
             dgvExpenses = new ActiveSpaceSystem.CustomItems.CustomDataGridView();
-            txtSearch = new TextBox();
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             statusCard4.SuspendLayout();
@@ -235,6 +235,18 @@ namespace ActiveSpaceSystem.Forms.SideForms
             statusCard4.ValueFont = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             statusCard4.ValueText = "";
             // 
+            // txtSearch
+            // 
+            txtSearch.Anchor = AnchorStyles.Right;
+            txtSearch.BorderStyle = BorderStyle.FixedSingle;
+            txtSearch.Location = new Point(754, 28);
+            txtSearch.Multiline = true;
+            txtSearch.Name = "txtSearch";
+            txtSearch.RightToLeft = RightToLeft.Yes;
+            txtSearch.Size = new Size(471, 54);
+            txtSearch.TabIndex = 15;
+            txtSearch.TextChanged += txtSearch_TextChanged;
+            // 
             // btnFilterSalaries
             // 
             btnFilterSalaries.BackColor = Color.White;
@@ -386,18 +398,6 @@ namespace ActiveSpaceSystem.Forms.SideForms
             dgvExpenses.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvExpenses.Size = new Size(1278, 429);
             dgvExpenses.TabIndex = 9;
-            // 
-            // txtSearch
-            // 
-            txtSearch.Anchor = AnchorStyles.Right;
-            txtSearch.BorderStyle = BorderStyle.FixedSingle;
-            txtSearch.Location = new Point(754, 28);
-            txtSearch.Multiline = true;
-            txtSearch.Name = "txtSearch";
-            txtSearch.RightToLeft = RightToLeft.Yes;
-            txtSearch.Size = new Size(471, 54);
-            txtSearch.TabIndex = 15;
-            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // ExpensesForm
             // 

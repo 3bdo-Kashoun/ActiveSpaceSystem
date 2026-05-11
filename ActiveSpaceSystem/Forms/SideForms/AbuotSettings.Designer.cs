@@ -55,7 +55,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Tajawal Medium", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(694, 24);
@@ -81,9 +81,10 @@ namespace ActiveSpaceSystem.Forms.SideForms
             panel2.Name = "panel2";
             panel2.Size = new Size(886, 360);
             panel2.TabIndex = 1;
+            // 
             // roundedButton1
             // 
-            roundedButton1.Anchor = AnchorStyles.Left;
+            roundedButton1.Anchor = AnchorStyles.None;
             roundedButton1.BackColor = Color.FromArgb(41, 51, 146);
             roundedButton1.BorderColor = Color.FromArgb(41, 51, 146);
             roundedButton1.BorderRadius = 20;
@@ -103,7 +104,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
             // 
             // abdulTextBox3
             // 
-            abdulTextBox3.Anchor = AnchorStyles.Right;
+            abdulTextBox3.Anchor = AnchorStyles.None;
             abdulTextBox3.BackColor = Color.White;
             abdulTextBox3.BorderColor = Color.FromArgb(29, 53, 87);
             abdulTextBox3.BorderRadius = 15;
@@ -135,7 +136,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
             // 
             // abdulTextBox2
             // 
-            abdulTextBox2.Anchor = AnchorStyles.Right;
+            abdulTextBox2.Anchor = AnchorStyles.None;
             abdulTextBox2.BackColor = Color.White;
             abdulTextBox2.BorderColor = Color.FromArgb(29, 53, 87);
             abdulTextBox2.BorderRadius = 15;
@@ -155,7 +156,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
             // 
             // abdulTextBox1
             // 
-            abdulTextBox1.Anchor = AnchorStyles.Right;
+            abdulTextBox1.Anchor = AnchorStyles.None;
             abdulTextBox1.BackColor = Color.White;
             abdulTextBox1.BorderColor = Color.FromArgb(29, 53, 87);
             abdulTextBox1.BorderRadius = 15;
@@ -174,7 +175,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
             // 
             // label3
             // 
-            label3.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.Font = new Font("Tajawal", 10.999999F);
             label3.Location = new Point(778, 130);
@@ -187,7 +188,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
             // 
             // label2
             // 
-            label2.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
             label2.Font = new Font("Tajawal", 10.999999F);
             label2.Location = new Point(778, 26);

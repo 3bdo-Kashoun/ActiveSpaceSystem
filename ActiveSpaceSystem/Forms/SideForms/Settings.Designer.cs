@@ -31,13 +31,15 @@
             panel1 = new Panel();
             label3 = new Label();
             label1 = new Label();
-            flowLayoutPanel1 = new FlowLayoutPanel();
             tabButton1 = new ActiveSpaceSystem.CustomItems.TabButton();
             tabButton3 = new ActiveSpaceSystem.CustomItems.TabButton();
             tabButton2 = new ActiveSpaceSystem.CustomItems.TabButton();
             mainContainer = new ActiveSpaceSystem.CustomItems.CustomPanel();
+            panel2 = new Panel();
+            panel3 = new Panel();
             panel1.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
+            panel2.SuspendLayout();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -76,19 +78,9 @@
             label1.TabIndex = 0;
             label1.Text = "الإعدادات";
             // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.Controls.Add(tabButton1);
-            flowLayoutPanel1.Controls.Add(tabButton3);
-            flowLayoutPanel1.Controls.Add(tabButton2);
-            flowLayoutPanel1.Location = new Point(0, 125);
-            flowLayoutPanel1.Margin = new Padding(2);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1005, 513);
-            flowLayoutPanel1.TabIndex = 2;
-            // 
             // tabButton1
             // 
+            tabButton1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             tabButton1.BackColor = Color.FromArgb(41, 51, 146);
             tabButton1.BorderColor = Color.White;
             tabButton1.BorderRadius = 20;
@@ -98,7 +90,7 @@
             tabButton1.Font = new Font("Tajawal", 11.999999F, FontStyle.Bold);
             tabButton1.ForeColor = Color.White;
             tabButton1.IsActive = true;
-            tabButton1.Location = new Point(823, 2);
+            tabButton1.Location = new Point(814, 5);
             tabButton1.Margin = new Padding(2);
             tabButton1.Name = "tabButton1";
             tabButton1.Size = new Size(180, 60);
@@ -109,6 +101,7 @@
             // 
             // tabButton3
             // 
+            tabButton3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             tabButton3.BackColor = Color.White;
             tabButton3.BorderColor = Color.White;
             tabButton3.BorderRadius = 20;
@@ -118,7 +111,7 @@
             tabButton3.Font = new Font("Tajawal", 11.999999F, FontStyle.Bold);
             tabButton3.ForeColor = Color.Black;
             tabButton3.IsActive = false;
-            tabButton3.Location = new Point(639, 2);
+            tabButton3.Location = new Point(630, 5);
             tabButton3.Margin = new Padding(2);
             tabButton3.Name = "tabButton3";
             tabButton3.Size = new Size(180, 60);
@@ -129,6 +122,7 @@
             // 
             // tabButton2
             // 
+            tabButton2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             tabButton2.BackColor = Color.White;
             tabButton2.BorderColor = Color.White;
             tabButton2.BorderRadius = 20;
@@ -138,7 +132,7 @@
             tabButton2.Font = new Font("Tajawal", 11.999999F, FontStyle.Bold);
             tabButton2.ForeColor = Color.Black;
             tabButton2.IsActive = false;
-            tabButton2.Location = new Point(455, 2);
+            tabButton2.Location = new Point(437, 5);
             tabButton2.Margin = new Padding(2);
             tabButton2.Name = "tabButton2";
             tabButton2.Size = new Size(180, 60);
@@ -154,12 +148,34 @@
             mainContainer.BorderColor = Color.FromArgb(230, 230, 230);
             mainContainer.BorderRadius = 20;
             mainContainer.BorderSize = 1F;
-            mainContainer.Location = new Point(0, 241);
+            mainContainer.Dock = DockStyle.Fill;
+            mainContainer.Location = new Point(0, 102);
             mainContainer.Margin = new Padding(2);
             mainContainer.Name = "mainContainer";
             mainContainer.ShowShadow = true;
-            mainContainer.Size = new Size(1005, 397);
+            mainContainer.Size = new Size(1005, 411);
             mainContainer.TabIndex = 3;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(mainContainer);
+            panel2.Controls.Add(panel3);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(0, 125);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1005, 513);
+            panel2.TabIndex = 4;
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(tabButton1);
+            panel3.Controls.Add(tabButton3);
+            panel3.Controls.Add(tabButton2);
+            panel3.Dock = DockStyle.Top;
+            panel3.Location = new Point(0, 0);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1005, 102);
+            panel3.TabIndex = 4;
             // 
             // Settings
             // 
@@ -168,8 +184,7 @@
             AutoScroll = true;
             BackColor = Color.FromArgb(248, 249, 250);
             ClientSize = new Size(1005, 638);
-            Controls.Add(mainContainer);
-            Controls.Add(flowLayoutPanel1);
+            Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(2);
@@ -180,7 +195,8 @@
             Load += Settings_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            flowLayoutPanel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -189,10 +205,11 @@
         private Panel panel1;
         private Label label3;
         private Label label1;
-        private FlowLayoutPanel flowLayoutPanel1;
         private CustomItems.TabButton tabButton1;
         private CustomItems.TabButton tabButton2;
         private CustomItems.TabButton tabButton3;
         private CustomItems.CustomPanel mainContainer;
+        private Panel panel2;
+        private Panel panel3;
     }
 }

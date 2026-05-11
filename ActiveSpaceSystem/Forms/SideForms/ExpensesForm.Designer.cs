@@ -29,8 +29,8 @@ namespace ActiveSpaceSystem.Forms.SideForms
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             panel1 = new Panel();
             btnOpenAdd = new ActiveSpaceSystem.CustomItems.RoundedButton();
             label3 = new Label();
@@ -61,7 +61,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
             panel1.Size = new Size(1022, 120);
             panel1.TabIndex = 0;
@@ -82,7 +82,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
             btnOpenAdd.Location = new Point(36, 35);
             btnOpenAdd.Name = "btnOpenAdd";
             btnOpenAdd.Padding = new Padding(20, 10, 20, 10);
-            btnOpenAdd.Size = new Size(228, 64);
+            btnOpenAdd.Size = new Size(228, 56);
             btnOpenAdd.TabIndex = 12;
             btnOpenAdd.Text = "إضافة مصروف جديد";
             btnOpenAdd.TextAlign = ContentAlignment.MiddleLeft;
@@ -141,9 +141,10 @@ namespace ActiveSpaceSystem.Forms.SideForms
             advancedStatusCard4.Dock = DockStyle.Fill;
             advancedStatusCard4.Font = new Font("Tajawal", 9F);
             advancedStatusCard4.IconBackColor = Color.FromArgb(220, 38, 38);
+            advancedStatusCard4.IconSize = 36;
             advancedStatusCard4.Location = new Point(683, 3);
             advancedStatusCard4.Name = "advancedStatusCard4";
-            advancedStatusCard4.Padding = new Padding(10, 10, 10, 10);
+            advancedStatusCard4.Padding = new Padding(10);
             advancedStatusCard4.ShadowSize = 1;
             advancedStatusCard4.Size = new Size(336, 121);
             advancedStatusCard4.SubValueColor = Color.Gray;
@@ -165,9 +166,10 @@ namespace ActiveSpaceSystem.Forms.SideForms
             advancedStatusCard3.Dock = DockStyle.Fill;
             advancedStatusCard3.Font = new Font("Tajawal", 9F);
             advancedStatusCard3.IconBackColor = Color.FromArgb(43, 127, 255);
+            advancedStatusCard3.IconSize = 36;
             advancedStatusCard3.Location = new Point(343, 3);
             advancedStatusCard3.Name = "advancedStatusCard3";
-            advancedStatusCard3.Padding = new Padding(10, 10, 10, 10);
+            advancedStatusCard3.Padding = new Padding(10);
             advancedStatusCard3.ShadowSize = 1;
             advancedStatusCard3.Size = new Size(334, 121);
             advancedStatusCard3.SubValueColor = Color.Gray;
@@ -189,9 +191,10 @@ namespace ActiveSpaceSystem.Forms.SideForms
             advancedStatusCard1.Dock = DockStyle.Fill;
             advancedStatusCard1.Font = new Font("Tajawal", 9F);
             advancedStatusCard1.IconBackColor = Color.FromArgb(46, 204, 113);
+            advancedStatusCard1.IconSize = 36;
             advancedStatusCard1.Location = new Point(3, 3);
             advancedStatusCard1.Name = "advancedStatusCard1";
-            advancedStatusCard1.Padding = new Padding(10, 10, 10, 10);
+            advancedStatusCard1.Padding = new Padding(10);
             advancedStatusCard1.ShadowSize = 1;
             advancedStatusCard1.Size = new Size(334, 121);
             advancedStatusCard1.SubValueColor = Color.FromArgb(46, 204, 113);
@@ -218,9 +221,9 @@ namespace ActiveSpaceSystem.Forms.SideForms
             statusCard4.Controls.Add(btnFilterAll);
             statusCard4.Dock = DockStyle.Top;
             statusCard4.Location = new Point(0, 247);
-            statusCard4.Margin = new Padding(80, 80, 80, 80);
+            statusCard4.Margin = new Padding(80);
             statusCard4.Name = "statusCard4";
-            statusCard4.Padding = new Padding(40, 40, 40, 40);
+            statusCard4.Padding = new Padding(40);
             statusCard4.ShadowBlur = 5;
             statusCard4.ShadowColor = Color.FromArgb(0, 0, 192);
             statusCard4.ShowShadow = true;
@@ -238,7 +241,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
             txtSearch.Anchor = AnchorStyles.Right;
             txtSearch.BorderStyle = BorderStyle.FixedSingle;
             txtSearch.Location = new Point(603, 22);
-            txtSearch.Margin = new Padding(2, 2, 2, 2);
+            txtSearch.Margin = new Padding(2);
             txtSearch.Multiline = true;
             txtSearch.Name = "txtSearch";
             txtSearch.RightToLeft = RightToLeft.Yes;
@@ -347,7 +350,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
             panel2.Controls.Add(dgvExpenses);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(0, 340);
-            panel2.Margin = new Padding(2, 2, 2, 2);
+            panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
             panel2.Size = new Size(1022, 343);
             panel2.TabIndex = 19;
@@ -363,23 +366,23 @@ namespace ActiveSpaceSystem.Forms.SideForms
             dgvExpenses.BorderStyle = BorderStyle.None;
             dgvExpenses.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dgvExpenses.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(243, 244, 246);
-            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(33, 37, 41);
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(243, 244, 246);
-            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(33, 37, 41);
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvExpenses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(243, 244, 246);
+            dataGridViewCellStyle3.Font = new Font("Tajawal Medium", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(33, 37, 41);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(243, 244, 246);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(33, 37, 41);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvExpenses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvExpenses.ColumnHeadersHeight = 50;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(240, 245, 255);
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvExpenses.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Tajawal", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(240, 245, 255);
+            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvExpenses.DefaultCellStyle = dataGridViewCellStyle4;
             dgvExpenses.Dock = DockStyle.Fill;
             dgvExpenses.EnableHeadersVisualStyles = false;
             dgvExpenses.GridColor = Color.White;
@@ -409,7 +412,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
             Controls.Add(tableLayoutPanel1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "ExpensesForm";
             Text = "ExpensesForm";
             panel1.ResumeLayout(false);

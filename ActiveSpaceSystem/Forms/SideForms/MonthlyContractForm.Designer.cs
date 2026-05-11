@@ -134,7 +134,7 @@
             statusCardCont.Dock = DockStyle.Fill;
             statusCardCont.Location = new Point(3, 3);
             statusCardCont.Name = "statusCardCont";
-            statusCardCont.Padding = new Padding(5, 5, 5, 5);
+            statusCardCont.Padding = new Padding(5);
             statusCardCont.ShadowBlur = 5;
             statusCardCont.ShadowColor = Color.FromArgb(100, 0, 0, 0);
             statusCardCont.ShowShadow = true;
@@ -156,7 +156,7 @@
             statusCardTotal.Dock = DockStyle.Fill;
             statusCardTotal.Location = new Point(343, 3);
             statusCardTotal.Name = "statusCardTotal";
-            statusCardTotal.Padding = new Padding(5, 5, 5, 5);
+            statusCardTotal.Padding = new Padding(5);
             statusCardTotal.ShadowBlur = 5;
             statusCardTotal.ShadowColor = Color.FromArgb(100, 0, 0, 0);
             statusCardTotal.ShowShadow = true;
@@ -178,7 +178,7 @@
             statusCardEXP.Dock = DockStyle.Fill;
             statusCardEXP.Location = new Point(683, 3);
             statusCardEXP.Name = "statusCardEXP";
-            statusCardEXP.Padding = new Padding(5, 5, 5, 5);
+            statusCardEXP.Padding = new Padding(5);
             statusCardEXP.ShadowBlur = 5;
             statusCardEXP.ShadowColor = Color.FromArgb(100, 0, 0, 0);
             statusCardEXP.ShowShadow = true;
@@ -202,7 +202,7 @@
             tableLayoutPanel1.Controls.Add(statusCardCont, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Top;
             tableLayoutPanel1.Location = new Point(0, 222);
-            tableLayoutPanel1.Margin = new Padding(2, 2, 2, 2);
+            tableLayoutPanel1.Margin = new Padding(2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
@@ -214,7 +214,7 @@
             panel2.Controls.Add(dgvMonthlyContract);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(0, 342);
-            panel2.Margin = new Padding(2, 2, 2, 2);
+            panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
             panel2.Size = new Size(1022, 341);
             panel2.TabIndex = 7;
@@ -231,7 +231,7 @@
             dgvMonthlyContract.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(243, 244, 246);
-            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.Font = new Font("Tajawal Medium", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = Color.FromArgb(33, 37, 41);
             dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(243, 244, 246);
             dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(33, 37, 41);
@@ -240,7 +240,7 @@
             dgvMonthlyContract.ColumnHeadersHeight = 50;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.Font = new Font("Tajawal", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(240, 245, 255);
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
@@ -276,7 +276,6 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "MonthlyContractForm";
             Text = "MonthlyContractForm";
-            
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);

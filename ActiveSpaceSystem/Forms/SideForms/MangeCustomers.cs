@@ -154,6 +154,8 @@ namespace ActiveSpaceSystem.Forms.SideForms
                 dgvCustomers.DataSource = customersList;
                 if (dgvCustomers.Columns["CustomerId"]!=null)
                    dgvCustomers.Columns["CustomerId"].Visible = false; // إخفاء عمود المعرف إذا كان موجوداً
+                if (dgvCustomers.Columns["TotalDebt"] != null)
+                    dgvCustomers.Columns["TotalDebt"].Visible = false; // إخفاء عمود إجمالي الدين إذا كان موجوداً
             }
             catch (Exception ex)
             {
@@ -380,6 +382,9 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
                 if (dgvCustomers.Columns["CustomerId"] != null)
                     dgvCustomers.Columns["CustomerId"].Visible = false;
+                if (dgvCustomers.Columns["TotalDebt"] != null)
+                    dgvCustomers.Columns["TotalDebt"].Visible = false;
+                dgvCustomers.DataSource = customersList;
 
               
             }

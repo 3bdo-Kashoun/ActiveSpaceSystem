@@ -349,11 +349,29 @@ namespace ActiveSpaceSystem.Forms.DialogForms
                 original.Deposit = deposit;
                 original.CourtID = ((Court)cmbCourt.SelectedItem).CourtID;
                 original.CustomerID = original.Customer.CustomerID;
+                original.Customer.TotalDebt += (totalAmount - deposit) - (original.TotalAmount - original.Deposit); // تحديث الدين بناءً على الفرق بين القديم والجديد
 
 
                 // تحديث الحالة المالية (مدفوع جزئي، مؤكد، إلخ) بناءً على المبلغ
                 original.Status = (deposit >= totalAmount) ? BookingStatus.Completed : BookingStatus.Confirmed;
+                var customerInStorage = DataStorage.CustomersList.FirstOrDefault(c => c.CustomerID == original.Customer.CustomerID);
+                if (customerInStorage != null) { 
+                    customerInStorage.TotalDebt = original.Customer.TotalDebt; // تحديث الدين في قائمة العملاء
+
+                    NotifyMangeCustomersUpdate();
+
+                }
             }
+        }
+        public void NotifyMangeCustomersUpdate()
+        {
+            // إعادة تحميل البيانات لتحديث العدادات
+            var form = Application.OpenForms.OfType<MangeCustomers>().FirstOrDefault();
+            if (form != null)
+            {
+                form.LoadData();
+            }
+
         }
 
         private bool ValidateAllInputs(out double totalAmount, out double deposit)

@@ -27,8 +27,9 @@ namespace ActiveSpaceSystem.Forms.SideForms
         private BindingList<ContractViewModel> contractsBindingList;
         private ImageList actionImageList;
         private ContractGridRenderer gridRenderer;
+        private User CurrentUser { get; set; }
 
-        public MonthlyContractForm()
+        public MonthlyContractForm(User user)
         {
             InitializeComponent();
             this.TopLevel = false;
@@ -37,6 +38,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
             SetupGrid();
 
             this.Load += MonthlyContractForm_Load;
+            CurrentUser = user;
         }
 
         private void InitializeActionImages()
@@ -164,6 +166,11 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
         private void HandleEdit(int rowIndex)
         {
+            if (CurrentUser.Role != UserRole.Admin)
+            {
+                MessageBox.Show("عذرًا، لا تمتلك صلاحية تعديل العقود.", "صلاحيات غير كافية", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             var item = dgvMonthlyContract.Rows[rowIndex].DataBoundItem as ContractViewModel;
             if (item == null) return;
 
@@ -179,6 +186,11 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
         private void HandleDelete(int rowIndex)
         {
+            if (CurrentUser.Role != UserRole.Admin)
+            {
+                MessageBox.Show("عذرًا، لا تمتلك صلاحية حذف العقود.", "صلاحيات غير كافية", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             // 1. التأكد من السطر والبيانات
             var item = dgvMonthlyContract.Rows[rowIndex].DataBoundItem as ContractViewModel;
             if (item == null) return;

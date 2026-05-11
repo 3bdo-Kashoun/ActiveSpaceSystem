@@ -22,7 +22,7 @@ namespace ActiveSpaceSystem.Forms.MainForms
         private Button? currentActiveButton = null;
         private int oldWidth = 0;
         private int oldheight = 0;
-        public static User CurrentUser { get; private set; } = null!;
+        private User CurrentUser { get; set; } = null!;
 
         public MainForm(User user)
         {
@@ -100,7 +100,7 @@ namespace ActiveSpaceSystem.Forms.MainForms
             ActivateButton(btBooking);
             if (BookingForm == null || BookingForm.IsDisposed)
             {
-                BookingForm = new ManageBooking();
+                BookingForm = new ManageBooking(CurrentUser);
                 BookingForm.LoadData();
             }
             if (BookingForm != null)
@@ -132,7 +132,7 @@ namespace ActiveSpaceSystem.Forms.MainForms
             ActivateButton(btContract);
             if (MonthlyContractForm == null || MonthlyContractForm.IsDisposed)
             {
-                MonthlyContractForm = new MonthlyContractForm();
+                MonthlyContractForm = new MonthlyContractForm(CurrentUser);
             }
             if (MangeCustomersForm != null)
             {
@@ -172,7 +172,7 @@ namespace ActiveSpaceSystem.Forms.MainForms
             ActivateButton(btCustomers);
             if (MangeCustomersForm == null || MangeCustomersForm.IsDisposed)
             {
-                MangeCustomersForm = new MangeCustomers();
+                MangeCustomersForm = new MangeCustomers(CurrentUser);
                 MangeCustomersForm.LoadData();
             }
             ShowFormInPanel(MangeCustomersForm);
@@ -205,7 +205,7 @@ namespace ActiveSpaceSystem.Forms.MainForms
             ActivateButton(btExpense);
             if (ExpensesForm == null || ExpensesForm.IsDisposed)
             {
-                ExpensesForm = new ExpensesForm();
+                ExpensesForm = new ExpensesForm(CurrentUser);
             }
             ShowFormInPanel(ExpensesForm);
         }

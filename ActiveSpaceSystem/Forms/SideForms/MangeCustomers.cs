@@ -21,8 +21,8 @@ namespace ActiveSpaceSystem.Forms.SideForms
         private BindingList<CustomerViewModel> customersList;
         private ImageList actionImageList;
         private CustomerGridRenderer gridRenderer;
-
-        public MangeCustomers()
+        private User currentUser;
+        public MangeCustomers(User user)
         {
             // أولاً: بناء المكونات الأساسية للـ Form
             InitializeComponent();
@@ -32,6 +32,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
             // ثالثاً: ربط حدث التحميل (Load)
             this.Load += MangeCustomers_Load;
+                currentUser = user; // تخزين المستخدم الحالي لاستخدامه لاحقاً في الصلاحيات أو التخصيص
         }
 
         private void InitializeActionImages()
@@ -193,6 +194,12 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
         private void HandleEditClick(int rowIndex)
         {
+            if (currentUser.Role != UserRole.Admin )
+            {
+                MessageBox.Show("عذراً، لا تمتلك صلاحيات التعديل.", "صلاحيات غير كافية", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             // 1. التحقق من صحة الفهرس ومحاولة الوصول للبيانات المرتبطة بالسطر
             if (rowIndex < 0 || dgvCustomers.Rows[rowIndex].DataBoundItem == null) return;
 
@@ -249,6 +256,12 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
         private void HandleDeleteClick(int rowIndex)
         {
+            if (currentUser.Role != UserRole.Admin)
+            {
+                MessageBox.Show("عذراً، لا تمتلك صلاحيات الحذف.", "صلاحيات غير كافية", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (rowIndex < 0 || dgvCustomers.Rows[rowIndex].DataBoundItem == null) return;
             // 1. الوصول للـ ViewModel الموجود في السطر الذي نقر عليه المستخدم
             var customerVm = dgvCustomers.Rows[rowIndex].DataBoundItem as CustomerViewModel;
 

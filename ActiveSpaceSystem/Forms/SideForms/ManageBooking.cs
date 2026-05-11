@@ -18,14 +18,16 @@ namespace ActiveSpaceSystem.Forms.SideForms
         private BindingList<BookingViewModel> bookingsList;
         private ImageList actionImageList;
         private BookingGridRenderer gridRenderer;
+        private User currentUser;
 
-        public ManageBooking()
+        public ManageBooking(User user)
         {
             InitializeComponent();
             this.TopLevel = false;
             InitializeActionImages();
             SetupGrid();
             this.Load += ManageBooking_Load;
+            currentUser = user;
         }
 
         private void InitializeActionImages()
@@ -223,6 +225,15 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
         private void HandleEditClick(int rowIndex)
         {
+            if(currentUser.Role != UserRole.Admin)
+            {
+                MessageBox.Show("عذرًا، لا تمتلك صلاحية تعديل الحجوزات.", "صلاحيات غير كافية", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+                
+               
+            if (rowIndex < 0 || rowIndex >= bookingsList.Count)
+                return;
             // 1. الحصول على الحجز المختار من السطر
             var item = dgvBookings.Rows[rowIndex].DataBoundItem as BookingViewModel;
             if (item == null) return;
@@ -241,6 +252,11 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
         private void HandleDeleteClick(int rowIndex)
         {
+            if (currentUser.Role != UserRole.Admin)
+            {
+                MessageBox.Show("عذرًا، لا تمتلك صلاحية حذف الحجوزات.", "صلاحيات غير كافية", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             if (MessageBox.Show("هل أنت متأكد من حذف هذا الحجز؟", "تأكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 if (rowIndex >= 0 && rowIndex < bookingsList.Count)

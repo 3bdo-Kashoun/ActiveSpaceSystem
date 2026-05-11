@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using ActiveSpace.Models;
 using ActiveSpaceSystem.Data;
 using ActiveSpaceSystem.Forms.DialogForms;
 using ActiveSpaceSystem.Forms.GridStyle;
 using ActiveSpaceSystem.Models;
+using ActiveSpaceSystem.Models.enums;
 
 namespace ActiveSpaceSystem.Forms.SideForms
 {
@@ -14,8 +16,8 @@ namespace ActiveSpaceSystem.Forms.SideForms
     {
         private ImageList actionImageList;
         private ExpenseGridRenderer gridRenderer;
-
-        public ExpensesForm()
+        private User currentUser;
+        public ExpensesForm(User user)
         {
             InitializeComponent();
             this.TopLevel = false;
@@ -23,6 +25,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
             // تهيئة العناصر الأساسية قبل أي عملية أخرى لمنع NullReferenceException
             InitializeActionImages();
             SetupGrid();
+            currentUser = user;
         }
 
         private void InitializeActionImages()
@@ -133,6 +136,11 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
         private void HandleEditClick(int rowIndex)
         {
+            if (currentUser == null || currentUser.Role==UserRole.Staff)
+            {
+                MessageBox.Show("ليس لديك صلاحية تعديل المصروفات.", "صلاحية مرفوضة", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             var item = dgvExpenses.Rows[rowIndex].DataBoundItem as Expense;
             if (item == null) return;
 
@@ -148,6 +156,11 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
         private void HandleDeleteClick(int rowIndex)
         {
+            if (currentUser == null || currentUser.Role == UserRole.Staff)
+            {
+                MessageBox.Show("ليس لديك صلاحية حذف المصروفات.", "صلاحية مرفوضة", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             var item = dgvExpenses.Rows[rowIndex].DataBoundItem as Expense;
             if (item == null) return;
 

@@ -266,6 +266,12 @@ namespace ActiveSpaceSystem.Forms.SideForms
                     .Where(c => c.Status == MonthlyContractStatus.Active)
                     .Sum(c => c.Bookings?.Sum(b => b.TotalAmount) ?? 0);
                 if (statusCardTotal != null) statusCardTotal.ValueText = totalRevenue.ToString("N0") + " د.ل";
+
+                int monthlyEndSoon = DataStorage.ContractsList.Count(c =>
+                    c.Status == MonthlyContractStatus.Active &&
+                    c.EndDate.Month == DateTime.Now.Month &&
+                    c.EndDate.Year == DateTime.Now.Year);
+                if (statusCardEXP!= null) statusCardEXP.ValueText = monthlyEndSoon.ToString();
             }
             catch { }
         }

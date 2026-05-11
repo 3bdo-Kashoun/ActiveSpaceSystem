@@ -29,9 +29,9 @@ namespace ActiveSpaceSystem.Forms.GridStyle
 
             // رسم الشكل البيضاوي (Capsule)
             Rectangle rect = new Rectangle(
-                e.CellBounds.X + BookingGridStyles.StatusPadding, 
+                e.CellBounds.X + BookingGridStyles.StatusPadding,
                 e.CellBounds.Y + BookingGridStyles.StatusVerticalPadding,
-                Math.Max(0, e.CellBounds.Width - 20), 
+                Math.Max(0, e.CellBounds.Width - 20),
                 Math.Max(0, e.CellBounds.Height - 30)
             );
 
@@ -71,11 +71,11 @@ namespace ActiveSpaceSystem.Forms.GridStyle
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
             // رسم زر التعديل
-            DrawActionButton(e.Graphics, centerX, centerY, buttonSize, iconSize, cornerRadius, 
+            DrawActionButton(e.Graphics, centerX, centerY, buttonSize, iconSize, cornerRadius,
                             BookingGridStyles.EditButtonBack, "edit");
 
             // رسم زر الحذف
-            DrawActionButton(e.Graphics, centerX + buttonSize + spacing, centerY, buttonSize, iconSize, 
+            DrawActionButton(e.Graphics, centerX + buttonSize + spacing, centerY, buttonSize, iconSize,
                             cornerRadius, BookingGridStyles.DeleteButtonBack, "delete");
 
             e.Handled = true;
@@ -90,7 +90,7 @@ namespace ActiveSpaceSystem.Forms.GridStyle
             {
                 BookingStatus.Confirmed => (BookingGridStyles.TextConfirmed, BookingGridStyles.ColorConfirmedBack, BookingGridStyles.ColorConfirmedText),
                 BookingStatus.Completed => (BookingGridStyles.TextCompleted, BookingGridStyles.ColorCompletedBack, BookingGridStyles.ColorCompletedText),
-                
+
                 _ => (BookingGridStyles.TextPending, BookingGridStyles.ColorPendingBack, BookingGridStyles.ColorPendingText)
             };
         }
@@ -98,7 +98,7 @@ namespace ActiveSpaceSystem.Forms.GridStyle
         /// <summary>
         /// رسم زر واحد مع الأيقونة
         /// </summary>
-        private void DrawActionButton(Graphics graphics, int x, int y, int buttonSize, int iconSize, 
+        private void DrawActionButton(Graphics graphics, int x, int y, int buttonSize, int iconSize,
                                      int cornerRadius, Color backgroundColor, string iconKey)
         {
             var buttonRect = new Rectangle(x, y, buttonSize, buttonSize);
@@ -139,7 +139,7 @@ namespace ActiveSpaceSystem.Forms.GridStyle
         {
             var path = new GraphicsPath();
             int d = rect.Height;
-            
+
             if (d > 0)
             {
                 path.AddArc(rect.X, rect.Y, d, d, 90, 180);

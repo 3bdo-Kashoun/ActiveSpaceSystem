@@ -179,24 +179,68 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
         private void HandleDelete(int rowIndex)
         {
+            // 1. التأكد من السطر والبيانات
             var item = dgvMonthlyContract.Rows[rowIndex].DataBoundItem as ContractViewModel;
             if (item == null) return;
 
-            if (MessageBox.Show("هل أنت متأكد من حذف هذا العقد وجميع متعلقاته؟", "تأكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (MessageBox.Show("هل أنت متأكد من حذف هذا العقد وجميع متعلقاته؟ سيتم تحديث ديون العميل تلقائياً.", "تأكيد الحذف", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                // الحذف المنطقي من البيانات
-                DataStorage.BookingsList.RemoveAll(b => b.ContractID == item.ContractID);
-                DataStorage.PaymentList.RemoveAll(p => p.Booking != null && p.Booking.ContractID == item.ContractID);
-
+                // 2. البحث عن العقد الأصلي في الذاكرة للحصول على بياناته (خاصة الـ CustomerID)
                 var contractToRemove = DataStorage.ContractsList.FirstOrDefault(c => c.ContractID == item.ContractID);
-                if (contractToRemove != null) DataStorage.ContractsList.Remove(contractToRemove);
+                if (contractToRemove == null) return;
 
-                // التحديث المباشر للـ UI
+                // 3. الحصول على العميل المرتبط بهذا العقد (استخدام CustomerID الموجود داخل العقد)
+                var customer = DataStorage.CustomersList.FirstOrDefault(c => c.CustomerID == contractToRemove.CustomerID);
+
+                // 4. حساب المبالغ المدفوعة فعلياً لهذا العقد من قائمة المدفوعات
+                // نبحث عن المدفوعات المرتبطة بالحجوزات التي تتبع هذا العقد
+                var associatedBookingIds = DataStorage.BookingsList
+                                            .Where(b => b.ContractID == item.ContractID)
+                                            .Select(b => b.BookingID)
+                                            .ToList();
+
+                double totalPaidForContract = DataStorage.PaymentList
+                                              .Where(p => associatedBookingIds.Contains(p.BookingID))
+                                              .Sum(p => p.AmountPaid);
+
+                // 5. تحديث دين العميل قبل حذف العقد
+                if (customer != null)
+                {
+                    // الدين الناتج عن العقد = (إجمالي قيمة العقد - ما تم دفعه منه)
+                    double remainingDebtFromContract = contractToRemove.TotalAmount - totalPaidForContract;
+
+                    customer.TotalDebt -= remainingDebtFromContract;
+
+                    // تأمين: لضمان عدم وجود قيم سالبة في الدين
+                    if (customer.TotalDebt < 0) customer.TotalDebt = 0;
+                }
+
+                // 6. الحذف التسلسلي من الذاكرة (DataStorage)
+                // أ. حذف المدفوعات
+                DataStorage.PaymentList.RemoveAll(p => associatedBookingIds.Contains(p.BookingID));
+
+                // ب. حذف الحجوزات المرتبطة بالعقد
+                DataStorage.BookingsList.RemoveAll(b => b.ContractID == item.ContractID);
+
+                // ج. حذف العقد نفسه
+                DataStorage.ContractsList.Remove(contractToRemove);
+
+                // 7. تحديث الواجهة (UI)
                 contractsBindingList.RemoveAt(rowIndex);
                 UpdateDashboardCards();
 
-                MessageBox.Show("تم الحذف بنجاح.", "إشعار", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // تحديث فورم العملاء إذا كان مفتوحاً ليرى المستخدم تغيير الدين فوراً
+                NotifyCustomerFormUpdate();
+
+                MessageBox.Show("تم حذف العقد وتحديث مديونية العميل بنجاح.", "إشعار", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        // دالة مساعدة لتحديث فورم العملاء
+        private void NotifyCustomerFormUpdate()
+        {
+            var customerForm = Application.OpenForms.OfType<MangeCustomers>().FirstOrDefault();
+            customerForm?.LoadData();
         }
 
         private void UpdateDashboardCards()

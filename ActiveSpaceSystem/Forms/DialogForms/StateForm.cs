@@ -1,4 +1,7 @@
-﻿using ActiveSpaceSystem.Data;
+﻿using ActiveSpace.Models;
+using ActiveSpaceSystem.Data;
+using ActiveSpaceSystem.Forms.Views;
+using ActiveSpaceSystem.Models.enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +16,11 @@ namespace ActiveSpaceSystem.Forms.DialogForms
 {
     public partial class StateForm : Form
     {
-        public StateForm()
+        private BookingViewModel _booking;
+        public StateForm(BookingViewModel booking)
         {
             InitializeComponent();
+            _booking = booking;
         }
 
         private void StateForm_Load(object sender, EventArgs e)
@@ -38,6 +43,14 @@ namespace ActiveSpaceSystem.Forms.DialogForms
             {
                 MessageBox.Show("يرجى اختيار حالة جديدة.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }
+            if(selectedState == "مؤكد")
+            {
+                _booking.Status = BookingStatus.Confirmed;
+            }
+            else if(selectedState == "لم يحضر")
+            {
+                _booking.Status = BookingStatus.NoShow;
             }
             
 

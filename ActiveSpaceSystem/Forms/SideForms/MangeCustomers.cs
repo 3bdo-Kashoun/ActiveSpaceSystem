@@ -137,7 +137,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
             InitializeActionImages();
             SetupGrid();
             LoadData();
-            updateStatisticsCards();
+           
             btnAll.IsToggled = true; // تعيين زر "الكل" كافتراضي
 
             if (dgvCustomers.Rows.Count > 0)
@@ -158,6 +158,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
             {
                 MessageBox.Show("خطأ في تحميل البيانات: " + ex.Message);
             }
+            updateStatisticsCards();
         }
 
         private void DgvCustomers_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -263,19 +264,24 @@ namespace ActiveSpaceSystem.Forms.SideForms
                     // نستخدم RemoveAll لضمان البحث في القائمة الأصلية وحذف العنصر المطابق للمعرّف
                     DataStorage.CustomersList.RemoveAll(c => c.CustomerID == customerVm.CustomerId);
 
-                    // حذف الحجوزات المرتبطة أيضاً من المرجع الرئيسي
-                    DataStorage.BookingsList.RemoveAll(b => b.CustomerID == customerVm.CustomerId);
+                    var bookingToRemove = DataStorage.BookingsList.Where(b => b.CustomerID == customerVm.CustomerId).ToList();
+                    foreach (var booking in bookingToRemove)
+                    {
+                        var paymentToRemove = DataStorage.PaymentList.Where(p => p.BookingID == booking.BookingID).ToList();
+                        foreach (var payment in paymentToRemove)
+                        {
+                            DataStorage.PaymentList.Remove(payment);
+                        }
+                        DataStorage.BookingsList.Remove(booking);
+                    }
+                    DataStorage.ContractsList.RemoveAll(c => c.CustomerID == customerVm.CustomerId);
 
                     // 3. تحديث العدادات العلوية
                     updateStatisticsCards();
-                    // 1. ابحث عن واجهة ManageBooking المفتوحة في التطبيق
-                    var manageBookingForm = Application.OpenForms.OfType<ManageBooking>().FirstOrDefault();
+                    NotifyMonthlyContractsUpdate();
 
-                    // 2. إذا كانت الواجهة موجودة (مفتوحة)، قم باستدعاء دالة التحميل الخاصة بها
-                    if (manageBookingForm != null)
-                    {
-                        manageBookingForm.LoadData();
-                    }
+
+
 
                     // 4. تحديث الجدول: 
                     // إذا كان المستخدم يبحث حالياً، نحدث البحث، وإذا كان يعرض الكل، نحدث الكل
@@ -295,6 +301,16 @@ namespace ActiveSpaceSystem.Forms.SideForms
                     MessageBox.Show($"خطأ: {ex.Message}");
                 }
             }
+        }
+        public void NotifyMonthlyContractsUpdate()
+        {
+            // إعادة تحميل البيانات لتحديث العدادات
+            var form = Application.OpenForms.OfType<MonthlyContractForm>().FirstOrDefault();
+            if (form != null)
+            {
+                form.RefreshContractsGrid();
+            }
+
         }
 
         private void roundedButton1_Click(object sender, EventArgs e)
@@ -346,8 +362,13 @@ namespace ActiveSpaceSystem.Forms.SideForms
             {
                 var data = DataStorage.CustomersList.Select(CustomerViewModel.FromCustomer).ToList();
                 customersList = new BindingList<CustomerViewModel>(data);
-                dgvCustomers.DataSource = customersList;
+
                
+
+                if (dgvCustomers.Columns["CustomerId"] != null)
+                    dgvCustomers.Columns["CustomerId"].Visible = false;
+
+              
             }
             catch (Exception ex)
             {

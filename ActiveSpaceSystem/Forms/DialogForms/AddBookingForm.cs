@@ -62,6 +62,8 @@ namespace ActiveSpaceSystem.Forms.DialogForms
                 txtprice.Texts = _bookingToEdit.Amount.ToString();
                 deposittxt.Visible = false;
                 lblDeposit.Visible = false;
+                txtName.Enabled = false; // لا نسمح بتعديل الاسم في وضع التعديل، لأنه مرتبط بالعميل
+                txtPhone.Enabled = false;
 
                 // 2. معالجة التاريخ (Date)
                 if (DateTime.TryParse(_bookingToEdit.Date, out DateTime bookingDate))
@@ -337,7 +339,7 @@ namespace ActiveSpaceSystem.Forms.DialogForms
             if (original != null)
             {
                 // تحديث البيانات الأساسية
-                original.Customer.FullName= txtName.Texts;
+                original.Customer.FullName = txtName.Texts;
                 original.Customer.Phone = txtPhone.Texts;
                 original.Court = (Court)cmbCourt.SelectedItem;
                 original.BookingDate = dtpBookingDate.Value.Date;
@@ -345,6 +347,9 @@ namespace ActiveSpaceSystem.Forms.DialogForms
                 original.EndTime = end;
                 original.TotalAmount = totalAmount;
                 original.Deposit = deposit;
+                original.CourtID = ((Court)cmbCourt.SelectedItem).CourtID;
+                original.CustomerID = original.Customer.CustomerID;
+
 
                 // تحديث الحالة المالية (مدفوع جزئي، مؤكد، إلخ) بناءً على المبلغ
                 original.Status = (deposit >= totalAmount) ? BookingStatus.Completed : BookingStatus.Confirmed;
@@ -397,7 +402,7 @@ namespace ActiveSpaceSystem.Forms.DialogForms
             {
 
 
-               var original = DataStorage.BookingsList.FirstOrDefault(b => b.BookingID == _bookingToEdit.BookingID);
+                var original = DataStorage.BookingsList.FirstOrDefault(b => b.BookingID == _bookingToEdit.BookingID);
                 deposit = original?.Deposit ?? 0;
 
             }
@@ -448,7 +453,8 @@ namespace ActiveSpaceSystem.Forms.DialogForms
                 Deposit = deposit,
                 Status = DetermineBookingStatus(totalAmount, deposit),
                 Customer = customer,
-                Court = selectedCourt
+                Court = selectedCourt,
+                CustomerID=customer.CustomerID
             };
 
             DataStorage.BookingsList.Add(newBooking);
@@ -496,6 +502,9 @@ namespace ActiveSpaceSystem.Forms.DialogForms
             MessageBox.Show(message, "خطأ في النظام", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-  
+        private void roundedButton1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

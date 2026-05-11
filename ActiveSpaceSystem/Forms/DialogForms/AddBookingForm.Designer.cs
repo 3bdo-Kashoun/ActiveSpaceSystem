@@ -345,6 +345,7 @@
             roundedButton1.TabIndex = 52;
             roundedButton1.Text = "حفظ الحجز";
             roundedButton1.UseVisualStyleBackColor = false;
+            roundedButton1.Click += roundedButton1_Click_1;
             // 
             // btnCancel
             // 

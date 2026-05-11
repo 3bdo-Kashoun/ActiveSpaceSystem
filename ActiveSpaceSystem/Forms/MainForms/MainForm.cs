@@ -22,6 +22,7 @@ namespace ActiveSpaceSystem.Forms.MainForms
         private Button? currentActiveButton = null;
         private int oldWidth = 0;
         private int oldheight = 0;
+        public static User CurrentUser { get; private set; } = null!;
 
         public MainForm(User user)
         {
@@ -41,7 +42,22 @@ namespace ActiveSpaceSystem.Forms.MainForms
             LabelUser.Text = user.FullName;
             LabelRole.Text = user.Role == UserRole.Admin ? "مدير" : "موظف";
             this.WindowState = FormWindowState.Maximized;
+            CurrentUser = user;
+            UpdateButtonVisibility();
 
+        }
+        private void UpdateButtonVisibility()
+        {
+            if (CurrentUser.Role == UserRole.Staff)
+            {
+                btSettings.Visible = false;
+                btReports.Visible = false;
+            }
+            else
+            {
+                btSettings.Visible = true;
+                btReports.Visible = true;
+            }
         }
 
 

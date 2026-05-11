@@ -37,8 +37,8 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
             try
             {
-                // تحميل صور الأيقونات من الموارد المدمجة
-                var assembly = typeof(ManageBooking).Assembly;
+                // تحميل صور الأيقونات من الموارد المدمجة
+                var assembly = typeof(ManageBooking).Assembly;
 
                 using (var editStream = assembly.GetManifestResourceStream("ActiveSpaceSystem.Resources.icons8-edit-48.png"))
                 {
@@ -58,7 +58,7 @@ namespace ActiveSpaceSystem.Forms.SideForms
                     }
                 }
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show("خطاء في تحميل الصور", "تحدير", MessageBoxButtons.OK);
             }
@@ -151,22 +151,22 @@ namespace ActiveSpaceSystem.Forms.SideForms
         {
             var dateToday = dtpManageBooking.Value.Date;
 
-            // جلب الحجوزات لليوم المحدد
-            var bookings = DataStorage.BookingsList
-                .Where(d => d.BookingDate.Date == dateToday)
-                .ToList();
+            // جلب الحجوزات لليوم المحدد
+            var bookings = DataStorage.BookingsList
+        .Where(d => d.BookingDate.Date == dateToday)
+        .ToList();
 
-            // تحويل الحجوزات إلى ViewModels مع جلب الاسم المحدث من قائمة العملاء
-            var viewModels = bookings.Select(b => {
+            // تحويل الحجوزات إلى ViewModels مع جلب الاسم المحدث من قائمة العملاء
+            var viewModels = bookings.Select(b => {
                 var viewModel = BookingViewModel.FromBooking(b);
 
-                // البحث عن العميل في القائمة الرئيسية للتأكد من الحصول على الاسم المحدث
-                var currentCustomer = DataStorage.CustomersList
-                    .FirstOrDefault(c => c.CustomerID == b.CustomerID);
+                // البحث عن العميل في القائمة الرئيسية للتأكد من الحصول على الاسم المحدث
+                var currentCustomer = DataStorage.CustomersList
+          .FirstOrDefault(c => c.CustomerID == b.CustomerID);
 
                 if (currentCustomer != null)
                 {
-                    
+
                 }
 
                 return viewModel;
@@ -223,17 +223,17 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
         private void HandleEditClick(int rowIndex)
         {
-            // 1. الحصول على الحجز المختار من السطر
-            var item = dgvBookings.Rows[rowIndex].DataBoundItem as BookingViewModel;
+            // 1. الحصول على الحجز المختار من السطر
+            var item = dgvBookings.Rows[rowIndex].DataBoundItem as BookingViewModel;
             if (item == null) return;
 
-            // 2. فتح واجهة الإضافة وإرسال بيانات الحجز إليها
-            using (var frm = new AddBookingForm(item))
+            // 2. فتح واجهة الإضافة وإرسال بيانات الحجز إليها
+            using (var frm = new AddBookingForm(item))
             {
                 if (frm.ShowDialog(this) == DialogResult.OK)
                 {
-                    // 3. تحديث البيانات في الجدول بعد الإغلاق بنجاح
-                    LoadData();
+                    // 3. تحديث البيانات في الجدول بعد الإغلاق بنجاح
+                    LoadData();
                     dgvBookings.ClearSelection();
                 }
             }
@@ -245,19 +245,52 @@ namespace ActiveSpaceSystem.Forms.SideForms
             {
                 if (rowIndex >= 0 && rowIndex < bookingsList.Count)
                 {
-                    // الحصول على المعرف من السطر المحدد (أصبح متاحاً الآن)
                     int bookingId = bookingsList[rowIndex].BookingID;
 
-                    // 1. الحذف من قائمة الذاكرة العامة (DataStorage)
                     var bookingInStorage = DataStorage.BookingsList.FirstOrDefault(x => x.BookingID == bookingId);
                     if (bookingInStorage != null)
                     {
-                        DataStorage.BookingsList.Remove(bookingInStorage);
-                    }
+                        // 1. حساب المبالغ المدفوعة لهذا الحجز قبل حذفه
+                        var payments = DataStorage.PaymentList.Where(p => p.BookingID == bookingId).ToList();
+                        double totalPaidForThisBooking = payments.Sum(p => p.AmountPaid);
 
-                    // 2. الحذف من القائمة المحلية لتحديث الـ DataGridView تلقائياً
-                    bookingsList.RemoveAt(rowIndex);
+                        // 2. تحديث دين العميل:
+                        // الدين الذي سببه هذا الحجز هو (إجمالي الحجز - ما دُفع منه)
+                        var customer = DataStorage.CustomersList.FirstOrDefault(c => c.CustomerID == bookingInStorage.CustomerID);
+                        if (customer != null)
+                        {
+                            double debtFromThisBooking = bookingInStorage.TotalAmount - totalPaidForThisBooking;
+                            customer.TotalDebt -= debtFromThisBooking;
+
+                            // تأمين: إذا أصبح الدين سالباً بسبب خطأ حسابي سابق، نرجعه للصفر
+                            if (customer.TotalDebt < 0) customer.TotalDebt = 0;
+                        }
+
+                        // 3. حذف المدفوعات والحجز من الذاكرة
+                        foreach (var payment in payments)
+                        {
+                            DataStorage.PaymentList.Remove(payment);
+                        }
+                        DataStorage.BookingsList.Remove(bookingInStorage);
+
+                        // 4. تحديث القائمة المحلية للـ Grid الحالي
+                        bookingsList.RemoveAt(rowIndex);
+
+                        // 5. الـ "Magic Touch": تحديث واجهة العملاء إذا كانت مفتوحة
+                        NotifyCustomerFormUpdate();
+                    }
                 }
+            }
+        }
+        private void NotifyCustomerFormUpdate()
+        {
+            // ابحث عن فورم إدارة العملاء في التطبيق
+            var customerForm = Application.OpenForms.OfType<MangeCustomers>().FirstOrDefault();
+            if (customerForm != null)
+            {
+                customerForm.LoadData(); // إعادة تحميل الجدول ليعكس الدين الجديد
+                                         // إذا كان هناك ميثود لتحديث الكروت (الاحصائيات) استدعيها أيضاً
+                                         // customerForm.updateStatisticsCards(); 
             }
         }
 
@@ -279,8 +312,8 @@ namespace ActiveSpaceSystem.Forms.SideForms
                 string searchTerm = txtsearch.Texts.Trim().ToLower();
                 var filteredData = DataStorage.BookingsList
                 .Where(b => b.Customer.Phone.Contains(searchTerm))
-                 .Select(BookingViewModel.FromBooking)
-                   .ToList();
+                .Select(BookingViewModel.FromBooking)
+                 .ToList();
                 bookingsList = new BindingList<BookingViewModel>(filteredData);
                 dgvBookings.DataSource = bookingsList;
                 return;
@@ -291,8 +324,8 @@ namespace ActiveSpaceSystem.Forms.SideForms
                 string searchTerm = txtsearch.Texts.Trim().ToLower();
                 var filteredData = DataStorage.BookingsList
                 .Where(b => b.Customer.Phone.Contains(searchTerm) && b.BookingDate == selectedDate)
-                 .Select(BookingViewModel.FromBooking)
-                   .ToList();
+                .Select(BookingViewModel.FromBooking)
+                 .ToList();
                 bookingsList = new BindingList<BookingViewModel>(filteredData);
                 dgvBookings.DataSource = bookingsList;
             }
@@ -317,30 +350,30 @@ namespace ActiveSpaceSystem.Forms.SideForms
 
             if (string.IsNullOrWhiteSpace(searchTerm))
             {
-                // الحالة 1: مربع البحث فارغ - عرض حجوزات التاريخ المختار فقط
-                var dailyData = DataStorage.BookingsList
-                    .Where(b => b.BookingDate.Date == selectedDate)
-                    .Select(BookingViewModel.FromBooking)
-                    .ToList();
+                // الحالة 1: مربع البحث فارغ - عرض حجوزات التاريخ المختار فقط
+                var dailyData = DataStorage.BookingsList
+          .Where(b => b.BookingDate.Date == selectedDate)
+          .Select(BookingViewModel.FromBooking)
+          .ToList();
 
                 UpdateGrid(dailyData);
             }
             else
             {
-               
-                    // الحالة 2: نص بحث قصير - فلترة بالتاريخ + النص معاً
-                    var filteredData = DataStorage.BookingsList
-                        .Where(b => b.Customer.Phone.Contains(searchTerm) && b.BookingDate.Date == selectedDate)
-                        .Select(BookingViewModel.FromBooking)
-                        .ToList();
 
-                    UpdateGrid(filteredData);
-                
+                // الحالة 2: نص بحث قصير - فلترة بالتاريخ + النص معاً
+                var filteredData = DataStorage.BookingsList
+        .Where(b => b.Customer.Phone.Contains(searchTerm) && b.BookingDate.Date == selectedDate)
+        .Select(BookingViewModel.FromBooking)
+        .ToList();
+
+                UpdateGrid(filteredData);
+
             }
         }
 
-        // دالة مساعدة لتقليل تكرار الكود وتحديث الـ Grid
-        private void UpdateGrid(List<BookingViewModel> data)
+        // دالة مساعدة لتقليل تكرار الكود وتحديث الـ Grid
+        private void UpdateGrid(List<BookingViewModel> data)
         {
             bookingsList = new BindingList<BookingViewModel>(data);
             dgvBookings.DataSource = bookingsList;

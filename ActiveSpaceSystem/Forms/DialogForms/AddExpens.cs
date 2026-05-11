@@ -74,6 +74,7 @@ namespace ActiveSpaceSystem.Forms.DialogForms
                     // إضافة مصروف جديد
                     var newExpense = new Expense
                     {
+                        
                         Amount = amount,
                         Description = description,
                         ExpenseDate = date,

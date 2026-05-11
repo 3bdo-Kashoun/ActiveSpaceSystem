@@ -167,7 +167,7 @@ namespace ActiveSpaceSystem.Forms.DialogForms
             // إذا كان جديداً نعطيه ID
             if (_contractToEdit == null)
             {
-                contract.ContractID = DataStorage.ContractsList.Count + 1;
+                contract.ContractID = DataStorage.ContractsList.Max(c=>c.ContractID) + 1;
             }
             else
             {
@@ -296,7 +296,7 @@ namespace ActiveSpaceSystem.Forms.DialogForms
                     {
                         DataStorage.PaymentList.Add(new Payment
                         {
-                            PaymentID = DataStorage.PaymentList.Count + 1,
+                            PaymentID = DataStorage.PaymentList.Max(p=>p.PaymentID) + 1,
                             BookingID = b.BookingID,
                             AmountPaid = currentSessionDeposit,
                             PaidAt = DateTime.Now,

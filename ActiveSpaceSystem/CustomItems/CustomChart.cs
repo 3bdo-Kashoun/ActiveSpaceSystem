@@ -153,16 +153,16 @@ namespace ActiveSpaceSystem.CustomItems
 
             if (DataStorage.BookingsList != null)
             {
-                var bookingsThisWeek = DataStorage.BookingsList
-                    .Where(b => b.BookingDate.Date >= startOfWeek && b.BookingDate.Date <= endOfWeek)
+                var paidThisWeek = DataStorage.PaymentList
+                    .Where(b => b.PaidAt.Date >= startOfWeek && b.PaidAt.Date <= endOfWeek)
                     .ToList();
 
-                foreach (var booking in bookingsThisWeek)
+                foreach (var payment in paidThisWeek)
                 {
-                    string dayName = DataStorage.DaysMap.FirstOrDefault(x => x.Value == booking.BookingDate.DayOfWeek).Key;
+                    string dayName = DataStorage.DaysMap.FirstOrDefault(x => x.Value == payment.PaidAt.DayOfWeek).Key;
                     if (dayName != null && weeklyData.ContainsKey(dayName))
                     {
-                        weeklyData[dayName] += (double)booking.TotalAmount;
+                        weeklyData[dayName] += (double)payment.AmountPaid;
                     }
                 }
             }

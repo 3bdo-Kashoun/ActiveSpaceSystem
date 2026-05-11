@@ -76,7 +76,7 @@ namespace ActiveSpaceSystem.Forms.DialogForms
                     // --- حالة الإضافة الجديدة ---
                     Court newcort = new Court
                     {
-                        CourtID = DataStorage.CourtsList.Count + 1, // إعطاء ID تلقائي بسيط
+                        CourtID = DataStorage.CourtsList.Max(c=>c.CourtID) + 1, // إعطاء ID تلقائي بسيط
                         CourtName = nametxt.Texts,
                         TypeID = selecttype.TypeID,
                         OpenTime = dtpOpenTime.Value.TimeOfDay,

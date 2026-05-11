@@ -429,7 +429,7 @@ namespace ActiveSpaceSystem.Forms.DialogForms
             {
                 customer = new Customer
                 {
-                    CustomerID = DataStorage.CustomersList.Count() + 1,
+                    CustomerID = DataStorage.CustomersList.Max(c=>c.CustomerID)+1,
                     FullName = txtName.Texts.Trim(),
                     Phone = txtPhone.Texts.Trim(),
                     TotalDebt = remainingDebt
@@ -443,7 +443,7 @@ namespace ActiveSpaceSystem.Forms.DialogForms
 
             Booking newBooking = new Booking
             {
-                BookingID = DataStorage.BookingsList.Count + 1,
+                BookingID = DataStorage.BookingsList.Max(c=>c.BookingID)+1,
                 CourtID = selectedCourt.CourtID,
                 UserID = 1,
                 BookingDate = dtpBookingDate.Value.Date,
@@ -465,7 +465,7 @@ namespace ActiveSpaceSystem.Forms.DialogForms
         {
             Payment depositPayment = new Payment
             {
-                PaymentID = DataStorage.PaymentList.Count + 1,
+                PaymentID = DataStorage.PaymentList.Max(p=>p.PaymentID) +1,
                 BookingID = booking.BookingID,
                 AmountPaid = booking.Deposit,
 
